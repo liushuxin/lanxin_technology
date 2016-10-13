@@ -1,10 +1,9 @@
-#!/usr/bin/env node
 
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./app');
 var debug = require('debug')('lanxin_technology:server');
 var http = require('http');
 
@@ -86,5 +85,10 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+    
+  debug('Server is alive ');
+  debug('Server Listening on ' + bind);
+  debug('Visit URL:localhost:' +addr.port);
+  console.log('Server Listening on ' + bind);
+  console.log('Visit URL:localhost:' +addr.port);
 }
