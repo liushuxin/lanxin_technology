@@ -18,10 +18,11 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
   module: {
+    
         loaders: [
             { test: /\.js|jsx$/, loaders: ['babel'] }
         ],
-        include: [path.resolve(__dirname, "dist/js")],
+        include: [path.resolve(__dirname, "dist")],
         exclude:[nodeModulesPath]
     },
   output: {
