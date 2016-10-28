@@ -1,28 +1,14 @@
-import React,{Component} from 'react';
+import React,{Component,propTypes} from 'react';
 import ReactDOM from 'react-dom';
-import Text from '../../components/Text';
+import {connect} from 'react-redux';
+import { createStore } from 'redux';
+import {Provider} from 'react-redux';
+import {reducer} from '../../components/reducer';
 import $ from 'jquery';
-export default class User extends Component{
-  constructor(props){
-    super(props);
-    this.state = {};
-  }
-  componentDidMount(){
-    let self = this;
-    $('#contrainer').html("内容");
-  }
-  render(){
-    let self = this;
-    return (
-      <div>
-      <Text text="文本组件"/>
-      <div id="contrainer"></div>
-      </div>
-      )
-  }
-
-}
-ReactDOM.render(
-  <User/>,
-  document.querySelectorAll('#app')[0]
-);
+import App from '../../components/App'; 
+const store=createStore(reducer); 
+ console.log(store.getState()); 
+ ReactDOM.render(<Provider store={store}>  
+ <App/>
+  </Provider>,
+ document.getElementById('app') );
