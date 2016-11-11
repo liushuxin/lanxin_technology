@@ -1,0 +1,10 @@
+[
+	{
+		"key":"dataTables",
+		"template":"datatables/index",
+		"msg":{
+			"js":"datatables/index.js",
+			"title":"dataTables表格组件"
+		}
+}
+]
