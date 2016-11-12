@@ -105,7 +105,12 @@
 								_react2.default.createElement(
 									'th',
 									null,
-									'\u6807\u9898'
+									'\u6807\u98981'
+								),
+								_react2.default.createElement(
+									'th',
+									null,
+									'\u6807\u98982'
 								)
 							)
 						),
@@ -119,6 +124,11 @@
 									'td',
 									null,
 									'\u7B2C\u4E00\u884C'
+								),
+								_react2.default.createElement(
+									'td',
+									null,
+									'\u7B2C\u4E8C\u884C'
 								)
 							)
 						)

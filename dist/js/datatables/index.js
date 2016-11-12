@@ -18,13 +18,17 @@ class App extends Component{
 			<table className="main-tb">
 <thead>
 	<tr>
-		<th>标题</th>
+		<th>标题1</th>
+		<th>标题2</th>
 	</tr>
 </thead>
 <tbody>
 	<tr>
 		<td>
 			第一行
+		</td>
+		<td>
+			第二行
 		</td>
 	</tr>
 </tbody>
