@@ -7,6 +7,20 @@ var bodyParser = require('body-parser');
 var enrouten = require('express-enrouten');
 var app = express();
 
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+/*===连接数据库 start==*/
+// Connection URL
+var url = 'mongodb://localhost:27017/lanxin_technology';
+
+// Use connect method to connect to the server
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected successfully to server");
+
+  db.close();
+});
+/*===连接数据库 end==*/
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

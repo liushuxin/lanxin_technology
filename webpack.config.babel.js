@@ -15,13 +15,20 @@ let pageDirs = fs.readdirSync(basePath);
 module.exports = {
   entry:fileDirUrl,
   resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx'],
+        root: []
     },
   module: {
     
         loaders: [
-            { test: /\.js|jsx$/, loaders: ['babel'] }
-        ],
+        //使用babel-loader解析js或者jsx模块 
+            { test: /\.js|jsx$/, loaders: ['babel'] },
+            
+            // 使用css-loader解析css模块 
+            { test : /\.css$/, loader : 'style!css' },
+            {test: /\.(png|jpg)$/,loader: 'url?limit=40000'
+      }],
+
         include: [path.resolve(__dirname, "dist")],
         exclude:[nodeModulesPath]
     },
