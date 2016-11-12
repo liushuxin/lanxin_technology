@@ -84,7 +84,21 @@
 			key: 'componentDidMount',
 			value: function componentDidMount() {
 				var self = this;
-				$(".main-tb").DataTable();
+				$.get("/components/getData", {}, function (data) {
+					console.log(data);
+					$(".main-tb").DataTable({
+						data: data,
+						"columns": [{ "data": "_id", "title": "数据id" }, { "data": "name", "title": "姓名" }, { "data": "age", "title": "年龄" }]
+					});
+				});
+			}
+		}, {
+			key: 'updateUser',
+			value: function updateUser() {
+				var self = this;
+				$.get("/components/updateData", {}, function (data) {
+					alert(data);
+				});
 			}
 		}, {
 			key: 'render',
@@ -93,45 +107,11 @@
 				return _react2.default.createElement(
 					'div',
 					{ className: 'dtable' },
+					_react2.default.createElement('table', { className: 'main-tb' }),
 					_react2.default.createElement(
-						'table',
-						{ className: 'main-tb' },
-						_react2.default.createElement(
-							'thead',
-							null,
-							_react2.default.createElement(
-								'tr',
-								null,
-								_react2.default.createElement(
-									'th',
-									null,
-									'\u6807\u98981'
-								),
-								_react2.default.createElement(
-									'th',
-									null,
-									'\u6807\u98982'
-								)
-							)
-						),
-						_react2.default.createElement(
-							'tbody',
-							null,
-							_react2.default.createElement(
-								'tr',
-								null,
-								_react2.default.createElement(
-									'td',
-									null,
-									'\u7B2C\u4E00\u884C'
-								),
-								_react2.default.createElement(
-									'td',
-									null,
-									'\u7B2C\u4E8C\u884C'
-								)
-							)
-						)
+						'button',
+						{ onClick: self.updateUser.bind() },
+						'\u66F4\u65B0'
 					)
 				);
 			}

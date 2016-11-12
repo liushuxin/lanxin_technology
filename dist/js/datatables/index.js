@@ -9,30 +9,35 @@ class App extends Component{
 	}
 	componentDidMount(){
 		let self =this;
-	$(".main-tb").DataTable();
+		$.get("/components/getData",{},function(data){
+			console.log(data);
+	$(".main-tb").DataTable({
+		data:data,
+		 "columns": [
+        { "data": "_id" ,"title":"数据id"},
+        { "data": "name","title":"姓名" },
+        { "data": "age","title":"年龄" }
+    	]
+		});
+	});
+
+
+	}
+	updateUser(){
+		let self = this;
+		$.get("/components/updateData",{},function(data){
+			alert(data);
+
+		});
 	}
 	render(){
 		let self = this;
 		return (
 			<div className="dtable">
 			<table className="main-tb">
-<thead>
-	<tr>
-		<th>标题1</th>
-		<th>标题2</th>
-	</tr>
-</thead>
-<tbody>
-	<tr>
-		<td>
-			第一行
-		</td>
-		<td>
-			第二行
-		</td>
-	</tr>
-</tbody>
 			</table>
+
+			<button onClick={self.updateUser.bind()}>更新</button>
 			</div>
 			)
 	}
