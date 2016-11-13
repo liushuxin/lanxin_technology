@@ -77,7 +77,14 @@
 		function App(props) {
 			_classCallCheck(this, App);
 	
-			return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+			var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	
+			_this.state = {
+				data: [],
+				$datatable: {},
+				searchContent: ''
+			};
+			return _this;
 		}
 	
 		_createClass(App, [{
@@ -85,11 +92,39 @@
 			value: function componentDidMount() {
 				var self = this;
 				$.get("/components/getData", {}, function (data) {
-					console.log(data);
-					$(".main-tb").DataTable({
-						data: data,
-						"columns": [{ "data": "_id", "title": "数据id" }, { "data": "name", "title": "姓名" }, { "data": "age", "title": "年龄" }]
+					self.setState({
+						data: data
 					});
+					self.paintTable();
+				});
+			}
+			/**
+	   * 绘制表格
+	   */
+	
+		}, {
+			key: 'paintTable',
+			value: function paintTable() {
+				var self = this;
+				self.state.$datatable = $(".main-tb").DataTable({
+					data: self.state.data,
+					retrieve: true,
+					"columns": [{ "data": "_id", "title": "数据id" }, { "data": "name", "title": "姓名" }, { "data": "age", "title": "年龄" }]
+				});
+				self.state.$datatable.draw();
+			}
+		}, {
+			key: 'queryDataTables',
+			value: function queryDataTables() {
+				var self = this;
+	
+				$.get("/components/getData", { name: self.state.searchContent }, function (data) {
+					console.log(data);
+					self.setState({
+						data: data
+					});
+					self.state.$datatable.destroy();
+					self.paintTable();
 				});
 			}
 		}, {
@@ -101,12 +136,26 @@
 				});
 			}
 		}, {
+			key: 'handleInput',
+			value: function handleInput(event) {
+				var self = this;
+				self.setState({
+					searchContent: event.target.value
+				});
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				var self = this;
 				return _react2.default.createElement(
 					'div',
 					{ className: 'dtable' },
+					_react2.default.createElement('input', { type: 'text', value: self.state.searchContent, onChange: self.handleInput.bind(this), className: 'search' }),
+					_react2.default.createElement(
+						'button',
+						{ onClick: self.queryDataTables.bind(this) },
+						'\u67E5\u8BE2'
+					),
 					_react2.default.createElement('table', { className: 'main-tb' }),
 					_react2.default.createElement(
 						'button',

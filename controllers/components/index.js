@@ -20,9 +20,13 @@ module.exports = function (router) {
   //
    router.get('/getData', function (req, resp) {
   	var key = req.query.name;//组件名称
-  	var insertDocuments = function(db, callback) {
+  	var insertDocuments = function(db,key, callback) {
   		var collection = db.collection('lanxin');
-  collection.find({}).toArray(function(err, docs) {
+      let query = {};
+      if(key){
+        query = {name:key};
+      }
+  collection.find(query).toArray(function(err, docs) {
     assert.equal(err, null);
     console.log("Found the following records");
     console.dir(docs);
@@ -35,7 +39,7 @@ module.exports = function (router) {
 	MongoClient.connect(url, function(err, db) {
 	  assert.equal(null, err);
 	  console.log("Connected successfully to server");
-	  insertDocuments(db, function(result) {
+	  insertDocuments(db, key,function(result) {
 	  	console.log(result);
 	    db.close();
 	    resp.send(result);

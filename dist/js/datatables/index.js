@@ -6,22 +6,51 @@ require( 'datatables.net-dt/css/jquery.dataTables.css' );
 class App extends Component{
 	constructor(props){
 		super(props);
+		this.state={
+			data:[],
+			$datatable:{},
+			searchContent:''
+		}
 	}
 	componentDidMount(){
 		let self =this;
 		$.get("/components/getData",{},function(data){
-			console.log(data);
-	$(".main-tb").DataTable({
-		data:data,
+			self.setState({
+				data:data
+			});
+			self.paintTable();
+	});
+
+
+	}
+	/**
+	 * 绘制表格
+	 */
+	paintTable(){
+		let self = this;
+		self.state.$datatable =$(".main-tb").DataTable({
+		data:self.state.data,
+		  retrieve:true,
 		 "columns": [
         { "data": "_id" ,"title":"数据id"},
         { "data": "name","title":"姓名" },
         { "data": "age","title":"年龄" }
     	]
 		});
-	});
-
-
+		self.state.$datatable.draw();
+	}
+	queryDataTables(){
+		let self = this;
+		
+		$.get("/components/getData",{name:self.state.searchContent},function(data){
+			console.log(data);
+			self.setState({
+				data:data
+			});
+			self.state.$datatable.destroy();
+			self.paintTable();
+			
+		});
 	}
 	updateUser(){
 		let self = this;
@@ -30,10 +59,18 @@ class App extends Component{
 
 		});
 	}
+	handleInput(event){
+		let self = this;
+		self.setState({
+			searchContent:event.target.value
+		});
+	}
 	render(){
 		let self = this;
 		return (
 			<div className="dtable">
+			<input type="text" value={self.state.searchContent} onChange={self.handleInput.bind(this)} className="search"/>
+			<button onClick={self.queryDataTables.bind(this)}>查询</button>
 			<table className="main-tb">
 			</table>
 
