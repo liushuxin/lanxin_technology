@@ -52,7 +52,7 @@ router.get('/updateData',function(req,resp){
 	
 
 	var updateUser = function(db, callback) {
-   db.collection('lanxin').update(
+    db.collection('lanxin').update(
       { "name" : "gongpengfei" },
       {
         $set: { "age": "22" },
@@ -60,17 +60,41 @@ router.get('/updateData',function(req,resp){
       }, function(err, results) {
       console.log(results);
       callback();
-   });
-};
+    });
+  };
 
-MongoClient.connect(url, function(err, db) {
-	  assert.equal(null, err);
+  MongoClient.connect(url, function(err, db) {
+  	  assert.equal(null, err);
 
-	  updateUser(db, function() {
-	  	 resp.send("更新成功");
-	      db.close();
-	  });
-	});
+  	  updateUser(db, function() {
+  	  	 resp.send("更新成功");
+  	      db.close();
+  	  });
+  });
+});
+///新增
+router.get('/addData',function(req,resp){
+  
+
+  var addUser = function(db, callback) {
+    db.collection('lanxin').insert(
+      {"name" : "xiaohong",
+       "age": "22" ,
+       "lastModified": new Date()
+      }, function(err, results) {
+      console.log(results);
+      callback();
+    });
+  };
+
+  MongoClient.connect(url, function(err, db) {
+      assert.equal(null, err);
+
+      addUser(db, function() {
+         resp.send("新增成功");
+          db.close();
+      });
+  });
 });
 
 

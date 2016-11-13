@@ -59,6 +59,13 @@ class App extends Component{
 
 		});
 	}
+	addUser(){
+		let self = this;
+		$.get("/components/addData",{},function(data){
+			alert(data);
+
+		});
+	}
 	handleInput(event){
 		let self = this;
 		self.setState({
@@ -75,6 +82,8 @@ class App extends Component{
 			</table>
 
 			<button onClick={self.updateUser.bind()}>更新</button>
+			<button onClick={self.addUser.bind()}>新增</button>
+			
 			</div>
 			)
 	}

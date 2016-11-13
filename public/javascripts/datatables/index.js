@@ -136,6 +136,14 @@
 				});
 			}
 		}, {
+			key: 'addUser',
+			value: function addUser() {
+				var self = this;
+				$.get("/components/addData", {}, function (data) {
+					alert(data);
+				});
+			}
+		}, {
 			key: 'handleInput',
 			value: function handleInput(event) {
 				var self = this;
@@ -161,6 +169,11 @@
 						'button',
 						{ onClick: self.updateUser.bind() },
 						'\u66F4\u65B0'
+					),
+					_react2.default.createElement(
+						'button',
+						{ onClick: self.addUser.bind() },
+						'\u65B0\u589E'
 					)
 				);
 			}
