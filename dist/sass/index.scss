@@ -1,0 +1,30 @@
+#main {
+  max-width: 600px;
+  min-width: 60px;
+  min-height:300px;
+  margin: 0 auto; 
+  border:1px solid black;
+}
+.box1{
+	max-width:500px;
+	min-height:100px;
+	margin:20px auto;
+	border:1px solid gold;
+	box-sizing:border-box;
+}
+.box2{
+	max-width:500px;
+	min-height:100px;
+	margin:20px auto;
+	border:20px solid red;
+	box-sizing:border-box;
+}
+.three-column {
+  padding: 1em;
+  -moz-column-count: 3;
+  -moz-column-gap: 1em;
+  -webkit-column-count: 3;
+  -webkit-column-gap: 1em;
+  column-count: 3;
+  column-gap: 1em;
+}
