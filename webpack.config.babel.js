@@ -26,8 +26,8 @@ module.exports = {
             
             // 使用css-loader解析css模块 
             { test : /\.css$/, loader : 'style!css' },
-            {test: /\.(png|jpg)$/,loader: 'url?limit=40000'
-      }],
+            {test: /\.(png|jpg)$/,loader: 'url?limit=40000'},
+            {test: /\.scss$/, loader: "style!css!sass"}],
 
         include: [path.resolve(__dirname, "dist")],
         exclude:[nodeModulesPath]
