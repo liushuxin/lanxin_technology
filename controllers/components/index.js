@@ -22,7 +22,7 @@ module.exports = function (router) {
   	var key = req.query.name;//组件名称
   	var insertDocuments = function(db,key, callback) {
   		var collection = db.collection('lanxin');
-      let query = {};
+      var query = {};
       if(key){
         query = {name:key};
       }

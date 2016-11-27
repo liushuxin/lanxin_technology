@@ -1,117 +1,21 @@
 import React,{Component,propTypes} from 'react';
 import ReactDOM from 'react-dom';
-var $  = require( 'jquery' );
-var DataTable = require( 'datatables.net' );
-require( 'datatables.net-dt/css/jquery.dataTables.css' );
-class App extends Component{
-	constructor(props){
-		super(props);
-		this.state={
-			data:[],
-			$datatable:{},
-			searchContent:''
-		}
-	}
-	componentDidMount(){
-		let self =this;
-		$.get("/components/getData",{},function(data){
-			self.setState({
-				data:data
-			});
-			self.paintTable();
-	});
-
-
-	}
-	/**
-	 * 绘制表格
-	 */
-	paintTable(){
-		let self = this;
-		self.state.$datatable =$(".main-tb").DataTable({
-		"data":self.state.data, //渲染数据
-		  "retrieve":true,//是否返回引用
-		 "columns": [ //列定义
-        { "data": "_id" ,"title":"数据id"},
-        { "data": "name","title":"姓名" },
-        { "data": "age","title":"年龄" }
-    	],
-    	"lengthMenu": [ 5, 10, 15, 20, 100 ],
-    	 "pagingType": "full_numbers",
-    	"language":{
-    		"emptyTable":"没有查询到相应数据@_@",
-    		"info":"从第 _START_ 条到第 _END_条，共计 _TOTAL_ 条数据",
-    		"infoEmpty":"共0条数据",
-    		"infoFiltered":"(filtered from _MAX_ total entries)",
-		    "infoPostFix":    "",
-		    "thousands":",",
-		    "lengthMenu": "每页显示 _MENU_ 条数据",
-		    "loadingRecords": "加载中...",
-		    "processing":     "正在进行中...",
-		    "search":         "搜索:",
-		    "zeroRecords":    "没有搜索到你想要的记录",
-		    "paginate": {
-		        "first":      "第一页",
-		        "last":       "最后一页",
-		        "next":       "下一页",
-		        "previous":   "上一页"
-		    },
-		    "aria": {
-		        "sortAscending":  ": activate to sort column ascending",
-		        "sortDescending": ": activate to sort column descending"
-		    }
-    	}
-		});
-		self.state.$datatable.draw();
-	}
-	queryDataTables(){
-		let self = this;
-		
-		$.get("/components/getData",{name:self.state.searchContent},function(data){
-			console.log(data);
-			self.setState({
-				data:data
-			});
-			self.state.$datatable.destroy();
-			self.paintTable();
-			
-		});
-	}
-	updateUser(){
-		let self = this;
-		$.get("/components/updateData",{},function(data){
-			alert(data);
-
-		});
-	}
-	addUser(){
-		let self = this;
-		$.get("/components/addData",{},function(data){
-			alert(data);
-
-		});
-	}
-	handleInput(event){
-		let self = this;
-		self.setState({
-			searchContent:event.target.value
-		});
-	}
-	render(){
-		let self = this;
-		return (
-			<div className="dtable">
-			<input type="text" value={self.state.searchContent} onChange={self.handleInput.bind(this)} className="search"/>
-			<button onClick={self.queryDataTables.bind(this)}>查询</button>
-			<table className="main-tb">
-			</table>
-
-			<button onClick={self.updateUser.bind()}>更新</button>
-			<button onClick={self.addUser.bind()}>新增</button>
-			
-			</div>
-			)
-	}
+import App from '../../components/dataTables/index';
+//redux 相关包
+import {Provider} from 'react-redux';
+import { createStore } from 'redux';
+import { todoApp } from '../../components/dataTables/reducer';
+let store = createStore(todoApp);
+console.log("init"); 
+console.log(store.getState()); 
+store.subscribe(() =>{
+	console.log("监听store中state的变化：");
+  console.log(store.getState());
 }
- ReactDOM.render(<App/>,
+);
+
+
+ ReactDOM.render(<Provider store={store}>  
+ <App config={{backend:'/components/getData'}}/>
+  </Provider>,
  document.getElementById('app') );
