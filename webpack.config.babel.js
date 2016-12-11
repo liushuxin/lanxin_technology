@@ -9,9 +9,10 @@ let pageDirs = fs.readdirSync(basePath);
  pageDirs.forEach(function (fileDir) {
      var pageInfo = fs.readdirSync(`${basePath}/${fileDir}`);
      pageInfo.forEach(function(file){
-      fileDirUrl[fileDir] = `${__dirname}/${basePath}/${fileDir}/${file}`;
+      fileDirUrl[fileDir] = [`${__dirname}/${basePath}/${fileDir}/${file}`];
      });
   });
+console.log(fileDirUrl);
 module.exports = {
   entry:fileDirUrl,
   resolve: {
@@ -32,6 +33,16 @@ module.exports = {
         include: [path.resolve(__dirname, "dist")],
         exclude:[nodeModulesPath]
     },
+  devServer: { 
+    inline: true,
+    publicPath: '/dist/',
+    proxy: {
+      '/components': {
+        target: 'http://localhost:3000/',
+        secure: false
+      }
+    } 
+  },
   output: {
     path: buildPath,
     publicPath: "/public/js_map/",

@@ -96,6 +96,7 @@ class App extends Component{
 		let self = this;
 		return (
 			<div className="dtable">
+			表格
 			<input type="text" value={self.props.searchContent} onChange={self.handleInput.bind(this)} className="search"/>
 			<button onClick={self.queryDataTables.bind(this)}>查询</button>
 			<table className="main-tb">
