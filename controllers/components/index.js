@@ -13,9 +13,19 @@ module.exports = function (router) {
   /** home page is city_dashboard **/
   router.get('/', function (req, resp) {
   	var key = req.query.key;//组件名称
-
-  	var urlItem = _.find(componentUrl,{key:key});
+  if(key){
+    //跳转到某一个组件，
+    var urlItem = _.find(componentUrl,{key:key});
     resp.render(urlItem.template, { page: urlItem.msg});
+  }else{
+    //直接跳转到组件中心
+    resp.render("component_center/index.ejs", { 
+      page: {title:"组件中心"},
+      componentUrl:componentUrl
+    });
+  }
+  	
+
   });
   //
    router.get('/getData', function (req, resp) {
@@ -26,7 +36,7 @@ module.exports = function (router) {
       if(key){
         query = {name:key};
       }
-  collection.find(query).toArray(function(err, docs) {
+    collection.find(query).toArray(function(err, docs) {
     assert.equal(err, null);
     console.log("Found the following records");
     console.dir(docs);

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= page.title %></title>
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+  </head>
+  <body>
+
+    <div id="app"></div>
+    <% for(var i=0;i<componentUrl.length;i++ ){%>
+    <div>
+    <%=componentUrl[i].text%>url地址:
+      <a href="/components?key=<%=componentUrl[i].key %>" ><%=componentUrl[i].text %> </a>
+    </div>
+    <%}%>
+  </body>
+</html>
