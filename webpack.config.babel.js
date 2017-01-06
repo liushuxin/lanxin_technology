@@ -1,6 +1,11 @@
 import path from 'path';
 import fs from 'fs';
 let basePath = 'dist/js';
+import webpack from 'webpack';
+// 引用这个plugin
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import openBrowserWebpackPlugin from 'open-browser-webpack-plugin';
+
 let buildPath = path.resolve(__dirname,'public/javascripts/');
 let nodeModulesPath = path.resolve(__dirname,'node_modules');
 let fileDirUrl ={};
@@ -20,22 +25,24 @@ module.exports = {
         root: []
     },
   module: {
-    
-        loaders: [
-        //使用babel-loader解析js或者jsx模块 
-            { test: /\.js|jsx$/, loaders: ['babel'] },
-            
-            // 使用css-loader解析css模块 
-            { test : /\.css$/, loader : 'style!css' },
-            {test: /\.(png|jpg)$/,loader: 'url?limit=40000'},
-            {test: /\.scss$/, loader: "style!css!sass"}],
+    loaders: [
+    //使用babel-loader解析js或者jsx模块 
+        { test: /\.js|jsx$/, loaders: ['babel'] },
+        
+        // 使用css-loader解析css模块 
+        { test : /\.css$/, loader : 'style!css' },
+        {test: /\.(png|jpg)$/,loader: 'url?limit=40000'},
+        {test: /\.scss$/, loader: "style!css!sass"}],
 
-        include: [path.resolve(__dirname, "dist")],
-        exclude:[nodeModulesPath]
+    include: [path.resolve(__dirname, "dist")],
+    exclude:[nodeModulesPath]
     },
   devServer: { 
     inline: true,
+    hot:true,
     publicPath: '/assets/',
+    contentBase: path.join(__dirname, "/webpack-template/"),
+    //clientLogLevel:'none',//(eg: none, error, warning or info (default))
     stats: { colors: true },
     proxy: {
       '/components': {
@@ -48,5 +55,15 @@ module.exports = {
     path: buildPath,
     publicPath: "/assets/",
     filename: '[name]/index.js'
-  }
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+    // new HtmlWebpackPlugin({
+    //     title: '开发模板页',
+    //     template: path.join(__dirname, './webpack-template/index.html'),
+    //     inject:'body'
+    //   }),
+    //new openBrowserWebpackPlugin({ url: 'http://localhost:8082' }),
+  ]
 };
