@@ -22,7 +22,7 @@ class App extends Component{
 		});
 	}
 	/**
-	 * 绘制表格
+	 * 绘制表格hah
 	 */
 	paintTable(){
 		let self = this;
@@ -104,7 +104,6 @@ class App extends Component{
 
 			<button onClick={self.updateUser.bind()}>更新</button>
 			<button onClick={self.addUser.bind()}>新增</button>
-			
 			</div>
 			)
 	}

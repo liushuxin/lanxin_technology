@@ -35,7 +35,8 @@ module.exports = {
     },
   devServer: { 
     inline: true,
-    publicPath: '/dist/',
+    publicPath: '/assets/',
+    stats: { colors: true },
     proxy: {
       '/components': {
         target: 'http://localhost:3000/',
@@ -45,7 +46,7 @@ module.exports = {
   },
   output: {
     path: buildPath,
-    publicPath: "/public/js_map/",
+    publicPath: "/assets/",
     filename: '[name]/index.js'
   }
 };

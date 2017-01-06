@@ -13,17 +13,17 @@ module.exports = function (router) {
   /** home page is city_dashboard **/
   router.get('/', function (req, resp) {
   	var key = req.query.key;//组件名称
-  if(key){
-    //跳转到某一个组件，
-    var urlItem = _.find(componentUrl,{key:key});
-    resp.render(urlItem.template, { page: urlItem.msg});
-  }else{
-    //直接跳转到组件中心
-    resp.render("component_center/index.ejs", { 
-      page: {title:"组件中心"},
-      componentUrl:componentUrl
-    });
-  }
+    if(key){
+      //跳转到某一个组件，
+      var urlItem = _.find(componentUrl,{key:key});
+      resp.render(urlItem.template, { page: urlItem.msg});
+    }else{
+      //直接跳转到组件中心
+      resp.render("component_center/index.ejs", { 
+        page: {title:"组件中心"},
+        componentUrl:componentUrl
+      });
+    }
   	
 
   });
