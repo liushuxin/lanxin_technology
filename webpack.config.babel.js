@@ -18,7 +18,7 @@ let pageDirs = fs.readdirSync(basePath);
      });
   });
 console.log(fileDirUrl);
-module.exports = {
+let webpackConfig = {
   entry:fileDirUrl,
   resolve: {
         extensions: ['', '.js', '.jsx'],
@@ -67,3 +67,4 @@ module.exports = {
     //new openBrowserWebpackPlugin({ url: 'http://localhost:8082' }),
   ]
 };
+export default webpackConfig;
