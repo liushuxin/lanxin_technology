@@ -6,7 +6,8 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import openBrowserWebpackPlugin from 'open-browser-webpack-plugin';
 
-let buildPath = path.resolve(__dirname,'public/javascripts/');
+let buildPath = path.resolve(__dirname,'public/javascripts');
+console.log(buildPath);
 let nodeModulesPath = path.resolve(__dirname,'node_modules');
 let fileDirUrl ={};
   //=======
@@ -57,8 +58,8 @@ let webpackConfig = {
     filename: '[name]/index.js'
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+   new webpack.HotModuleReplacementPlugin(),
+   new webpack.NoErrorsPlugin(),
     // new HtmlWebpackPlugin({
     //     title: '开发模板页',
     //     template: path.join(__dirname, './webpack-template/index.html'),
@@ -68,3 +69,4 @@ let webpackConfig = {
   ]
 };
 export default webpackConfig;
+module.exports = webpackConfig;
