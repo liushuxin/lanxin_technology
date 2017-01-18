@@ -15,16 +15,24 @@ class App extends Component{
     return el.classList.contains('dragula-container');
   },
   moves: function (el, source, handle, sibling) {
+    console.log(el);
+    console.log(source);
+    console.log(handle);
+    console.log(sibling);
     return true; // elements are always draggable by default
   },
   accepts: function (el, target, source, sibling) {
+    console.log(el);
+    console.log(source);
+    console.log(target);
+    console.log(sibling);
     return true; // elements can be dropped in any of the `containers` by default
   },
   invalid: function (el, handle) {
     return false; // don't prevent any drags from initiating by default
   },
 //  direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
-  copy: false,                       // elements are moved by default, not copied
+  copy: true,                       // elements are moved by default, not copied
   copySortSource: false,             // elements in copy-source containers can be reordered
   revertOnSpill: false,              // spilling will put the element back where it was dragged from, if this is true
   removeOnSpill: false,              // spilling will `.remove` the element, if this is true
