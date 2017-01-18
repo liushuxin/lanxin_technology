@@ -12,7 +12,7 @@ class App extends Component{
   componentDidMount(){
     dragula([document.querySelector('#my1'),document.querySelector('#my2')], {
   isContainer: function (el) {
-    return false; // only elements in drake.containers will be taken into account
+    return el.classList.contains('dragula-container');
   },
   moves: function (el, source, handle, sibling) {
     return true; // elements are always draggable by default
@@ -37,7 +37,13 @@ class App extends Component{
     return (<div id="dr">
       <div id="my1">
  <div id="d1">
-      拖拽1
+ <p>
+   拖拽1.1
+ </p>
+ <p>
+   拖拽1.2
+ </p>
+      
     </div>
     <div id="d2">
       拖拽2
@@ -63,6 +69,11 @@ class App extends Component{
      <span>
        hahah
      </span> 
+      </div>
+      <div className="dragula-container">
+<div>
+  根据类进行拖拽赋值
+</div>
       </div>
    
     
