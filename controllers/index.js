@@ -15,7 +15,7 @@ module.exports = function (router) {
  
 connection.connect();
  
-connection.query('SELECT * FROM lanxin_user WHERE 1=1 ', function (error, results, fields) {
+connection.query('INSERT INTO lanxin_user VALUES("12345","gongpengfei") ', function (error, results, fields) {
   if (error) throw error;
   console.log('The solution is: ', results[0]);
 });
