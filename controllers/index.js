@@ -22,5 +22,25 @@ connection.query('INSERT INTO lanxin_user VALUES("12345","gongpengfei") ', funct
  
 connection.end();
   });
+router.get('/queryUser', function (req, resp) {
+    var connection = mysql.createConnection({
+      host     : 'localhost',
+      user     : 'root',
+      password : 'lanxin11',
+      database : 'lanxin'
+    });
+ 
+    connection.connect();
+ 
+    connection.query('SELECT * FROM lanxin_user WHERE 1=1', function (error, results, fields) {
+      if (error) throw error;
+      console.log('The solution is: ', results);
+      resp.render('index', 
+        { title: "组件中心",
+        msg:JSON.stringify(results[0])});
+    });
+ 
+  connection.end();
+  });
 
 };
