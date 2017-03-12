@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3c17b852ee626ed916c0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c0cd5a5b8e4f612b1f98"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -258,7 +258,7 @@
 /******/ 			hotSetStatus("prepare");
 /******/ 			hotCallback = callback;
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 1;
+/******/ 			var chunkId = 2;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -581,7 +581,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(217);
+	module.exports = __webpack_require__(218);
 
 
 /***/ },
@@ -21989,1316 +21989,27 @@
 
 /***/ },
 /* 173 */,
-/* 174 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports.connect = exports.Provider = undefined;
-
-	var _Provider = __webpack_require__(175);
-
-	var _Provider2 = _interopRequireDefault(_Provider);
-
-	var _connect = __webpack_require__(178);
-
-	var _connect2 = _interopRequireDefault(_connect);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { "default": obj };
-	}
-
-	exports.Provider = _Provider2["default"];
-	exports.connect = _connect2["default"];
-
-/***/ },
-/* 175 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	exports.__esModule = true;
-	exports["default"] = undefined;
-
-	var _react = __webpack_require__(2);
-
-	var _storeShape = __webpack_require__(176);
-
-	var _storeShape2 = _interopRequireDefault(_storeShape);
-
-	var _warning = __webpack_require__(177);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { "default": obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	}
-
-	function _possibleConstructorReturn(self, call) {
-	  if (!self) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
-	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var didWarnAboutReceivingStore = false;
-	function warnAboutReceivingStore() {
-	  if (didWarnAboutReceivingStore) {
-	    return;
-	  }
-	  didWarnAboutReceivingStore = true;
-
-	  (0, _warning2["default"])('<Provider> does not support changing `store` on the fly. ' + 'It is most likely that you see this error because you updated to ' + 'Redux 2.x and React Redux 2.x which no longer hot reload reducers ' + 'automatically. See https://github.com/reactjs/react-redux/releases/' + 'tag/v2.0.0 for the migration instructions.');
-	}
-
-	var Provider = function (_Component) {
-	  _inherits(Provider, _Component);
-
-	  Provider.prototype.getChildContext = function getChildContext() {
-	    return { store: this.store };
-	  };
-
-	  function Provider(props, context) {
-	    _classCallCheck(this, Provider);
-
-	    var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
-
-	    _this.store = props.store;
-	    return _this;
-	  }
-
-	  Provider.prototype.render = function render() {
-	    var children = this.props.children;
-
-	    return _react.Children.only(children);
-	  };
-
-	  return Provider;
-	}(_react.Component);
-
-	exports["default"] = Provider;
-
-	if (process.env.NODE_ENV !== 'production') {
-	  Provider.prototype.componentWillReceiveProps = function (nextProps) {
-	    var store = this.store;
-	    var nextStore = nextProps.store;
-
-	    if (store !== nextStore) {
-	      warnAboutReceivingStore();
-	    }
-	  };
-	}
-
-	Provider.propTypes = {
-	  store: _storeShape2["default"].isRequired,
-	  children: _react.PropTypes.element.isRequired
-	};
-	Provider.childContextTypes = {
-	  store: _storeShape2["default"].isRequired
-	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 176 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _react = __webpack_require__(2);
-
-	exports["default"] = _react.PropTypes.shape({
-	  subscribe: _react.PropTypes.func.isRequired,
-	  dispatch: _react.PropTypes.func.isRequired,
-	  getState: _react.PropTypes.func.isRequired
-	});
-
-/***/ },
-/* 177 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports["default"] = warning;
-	/**
-	 * Prints a warning in the console if it exists.
-	 *
-	 * @param {String} message The warning message.
-	 * @returns {void}
-	 */
-	function warning(message) {
-	  /* eslint-disable no-console */
-	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-	    console.error(message);
-	  }
-	  /* eslint-enable no-console */
-	  try {
-	    // This error was thrown as a convenience so that you can use this stack
-	    // to find the callsite that caused this warning to fire.
-	    throw new Error(message);
-	    /* eslint-disable no-empty */
-	  } catch (e) {}
-	  /* eslint-enable no-empty */
-	}
-
-/***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	var _extends = Object.assign || function (target) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    var source = arguments[i];for (var key in source) {
-	      if (Object.prototype.hasOwnProperty.call(source, key)) {
-	        target[key] = source[key];
-	      }
-	    }
-	  }return target;
-	};
-
-	exports.__esModule = true;
-	exports["default"] = connect;
-
-	var _react = __webpack_require__(2);
-
-	var _storeShape = __webpack_require__(176);
-
-	var _storeShape2 = _interopRequireDefault(_storeShape);
-
-	var _shallowEqual = __webpack_require__(179);
-
-	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
-
-	var _wrapActionCreators = __webpack_require__(180);
-
-	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
-
-	var _warning = __webpack_require__(177);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	var _isPlainObject = __webpack_require__(183);
-
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _hoistNonReactStatics = __webpack_require__(202);
-
-	var _hoistNonReactStatics2 = _interopRequireDefault(_hoistNonReactStatics);
-
-	var _invariant = __webpack_require__(203);
-
-	var _invariant2 = _interopRequireDefault(_invariant);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { "default": obj };
-	}
-
-	function _classCallCheck(instance, Constructor) {
-	  if (!(instance instanceof Constructor)) {
-	    throw new TypeError("Cannot call a class as a function");
-	  }
-	}
-
-	function _possibleConstructorReturn(self, call) {
-	  if (!self) {
-	    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	  }return call && ((typeof call === 'undefined' ? 'undefined' : _typeof(call)) === "object" || typeof call === "function") ? call : self;
-	}
-
-	function _inherits(subClass, superClass) {
-	  if (typeof superClass !== "function" && superClass !== null) {
-	    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === 'undefined' ? 'undefined' : _typeof(superClass)));
-	  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	}
-
-	var defaultMapStateToProps = function defaultMapStateToProps(state) {
-	  return {};
-	}; // eslint-disable-line no-unused-vars
-	var defaultMapDispatchToProps = function defaultMapDispatchToProps(dispatch) {
-	  return { dispatch: dispatch };
-	};
-	var defaultMergeProps = function defaultMergeProps(stateProps, dispatchProps, parentProps) {
-	  return _extends({}, parentProps, stateProps, dispatchProps);
-	};
-
-	function getDisplayName(WrappedComponent) {
-	  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
-	}
-
-	var errorObject = { value: null };
-	function tryCatch(fn, ctx) {
-	  try {
-	    return fn.apply(ctx);
-	  } catch (e) {
-	    errorObject.value = e;
-	    return errorObject;
-	  }
-	}
-
-	// Helps track hot reloading.
-	var nextVersion = 0;
-
-	function connect(mapStateToProps, mapDispatchToProps, mergeProps) {
-	  var options = arguments.length <= 3 || arguments[3] === undefined ? {} : arguments[3];
-
-	  var shouldSubscribe = Boolean(mapStateToProps);
-	  var mapState = mapStateToProps || defaultMapStateToProps;
-
-	  var mapDispatch = undefined;
-	  if (typeof mapDispatchToProps === 'function') {
-	    mapDispatch = mapDispatchToProps;
-	  } else if (!mapDispatchToProps) {
-	    mapDispatch = defaultMapDispatchToProps;
-	  } else {
-	    mapDispatch = (0, _wrapActionCreators2["default"])(mapDispatchToProps);
-	  }
-
-	  var finalMergeProps = mergeProps || defaultMergeProps;
-	  var _options$pure = options.pure;
-	  var pure = _options$pure === undefined ? true : _options$pure;
-	  var _options$withRef = options.withRef;
-	  var withRef = _options$withRef === undefined ? false : _options$withRef;
-
-	  var checkMergedEquals = pure && finalMergeProps !== defaultMergeProps;
-
-	  // Helps track hot reloading.
-	  var version = nextVersion++;
-
-	  return function wrapWithConnect(WrappedComponent) {
-	    var connectDisplayName = 'Connect(' + getDisplayName(WrappedComponent) + ')';
-
-	    function checkStateShape(props, methodName) {
-	      if (!(0, _isPlainObject2["default"])(props)) {
-	        (0, _warning2["default"])(methodName + '() in ' + connectDisplayName + ' must return a plain object. ' + ('Instead received ' + props + '.'));
-	      }
-	    }
-
-	    function computeMergedProps(stateProps, dispatchProps, parentProps) {
-	      var mergedProps = finalMergeProps(stateProps, dispatchProps, parentProps);
-	      if (process.env.NODE_ENV !== 'production') {
-	        checkStateShape(mergedProps, 'mergeProps');
-	      }
-	      return mergedProps;
-	    }
-
-	    var Connect = function (_Component) {
-	      _inherits(Connect, _Component);
-
-	      Connect.prototype.shouldComponentUpdate = function shouldComponentUpdate() {
-	        return !pure || this.haveOwnPropsChanged || this.hasStoreStateChanged;
-	      };
-
-	      function Connect(props, context) {
-	        _classCallCheck(this, Connect);
-
-	        var _this = _possibleConstructorReturn(this, _Component.call(this, props, context));
-
-	        _this.version = version;
-	        _this.store = props.store || context.store;
-
-	        (0, _invariant2["default"])(_this.store, 'Could not find "store" in either the context or ' + ('props of "' + connectDisplayName + '". ') + 'Either wrap the root component in a <Provider>, ' + ('or explicitly pass "store" as a prop to "' + connectDisplayName + '".'));
-
-	        var storeState = _this.store.getState();
-	        _this.state = { storeState: storeState };
-	        _this.clearCache();
-	        return _this;
-	      }
-
-	      Connect.prototype.computeStateProps = function computeStateProps(store, props) {
-	        if (!this.finalMapStateToProps) {
-	          return this.configureFinalMapState(store, props);
-	        }
-
-	        var state = store.getState();
-	        var stateProps = this.doStatePropsDependOnOwnProps ? this.finalMapStateToProps(state, props) : this.finalMapStateToProps(state);
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(stateProps, 'mapStateToProps');
-	        }
-	        return stateProps;
-	      };
-
-	      Connect.prototype.configureFinalMapState = function configureFinalMapState(store, props) {
-	        var mappedState = mapState(store.getState(), props);
-	        var isFactory = typeof mappedState === 'function';
-
-	        this.finalMapStateToProps = isFactory ? mappedState : mapState;
-	        this.doStatePropsDependOnOwnProps = this.finalMapStateToProps.length !== 1;
-
-	        if (isFactory) {
-	          return this.computeStateProps(store, props);
-	        }
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(mappedState, 'mapStateToProps');
-	        }
-	        return mappedState;
-	      };
-
-	      Connect.prototype.computeDispatchProps = function computeDispatchProps(store, props) {
-	        if (!this.finalMapDispatchToProps) {
-	          return this.configureFinalMapDispatch(store, props);
-	        }
-
-	        var dispatch = store.dispatch;
-
-	        var dispatchProps = this.doDispatchPropsDependOnOwnProps ? this.finalMapDispatchToProps(dispatch, props) : this.finalMapDispatchToProps(dispatch);
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(dispatchProps, 'mapDispatchToProps');
-	        }
-	        return dispatchProps;
-	      };
-
-	      Connect.prototype.configureFinalMapDispatch = function configureFinalMapDispatch(store, props) {
-	        var mappedDispatch = mapDispatch(store.dispatch, props);
-	        var isFactory = typeof mappedDispatch === 'function';
-
-	        this.finalMapDispatchToProps = isFactory ? mappedDispatch : mapDispatch;
-	        this.doDispatchPropsDependOnOwnProps = this.finalMapDispatchToProps.length !== 1;
-
-	        if (isFactory) {
-	          return this.computeDispatchProps(store, props);
-	        }
-
-	        if (process.env.NODE_ENV !== 'production') {
-	          checkStateShape(mappedDispatch, 'mapDispatchToProps');
-	        }
-	        return mappedDispatch;
-	      };
-
-	      Connect.prototype.updateStatePropsIfNeeded = function updateStatePropsIfNeeded() {
-	        var nextStateProps = this.computeStateProps(this.store, this.props);
-	        if (this.stateProps && (0, _shallowEqual2["default"])(nextStateProps, this.stateProps)) {
-	          return false;
-	        }
-
-	        this.stateProps = nextStateProps;
-	        return true;
-	      };
-
-	      Connect.prototype.updateDispatchPropsIfNeeded = function updateDispatchPropsIfNeeded() {
-	        var nextDispatchProps = this.computeDispatchProps(this.store, this.props);
-	        if (this.dispatchProps && (0, _shallowEqual2["default"])(nextDispatchProps, this.dispatchProps)) {
-	          return false;
-	        }
-
-	        this.dispatchProps = nextDispatchProps;
-	        return true;
-	      };
-
-	      Connect.prototype.updateMergedPropsIfNeeded = function updateMergedPropsIfNeeded() {
-	        var nextMergedProps = computeMergedProps(this.stateProps, this.dispatchProps, this.props);
-	        if (this.mergedProps && checkMergedEquals && (0, _shallowEqual2["default"])(nextMergedProps, this.mergedProps)) {
-	          return false;
-	        }
-
-	        this.mergedProps = nextMergedProps;
-	        return true;
-	      };
-
-	      Connect.prototype.isSubscribed = function isSubscribed() {
-	        return typeof this.unsubscribe === 'function';
-	      };
-
-	      Connect.prototype.trySubscribe = function trySubscribe() {
-	        if (shouldSubscribe && !this.unsubscribe) {
-	          this.unsubscribe = this.store.subscribe(this.handleChange.bind(this));
-	          this.handleChange();
-	        }
-	      };
-
-	      Connect.prototype.tryUnsubscribe = function tryUnsubscribe() {
-	        if (this.unsubscribe) {
-	          this.unsubscribe();
-	          this.unsubscribe = null;
-	        }
-	      };
-
-	      Connect.prototype.componentDidMount = function componentDidMount() {
-	        this.trySubscribe();
-	      };
-
-	      Connect.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps) {
-	        if (!pure || !(0, _shallowEqual2["default"])(nextProps, this.props)) {
-	          this.haveOwnPropsChanged = true;
-	        }
-	      };
-
-	      Connect.prototype.componentWillUnmount = function componentWillUnmount() {
-	        this.tryUnsubscribe();
-	        this.clearCache();
-	      };
-
-	      Connect.prototype.clearCache = function clearCache() {
-	        this.dispatchProps = null;
-	        this.stateProps = null;
-	        this.mergedProps = null;
-	        this.haveOwnPropsChanged = true;
-	        this.hasStoreStateChanged = true;
-	        this.haveStatePropsBeenPrecalculated = false;
-	        this.statePropsPrecalculationError = null;
-	        this.renderedElement = null;
-	        this.finalMapDispatchToProps = null;
-	        this.finalMapStateToProps = null;
-	      };
-
-	      Connect.prototype.handleChange = function handleChange() {
-	        if (!this.unsubscribe) {
-	          return;
-	        }
-
-	        var storeState = this.store.getState();
-	        var prevStoreState = this.state.storeState;
-	        if (pure && prevStoreState === storeState) {
-	          return;
-	        }
-
-	        if (pure && !this.doStatePropsDependOnOwnProps) {
-	          var haveStatePropsChanged = tryCatch(this.updateStatePropsIfNeeded, this);
-	          if (!haveStatePropsChanged) {
-	            return;
-	          }
-	          if (haveStatePropsChanged === errorObject) {
-	            this.statePropsPrecalculationError = errorObject.value;
-	          }
-	          this.haveStatePropsBeenPrecalculated = true;
-	        }
-
-	        this.hasStoreStateChanged = true;
-	        this.setState({ storeState: storeState });
-	      };
-
-	      Connect.prototype.getWrappedInstance = function getWrappedInstance() {
-	        (0, _invariant2["default"])(withRef, 'To access the wrapped instance, you need to specify ' + '{ withRef: true } as the fourth argument of the connect() call.');
-
-	        return this.refs.wrappedInstance;
-	      };
-
-	      Connect.prototype.render = function render() {
-	        var haveOwnPropsChanged = this.haveOwnPropsChanged;
-	        var hasStoreStateChanged = this.hasStoreStateChanged;
-	        var haveStatePropsBeenPrecalculated = this.haveStatePropsBeenPrecalculated;
-	        var statePropsPrecalculationError = this.statePropsPrecalculationError;
-	        var renderedElement = this.renderedElement;
-
-	        this.haveOwnPropsChanged = false;
-	        this.hasStoreStateChanged = false;
-	        this.haveStatePropsBeenPrecalculated = false;
-	        this.statePropsPrecalculationError = null;
-
-	        if (statePropsPrecalculationError) {
-	          throw statePropsPrecalculationError;
-	        }
-
-	        var shouldUpdateStateProps = true;
-	        var shouldUpdateDispatchProps = true;
-	        if (pure && renderedElement) {
-	          shouldUpdateStateProps = hasStoreStateChanged || haveOwnPropsChanged && this.doStatePropsDependOnOwnProps;
-	          shouldUpdateDispatchProps = haveOwnPropsChanged && this.doDispatchPropsDependOnOwnProps;
-	        }
-
-	        var haveStatePropsChanged = false;
-	        var haveDispatchPropsChanged = false;
-	        if (haveStatePropsBeenPrecalculated) {
-	          haveStatePropsChanged = true;
-	        } else if (shouldUpdateStateProps) {
-	          haveStatePropsChanged = this.updateStatePropsIfNeeded();
-	        }
-	        if (shouldUpdateDispatchProps) {
-	          haveDispatchPropsChanged = this.updateDispatchPropsIfNeeded();
-	        }
-
-	        var haveMergedPropsChanged = true;
-	        if (haveStatePropsChanged || haveDispatchPropsChanged || haveOwnPropsChanged) {
-	          haveMergedPropsChanged = this.updateMergedPropsIfNeeded();
-	        } else {
-	          haveMergedPropsChanged = false;
-	        }
-
-	        if (!haveMergedPropsChanged && renderedElement) {
-	          return renderedElement;
-	        }
-
-	        if (withRef) {
-	          this.renderedElement = (0, _react.createElement)(WrappedComponent, _extends({}, this.mergedProps, {
-	            ref: 'wrappedInstance'
-	          }));
-	        } else {
-	          this.renderedElement = (0, _react.createElement)(WrappedComponent, this.mergedProps);
-	        }
-
-	        return this.renderedElement;
-	      };
-
-	      return Connect;
-	    }(_react.Component);
-
-	    Connect.displayName = connectDisplayName;
-	    Connect.WrappedComponent = WrappedComponent;
-	    Connect.contextTypes = {
-	      store: _storeShape2["default"]
-	    };
-	    Connect.propTypes = {
-	      store: _storeShape2["default"]
-	    };
-
-	    if (process.env.NODE_ENV !== 'production') {
-	      Connect.prototype.componentWillUpdate = function componentWillUpdate() {
-	        if (this.version === version) {
-	          return;
-	        }
-
-	        // We are hot reloading!
-	        this.version = version;
-	        this.trySubscribe();
-	        this.clearCache();
-	      };
-	    }
-
-	    return (0, _hoistNonReactStatics2["default"])(Connect, WrappedComponent);
-	  };
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 179 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	exports.__esModule = true;
-	exports["default"] = shallowEqual;
-	function shallowEqual(objA, objB) {
-	  if (objA === objB) {
-	    return true;
-	  }
-
-	  var keysA = Object.keys(objA);
-	  var keysB = Object.keys(objB);
-
-	  if (keysA.length !== keysB.length) {
-	    return false;
-	  }
-
-	  // Test for A's keys different from B.
-	  var hasOwn = Object.prototype.hasOwnProperty;
-	  for (var i = 0; i < keysA.length; i++) {
-	    if (!hasOwn.call(objB, keysA[i]) || objA[keysA[i]] !== objB[keysA[i]]) {
-	      return false;
-	    }
-	  }
-
-	  return true;
-	}
-
-/***/ },
-/* 180 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports["default"] = wrapActionCreators;
-
-	var _redux = __webpack_require__(181);
-
-	function wrapActionCreators(actionCreators) {
-	  return function (dispatch) {
-	    return (0, _redux.bindActionCreators)(actionCreators, dispatch);
-	  };
-	}
-
-/***/ },
-/* 181 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	exports.__esModule = true;
-	exports.compose = exports.applyMiddleware = exports.bindActionCreators = exports.combineReducers = exports.createStore = undefined;
-
-	var _createStore = __webpack_require__(182);
-
-	var _createStore2 = _interopRequireDefault(_createStore);
-
-	var _combineReducers = __webpack_require__(197);
-
-	var _combineReducers2 = _interopRequireDefault(_combineReducers);
-
-	var _bindActionCreators = __webpack_require__(199);
-
-	var _bindActionCreators2 = _interopRequireDefault(_bindActionCreators);
-
-	var _applyMiddleware = __webpack_require__(200);
-
-	var _applyMiddleware2 = _interopRequireDefault(_applyMiddleware);
-
-	var _compose = __webpack_require__(201);
-
-	var _compose2 = _interopRequireDefault(_compose);
-
-	var _warning = __webpack_require__(198);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	/*
-	* This is a dummy function to check if the function name has been altered by minification.
-	* If the function has been minified and NODE_ENV !== 'production', warn the user.
-	*/
-	function isCrushed() {}
-
-	if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed') {
-	  (0, _warning2['default'])('You are currently using minified code outside of NODE_ENV === \'production\'. ' + 'This means that you are running a slower development build of Redux. ' + 'You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify ' + 'or DefinePlugin for webpack (http://stackoverflow.com/questions/30030031) ' + 'to ensure you have the correct code for your production build.');
-	}
-
-	exports.createStore = _createStore2['default'];
-	exports.combineReducers = _combineReducers2['default'];
-	exports.bindActionCreators = _bindActionCreators2['default'];
-	exports.applyMiddleware = _applyMiddleware2['default'];
-	exports.compose = _compose2['default'];
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 182 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	exports.__esModule = true;
-	exports.ActionTypes = undefined;
-	exports['default'] = createStore;
-
-	var _isPlainObject = __webpack_require__(183);
-
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _symbolObservable = __webpack_require__(193);
-
-	var _symbolObservable2 = _interopRequireDefault(_symbolObservable);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	/**
-	 * These are private action types reserved by Redux.
-	 * For any unknown actions, you must return the current state.
-	 * If the current state is undefined, you must return the initial state.
-	 * Do not reference these action types directly in your code.
-	 */
-	var ActionTypes = exports.ActionTypes = {
-	  INIT: '@@redux/INIT'
-	};
-
-	/**
-	 * Creates a Redux store that holds the state tree.
-	 * The only way to change the data in the store is to call `dispatch()` on it.
-	 *
-	 * There should only be a single store in your app. To specify how different
-	 * parts of the state tree respond to actions, you may combine several reducers
-	 * into a single reducer function by using `combineReducers`.
-	 *
-	 * @param {Function} reducer A function that returns the next state tree, given
-	 * the current state tree and the action to handle.
-	 *
-	 * @param {any} [preloadedState] The initial state. You may optionally specify it
-	 * to hydrate the state from the server in universal apps, or to restore a
-	 * previously serialized user session.
-	 * If you use `combineReducers` to produce the root reducer function, this must be
-	 * an object with the same shape as `combineReducers` keys.
-	 *
-	 * @param {Function} enhancer The store enhancer. You may optionally specify it
-	 * to enhance the store with third-party capabilities such as middleware,
-	 * time travel, persistence, etc. The only store enhancer that ships with Redux
-	 * is `applyMiddleware()`.
-	 *
-	 * @returns {Store} A Redux store that lets you read the state, dispatch actions
-	 * and subscribe to changes.
-	 */
-	function createStore(reducer, preloadedState, enhancer) {
-	  var _ref2;
-
-	  if (typeof preloadedState === 'function' && typeof enhancer === 'undefined') {
-	    enhancer = preloadedState;
-	    preloadedState = undefined;
-	  }
-
-	  if (typeof enhancer !== 'undefined') {
-	    if (typeof enhancer !== 'function') {
-	      throw new Error('Expected the enhancer to be a function.');
-	    }
-
-	    return enhancer(createStore)(reducer, preloadedState);
-	  }
-
-	  if (typeof reducer !== 'function') {
-	    throw new Error('Expected the reducer to be a function.');
-	  }
-
-	  var currentReducer = reducer;
-	  var currentState = preloadedState;
-	  var currentListeners = [];
-	  var nextListeners = currentListeners;
-	  var isDispatching = false;
-
-	  function ensureCanMutateNextListeners() {
-	    if (nextListeners === currentListeners) {
-	      nextListeners = currentListeners.slice();
-	    }
-	  }
-
-	  /**
-	   * Reads the state tree managed by the store.
-	   *
-	   * @returns {any} The current state tree of your application.
-	   */
-	  function getState() {
-	    return currentState;
-	  }
-
-	  /**
-	   * Adds a change listener. It will be called any time an action is dispatched,
-	   * and some part of the state tree may potentially have changed. You may then
-	   * call `getState()` to read the current state tree inside the callback.
-	   *
-	   * You may call `dispatch()` from a change listener, with the following
-	   * caveats:
-	   *
-	   * 1. The subscriptions are snapshotted just before every `dispatch()` call.
-	   * If you subscribe or unsubscribe while the listeners are being invoked, this
-	   * will not have any effect on the `dispatch()` that is currently in progress.
-	   * However, the next `dispatch()` call, whether nested or not, will use a more
-	   * recent snapshot of the subscription list.
-	   *
-	   * 2. The listener should not expect to see all state changes, as the state
-	   * might have been updated multiple times during a nested `dispatch()` before
-	   * the listener is called. It is, however, guaranteed that all subscribers
-	   * registered before the `dispatch()` started will be called with the latest
-	   * state by the time it exits.
-	   *
-	   * @param {Function} listener A callback to be invoked on every dispatch.
-	   * @returns {Function} A function to remove this change listener.
-	   */
-	  function subscribe(listener) {
-	    if (typeof listener !== 'function') {
-	      throw new Error('Expected listener to be a function.');
-	    }
-
-	    var isSubscribed = true;
-
-	    ensureCanMutateNextListeners();
-	    nextListeners.push(listener);
-
-	    return function unsubscribe() {
-	      if (!isSubscribed) {
-	        return;
-	      }
-
-	      isSubscribed = false;
-
-	      ensureCanMutateNextListeners();
-	      var index = nextListeners.indexOf(listener);
-	      nextListeners.splice(index, 1);
-	    };
-	  }
-
-	  /**
-	   * Dispatches an action. It is the only way to trigger a state change.
-	   *
-	   * The `reducer` function, used to create the store, will be called with the
-	   * current state tree and the given `action`. Its return value will
-	   * be considered the **next** state of the tree, and the change listeners
-	   * will be notified.
-	   *
-	   * The base implementation only supports plain object actions. If you want to
-	   * dispatch a Promise, an Observable, a thunk, or something else, you need to
-	   * wrap your store creating function into the corresponding middleware. For
-	   * example, see the documentation for the `redux-thunk` package. Even the
-	   * middleware will eventually dispatch plain object actions using this method.
-	   *
-	   * @param {Object} action A plain object representing “what changed”. It is
-	   * a good idea to keep actions serializable so you can record and replay user
-	   * sessions, or use the time travelling `redux-devtools`. An action must have
-	   * a `type` property which may not be `undefined`. It is a good idea to use
-	   * string constants for action types.
-	   *
-	   * @returns {Object} For convenience, the same action object you dispatched.
-	   *
-	   * Note that, if you use a custom middleware, it may wrap `dispatch()` to
-	   * return something else (for example, a Promise you can await).
-	   */
-	  function dispatch(action) {
-	    if (!(0, _isPlainObject2['default'])(action)) {
-	      throw new Error('Actions must be plain objects. ' + 'Use custom middleware for async actions.');
-	    }
-
-	    if (typeof action.type === 'undefined') {
-	      throw new Error('Actions may not have an undefined "type" property. ' + 'Have you misspelled a constant?');
-	    }
-
-	    if (isDispatching) {
-	      throw new Error('Reducers may not dispatch actions.');
-	    }
-
-	    try {
-	      isDispatching = true;
-	      currentState = currentReducer(currentState, action);
-	    } finally {
-	      isDispatching = false;
-	    }
-
-	    var listeners = currentListeners = nextListeners;
-	    for (var i = 0; i < listeners.length; i++) {
-	      listeners[i]();
-	    }
-
-	    return action;
-	  }
-
-	  /**
-	   * Replaces the reducer currently used by the store to calculate the state.
-	   *
-	   * You might need this if your app implements code splitting and you want to
-	   * load some of the reducers dynamically. You might also need this if you
-	   * implement a hot reloading mechanism for Redux.
-	   *
-	   * @param {Function} nextReducer The reducer for the store to use instead.
-	   * @returns {void}
-	   */
-	  function replaceReducer(nextReducer) {
-	    if (typeof nextReducer !== 'function') {
-	      throw new Error('Expected the nextReducer to be a function.');
-	    }
-
-	    currentReducer = nextReducer;
-	    dispatch({ type: ActionTypes.INIT });
-	  }
-
-	  /**
-	   * Interoperability point for observable/reactive libraries.
-	   * @returns {observable} A minimal observable of state changes.
-	   * For more information, see the observable proposal:
-	   * https://github.com/zenparsing/es-observable
-	   */
-	  function observable() {
-	    var _ref;
-
-	    var outerSubscribe = subscribe;
-	    return _ref = {
-	      /**
-	       * The minimal observable subscription method.
-	       * @param {Object} observer Any object that can be used as an observer.
-	       * The observer object should have a `next` method.
-	       * @returns {subscription} An object with an `unsubscribe` method that can
-	       * be used to unsubscribe the observable from the store, and prevent further
-	       * emission of values from the observable.
-	       */
-	      subscribe: function subscribe(observer) {
-	        if ((typeof observer === 'undefined' ? 'undefined' : _typeof(observer)) !== 'object') {
-	          throw new TypeError('Expected the observer to be an object.');
-	        }
-
-	        function observeState() {
-	          if (observer.next) {
-	            observer.next(getState());
-	          }
-	        }
-
-	        observeState();
-	        var unsubscribe = outerSubscribe(observeState);
-	        return { unsubscribe: unsubscribe };
-	      }
-	    }, _ref[_symbolObservable2['default']] = function () {
-	      return this;
-	    }, _ref;
-	  }
-
-	  // When a store is created, an "INIT" action is dispatched so that every
-	  // reducer returns their initial state. This effectively populates
-	  // the initial state tree.
-	  dispatch({ type: ActionTypes.INIT });
-
-	  return _ref2 = {
-	    dispatch: dispatch,
-	    subscribe: subscribe,
-	    getState: getState,
-	    replaceReducer: replaceReducer
-	  }, _ref2[_symbolObservable2['default']] = observable, _ref2;
-	}
-
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var baseGetTag = __webpack_require__(184),
-	    getPrototype = __webpack_require__(190),
-	    isObjectLike = __webpack_require__(192);
-
-	/** `Object#toString` result references. */
-	var objectTag = '[object Object]';
-
-	/** Used for built-in method references. */
-	var funcProto = Function.prototype,
-	    objectProto = Object.prototype;
-
-	/** Used to resolve the decompiled source of functions. */
-	var funcToString = funcProto.toString;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/** Used to infer the `Object` constructor. */
-	var objectCtorString = funcToString.call(Object);
-
-	/**
-	 * Checks if `value` is a plain object, that is, an object created by the
-	 * `Object` constructor or one with a `[[Prototype]]` of `null`.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.8.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a plain object, else `false`.
-	 * @example
-	 *
-	 * function Foo() {
-	 *   this.a = 1;
-	 * }
-	 *
-	 * _.isPlainObject(new Foo);
-	 * // => false
-	 *
-	 * _.isPlainObject([1, 2, 3]);
-	 * // => false
-	 *
-	 * _.isPlainObject({ 'x': 0, 'y': 0 });
-	 * // => true
-	 *
-	 * _.isPlainObject(Object.create(null));
-	 * // => true
-	 */
-	function isPlainObject(value) {
-	  if (!isObjectLike(value) || baseGetTag(value) != objectTag) {
-	    return false;
-	  }
-	  var proto = getPrototype(value);
-	  if (proto === null) {
-	    return true;
-	  }
-	  var Ctor = hasOwnProperty.call(proto, 'constructor') && proto.constructor;
-	  return typeof Ctor == 'function' && Ctor instanceof Ctor && funcToString.call(Ctor) == objectCtorString;
-	}
-
-	module.exports = isPlainObject;
-
-/***/ },
-/* 184 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _Symbol = __webpack_require__(185),
-	    getRawTag = __webpack_require__(188),
-	    objectToString = __webpack_require__(189);
-
-	/** `Object#toString` result references. */
-	var nullTag = '[object Null]',
-	    undefinedTag = '[object Undefined]';
-
-	/** Built-in value references. */
-	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
-
-	/**
-	 * The base implementation of `getTag` without fallbacks for buggy environments.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {string} Returns the `toStringTag`.
-	 */
-	function baseGetTag(value) {
-	    if (value == null) {
-	        return value === undefined ? undefinedTag : nullTag;
-	    }
-	    value = Object(value);
-	    return symToStringTag && symToStringTag in value ? getRawTag(value) : objectToString(value);
-	}
-
-	module.exports = baseGetTag;
-
-/***/ },
-/* 185 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var root = __webpack_require__(186);
-
-	/** Built-in value references. */
-	var _Symbol = root.Symbol;
-
-	module.exports = _Symbol;
-
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	var freeGlobal = __webpack_require__(187);
-
-	/** Detect free variable `self`. */
-	var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
-
-	/** Used as a reference to the global object. */
-	var root = freeGlobal || freeSelf || Function('return this')();
-
-	module.exports = root;
-
-/***/ },
-/* 187 */
-/***/ function(module, exports) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	/** Detect free variable `global` from Node.js. */
-	var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
-
-	module.exports = freeGlobal;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 188 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _Symbol = __webpack_require__(185);
-
-	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
-
-	/** Used to check objects for own properties. */
-	var hasOwnProperty = objectProto.hasOwnProperty;
-
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var nativeObjectToString = objectProto.toString;
-
-	/** Built-in value references. */
-	var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
-
-	/**
-	 * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
-	 *
-	 * @private
-	 * @param {*} value The value to query.
-	 * @returns {string} Returns the raw `toStringTag`.
-	 */
-	function getRawTag(value) {
-	  var isOwn = hasOwnProperty.call(value, symToStringTag),
-	      tag = value[symToStringTag];
-
-	  try {
-	    value[symToStringTag] = undefined;
-	    var unmasked = true;
-	  } catch (e) {}
-
-	  var result = nativeObjectToString.call(value);
-	  if (unmasked) {
-	    if (isOwn) {
-	      value[symToStringTag] = tag;
-	    } else {
-	      delete value[symToStringTag];
-	    }
-	  }
-	  return result;
-	}
-
-	module.exports = getRawTag;
-
-/***/ },
-/* 189 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/** Used for built-in method references. */
-	var objectProto = Object.prototype;
-
-	/**
-	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
-	 * of values.
-	 */
-	var nativeObjectToString = objectProto.toString;
-
-	/**
-	 * Converts `value` to a string using `Object.prototype.toString`.
-	 *
-	 * @private
-	 * @param {*} value The value to convert.
-	 * @returns {string} Returns the converted string.
-	 */
-	function objectToString(value) {
-	  return nativeObjectToString.call(value);
-	}
-
-	module.exports = objectToString;
-
-/***/ },
-/* 190 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var overArg = __webpack_require__(191);
-
-	/** Built-in value references. */
-	var getPrototype = overArg(Object.getPrototypeOf, Object);
-
-	module.exports = getPrototype;
-
-/***/ },
-/* 191 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	/**
-	 * Creates a unary function that invokes `func` with its argument transformed.
-	 *
-	 * @private
-	 * @param {Function} func The function to wrap.
-	 * @param {Function} transform The argument transform.
-	 * @returns {Function} Returns the new function.
-	 */
-	function overArg(func, transform) {
-	  return function (arg) {
-	    return func(transform(arg));
-	  };
-	}
-
-	module.exports = overArg;
-
-/***/ },
-/* 192 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	/**
-	 * Checks if `value` is object-like. A value is object-like if it's not `null`
-	 * and has a `typeof` result of "object".
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 4.0.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
-	 * @example
-	 *
-	 * _.isObjectLike({});
-	 * // => true
-	 *
-	 * _.isObjectLike([1, 2, 3]);
-	 * // => true
-	 *
-	 * _.isObjectLike(_.noop);
-	 * // => false
-	 *
-	 * _.isObjectLike(null);
-	 * // => false
-	 */
-	function isObjectLike(value) {
-	  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
-	}
-
-	module.exports = isObjectLike;
-
-/***/ },
-/* 193 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(194);
-
-/***/ },
-/* 194 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global, module) {'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _ponyfill = __webpack_require__(196);
-
-	var _ponyfill2 = _interopRequireDefault(_ponyfill);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	var root; /* global window */
-
-	if (typeof self !== 'undefined') {
-	  root = self;
-	} else if (typeof window !== 'undefined') {
-	  root = window;
-	} else if (typeof global !== 'undefined') {
-	  root = global;
-	} else if (true) {
-	  root = module;
-	} else {
-	  root = Function('return this')();
-	}
-
-	var result = (0, _ponyfill2['default'])(root);
-	exports['default'] = result;
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(195)(module)))
-
-/***/ },
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
 /* 195 */
 /***/ function(module, exports) {
 
@@ -23316,496 +22027,14 @@
 	};
 
 /***/ },
-/* 196 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	exports['default'] = symbolObservablePonyfill;
-	function symbolObservablePonyfill(root) {
-		var result;
-		var _Symbol = root.Symbol;
-
-		if (typeof _Symbol === 'function') {
-			if (_Symbol.observable) {
-				result = _Symbol.observable;
-			} else {
-				result = _Symbol('observable');
-				_Symbol.observable = result;
-			}
-		} else {
-			result = '@@observable';
-		}
-
-		return result;
-	};
-
-/***/ },
-/* 197 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-	exports.__esModule = true;
-	exports['default'] = combineReducers;
-
-	var _createStore = __webpack_require__(182);
-
-	var _isPlainObject = __webpack_require__(183);
-
-	var _isPlainObject2 = _interopRequireDefault(_isPlainObject);
-
-	var _warning = __webpack_require__(198);
-
-	var _warning2 = _interopRequireDefault(_warning);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	function getUndefinedStateErrorMessage(key, action) {
-	  var actionType = action && action.type;
-	  var actionName = actionType && '"' + actionType.toString() + '"' || 'an action';
-
-	  return 'Given action ' + actionName + ', reducer "' + key + '" returned undefined. ' + 'To ignore an action, you must explicitly return the previous state.';
-	}
-
-	function getUnexpectedStateShapeWarningMessage(inputState, reducers, action, unexpectedKeyCache) {
-	  var reducerKeys = Object.keys(reducers);
-	  var argumentName = action && action.type === _createStore.ActionTypes.INIT ? 'preloadedState argument passed to createStore' : 'previous state received by the reducer';
-
-	  if (reducerKeys.length === 0) {
-	    return 'Store does not have a valid reducer. Make sure the argument passed ' + 'to combineReducers is an object whose values are reducers.';
-	  }
-
-	  if (!(0, _isPlainObject2['default'])(inputState)) {
-	    return 'The ' + argumentName + ' has unexpected type of "' + {}.toString.call(inputState).match(/\s([a-z|A-Z]+)/)[1] + '". Expected argument to be an object with the following ' + ('keys: "' + reducerKeys.join('", "') + '"');
-	  }
-
-	  var unexpectedKeys = Object.keys(inputState).filter(function (key) {
-	    return !reducers.hasOwnProperty(key) && !unexpectedKeyCache[key];
-	  });
-
-	  unexpectedKeys.forEach(function (key) {
-	    unexpectedKeyCache[key] = true;
-	  });
-
-	  if (unexpectedKeys.length > 0) {
-	    return 'Unexpected ' + (unexpectedKeys.length > 1 ? 'keys' : 'key') + ' ' + ('"' + unexpectedKeys.join('", "') + '" found in ' + argumentName + '. ') + 'Expected to find one of the known reducer keys instead: ' + ('"' + reducerKeys.join('", "') + '". Unexpected keys will be ignored.');
-	  }
-	}
-
-	function assertReducerSanity(reducers) {
-	  Object.keys(reducers).forEach(function (key) {
-	    var reducer = reducers[key];
-	    var initialState = reducer(undefined, { type: _createStore.ActionTypes.INIT });
-
-	    if (typeof initialState === 'undefined') {
-	      throw new Error('Reducer "' + key + '" returned undefined during initialization. ' + 'If the state passed to the reducer is undefined, you must ' + 'explicitly return the initial state. The initial state may ' + 'not be undefined.');
-	    }
-
-	    var type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.');
-	    if (typeof reducer(undefined, { type: type }) === 'undefined') {
-	      throw new Error('Reducer "' + key + '" returned undefined when probed with a random type. ' + ('Don\'t try to handle ' + _createStore.ActionTypes.INIT + ' or other actions in "redux/*" ') + 'namespace. They are considered private. Instead, you must return the ' + 'current state for any unknown actions, unless it is undefined, ' + 'in which case you must return the initial state, regardless of the ' + 'action type. The initial state may not be undefined.');
-	    }
-	  });
-	}
-
-	/**
-	 * Turns an object whose values are different reducer functions, into a single
-	 * reducer function. It will call every child reducer, and gather their results
-	 * into a single state object, whose keys correspond to the keys of the passed
-	 * reducer functions.
-	 *
-	 * @param {Object} reducers An object whose values correspond to different
-	 * reducer functions that need to be combined into one. One handy way to obtain
-	 * it is to use ES6 `import * as reducers` syntax. The reducers may never return
-	 * undefined for any action. Instead, they should return their initial state
-	 * if the state passed to them was undefined, and the current state for any
-	 * unrecognized action.
-	 *
-	 * @returns {Function} A reducer function that invokes every reducer inside the
-	 * passed object, and builds a state object with the same shape.
-	 */
-	function combineReducers(reducers) {
-	  var reducerKeys = Object.keys(reducers);
-	  var finalReducers = {};
-	  for (var i = 0; i < reducerKeys.length; i++) {
-	    var key = reducerKeys[i];
-
-	    if (process.env.NODE_ENV !== 'production') {
-	      if (typeof reducers[key] === 'undefined') {
-	        (0, _warning2['default'])('No reducer provided for key "' + key + '"');
-	      }
-	    }
-
-	    if (typeof reducers[key] === 'function') {
-	      finalReducers[key] = reducers[key];
-	    }
-	  }
-	  var finalReducerKeys = Object.keys(finalReducers);
-
-	  if (process.env.NODE_ENV !== 'production') {
-	    var unexpectedKeyCache = {};
-	  }
-
-	  var sanityError;
-	  try {
-	    assertReducerSanity(finalReducers);
-	  } catch (e) {
-	    sanityError = e;
-	  }
-
-	  return function combination() {
-	    var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	    var action = arguments[1];
-
-	    if (sanityError) {
-	      throw sanityError;
-	    }
-
-	    if (process.env.NODE_ENV !== 'production') {
-	      var warningMessage = getUnexpectedStateShapeWarningMessage(state, finalReducers, action, unexpectedKeyCache);
-	      if (warningMessage) {
-	        (0, _warning2['default'])(warningMessage);
-	      }
-	    }
-
-	    var hasChanged = false;
-	    var nextState = {};
-	    for (var i = 0; i < finalReducerKeys.length; i++) {
-	      var key = finalReducerKeys[i];
-	      var reducer = finalReducers[key];
-	      var previousStateForKey = state[key];
-	      var nextStateForKey = reducer(previousStateForKey, action);
-	      if (typeof nextStateForKey === 'undefined') {
-	        var errorMessage = getUndefinedStateErrorMessage(key, action);
-	        throw new Error(errorMessage);
-	      }
-	      nextState[key] = nextStateForKey;
-	      hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
-	    }
-	    return hasChanged ? nextState : state;
-	  };
-	}
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
-/* 198 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	exports.__esModule = true;
-	exports['default'] = warning;
-	/**
-	 * Prints a warning in the console if it exists.
-	 *
-	 * @param {String} message The warning message.
-	 * @returns {void}
-	 */
-	function warning(message) {
-	  /* eslint-disable no-console */
-	  if (typeof console !== 'undefined' && typeof console.error === 'function') {
-	    console.error(message);
-	  }
-	  /* eslint-enable no-console */
-	  try {
-	    // This error was thrown as a convenience so that if you enable
-	    // "break on all exceptions" in your console,
-	    // it would pause the execution at this line.
-	    throw new Error(message);
-	    /* eslint-disable no-empty */
-	  } catch (e) {}
-	  /* eslint-enable no-empty */
-	}
-
-/***/ },
-/* 199 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	exports.__esModule = true;
-	exports['default'] = bindActionCreators;
-	function bindActionCreator(actionCreator, dispatch) {
-	  return function () {
-	    return dispatch(actionCreator.apply(undefined, arguments));
-	  };
-	}
-
-	/**
-	 * Turns an object whose values are action creators, into an object with the
-	 * same keys, but with every function wrapped into a `dispatch` call so they
-	 * may be invoked directly. This is just a convenience method, as you can call
-	 * `store.dispatch(MyActionCreators.doSomething())` yourself just fine.
-	 *
-	 * For convenience, you can also pass a single function as the first argument,
-	 * and get a function in return.
-	 *
-	 * @param {Function|Object} actionCreators An object whose values are action
-	 * creator functions. One handy way to obtain it is to use ES6 `import * as`
-	 * syntax. You may also pass a single function.
-	 *
-	 * @param {Function} dispatch The `dispatch` function available on your Redux
-	 * store.
-	 *
-	 * @returns {Function|Object} The object mimicking the original object, but with
-	 * every action creator wrapped into the `dispatch` call. If you passed a
-	 * function as `actionCreators`, the return value will also be a single
-	 * function.
-	 */
-	function bindActionCreators(actionCreators, dispatch) {
-	  if (typeof actionCreators === 'function') {
-	    return bindActionCreator(actionCreators, dispatch);
-	  }
-
-	  if ((typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) !== 'object' || actionCreators === null) {
-	    throw new Error('bindActionCreators expected an object or a function, instead received ' + (actionCreators === null ? 'null' : typeof actionCreators === 'undefined' ? 'undefined' : _typeof(actionCreators)) + '. ' + 'Did you write "import ActionCreators from" instead of "import * as ActionCreators from"?');
-	  }
-
-	  var keys = Object.keys(actionCreators);
-	  var boundActionCreators = {};
-	  for (var i = 0; i < keys.length; i++) {
-	    var key = keys[i];
-	    var actionCreator = actionCreators[key];
-	    if (typeof actionCreator === 'function') {
-	      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch);
-	    }
-	  }
-	  return boundActionCreators;
-	}
-
-/***/ },
-/* 200 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	exports.__esModule = true;
-
-	var _extends = Object.assign || function (target) {
-	  for (var i = 1; i < arguments.length; i++) {
-	    var source = arguments[i];for (var key in source) {
-	      if (Object.prototype.hasOwnProperty.call(source, key)) {
-	        target[key] = source[key];
-	      }
-	    }
-	  }return target;
-	};
-
-	exports['default'] = applyMiddleware;
-
-	var _compose = __webpack_require__(201);
-
-	var _compose2 = _interopRequireDefault(_compose);
-
-	function _interopRequireDefault(obj) {
-	  return obj && obj.__esModule ? obj : { 'default': obj };
-	}
-
-	/**
-	 * Creates a store enhancer that applies middleware to the dispatch method
-	 * of the Redux store. This is handy for a variety of tasks, such as expressing
-	 * asynchronous actions in a concise manner, or logging every action payload.
-	 *
-	 * See `redux-thunk` package as an example of the Redux middleware.
-	 *
-	 * Because middleware is potentially asynchronous, this should be the first
-	 * store enhancer in the composition chain.
-	 *
-	 * Note that each middleware will be given the `dispatch` and `getState` functions
-	 * as named arguments.
-	 *
-	 * @param {...Function} middlewares The middleware chain to be applied.
-	 * @returns {Function} A store enhancer applying the middleware.
-	 */
-	function applyMiddleware() {
-	  for (var _len = arguments.length, middlewares = Array(_len), _key = 0; _key < _len; _key++) {
-	    middlewares[_key] = arguments[_key];
-	  }
-
-	  return function (createStore) {
-	    return function (reducer, preloadedState, enhancer) {
-	      var store = createStore(reducer, preloadedState, enhancer);
-	      var _dispatch = store.dispatch;
-	      var chain = [];
-
-	      var middlewareAPI = {
-	        getState: store.getState,
-	        dispatch: function dispatch(action) {
-	          return _dispatch(action);
-	        }
-	      };
-	      chain = middlewares.map(function (middleware) {
-	        return middleware(middlewareAPI);
-	      });
-	      _dispatch = _compose2['default'].apply(undefined, chain)(store.dispatch);
-
-	      return _extends({}, store, {
-	        dispatch: _dispatch
-	      });
-	    };
-	  };
-	}
-
-/***/ },
-/* 201 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	exports.__esModule = true;
-	exports["default"] = compose;
-	/**
-	 * Composes single-argument functions from right to left. The rightmost
-	 * function can take multiple arguments as it provides the signature for
-	 * the resulting composite function.
-	 *
-	 * @param {...Function} funcs The functions to compose.
-	 * @returns {Function} A function obtained by composing the argument functions
-	 * from right to left. For example, compose(f, g, h) is identical to doing
-	 * (...args) => f(g(h(...args))).
-	 */
-
-	function compose() {
-	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
-	    funcs[_key] = arguments[_key];
-	  }
-
-	  if (funcs.length === 0) {
-	    return function (arg) {
-	      return arg;
-	    };
-	  }
-
-	  if (funcs.length === 1) {
-	    return funcs[0];
-	  }
-
-	  var last = funcs[funcs.length - 1];
-	  var rest = funcs.slice(0, -1);
-	  return function () {
-	    return rest.reduceRight(function (composed, f) {
-	      return f(composed);
-	    }, last.apply(undefined, arguments));
-	  };
-	}
-
-/***/ },
-/* 202 */
-/***/ function(module, exports) {
-
-	/**
-	 * Copyright 2015, Yahoo! Inc.
-	 * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
-	 */
-	'use strict';
-
-	var REACT_STATICS = {
-	    childContextTypes: true,
-	    contextTypes: true,
-	    defaultProps: true,
-	    displayName: true,
-	    getDefaultProps: true,
-	    mixins: true,
-	    propTypes: true,
-	    type: true
-	};
-
-	var KNOWN_STATICS = {
-	    name: true,
-	    length: true,
-	    prototype: true,
-	    caller: true,
-	    arguments: true,
-	    arity: true
-	};
-
-	var isGetOwnPropertySymbolsAvailable = typeof Object.getOwnPropertySymbols === 'function';
-
-	module.exports = function hoistNonReactStatics(targetComponent, sourceComponent, customStatics) {
-	    if (typeof sourceComponent !== 'string') {
-	        // don't hoist over string (html) components
-	        var keys = Object.getOwnPropertyNames(sourceComponent);
-
-	        /* istanbul ignore else */
-	        if (isGetOwnPropertySymbolsAvailable) {
-	            keys = keys.concat(Object.getOwnPropertySymbols(sourceComponent));
-	        }
-
-	        for (var i = 0; i < keys.length; ++i) {
-	            if (!REACT_STATICS[keys[i]] && !KNOWN_STATICS[keys[i]] && (!customStatics || !customStatics[keys[i]])) {
-	                try {
-	                    targetComponent[keys[i]] = sourceComponent[keys[i]];
-	                } catch (error) {}
-	            }
-	        }
-	    }
-
-	    return targetComponent;
-	};
-
-/***/ },
-/* 203 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(process) {/**
-	 * Copyright 2013-2015, Facebook, Inc.
-	 * All rights reserved.
-	 *
-	 * This source code is licensed under the BSD-style license found in the
-	 * LICENSE file in the root directory of this source tree. An additional grant
-	 * of patent rights can be found in the PATENTS file in the same directory.
-	 */
-
-	'use strict';
-
-	/**
-	 * Use invariant() to assert state which your program assumes to be true.
-	 *
-	 * Provide sprintf-style format (only %s is supported) and arguments
-	 * to provide information about what broke and what you were
-	 * expecting.
-	 *
-	 * The invariant message will be stripped in production, but the invariant
-	 * will remain to ensure logic does not differ in production.
-	 */
-
-	var invariant = function invariant(condition, format, a, b, c, d, e, f) {
-	  if (process.env.NODE_ENV !== 'production') {
-	    if (format === undefined) {
-	      throw new Error('invariant requires an error message argument');
-	    }
-	  }
-
-	  if (!condition) {
-	    var error;
-	    if (format === undefined) {
-	      error = new Error('Minified exception occurred; use the non-minified dev environment ' + 'for the full error message and additional helpful warnings.');
-	    } else {
-	      var args = [a, b, c, d, e, f];
-	      var argIndex = 0;
-	      error = new Error(format.replace(/%s/g, function () {
-	        return args[argIndex++];
-	      }));
-	      error.name = 'Invariant Violation';
-	    }
-
-	    error.framesToPop = 1; // we don't care about invariant's own frame
-	    throw error;
-	  }
-	};
-
-	module.exports = invariant;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
-
-/***/ },
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
 /* 204 */,
 /* 205 */
 /***/ function(module, exports, __webpack_require__) {
@@ -25774,10 +24003,13 @@
 
 /***/ },
 /* 216 */,
-/* 217 */
+/* 217 */,
+/* 218 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
 
@@ -25787,120 +24019,19 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _redux = __webpack_require__(181);
-
-	var _reactRedux = __webpack_require__(174);
-
-	var _reducer = __webpack_require__(218);
-
 	var _jquery = __webpack_require__(205);
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	var _App = __webpack_require__(220);
+	__webpack_require__(219);
 
-	var _App2 = _interopRequireDefault(_App);
+	var _dragula = __webpack_require__(221);
 
-	var _index = __webpack_require__(221);
+	var _dragula2 = _interopRequireDefault(_dragula);
+
+	var _index = __webpack_require__(232);
 
 	var _index2 = _interopRequireDefault(_index);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var store = (0, _redux.createStore)(_reducer.reducer);
-	console.log(store.getState());
-	_reactDom2.default.render(_react2.default.createElement(
-	  _reactRedux.Provider,
-	  { store: store },
-	  _react2.default.createElement(_App2.default, null)
-	), document.getElementById('app'));
-
-/***/ },
-/* 218 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.reducer = reducer;
-
-	var _actions = __webpack_require__(219);
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	var initDatasState = { datas: [], length: 0 };
-	function reducer() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initDatasState;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _actions.ADD:
-	      return {
-	        datas: [].concat(_toConsumableArray(state.datas), [action.payload]), length: state.length + 1 };
-	    case _actions.DEL:
-	      if (state.length <= 0) {
-	        return state;
-	      }
-	      state.datas.forEach(function (a, i) {
-	        i == action.index && state.datas.splice(i, 1);
-	      });
-	      return { datas: state.datas, length: state.length - 1 };
-	    default:
-	      return state;
-	  }
-	}
-
-/***/ },
-/* 219 */
-/***/ function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.addOne = addOne;
-	exports.delOne = delOne;
-	var ADD = exports.ADD = 'ADD';
-	var DEL = exports.DEL = 'DEL';
-	function addOne(data) {
-	  return {
-	    type: ADD,
-	    payload: data
-	  };
-	}
-	function delOne(ins) {
-	  return {
-	    type: DEL,
-	    index: ins
-	  };
-	}
-
-/***/ },
-/* 220 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactRedux = __webpack_require__(174);
-
-	var _actions = __webpack_require__(219);
-
-	var _jquery = __webpack_require__(205);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25910,77 +24041,122 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
+	var App = function (_Component) {
+	  _inherits(App, _Component);
 
-	  function App() {
+	  function App(props) {
 	    _classCallCheck(this, App);
 
-	    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {};
+	    return _this;
 	  }
 
 	  _createClass(App, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var self = this;
-	      _jquery2.default.ajax({
-	        type: "get",
-	        async: false,
-	        url: "http://localhost:8413/lodash/getChartData",
-	        dataType: "jsonp",
-	        jsonp: "callback", //传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
-	        jsonpCallback: "getData", //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，也可以写"?"，jQuery会自动为你处理数据
-	        success: function success(json) {
-	          console.log(json);
+	      (0, _dragula2.default)([document.querySelector('#my1'), document.querySelector('#my2')], {
+	        isContainer: function isContainer(el) {
+	          return el.classList.contains('dragula-container');
 	        },
-	        error: function error() {
-	          alert('fail');
-	        }
+	        moves: function moves(el, source, handle, sibling) {
+	          console.log(el);
+	          console.log(source);
+	          console.log(handle);
+	          console.log(sibling);
+	          return true; // elements are always draggable by default
+	        },
+	        accepts: function accepts(el, target, source, sibling) {
+	          console.log(el);
+	          console.log(source);
+	          console.log(target);
+	          console.log(sibling);
+	          return true; // elements can be dropped in any of the `containers` by default
+	        },
+	        invalid: function invalid(el, handle) {
+	          return false; // don't prevent any drags from initiating by default
+	        },
+	        //  direction: 'vertical',             // Y axis is considered when determining where an element would be dropped
+	        copy: true, // elements are moved by default, not copied
+	        copySortSource: false, // elements in copy-source containers can be reordered
+	        revertOnSpill: false, // spilling will put the element back where it was dragged from, if this is true
+	        removeOnSpill: false, // spilling will `.remove` the element, if this is true
+	        mirrorContainer: document.body, // set the element that gets mirror elements appended
+	        ignoreInputTextSelection: true // allows users to select input text, see details below
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      var self = this;
 	      return _react2.default.createElement(
 	        'div',
-	        null,
-	        _react2.default.createElement('input', { type: 'button', onClick: this.props.onAdd, value: 'addOneItem' }),
-	        _react2.default.createElement('br', null),
-	        'length:',
-	        _react2.default.createElement(
-	          'b',
-	          null,
-	          this.props.length
-	        ),
-	        ';datas:',
-	        _react2.default.createElement(
-	          'i',
-	          null,
-	          this.props.value
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement('input', { type: 'button', onClick: this.props.onDel, value: 'delFirst' }),
-	        '\u6837\u5F0F\u4FEE\u6539\uFF1A',
-	        _react2.default.createElement('div', { id: 'main' }),
-	        _react2.default.createElement('div', { className: 'box1' }),
-	        _react2.default.createElement('div', { className: 'box2' }),
+	        { id: 'dr' },
 	        _react2.default.createElement(
 	          'div',
-	          { 'class': 'three-column' },
+	          { id: 'my1' },
 	          _react2.default.createElement(
 	            'div',
-	            null,
-	            '\u7B2C\u4E00\u6BB5\uFF0C\u7B2C\u4E00\u6BB5'
+	            { id: 'd1' },
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              '\u62D6\u62FD1.1'
+	            ),
+	            _react2.default.createElement(
+	              'p',
+	              null,
+	              '\u62D6\u62FD1.2'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { id: 'd2' },
+	            '\u62D6\u62FD2'
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            '\u7B2C\u4E8C\u6BB5\uFF0C'
+	            '\u62D6\u62FD3'
 	          ),
 	          _react2.default.createElement(
 	            'div',
 	            null,
-	            '\u7B2C\u4E09\u6BB5'
+	            '\u62D6\u62FD4'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '\u62D6\u62FD5'
+	          ),
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'hahahaa'
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '\u62D6\u62FD6'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { id: 'my2' },
+	          _react2.default.createElement(
+	            'span',
+	            null,
+	            'hahah'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'dragula-container' },
+	          _react2.default.createElement(
+	            'div',
+	            null,
+	            '\u6839\u636E\u7C7B\u8FDB\u884C\u62D6\u62FD\u8D4B\u503C'
 	          )
 	        )
 	      );
@@ -25988,33 +24164,18 @@
 	  }]);
 
 	  return App;
-	}(_react2.default.Component);
+	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return {
-	    value: JSON.stringify(state.datas), length: state.length
-	  };
-	}
-	function mapDispatchToProps(dispatch) {
-	  return {
-	    onAdd: function onAdd() {
-	      var data = { id: Math.round(Math.random() * 10), text: Math.round(Math.random() * 1000000000).toString(16) };dispatch((0, _actions.addOne)(data));
-	    },
-	    onDel: function onDel() {
-	      dispatch((0, _actions.delOne)(0));
-	    }
-	  };
-	}
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(App);
+	_reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('app'));
 
 /***/ },
-/* 221 */
+/* 219 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(222);
+	var content = __webpack_require__(220);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(215)(content, {});
@@ -26023,8 +24184,8 @@
 	if(true) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept(222, function() {
-				var newContent = __webpack_require__(222);
+			module.hot.accept(220, function() {
+				var newContent = __webpack_require__(220);
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -26034,7 +24195,1336 @@
 	}
 
 /***/ },
+/* 220 */
+/***/ function(module, exports, __webpack_require__) {
+
+	exports = module.exports = __webpack_require__(209)();
+	// imports
+
+
+	// module
+	exports.push([module.id, ".gu-mirror {\n  position: fixed !important;\n  margin: 0 !important;\n  z-index: 9999 !important;\n  opacity: 0.8;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)\";\n  filter: alpha(opacity=80);\n}\n.gu-hide {\n  display: none !important;\n}\n.gu-unselectable {\n  -webkit-user-select: none !important;\n  -moz-user-select: none !important;\n  -ms-user-select: none !important;\n  user-select: none !important;\n}\n.gu-transit {\n  opacity: 0.2;\n  -ms-filter: \"progid:DXImageTransform.Microsoft.Alpha(Opacity=20)\";\n  filter: alpha(opacity=20);\n}\n", ""]);
+
+	// exports
+
+
+/***/ },
+/* 221 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+
+	var emitter = __webpack_require__(222);
+	var crossvent = __webpack_require__(228);
+	var classes = __webpack_require__(231);
+	var doc = document;
+	var documentElement = doc.documentElement;
+
+	function dragula(initialContainers, options) {
+	  var len = arguments.length;
+	  if (len === 1 && Array.isArray(initialContainers) === false) {
+	    options = initialContainers;
+	    initialContainers = [];
+	  }
+	  var _mirror; // mirror image
+	  var _source; // source container
+	  var _item; // item being dragged
+	  var _offsetX; // reference x
+	  var _offsetY; // reference y
+	  var _moveX; // reference move x
+	  var _moveY; // reference move y
+	  var _initialSibling; // reference sibling when grabbed
+	  var _currentSibling; // reference sibling now
+	  var _copy; // item used for copying
+	  var _renderTimer; // timer for setTimeout renderMirrorImage
+	  var _lastDropTarget = null; // last container item was over
+	  var _grabbed; // holds mousedown context until first mousemove
+
+	  var o = options || {};
+	  if (o.moves === void 0) {
+	    o.moves = always;
+	  }
+	  if (o.accepts === void 0) {
+	    o.accepts = always;
+	  }
+	  if (o.invalid === void 0) {
+	    o.invalid = invalidTarget;
+	  }
+	  if (o.containers === void 0) {
+	    o.containers = initialContainers || [];
+	  }
+	  if (o.isContainer === void 0) {
+	    o.isContainer = never;
+	  }
+	  if (o.copy === void 0) {
+	    o.copy = false;
+	  }
+	  if (o.copySortSource === void 0) {
+	    o.copySortSource = false;
+	  }
+	  if (o.revertOnSpill === void 0) {
+	    o.revertOnSpill = false;
+	  }
+	  if (o.removeOnSpill === void 0) {
+	    o.removeOnSpill = false;
+	  }
+	  if (o.direction === void 0) {
+	    o.direction = 'vertical';
+	  }
+	  if (o.ignoreInputTextSelection === void 0) {
+	    o.ignoreInputTextSelection = true;
+	  }
+	  if (o.mirrorContainer === void 0) {
+	    o.mirrorContainer = doc.body;
+	  }
+
+	  var drake = emitter({
+	    containers: o.containers,
+	    start: manualStart,
+	    end: end,
+	    cancel: cancel,
+	    remove: remove,
+	    destroy: destroy,
+	    canMove: canMove,
+	    dragging: false
+	  });
+
+	  if (o.removeOnSpill === true) {
+	    drake.on('over', spillOver).on('out', spillOut);
+	  }
+
+	  events();
+
+	  return drake;
+
+	  function isContainer(el) {
+	    return drake.containers.indexOf(el) !== -1 || o.isContainer(el);
+	  }
+
+	  function events(remove) {
+	    var op = remove ? 'remove' : 'add';
+	    touchy(documentElement, op, 'mousedown', grab);
+	    touchy(documentElement, op, 'mouseup', release);
+	  }
+
+	  function eventualMovements(remove) {
+	    var op = remove ? 'remove' : 'add';
+	    touchy(documentElement, op, 'mousemove', startBecauseMouseMoved);
+	  }
+
+	  function movements(remove) {
+	    var op = remove ? 'remove' : 'add';
+	    crossvent[op](documentElement, 'selectstart', preventGrabbed); // IE8
+	    crossvent[op](documentElement, 'click', preventGrabbed);
+	  }
+
+	  function destroy() {
+	    events(true);
+	    release({});
+	  }
+
+	  function preventGrabbed(e) {
+	    if (_grabbed) {
+	      e.preventDefault();
+	    }
+	  }
+
+	  function grab(e) {
+	    _moveX = e.clientX;
+	    _moveY = e.clientY;
+
+	    var ignore = whichMouseButton(e) !== 1 || e.metaKey || e.ctrlKey;
+	    if (ignore) {
+	      return; // we only care about honest-to-god left clicks and touch events
+	    }
+	    var item = e.target;
+	    var context = canStart(item);
+	    if (!context) {
+	      return;
+	    }
+	    _grabbed = context;
+	    eventualMovements();
+	    if (e.type === 'mousedown') {
+	      if (isInput(item)) {
+	        // see also: https://github.com/bevacqua/dragula/issues/208
+	        item.focus(); // fixes https://github.com/bevacqua/dragula/issues/176
+	      } else {
+	        e.preventDefault(); // fixes https://github.com/bevacqua/dragula/issues/155
+	      }
+	    }
+	  }
+
+	  function startBecauseMouseMoved(e) {
+	    if (!_grabbed) {
+	      return;
+	    }
+	    if (whichMouseButton(e) === 0) {
+	      release({});
+	      return; // when text is selected on an input and then dragged, mouseup doesn't fire. this is our only hope
+	    }
+	    // truthy check fixes #239, equality fixes #207
+	    if (e.clientX !== void 0 && e.clientX === _moveX && e.clientY !== void 0 && e.clientY === _moveY) {
+	      return;
+	    }
+	    if (o.ignoreInputTextSelection) {
+	      var clientX = getCoord('clientX', e);
+	      var clientY = getCoord('clientY', e);
+	      var elementBehindCursor = doc.elementFromPoint(clientX, clientY);
+	      if (isInput(elementBehindCursor)) {
+	        return;
+	      }
+	    }
+
+	    var grabbed = _grabbed; // call to end() unsets _grabbed
+	    eventualMovements(true);
+	    movements();
+	    end();
+	    start(grabbed);
+
+	    var offset = getOffset(_item);
+	    _offsetX = getCoord('pageX', e) - offset.left;
+	    _offsetY = getCoord('pageY', e) - offset.top;
+
+	    classes.add(_copy || _item, 'gu-transit');
+	    renderMirrorImage();
+	    drag(e);
+	  }
+
+	  function canStart(item) {
+	    if (drake.dragging && _mirror) {
+	      return;
+	    }
+	    if (isContainer(item)) {
+	      return; // don't drag container itself
+	    }
+	    var handle = item;
+	    while (getParent(item) && isContainer(getParent(item)) === false) {
+	      if (o.invalid(item, handle)) {
+	        return;
+	      }
+	      item = getParent(item); // drag target should be a top element
+	      if (!item) {
+	        return;
+	      }
+	    }
+	    var source = getParent(item);
+	    if (!source) {
+	      return;
+	    }
+	    if (o.invalid(item, handle)) {
+	      return;
+	    }
+
+	    var movable = o.moves(item, source, handle, nextEl(item));
+	    if (!movable) {
+	      return;
+	    }
+
+	    return {
+	      item: item,
+	      source: source
+	    };
+	  }
+
+	  function canMove(item) {
+	    return !!canStart(item);
+	  }
+
+	  function manualStart(item) {
+	    var context = canStart(item);
+	    if (context) {
+	      start(context);
+	    }
+	  }
+
+	  function start(context) {
+	    if (isCopy(context.item, context.source)) {
+	      _copy = context.item.cloneNode(true);
+	      drake.emit('cloned', _copy, context.item, 'copy');
+	    }
+
+	    _source = context.source;
+	    _item = context.item;
+	    _initialSibling = _currentSibling = nextEl(context.item);
+
+	    drake.dragging = true;
+	    drake.emit('drag', _item, _source);
+	  }
+
+	  function invalidTarget() {
+	    return false;
+	  }
+
+	  function end() {
+	    if (!drake.dragging) {
+	      return;
+	    }
+	    var item = _copy || _item;
+	    drop(item, getParent(item));
+	  }
+
+	  function ungrab() {
+	    _grabbed = false;
+	    eventualMovements(true);
+	    movements(true);
+	  }
+
+	  function release(e) {
+	    ungrab();
+
+	    if (!drake.dragging) {
+	      return;
+	    }
+	    var item = _copy || _item;
+	    var clientX = getCoord('clientX', e);
+	    var clientY = getCoord('clientY', e);
+	    var elementBehindCursor = getElementBehindPoint(_mirror, clientX, clientY);
+	    var dropTarget = findDropTarget(elementBehindCursor, clientX, clientY);
+	    if (dropTarget && (_copy && o.copySortSource || !_copy || dropTarget !== _source)) {
+	      drop(item, dropTarget);
+	    } else if (o.removeOnSpill) {
+	      remove();
+	    } else {
+	      cancel();
+	    }
+	  }
+
+	  function drop(item, target) {
+	    var parent = getParent(item);
+	    if (_copy && o.copySortSource && target === _source) {
+	      parent.removeChild(_item);
+	    }
+	    if (isInitialPlacement(target)) {
+	      drake.emit('cancel', item, _source, _source);
+	    } else {
+	      drake.emit('drop', item, target, _source, _currentSibling);
+	    }
+	    cleanup();
+	  }
+
+	  function remove() {
+	    if (!drake.dragging) {
+	      return;
+	    }
+	    var item = _copy || _item;
+	    var parent = getParent(item);
+	    if (parent) {
+	      parent.removeChild(item);
+	    }
+	    drake.emit(_copy ? 'cancel' : 'remove', item, parent, _source);
+	    cleanup();
+	  }
+
+	  function cancel(revert) {
+	    if (!drake.dragging) {
+	      return;
+	    }
+	    var reverts = arguments.length > 0 ? revert : o.revertOnSpill;
+	    var item = _copy || _item;
+	    var parent = getParent(item);
+	    var initial = isInitialPlacement(parent);
+	    if (initial === false && reverts) {
+	      if (_copy) {
+	        if (parent) {
+	          parent.removeChild(_copy);
+	        }
+	      } else {
+	        _source.insertBefore(item, _initialSibling);
+	      }
+	    }
+	    if (initial || reverts) {
+	      drake.emit('cancel', item, _source, _source);
+	    } else {
+	      drake.emit('drop', item, parent, _source, _currentSibling);
+	    }
+	    cleanup();
+	  }
+
+	  function cleanup() {
+	    var item = _copy || _item;
+	    ungrab();
+	    removeMirrorImage();
+	    if (item) {
+	      classes.rm(item, 'gu-transit');
+	    }
+	    if (_renderTimer) {
+	      clearTimeout(_renderTimer);
+	    }
+	    drake.dragging = false;
+	    if (_lastDropTarget) {
+	      drake.emit('out', item, _lastDropTarget, _source);
+	    }
+	    drake.emit('dragend', item);
+	    _source = _item = _copy = _initialSibling = _currentSibling = _renderTimer = _lastDropTarget = null;
+	  }
+
+	  function isInitialPlacement(target, s) {
+	    var sibling;
+	    if (s !== void 0) {
+	      sibling = s;
+	    } else if (_mirror) {
+	      sibling = _currentSibling;
+	    } else {
+	      sibling = nextEl(_copy || _item);
+	    }
+	    return target === _source && sibling === _initialSibling;
+	  }
+
+	  function findDropTarget(elementBehindCursor, clientX, clientY) {
+	    var target = elementBehindCursor;
+	    while (target && !accepted()) {
+	      target = getParent(target);
+	    }
+	    return target;
+
+	    function accepted() {
+	      var droppable = isContainer(target);
+	      if (droppable === false) {
+	        return false;
+	      }
+
+	      var immediate = getImmediateChild(target, elementBehindCursor);
+	      var reference = getReference(target, immediate, clientX, clientY);
+	      var initial = isInitialPlacement(target, reference);
+	      if (initial) {
+	        return true; // should always be able to drop it right back where it was
+	      }
+	      return o.accepts(_item, target, _source, reference);
+	    }
+	  }
+
+	  function drag(e) {
+	    if (!_mirror) {
+	      return;
+	    }
+	    e.preventDefault();
+
+	    var clientX = getCoord('clientX', e);
+	    var clientY = getCoord('clientY', e);
+	    var x = clientX - _offsetX;
+	    var y = clientY - _offsetY;
+
+	    _mirror.style.left = x + 'px';
+	    _mirror.style.top = y + 'px';
+
+	    var item = _copy || _item;
+	    var elementBehindCursor = getElementBehindPoint(_mirror, clientX, clientY);
+	    var dropTarget = findDropTarget(elementBehindCursor, clientX, clientY);
+	    var changed = dropTarget !== null && dropTarget !== _lastDropTarget;
+	    if (changed || dropTarget === null) {
+	      out();
+	      _lastDropTarget = dropTarget;
+	      over();
+	    }
+	    var parent = getParent(item);
+	    if (dropTarget === _source && _copy && !o.copySortSource) {
+	      if (parent) {
+	        parent.removeChild(item);
+	      }
+	      return;
+	    }
+	    var reference;
+	    var immediate = getImmediateChild(dropTarget, elementBehindCursor);
+	    if (immediate !== null) {
+	      reference = getReference(dropTarget, immediate, clientX, clientY);
+	    } else if (o.revertOnSpill === true && !_copy) {
+	      reference = _initialSibling;
+	      dropTarget = _source;
+	    } else {
+	      if (_copy && parent) {
+	        parent.removeChild(item);
+	      }
+	      return;
+	    }
+	    if (reference === null && changed || reference !== item && reference !== nextEl(item)) {
+	      _currentSibling = reference;
+	      dropTarget.insertBefore(item, reference);
+	      drake.emit('shadow', item, dropTarget, _source);
+	    }
+	    function moved(type) {
+	      drake.emit(type, item, _lastDropTarget, _source);
+	    }
+	    function over() {
+	      if (changed) {
+	        moved('over');
+	      }
+	    }
+	    function out() {
+	      if (_lastDropTarget) {
+	        moved('out');
+	      }
+	    }
+	  }
+
+	  function spillOver(el) {
+	    classes.rm(el, 'gu-hide');
+	  }
+
+	  function spillOut(el) {
+	    if (drake.dragging) {
+	      classes.add(el, 'gu-hide');
+	    }
+	  }
+
+	  function renderMirrorImage() {
+	    if (_mirror) {
+	      return;
+	    }
+	    var rect = _item.getBoundingClientRect();
+	    _mirror = _item.cloneNode(true);
+	    _mirror.style.width = getRectWidth(rect) + 'px';
+	    _mirror.style.height = getRectHeight(rect) + 'px';
+	    classes.rm(_mirror, 'gu-transit');
+	    classes.add(_mirror, 'gu-mirror');
+	    o.mirrorContainer.appendChild(_mirror);
+	    touchy(documentElement, 'add', 'mousemove', drag);
+	    classes.add(o.mirrorContainer, 'gu-unselectable');
+	    drake.emit('cloned', _mirror, _item, 'mirror');
+	  }
+
+	  function removeMirrorImage() {
+	    if (_mirror) {
+	      classes.rm(o.mirrorContainer, 'gu-unselectable');
+	      touchy(documentElement, 'remove', 'mousemove', drag);
+	      getParent(_mirror).removeChild(_mirror);
+	      _mirror = null;
+	    }
+	  }
+
+	  function getImmediateChild(dropTarget, target) {
+	    var immediate = target;
+	    while (immediate !== dropTarget && getParent(immediate) !== dropTarget) {
+	      immediate = getParent(immediate);
+	    }
+	    if (immediate === documentElement) {
+	      return null;
+	    }
+	    return immediate;
+	  }
+
+	  function getReference(dropTarget, target, x, y) {
+	    var horizontal = o.direction === 'horizontal';
+	    var reference = target !== dropTarget ? inside() : outside();
+	    return reference;
+
+	    function outside() {
+	      // slower, but able to figure out any position
+	      var len = dropTarget.children.length;
+	      var i;
+	      var el;
+	      var rect;
+	      for (i = 0; i < len; i++) {
+	        el = dropTarget.children[i];
+	        rect = el.getBoundingClientRect();
+	        if (horizontal && rect.left + rect.width / 2 > x) {
+	          return el;
+	        }
+	        if (!horizontal && rect.top + rect.height / 2 > y) {
+	          return el;
+	        }
+	      }
+	      return null;
+	    }
+
+	    function inside() {
+	      // faster, but only available if dropped inside a child element
+	      var rect = target.getBoundingClientRect();
+	      if (horizontal) {
+	        return resolve(x > rect.left + getRectWidth(rect) / 2);
+	      }
+	      return resolve(y > rect.top + getRectHeight(rect) / 2);
+	    }
+
+	    function resolve(after) {
+	      return after ? nextEl(target) : target;
+	    }
+	  }
+
+	  function isCopy(item, container) {
+	    return typeof o.copy === 'boolean' ? o.copy : o.copy(item, container);
+	  }
+	}
+
+	function touchy(el, op, type, fn) {
+	  var touch = {
+	    mouseup: 'touchend',
+	    mousedown: 'touchstart',
+	    mousemove: 'touchmove'
+	  };
+	  var pointers = {
+	    mouseup: 'pointerup',
+	    mousedown: 'pointerdown',
+	    mousemove: 'pointermove'
+	  };
+	  var microsoft = {
+	    mouseup: 'MSPointerUp',
+	    mousedown: 'MSPointerDown',
+	    mousemove: 'MSPointerMove'
+	  };
+	  if (global.navigator.pointerEnabled) {
+	    crossvent[op](el, pointers[type], fn);
+	  } else if (global.navigator.msPointerEnabled) {
+	    crossvent[op](el, microsoft[type], fn);
+	  } else {
+	    crossvent[op](el, touch[type], fn);
+	    crossvent[op](el, type, fn);
+	  }
+	}
+
+	function whichMouseButton(e) {
+	  if (e.touches !== void 0) {
+	    return e.touches.length;
+	  }
+	  if (e.which !== void 0 && e.which !== 0) {
+	    return e.which;
+	  } // see https://github.com/bevacqua/dragula/issues/261
+	  if (e.buttons !== void 0) {
+	    return e.buttons;
+	  }
+	  var button = e.button;
+	  if (button !== void 0) {
+	    // see https://github.com/jquery/jquery/blob/99e8ff1baa7ae341e94bb89c3e84570c7c3ad9ea/src/event.js#L573-L575
+	    return button & 1 ? 1 : button & 2 ? 3 : button & 4 ? 2 : 0;
+	  }
+	}
+
+	function getOffset(el) {
+	  var rect = el.getBoundingClientRect();
+	  return {
+	    left: rect.left + getScroll('scrollLeft', 'pageXOffset'),
+	    top: rect.top + getScroll('scrollTop', 'pageYOffset')
+	  };
+	}
+
+	function getScroll(scrollProp, offsetProp) {
+	  if (typeof global[offsetProp] !== 'undefined') {
+	    return global[offsetProp];
+	  }
+	  if (documentElement.clientHeight) {
+	    return documentElement[scrollProp];
+	  }
+	  return doc.body[scrollProp];
+	}
+
+	function getElementBehindPoint(point, x, y) {
+	  var p = point || {};
+	  var state = p.className;
+	  var el;
+	  p.className += ' gu-hide';
+	  el = doc.elementFromPoint(x, y);
+	  p.className = state;
+	  return el;
+	}
+
+	function never() {
+	  return false;
+	}
+	function always() {
+	  return true;
+	}
+	function getRectWidth(rect) {
+	  return rect.width || rect.right - rect.left;
+	}
+	function getRectHeight(rect) {
+	  return rect.height || rect.bottom - rect.top;
+	}
+	function getParent(el) {
+	  return el.parentNode === doc ? null : el.parentNode;
+	}
+	function isInput(el) {
+	  return el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || isEditable(el);
+	}
+	function isEditable(el) {
+	  if (!el) {
+	    return false;
+	  } // no parents were editable
+	  if (el.contentEditable === 'false') {
+	    return false;
+	  } // stop the lookup
+	  if (el.contentEditable === 'true') {
+	    return true;
+	  } // found a contentEditable element in the chain
+	  return isEditable(getParent(el)); // contentEditable is set to 'inherit'
+	}
+
+	function nextEl(el) {
+	  return el.nextElementSibling || manually();
+	  function manually() {
+	    var sibling = el;
+	    do {
+	      sibling = sibling.nextSibling;
+	    } while (sibling && sibling.nodeType !== 1);
+	    return sibling;
+	  }
+	}
+
+	function getEventHost(e) {
+	  // on touchend event, we have to use `e.changedTouches`
+	  // see http://stackoverflow.com/questions/7192563/touchend-event-properties
+	  // see https://github.com/bevacqua/dragula/issues/34
+	  if (e.targetTouches && e.targetTouches.length) {
+	    return e.targetTouches[0];
+	  }
+	  if (e.changedTouches && e.changedTouches.length) {
+	    return e.changedTouches[0];
+	  }
+	  return e;
+	}
+
+	function getCoord(coord, e) {
+	  var host = getEventHost(e);
+	  var missMap = {
+	    pageX: 'clientX', // IE8
+	    pageY: 'clientY' // IE8
+	  };
+	  if (coord in missMap && !(coord in host) && missMap[coord] in host) {
+	    coord = missMap[coord];
+	  }
+	  return host[coord];
+	}
+
+	module.exports = dragula;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
 /* 222 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var atoa = __webpack_require__(223);
+	var debounce = __webpack_require__(224);
+
+	module.exports = function emitter(thing, options) {
+	  var opts = options || {};
+	  var evt = {};
+	  if (thing === undefined) {
+	    thing = {};
+	  }
+	  thing.on = function (type, fn) {
+	    if (!evt[type]) {
+	      evt[type] = [fn];
+	    } else {
+	      evt[type].push(fn);
+	    }
+	    return thing;
+	  };
+	  thing.once = function (type, fn) {
+	    fn._once = true; // thing.off(fn) still works!
+	    thing.on(type, fn);
+	    return thing;
+	  };
+	  thing.off = function (type, fn) {
+	    var c = arguments.length;
+	    if (c === 1) {
+	      delete evt[type];
+	    } else if (c === 0) {
+	      evt = {};
+	    } else {
+	      var et = evt[type];
+	      if (!et) {
+	        return thing;
+	      }
+	      et.splice(et.indexOf(fn), 1);
+	    }
+	    return thing;
+	  };
+	  thing.emit = function () {
+	    var args = atoa(arguments);
+	    return thing.emitterSnapshot(args.shift()).apply(this, args);
+	  };
+	  thing.emitterSnapshot = function (type) {
+	    var et = (evt[type] || []).slice(0);
+	    return function () {
+	      var args = atoa(arguments);
+	      var ctx = this || thing;
+	      if (type === 'error' && opts.throws !== false && !et.length) {
+	        throw args.length === 1 ? args[0] : args;
+	      }
+	      et.forEach(function emitter(listen) {
+	        if (opts.async) {
+	          debounce(listen, args, ctx);
+	        } else {
+	          listen.apply(ctx, args);
+	        }
+	        if (listen._once) {
+	          thing.off(type, listen);
+	        }
+	      });
+	      return thing;
+	    };
+	  };
+	  return thing;
+	};
+
+/***/ },
+/* 223 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	module.exports = function atoa(a, n) {
+	  return Array.prototype.slice.call(a, n);
+	};
+
+/***/ },
+/* 224 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var ticky = __webpack_require__(225);
+
+	module.exports = function debounce(fn, args, ctx) {
+	  if (!fn) {
+	    return;
+	  }
+	  ticky(function run() {
+	    fn.apply(ctx || null, args || []);
+	  });
+	};
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(setImmediate) {'use strict';
+
+	var si = typeof setImmediate === 'function',
+	    tick;
+	if (si) {
+	  tick = function tick(fn) {
+	    setImmediate(fn);
+	  };
+	} else {
+	  tick = function tick(fn) {
+	    setTimeout(fn, 0);
+	  };
+	}
+
+	module.exports = tick;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(226).setImmediate))
+
+/***/ },
+/* 226 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(setImmediate, clearImmediate) {"use strict";
+
+	var nextTick = __webpack_require__(227).nextTick;
+	var apply = Function.prototype.apply;
+	var slice = Array.prototype.slice;
+	var immediateIds = {};
+	var nextImmediateId = 0;
+
+	// DOM APIs, for completeness
+
+	exports.setTimeout = function () {
+	  return new Timeout(apply.call(setTimeout, window, arguments), clearTimeout);
+	};
+	exports.setInterval = function () {
+	  return new Timeout(apply.call(setInterval, window, arguments), clearInterval);
+	};
+	exports.clearTimeout = exports.clearInterval = function (timeout) {
+	  timeout.close();
+	};
+
+	function Timeout(id, clearFn) {
+	  this._id = id;
+	  this._clearFn = clearFn;
+	}
+	Timeout.prototype.unref = Timeout.prototype.ref = function () {};
+	Timeout.prototype.close = function () {
+	  this._clearFn.call(window, this._id);
+	};
+
+	// Does not start the time, just sets up the members needed.
+	exports.enroll = function (item, msecs) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = msecs;
+	};
+
+	exports.unenroll = function (item) {
+	  clearTimeout(item._idleTimeoutId);
+	  item._idleTimeout = -1;
+	};
+
+	exports._unrefActive = exports.active = function (item) {
+	  clearTimeout(item._idleTimeoutId);
+
+	  var msecs = item._idleTimeout;
+	  if (msecs >= 0) {
+	    item._idleTimeoutId = setTimeout(function onTimeout() {
+	      if (item._onTimeout) item._onTimeout();
+	    }, msecs);
+	  }
+	};
+
+	// That's not how node.js implements it but the exposed api is the same.
+	exports.setImmediate = typeof setImmediate === "function" ? setImmediate : function (fn) {
+	  var id = nextImmediateId++;
+	  var args = arguments.length < 2 ? false : slice.call(arguments, 1);
+
+	  immediateIds[id] = true;
+
+	  nextTick(function onNextTick() {
+	    if (immediateIds[id]) {
+	      // fn.call() is faster so we optimize for the common use-case
+	      // @see http://jsperf.com/call-apply-segu
+	      if (args) {
+	        fn.apply(null, args);
+	      } else {
+	        fn.call(null);
+	      }
+	      // Prevent ids from leaking
+	      exports.clearImmediate(id);
+	    }
+	  });
+
+	  return id;
+	};
+
+	exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate : function (id) {
+	  delete immediateIds[id];
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(226).setImmediate, __webpack_require__(226).clearImmediate))
+
+/***/ },
+/* 227 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	// shim for using process in browser
+	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout() {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	})();
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch (e) {
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch (e) {
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e) {
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e) {
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+	}
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = runTimeout(cleanUpNextTick);
+	    draining = true;
+
+	    var len = queue.length;
+	    while (len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    runClearTimeout(timeout);
+	}
+
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
+	    }
+	};
+
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+
+	function noop() {}
+
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+
+	process.cwd = function () {
+	    return '/';
+	};
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function () {
+	    return 0;
+	};
+
+/***/ },
+/* 228 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+
+	var customEvent = __webpack_require__(229);
+	var eventmap = __webpack_require__(230);
+	var doc = global.document;
+	var addEvent = addEventEasy;
+	var removeEvent = removeEventEasy;
+	var hardCache = [];
+
+	if (!global.addEventListener) {
+	  addEvent = addEventHard;
+	  removeEvent = removeEventHard;
+	}
+
+	module.exports = {
+	  add: addEvent,
+	  remove: removeEvent,
+	  fabricate: fabricateEvent
+	};
+
+	function addEventEasy(el, type, fn, capturing) {
+	  return el.addEventListener(type, fn, capturing);
+	}
+
+	function addEventHard(el, type, fn) {
+	  return el.attachEvent('on' + type, wrap(el, type, fn));
+	}
+
+	function removeEventEasy(el, type, fn, capturing) {
+	  return el.removeEventListener(type, fn, capturing);
+	}
+
+	function removeEventHard(el, type, fn) {
+	  var listener = unwrap(el, type, fn);
+	  if (listener) {
+	    return el.detachEvent('on' + type, listener);
+	  }
+	}
+
+	function fabricateEvent(el, type, model) {
+	  var e = eventmap.indexOf(type) === -1 ? makeCustomEvent() : makeClassicEvent();
+	  if (el.dispatchEvent) {
+	    el.dispatchEvent(e);
+	  } else {
+	    el.fireEvent('on' + type, e);
+	  }
+	  function makeClassicEvent() {
+	    var e;
+	    if (doc.createEvent) {
+	      e = doc.createEvent('Event');
+	      e.initEvent(type, true, true);
+	    } else if (doc.createEventObject) {
+	      e = doc.createEventObject();
+	    }
+	    return e;
+	  }
+	  function makeCustomEvent() {
+	    return new customEvent(type, { detail: model });
+	  }
+	}
+
+	function wrapperFactory(el, type, fn) {
+	  return function wrapper(originalEvent) {
+	    var e = originalEvent || global.event;
+	    e.target = e.target || e.srcElement;
+	    e.preventDefault = e.preventDefault || function preventDefault() {
+	      e.returnValue = false;
+	    };
+	    e.stopPropagation = e.stopPropagation || function stopPropagation() {
+	      e.cancelBubble = true;
+	    };
+	    e.which = e.which || e.keyCode;
+	    fn.call(el, e);
+	  };
+	}
+
+	function wrap(el, type, fn) {
+	  var wrapper = unwrap(el, type, fn) || wrapperFactory(el, type, fn);
+	  hardCache.push({
+	    wrapper: wrapper,
+	    element: el,
+	    type: type,
+	    fn: fn
+	  });
+	  return wrapper;
+	}
+
+	function unwrap(el, type, fn) {
+	  var i = find(el, type, fn);
+	  if (i) {
+	    var wrapper = hardCache[i].wrapper;
+	    hardCache.splice(i, 1); // free up a tad of memory
+	    return wrapper;
+	  }
+	}
+
+	function find(el, type, fn) {
+	  var i, item;
+	  for (i = 0; i < hardCache.length; i++) {
+	    item = hardCache[i];
+	    if (item.element === el && item.type === type && item.fn === fn) {
+	      return i;
+	    }
+	  }
+	}
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 229 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+
+	var NativeCustomEvent = global.CustomEvent;
+
+	function useNative() {
+	  try {
+	    var p = new NativeCustomEvent('cat', { detail: { foo: 'bar' } });
+	    return 'cat' === p.type && 'bar' === p.detail.foo;
+	  } catch (e) {}
+	  return false;
+	}
+
+	/**
+	 * Cross-browser `CustomEvent` constructor.
+	 *
+	 * https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent.CustomEvent
+	 *
+	 * @public
+	 */
+
+	module.exports = useNative() ? NativeCustomEvent :
+
+	// IE >= 9
+	'function' === typeof document.createEvent ? function CustomEvent(type, params) {
+	  var e = document.createEvent('CustomEvent');
+	  if (params) {
+	    e.initCustomEvent(type, params.bubbles, params.cancelable, params.detail);
+	  } else {
+	    e.initCustomEvent(type, false, false, void 0);
+	  }
+	  return e;
+	} :
+
+	// IE <= 8
+	function CustomEvent(type, params) {
+	  var e = document.createEventObject();
+	  e.type = type;
+	  if (params) {
+	    e.bubbles = Boolean(params.bubbles);
+	    e.cancelable = Boolean(params.cancelable);
+	    e.detail = params.detail;
+	  } else {
+	    e.bubbles = false;
+	    e.cancelable = false;
+	    e.detail = void 0;
+	  }
+	  return e;
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 230 */
+/***/ function(module, exports) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {'use strict';
+
+	var eventmap = [];
+	var eventname = '';
+	var ron = /^on/;
+
+	for (eventname in global) {
+	  if (ron.test(eventname)) {
+	    eventmap.push(eventname.slice(2));
+	  }
+	}
+
+	module.exports = eventmap;
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 231 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var cache = {};
+	var start = '(?:^|\\s)';
+	var end = '(?:\\s|$)';
+
+	function lookupClass(className) {
+	  var cached = cache[className];
+	  if (cached) {
+	    cached.lastIndex = 0;
+	  } else {
+	    cache[className] = cached = new RegExp(start + className + end, 'g');
+	  }
+	  return cached;
+	}
+
+	function addClass(el, className) {
+	  var current = el.className;
+	  if (!current.length) {
+	    el.className = className;
+	  } else if (!lookupClass(className).test(current)) {
+	    el.className += ' ' + className;
+	  }
+	}
+
+	function rmClass(el, className) {
+	  el.className = el.className.replace(lookupClass(className), ' ').trim();
+	}
+
+	module.exports = {
+	  add: addClass,
+	  rm: rmClass
+	};
+
+/***/ },
+/* 232 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// style-loader: Adds some css to the DOM by adding a <style> tag
+
+	// load the styles
+	var content = __webpack_require__(233);
+	if(typeof content === 'string') content = [[module.id, content, '']];
+	// add the styles to the DOM
+	var update = __webpack_require__(215)(content, {});
+	if(content.locals) module.exports = content.locals;
+	// Hot Module Replacement
+	if(true) {
+		// When the styles change, update the <style> tags
+		if(!content.locals) {
+			module.hot.accept(233, function() {
+				var newContent = __webpack_require__(233);
+				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+				update(newContent);
+			});
+		}
+		// When the module is disposed, remove the <style> tags
+		module.hot.dispose(function() { update(); });
+	}
+
+/***/ },
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(209)();

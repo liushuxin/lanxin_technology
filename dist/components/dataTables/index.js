@@ -101,7 +101,7 @@ class App extends Component{
 			<button onClick={self.queryDataTables.bind(this)}>查询</button>
 			<table className="main-tb">
 			</table>
-			hhbbcc
+			hhbb
 			<button onClick={self.updateUser.bind(this)}>更新</button>
 			<button onClick={self.addUser.bind(this)}>新增</button>
 			</div>

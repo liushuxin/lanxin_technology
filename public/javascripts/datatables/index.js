@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3c17b852ee626ed916c0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c0cd5a5b8e4f612b1f98"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -22175,7 +22175,7 @@
 						'\u67E5\u8BE2'
 					),
 					_react2.default.createElement('table', { className: 'main-tb' }),
-					'hhbbcc',
+					'hhbb',
 					_react2.default.createElement(
 						'button',
 						{ onClick: self.updateUser.bind(this) },
