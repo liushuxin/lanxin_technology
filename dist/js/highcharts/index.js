@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import HighCharts from '../../components/HighCharts';
 class App extends Component{
 	constructor(props){
 		super(props);
@@ -68,32 +69,10 @@ class App extends Component{
 		let self =this;
 		return (
 			<div ref="hc">
-				HighChart
-				<Title title="主标题" ref="title" />
+				
+				<HighCharts />
 			</div>
 			);
-	}
-}
-
-class Title extends Component{
-	constructor(props){
-		super(props);
-		
-	}
-	render(){
-		let self = this;
-		return (
-			<div className="title-wrapper">
-			<div>
-				<from id="form1">
-					姓名：<input type="text" name="xm" id="xm"/>
-					年龄：<input type="text" name="nl" id="nl"/>
-				</from>
-				测试文本
-			</div>
-				{self.props.title}
-			</div>
-			)
 	}
 }
 

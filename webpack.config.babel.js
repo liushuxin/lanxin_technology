@@ -55,6 +55,10 @@ let webpackConfig = {
     //clientLogLevel:'none',//(eg: none, error, warning or info (default))
     stats: { colors: true },
     proxy: {
+      '/getData': {
+        target: 'http://localhost:3000/',
+        secure: false
+      },
       '/components': {
         target: 'http://localhost:3000/',
         secure: false
@@ -67,7 +71,8 @@ let webpackConfig = {
     filename: '[name]/index.js'
   },
   plugins: [
-   new webpack.NoEmitOnErrorsPlugin()
+   new webpack.HotModuleReplacementPlugin(),
+   new webpack.NoEmitOnErrorsPlugin(),
     // new HtmlWebpackPlugin({
     //     title: '开发模板页',
     //     template: path.join(__dirname, './webpack-template/index.html'),
