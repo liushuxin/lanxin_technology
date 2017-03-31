@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c0cd5a5b8e4f612b1f98"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "730cd324c48aa1530aa9"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -22096,8 +22096,19 @@
 				self.$datatable = $(".main-tb").DataTable({
 					"data": self.props.data, //渲染数据
 					"retrieve": true, //是否返回引用
+					buttons: [{
+						extend: 'excelHtml5',
+						text: 'Save current page',
+						exportOptions: {
+							modifier: {
+								page: 'current'
+							}
+						}
+					}],
+					"dom": 'Bfrtip',
 					"columns": [//列定义
 					{ "data": "_id", "title": "数据id" }, { "data": "name", "title": "姓名" }, { "data": "age", "title": "年龄" }],
+
 					"lengthMenu": [5, 10, 15, 20, 100],
 					"pagingType": "full_numbers",
 					"language": {
@@ -22175,7 +22186,7 @@
 						'\u67E5\u8BE2'
 					),
 					_react2.default.createElement('table', { className: 'main-tb' }),
-					'hhbb',
+					'h',
 					_react2.default.createElement(
 						'button',
 						{ onClick: self.updateUser.bind(this) },

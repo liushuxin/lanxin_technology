@@ -29,11 +29,24 @@ class App extends Component{
 		self.$datatable =$(".main-tb").DataTable({
 		"data":self.props.data, //渲染数据
 		  "retrieve":true,//是否返回引用
+		   buttons: [
+        {
+            extend: 'excelHtml5',
+            text: 'Save current page',
+            exportOptions: {
+                modifier: {
+                    page: 'current'
+                }
+            }
+        }
+    ],
+    "dom": 'Bfrtip',
 		 "columns": [ //列定义
         { "data": "_id" ,"title":"数据id"},
         { "data": "name","title":"姓名" },
         { "data": "age","title":"年龄" }
     	],
+    	 
     	"lengthMenu": [ 5, 10, 15, 20, 100 ],
     	 "pagingType": "full_numbers",
     	"language":{
@@ -101,7 +114,7 @@ class App extends Component{
 			<button onClick={self.queryDataTables.bind(this)}>查询</button>
 			<table className="main-tb">
 			</table>
-			hhbb
+			h
 			<button onClick={self.updateUser.bind(this)}>更新</button>
 			<button onClick={self.addUser.bind(this)}>新增</button>
 			</div>

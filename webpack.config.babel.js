@@ -22,21 +22,30 @@ console.log(fileDirUrl);
 let webpackConfig = {
   entry:fileDirUrl,
   resolve: {
-        extensions: ['', '.js', '.jsx'],
-        root: []
+        extensions: ['.js', '.jsx'],
+       modules: [
+        "node_modules",
+        path.resolve(__dirname, "dist")
+      ]
     },
-  module: {
-    loaders: [
-    //使用babel-loader解析js或者jsx模块 
-        { test: /\.js|jsx$/, loaders: ['babel'] },
-        
-        // 使用css-loader解析css模块 
-        { test : /\.css$/, loader : 'style!css' },
-        {test: /\.(png|jpg)$/,loader: 'url?limit=40000'},
-        {test: /\.scss$/, loader: "style!css!sass"}],
 
-    include: [path.resolve(__dirname, "dist")],
-    exclude:[nodeModulesPath]
+  module: {
+    rules: [
+    //使用babel-loader解析js或者jsx模块 
+        { 
+        test: /\.js|jsx$/, 
+        use: ['babel-loader'] 
+        },{// 使用css-loader解析css模块 
+         test : /\.css$/,
+         use : ["style-loader","css-loader"]
+        },{
+          test: /\.(png|jpg)$/,
+          use: ['url-loader?limit=40000']
+        },{
+          test: /\.scss$/, 
+          use: ["style-loader","css-loader","sass-loader"]
+        }
+    ]
     },
   devServer: { 
     inline: true,
@@ -58,8 +67,7 @@ let webpackConfig = {
     filename: '[name]/index.js'
   },
   plugins: [
-   new webpack.HotModuleReplacementPlugin(),
-   new webpack.NoErrorsPlugin(),
+   new webpack.NoEmitOnErrorsPlugin()
     // new HtmlWebpackPlugin({
     //     title: '开发模板页',
     //     template: path.join(__dirname, './webpack-template/index.html'),

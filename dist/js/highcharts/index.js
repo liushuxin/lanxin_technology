@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
+import $ from 'jquery';
 class App extends Component{
 	constructor(props){
 		super(props);
@@ -29,8 +30,39 @@ class App extends Component{
 		 console.log(self.state.val);
 
 		 },0);
+	self.setAjaxTest();
 
+	}
+	setAjaxTest(){
+		let self = this;
+		console.log($("#form1").serialize());
 
+		$.ajax({
+			url:"/getData",
+			type:"POST",
+			timeout:3000,
+			dataType:"json",
+			beforeSend(){
+				console.log("开始请求数据！");
+			},
+			complete(){
+				console.log("请求完成")
+			},
+			success:(result)=>{
+				console.log(result);
+				var mydata = {
+					a:12,
+					b:34,
+					c:56
+				}
+				console.log($.param(mydata));
+
+			},
+			error:function(xhr,textStatus,err){
+				console.log(err);
+
+			}
+		});
 	}
 	render(){
 		let self =this;
@@ -52,6 +84,13 @@ class Title extends Component{
 		let self = this;
 		return (
 			<div className="title-wrapper">
+			<div>
+				<from id="form1">
+					姓名：<input type="text" name="xm" id="xm"/>
+					年龄：<input type="text" name="nl" id="nl"/>
+				</from>
+				测试文本
+			</div>
 				{self.props.title}
 			</div>
 			)
