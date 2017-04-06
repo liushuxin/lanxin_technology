@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack --config webpack.config.babel.js"
+    "start": "webpack --watch --color --config webpack.config.babel.js"
   },
   "dependencies": {
     "body-parser": "~1.13.2",

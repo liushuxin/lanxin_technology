@@ -22,8 +22,8 @@ console.log(fileDirUrl);
 let webpackConfig = {
   entry:fileDirUrl,
   resolve: {
-        extensions: ['.js', '.jsx'],
-       modules: [
+      extensions: ['.js', '.jsx'],
+      modules: [
         "node_modules",
         path.resolve(__dirname, "dist")
       ]
