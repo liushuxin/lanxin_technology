@@ -18,16 +18,19 @@ let pageDirs = fs.readdirSync(basePath);
       fileDirUrl[fileDir] = [`${__dirname}/${basePath}/${fileDir}/${file}`];
      });
   });
-console.log("preCompileFileList:"+fileDirUrl);
+console.log("preCompileFileList:");
+console.log(fileDirUrl);
 
 let webpackConfig = {
   entry:{
     highcharts:'./dist/js/highcharts/index.js'
   },
   resolve: {//如何解析模块
-    alias:{
-      component:path.resolve(__dirname,'dist/components')
-    },
+      alias:{//路径别名，使其import时更加直观
+        component:path.resolve(__dirname,'dist/components')
+      },
+      enforceModuleExtension: false,
+      descriptionFiles:["package.json"],//指定描述报管理的json 文件。
       extensions: ['.js', '.jsx'],
       modules: [//告知webpack 应该去解析哪些文件夹，绝对和相对路径在这里都可以使用
       path.resolve(__dirname,'dist'),
@@ -35,8 +38,8 @@ let webpackConfig = {
       ],
       enforceExtension:false//是否强制添加后缀
     },
-
-  module: {
+    devtool:"source-map",
+    module: {
     rules: [
     //使用babel-loader解析js或者jsx模块 
         { 
