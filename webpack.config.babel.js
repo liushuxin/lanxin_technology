@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import openBrowserWebpackPlugin from 'open-browser-webpack-plugin';
 
 let buildPath = path.resolve(__dirname,'public/javascripts');
-console.log(buildPath);
+console.log("buildpath:"+buildPath);
 let nodeModulesPath = path.resolve(__dirname,'node_modules');
 let fileDirUrl ={};
   //=======
@@ -18,15 +18,22 @@ let pageDirs = fs.readdirSync(basePath);
       fileDirUrl[fileDir] = [`${__dirname}/${basePath}/${fileDir}/${file}`];
      });
   });
-console.log(fileDirUrl);
+console.log("preCompileFileList:"+fileDirUrl);
+
 let webpackConfig = {
-  entry:fileDirUrl,
-  resolve: {
+  entry:{
+    highcharts:'./dist/js/highcharts/index.js'
+  },
+  resolve: {//如何解析模块
+    alias:{
+      component:path.resolve(__dirname,'dist/components')
+    },
       extensions: ['.js', '.jsx'],
-      modules: [
-        "node_modules",
-        path.resolve(__dirname, "dist")
-      ]
+      modules: [//告知webpack 应该去解析哪些文件夹，绝对和相对路径在这里都可以使用
+      path.resolve(__dirname,'dist'),
+        "node_modules"
+      ],
+      enforceExtension:false//是否强制添加后缀
     },
 
   module: {
@@ -82,4 +89,4 @@ let webpackConfig = {
   ]
 };
 export default webpackConfig;
-module.exports = webpackConfig;
+// module.exports = webpackConfig;
