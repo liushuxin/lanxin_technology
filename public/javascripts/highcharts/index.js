@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4563bcf2088f2754c0d0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "522c373ead40ce25dbee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -240,7 +240,7 @@
 /******/ 				};
 /******/ 			});
 /******/ 			hotUpdate = {};
-/******/ 			var chunkId = 0;
+/******/ 			var chunkId = 2;
 /******/ 			{ // eslint-disable-line no-lone-blocks
 /******/ 				/*globals chunkId */
 /******/ 				hotEnsureUpdateChunk(chunkId);
@@ -706,7 +706,7 @@
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return hotCreateRequire(174)(__webpack_require__.s = 174);
+/******/ 	return hotCreateRequire(392)(__webpack_require__.s = 392);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1179,8 +1179,8 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMProperty = __webpack_require__(17);
-var ReactDOMComponentFlags = __webpack_require__(66);
+var DOMProperty = __webpack_require__(20);
+var ReactDOMComponentFlags = __webpack_require__(116);
 
 var invariant = __webpack_require__(1);
 
@@ -1416,7 +1416,7 @@ module.exports = ExecutionEnvironment;
 var debugTool = null;
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactDebugTool = __webpack_require__(134);
+  var ReactDebugTool = __webpack_require__(286);
   debugTool = ReactDebugTool;
 }
 
@@ -1489,7 +1489,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(14);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -1839,10 +1839,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _assign = __webpack_require__(4);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(14);
 
 var warning = __webpack_require__(2);
-var canDefineProperty = __webpack_require__(47);
+var canDefineProperty = __webpack_require__(73);
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 // The Symbol used to tag the ReactElement type. If there is no native Symbol
@@ -2195,11 +2195,11 @@ module.exports = ReactElement;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var CallbackQueue = __webpack_require__(62);
-var PooledClass = __webpack_require__(16);
-var ReactFeatureFlags = __webpack_require__(70);
-var ReactReconciler = __webpack_require__(19);
-var Transaction = __webpack_require__(25);
+var CallbackQueue = __webpack_require__(112);
+var PooledClass = __webpack_require__(18);
+var ReactFeatureFlags = __webpack_require__(120);
+var ReactReconciler = __webpack_require__(24);
+var Transaction = __webpack_require__(34);
 
 var invariant = __webpack_require__(1);
 
@@ -2437,6 +2437,25 @@ module.exports = ReactUpdates;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var freeGlobal = __webpack_require__(103);
+
+/** Detect free variable `self`. */
+var freeSelf = (typeof self === 'undefined' ? 'undefined' : _typeof(self)) == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+module.exports = root;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -2450,7 +2469,7 @@ module.exports = ReactUpdates;
 
 
 
-var keyMirror = __webpack_require__(26);
+var keyMirror = __webpack_require__(37);
 
 var PropagationPhases = keyMirror({ bubbled: null, captured: null });
 
@@ -2536,7 +2555,7 @@ var EventConstants = {
 module.exports = EventConstants;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2573,7 +2592,7 @@ var ReactCurrentOwner = {
 module.exports = ReactCurrentOwner;
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2592,7 +2611,7 @@ module.exports = ReactCurrentOwner;
 
 var _assign = __webpack_require__(4);
 
-var PooledClass = __webpack_require__(16);
+var PooledClass = __webpack_require__(18);
 
 var emptyFunction = __webpack_require__(8);
 var warning = __webpack_require__(2);
@@ -2848,7 +2867,7 @@ function getPooledWarningPropertyDefinition(propName, getVal) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2889,7 +2908,41 @@ var keyOf = function keyOf(oneKeyObj) {
 module.exports = keyOf;
 
 /***/ }),
-/* 16 */
+/* 17 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Checks if `value` is classified as an `Array` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array, else `false`.
+ * @example
+ *
+ * _.isArray([1, 2, 3]);
+ * // => true
+ *
+ * _.isArray(document.body.children);
+ * // => false
+ *
+ * _.isArray('abc');
+ * // => false
+ *
+ * _.isArray(_.noop);
+ * // => false
+ */
+var isArray = Array.isArray;
+
+module.exports = isArray;
+
+/***/ }),
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3017,7 +3070,32 @@ module.exports = PooledClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 17 */
+/* 19 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIsNative = __webpack_require__(183),
+    getValue = __webpack_require__(202);
+
+/**
+ * Gets the native function at `key` of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {string} key The key of the method to get.
+ * @returns {*} Returns the function if it's native, else `undefined`.
+ */
+function getNative(object, key) {
+  var value = getValue(object, key);
+  return baseIsNative(value) ? value : undefined;
+}
+
+module.exports = getNative;
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3230,7 +3308,87 @@ module.exports = DOMProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 18 */
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Checks if `value` is object-like. A value is object-like if it's not `null`
+ * and has a `typeof` result of "object".
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is object-like, else `false`.
+ * @example
+ *
+ * _.isObjectLike({});
+ * // => true
+ *
+ * _.isObjectLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isObjectLike(_.noop);
+ * // => false
+ *
+ * _.isObjectLike(null);
+ * // => false
+ */
+function isObjectLike(value) {
+  return value != null && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object';
+}
+
+module.exports = isObjectLike;
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Checks if `value` is the
+ * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+ * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an object, else `false`.
+ * @example
+ *
+ * _.isObject({});
+ * // => true
+ *
+ * _.isObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isObject(_.noop);
+ * // => true
+ *
+ * _.isObject(null);
+ * // => false
+ */
+function isObject(value) {
+  var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
+  return value != null && (type == 'object' || type == 'function');
+}
+
+module.exports = isObject;
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3247,11 +3405,11 @@ module.exports = DOMProperty;
 
 
 
-var DOMNamespaces = __webpack_require__(36);
-var setInnerHTML = __webpack_require__(33);
+var DOMNamespaces = __webpack_require__(62);
+var setInnerHTML = __webpack_require__(53);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(48);
-var setTextContent = __webpack_require__(86);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(74);
+var setTextContent = __webpack_require__(136);
 
 var ELEMENT_NODE_TYPE = 1;
 var DOCUMENT_FRAGMENT_NODE_TYPE = 11;
@@ -3354,7 +3512,7 @@ DOMLazyTree.queueText = queueText;
 module.exports = DOMLazyTree;
 
 /***/ }),
-/* 19 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3371,7 +3529,7 @@ module.exports = DOMLazyTree;
 
 
 
-var ReactRef = __webpack_require__(147);
+var ReactRef = __webpack_require__(299);
 var ReactInstrumentation = __webpack_require__(7);
 
 var warning = __webpack_require__(2);
@@ -3529,7 +3687,72 @@ module.exports = ReactReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Symbol = __webpack_require__(28),
+    getRawTag = __webpack_require__(200),
+    objectToString = __webpack_require__(227);
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]',
+    undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+    if (value == null) {
+        return value === undefined ? undefinedTag : nullTag;
+    }
+    value = Object(value);
+    return symToStringTag && symToStringTag in value ? getRawTag(value) : objectToString(value);
+}
+
+module.exports = baseGetTag;
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = function (module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function () {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function get() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function get() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+/***/ }),
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3555,7 +3778,62 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 21 */
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root = __webpack_require__(12);
+
+/** Built-in value references. */
+var _Symbol = root.Symbol;
+
+module.exports = _Symbol;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isFunction = __webpack_require__(109),
+    isLength = __webpack_require__(60);
+
+/**
+ * Checks if `value` is array-like. A value is considered array-like if it's
+ * not a function and has a `value.length` that's an integer greater than or
+ * equal to `0` and less than or equal to `Number.MAX_SAFE_INTEGER`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is array-like, else `false`.
+ * @example
+ *
+ * _.isArrayLike([1, 2, 3]);
+ * // => true
+ *
+ * _.isArrayLike(document.body.children);
+ * // => true
+ *
+ * _.isArrayLike('abc');
+ * // => true
+ *
+ * _.isArrayLike(_.noop);
+ * // => false
+ */
+function isArrayLike(value) {
+  return value != null && isLength(value.length) && !isFunction(value);
+}
+
+module.exports = isArrayLike;
+
+/***/ }),
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3576,12 +3854,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventPluginRegistry = __webpack_require__(28);
-var EventPluginUtils = __webpack_require__(37);
-var ReactErrorUtils = __webpack_require__(42);
+var EventPluginRegistry = __webpack_require__(48);
+var EventPluginUtils = __webpack_require__(63);
+var ReactErrorUtils = __webpack_require__(68);
 
-var accumulateInto = __webpack_require__(79);
-var forEachAccumulated = __webpack_require__(81);
+var accumulateInto = __webpack_require__(129);
+var forEachAccumulated = __webpack_require__(131);
 var invariant = __webpack_require__(1);
 
 /**
@@ -3815,7 +4093,7 @@ module.exports = EventPluginHub;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 22 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3832,12 +4110,12 @@ module.exports = EventPluginHub;
 
 
 
-var EventConstants = __webpack_require__(12);
-var EventPluginHub = __webpack_require__(21);
-var EventPluginUtils = __webpack_require__(37);
+var EventConstants = __webpack_require__(13);
+var EventPluginHub = __webpack_require__(30);
+var EventPluginUtils = __webpack_require__(63);
 
-var accumulateInto = __webpack_require__(79);
-var forEachAccumulated = __webpack_require__(81);
+var accumulateInto = __webpack_require__(129);
+var forEachAccumulated = __webpack_require__(131);
 var warning = __webpack_require__(2);
 
 var PropagationPhases = EventConstants.PropagationPhases;
@@ -3959,7 +4237,7 @@ module.exports = EventPropagators;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 23 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4013,7 +4291,7 @@ var ReactInstanceMap = {
 module.exports = ReactInstanceMap;
 
 /***/ }),
-/* 24 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4030,9 +4308,9 @@ module.exports = ReactInstanceMap;
 
 
 
-var SyntheticEvent = __webpack_require__(14);
+var SyntheticEvent = __webpack_require__(15);
 
-var getEventTarget = __webpack_require__(51);
+var getEventTarget = __webpack_require__(77);
 
 /**
  * @interface UIEvent
@@ -4078,7 +4356,7 @@ SyntheticEvent.augmentClass(SyntheticUIEvent, UIEventInterface);
 module.exports = SyntheticUIEvent;
 
 /***/ }),
-/* 25 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4318,7 +4596,46 @@ module.exports = Transaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 26 */
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = __webpack_require__(265);
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var g;
+
+// This works in non-strict mode
+g = function () {
+	return this;
+}();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1, eval)("this");
+} catch (e) {
+	// This works if the window reference is available
+	if ((typeof window === "undefined" ? "undefined" : _typeof(window)) === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+/***/ }),
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4372,7 +4689,308 @@ module.exports = keyMirror;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 27 */
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var listCacheClear = __webpack_require__(213),
+    listCacheDelete = __webpack_require__(214),
+    listCacheGet = __webpack_require__(215),
+    listCacheHas = __webpack_require__(216),
+    listCacheSet = __webpack_require__(217);
+
+/**
+ * Creates an list cache object.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function ListCache(entries) {
+    var index = -1,
+        length = entries == null ? 0 : entries.length;
+
+    this.clear();
+    while (++index < length) {
+        var entry = entries[index];
+        this.set(entry[0], entry[1]);
+    }
+}
+
+// Add methods to `ListCache`.
+ListCache.prototype.clear = listCacheClear;
+ListCache.prototype['delete'] = listCacheDelete;
+ListCache.prototype.get = listCacheGet;
+ListCache.prototype.has = listCacheHas;
+ListCache.prototype.set = listCacheSet;
+
+module.exports = ListCache;
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var eq = __webpack_require__(44);
+
+/**
+ * Gets the index at which the `key` is found in `array` of key-value pairs.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {*} key The key to search for.
+ * @returns {number} Returns the index of the matched value, else `-1`.
+ */
+function assocIndexOf(array, key) {
+  var length = array.length;
+  while (length--) {
+    if (eq(array[length][0], key)) {
+      return length;
+    }
+  }
+  return -1;
+}
+
+module.exports = assocIndexOf;
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isKeyable = __webpack_require__(211);
+
+/**
+ * Gets the data for `map`.
+ *
+ * @private
+ * @param {Object} map The map to query.
+ * @param {string} key The reference key.
+ * @returns {*} Returns the map data.
+ */
+function getMapData(map, key) {
+  var data = map.__data__;
+  return isKeyable(key) ? data[typeof key == 'string' ? 'string' : 'hash'] : data.map;
+}
+
+module.exports = getMapData;
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var isArray = __webpack_require__(17),
+    isSymbol = __webpack_require__(45);
+
+/** Used to match property names within property paths. */
+var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
+    reIsPlainProp = /^\w*$/;
+
+/**
+ * Checks if `value` is a property name and not a property path.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {Object} [object] The object to query keys on.
+ * @returns {boolean} Returns `true` if `value` is a property name, else `false`.
+ */
+function isKey(value, object) {
+  if (isArray(value)) {
+    return false;
+  }
+  var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
+  if (type == 'number' || type == 'symbol' || type == 'boolean' || value == null || isSymbol(value)) {
+    return true;
+  }
+  return reIsPlainProp.test(value) || !reIsDeepProp.test(value) || object != null && value in Object(object);
+}
+
+module.exports = isKey;
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getNative = __webpack_require__(19);
+
+/* Built-in method references that are verified to be native. */
+var nativeCreate = getNative(Object, 'create');
+
+module.exports = nativeCreate;
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isSymbol = __webpack_require__(45);
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0;
+
+/**
+ * Converts `value` to a string key if it's not a string or symbol.
+ *
+ * @private
+ * @param {*} value The value to inspect.
+ * @returns {string|symbol} Returns the key.
+ */
+function toKey(value) {
+  if (typeof value == 'string' || isSymbol(value)) {
+    return value;
+  }
+  var result = value + '';
+  return result == '0' && 1 / value == -INFINITY ? '-0' : result;
+}
+
+module.exports = toKey;
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Performs a
+ * [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * comparison between two values to determine if they are equivalent.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to compare.
+ * @param {*} other The other value to compare.
+ * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ * var other = { 'a': 1 };
+ *
+ * _.eq(object, object);
+ * // => true
+ *
+ * _.eq(object, other);
+ * // => false
+ *
+ * _.eq('a', 'a');
+ * // => true
+ *
+ * _.eq('a', Object('a'));
+ * // => false
+ *
+ * _.eq(NaN, NaN);
+ * // => true
+ */
+function eq(value, other) {
+  return value === other || value !== value && other !== other;
+}
+
+module.exports = eq;
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var baseGetTag = __webpack_require__(25),
+    isObjectLike = __webpack_require__(21);
+
+/** `Object#toString` result references. */
+var symbolTag = '[object Symbol]';
+
+/**
+ * Checks if `value` is classified as a `Symbol` primitive or object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a symbol, else `false`.
+ * @example
+ *
+ * _.isSymbol(Symbol.iterator);
+ * // => true
+ *
+ * _.isSymbol('abc');
+ * // => false
+ */
+function isSymbol(value) {
+    return (typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'symbol' || isObjectLike(value) && baseGetTag(value) == symbolTag;
+}
+
+module.exports = isSymbol;
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var arrayLikeKeys = __webpack_require__(172),
+    baseKeys = __webpack_require__(185),
+    isArrayLike = __webpack_require__(29);
+
+/**
+ * Creates an array of the own enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects. See the
+ * [ES spec](http://ecma-international.org/ecma-262/7.0/#sec-object.keys)
+ * for more details.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Object
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ *   this.b = 2;
+ * }
+ *
+ * Foo.prototype.c = 3;
+ *
+ * _.keys(new Foo);
+ * // => ['a', 'b'] (iteration order is not guaranteed)
+ *
+ * _.keys('hi');
+ * // => ['0', '1']
+ */
+function keys(object) {
+  return isArrayLike(object) ? arrayLikeKeys(object) : baseKeys(object);
+}
+
+module.exports = keys;
+
+/***/ }),
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4428,7 +5046,7 @@ var DisabledInputUtils = {
 module.exports = DisabledInputUtils;
 
 /***/ }),
-/* 28 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4682,7 +5300,7 @@ module.exports = EventPluginRegistry;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 29 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4701,13 +5319,13 @@ module.exports = EventPluginRegistry;
 
 var _assign = __webpack_require__(4);
 
-var EventConstants = __webpack_require__(12);
-var EventPluginRegistry = __webpack_require__(28);
-var ReactEventEmitterMixin = __webpack_require__(137);
-var ViewportMetrics = __webpack_require__(78);
+var EventConstants = __webpack_require__(13);
+var EventPluginRegistry = __webpack_require__(48);
+var ReactEventEmitterMixin = __webpack_require__(289);
+var ViewportMetrics = __webpack_require__(128);
 
-var getVendorPrefixedEventName = __webpack_require__(169);
-var isEventSupported = __webpack_require__(53);
+var getVendorPrefixedEventName = __webpack_require__(321);
+var isEventSupported = __webpack_require__(79);
 
 /**
  * Summary of `ReactBrowserEventEmitter` event handling:
@@ -5018,7 +5636,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
 module.exports = ReactBrowserEventEmitter;
 
 /***/ }),
-/* 30 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5035,7 +5653,7 @@ module.exports = ReactBrowserEventEmitter;
 
 
 
-var keyMirror = __webpack_require__(26);
+var keyMirror = __webpack_require__(37);
 
 var ReactPropTypeLocations = keyMirror({
   prop: null,
@@ -5046,7 +5664,7 @@ var ReactPropTypeLocations = keyMirror({
 module.exports = ReactPropTypeLocations;
 
 /***/ }),
-/* 31 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5063,10 +5681,10 @@ module.exports = ReactPropTypeLocations;
 
 
 
-var SyntheticUIEvent = __webpack_require__(24);
-var ViewportMetrics = __webpack_require__(78);
+var SyntheticUIEvent = __webpack_require__(33);
+var ViewportMetrics = __webpack_require__(128);
 
-var getEventModifierState = __webpack_require__(50);
+var getEventModifierState = __webpack_require__(76);
 
 /**
  * @interface MouseEvent
@@ -5124,7 +5742,7 @@ SyntheticUIEvent.augmentClass(SyntheticMouseEvent, MouseEventInterface);
 module.exports = SyntheticMouseEvent;
 
 /***/ }),
-/* 32 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5253,7 +5871,7 @@ function escapeTextContentForBrowser(text) {
 module.exports = escapeTextContentForBrowser;
 
 /***/ }),
-/* 33 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5271,12 +5889,12 @@ module.exports = escapeTextContentForBrowser;
 
 
 var ExecutionEnvironment = __webpack_require__(6);
-var DOMNamespaces = __webpack_require__(36);
+var DOMNamespaces = __webpack_require__(62);
 
 var WHITESPACE_TEST = /^[ \r\n\t\f]/;
 var NONVISIBLE_TEST = /<(!--|link|noscript|meta|script|style)[ \r\n\t\f\/>]/;
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(48);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(74);
 
 // SVG temp container for IE lacking innerHTML
 var reusableSVGContainer;
@@ -5357,7 +5975,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setInnerHTML;
 
 /***/ }),
-/* 34 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5432,7 +6050,206 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 35 */
+/* 55 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getNative = __webpack_require__(19),
+    root = __webpack_require__(12);
+
+/* Built-in method references that are verified to be native. */
+var Map = getNative(root, 'Map');
+
+module.exports = Map;
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var mapCacheClear = __webpack_require__(218),
+    mapCacheDelete = __webpack_require__(219),
+    mapCacheGet = __webpack_require__(220),
+    mapCacheHas = __webpack_require__(221),
+    mapCacheSet = __webpack_require__(222);
+
+/**
+ * Creates a map cache object to store key-value pairs.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function MapCache(entries) {
+    var index = -1,
+        length = entries == null ? 0 : entries.length;
+
+    this.clear();
+    while (++index < length) {
+        var entry = entries[index];
+        this.set(entry[0], entry[1]);
+    }
+}
+
+// Add methods to `MapCache`.
+MapCache.prototype.clear = mapCacheClear;
+MapCache.prototype['delete'] = mapCacheDelete;
+MapCache.prototype.get = mapCacheGet;
+MapCache.prototype.has = mapCacheHas;
+MapCache.prototype.set = mapCacheSet;
+
+module.exports = MapCache;
+
+/***/ }),
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/** Used to detect unsigned integer values. */
+var reIsUint = /^(?:0|[1-9]\d*)$/;
+
+/**
+ * Checks if `value` is a valid array-like index.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @param {number} [length=MAX_SAFE_INTEGER] The upper bounds of a valid index.
+ * @returns {boolean} Returns `true` if `value` is a valid index, else `false`.
+ */
+function isIndex(value, length) {
+  length = length == null ? MAX_SAFE_INTEGER : length;
+  return !!length && (typeof value == 'number' || reIsUint.test(value)) && value > -1 && value % 1 == 0 && value < length;
+}
+
+module.exports = isIndex;
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * This method returns the first argument it receives.
+ *
+ * @static
+ * @since 0.1.0
+ * @memberOf _
+ * @category Util
+ * @param {*} value Any value.
+ * @returns {*} Returns `value`.
+ * @example
+ *
+ * var object = { 'a': 1 };
+ *
+ * console.log(_.identity(object) === object);
+ * // => true
+ */
+function identity(value) {
+  return value;
+}
+
+module.exports = identity;
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIsArguments = __webpack_require__(179),
+    isObjectLike = __webpack_require__(21);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Built-in value references. */
+var propertyIsEnumerable = objectProto.propertyIsEnumerable;
+
+/**
+ * Checks if `value` is likely an `arguments` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArguments(function() { return arguments; }());
+ * // => true
+ *
+ * _.isArguments([1, 2, 3]);
+ * // => false
+ */
+var isArguments = baseIsArguments(function () {
+    return arguments;
+}()) ? baseIsArguments : function (value) {
+    return isObjectLike(value) && hasOwnProperty.call(value, 'callee') && !propertyIsEnumerable.call(value, 'callee');
+};
+
+module.exports = isArguments;
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used as references for various `Number` constants. */
+var MAX_SAFE_INTEGER = 9007199254740991;
+
+/**
+ * Checks if `value` is a valid array-like length.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToLength`](http://ecma-international.org/ecma-262/7.0/#sec-tolength).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a valid length, else `false`.
+ * @example
+ *
+ * _.isLength(3);
+ * // => true
+ *
+ * _.isLength(Number.MIN_VALUE);
+ * // => false
+ *
+ * _.isLength(Infinity);
+ * // => false
+ *
+ * _.isLength('3');
+ * // => false
+ */
+function isLength(value) {
+  return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= MAX_SAFE_INTEGER;
+}
+
+module.exports = isLength;
+
+/***/ }),
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5449,15 +6266,15 @@ module.exports = shallowEqual;
 
 
 
-var DOMLazyTree = __webpack_require__(18);
-var Danger = __webpack_require__(108);
-var ReactMultiChildUpdateTypes = __webpack_require__(74);
+var DOMLazyTree = __webpack_require__(23);
+var Danger = __webpack_require__(260);
+var ReactMultiChildUpdateTypes = __webpack_require__(124);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(7);
 
-var createMicrosoftUnsafeLocalFunction = __webpack_require__(48);
-var setInnerHTML = __webpack_require__(33);
-var setTextContent = __webpack_require__(86);
+var createMicrosoftUnsafeLocalFunction = __webpack_require__(74);
+var setInnerHTML = __webpack_require__(53);
+var setTextContent = __webpack_require__(136);
 
 function getNodeAfter(parentNode, node) {
   // Special case for text components, which return [open, close] comments
@@ -5633,7 +6450,7 @@ module.exports = DOMChildrenOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 36 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5659,7 +6476,7 @@ var DOMNamespaces = {
 module.exports = DOMNamespaces;
 
 /***/ }),
-/* 37 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5678,8 +6495,8 @@ module.exports = DOMNamespaces;
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventConstants = __webpack_require__(12);
-var ReactErrorUtils = __webpack_require__(42);
+var EventConstants = __webpack_require__(13);
+var ReactErrorUtils = __webpack_require__(68);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -5895,7 +6712,7 @@ module.exports = EventPluginUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 38 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5960,7 +6777,7 @@ var KeyEscapeUtils = {
 module.exports = KeyEscapeUtils;
 
 /***/ }),
-/* 39 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5979,9 +6796,9 @@ module.exports = KeyEscapeUtils;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactPropTypes = __webpack_require__(76);
-var ReactPropTypeLocations = __webpack_require__(30);
-var ReactPropTypesSecret = __webpack_require__(45);
+var ReactPropTypes = __webpack_require__(126);
+var ReactPropTypeLocations = __webpack_require__(50);
+var ReactPropTypesSecret = __webpack_require__(71);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -6103,7 +6920,7 @@ module.exports = LinkedValueUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 40 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6124,10 +6941,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactNoopUpdateQueue = __webpack_require__(43);
+var ReactNoopUpdateQueue = __webpack_require__(69);
 
-var canDefineProperty = __webpack_require__(47);
-var emptyObject = __webpack_require__(20);
+var canDefineProperty = __webpack_require__(73);
+var emptyObject = __webpack_require__(27);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -6230,7 +7047,7 @@ module.exports = ReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 41 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6282,7 +7099,7 @@ module.exports = ReactComponentEnvironment;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 42 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6365,7 +7182,7 @@ module.exports = ReactErrorUtils;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 43 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6468,7 +7285,7 @@ module.exports = ReactNoopUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 44 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6499,7 +7316,7 @@ module.exports = ReactPropTypeLocationNames;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 45 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6521,7 +7338,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ }),
-/* 46 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6542,8 +7359,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(13);
-var ReactInstanceMap = __webpack_require__(23);
+var ReactCurrentOwner = __webpack_require__(14);
+var ReactInstanceMap = __webpack_require__(32);
 var ReactInstrumentation = __webpack_require__(7);
 var ReactUpdates = __webpack_require__(11);
 
@@ -6756,7 +7573,7 @@ module.exports = ReactUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 47 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6787,7 +7604,7 @@ module.exports = canDefineProperty;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 48 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6825,7 +7642,7 @@ var createMicrosoftUnsafeLocalFunction = function createMicrosoftUnsafeLocalFunc
 module.exports = createMicrosoftUnsafeLocalFunction;
 
 /***/ }),
-/* 49 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6881,7 +7698,7 @@ function getEventCharCode(nativeEvent) {
 module.exports = getEventCharCode;
 
 /***/ }),
-/* 50 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6930,7 +7747,7 @@ function getEventModifierState(nativeEvent) {
 module.exports = getEventModifierState;
 
 /***/ }),
-/* 51 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6971,7 +7788,7 @@ function getEventTarget(nativeEvent) {
 module.exports = getEventTarget;
 
 /***/ }),
-/* 52 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7018,7 +7835,7 @@ function getIteratorFn(maybeIterable) {
 module.exports = getIteratorFn;
 
 /***/ }),
-/* 53 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7084,7 +7901,7 @@ function isEventSupported(eventNameSuffix, capture) {
 module.exports = isEventSupported;
 
 /***/ }),
-/* 54 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7134,7 +7951,7 @@ function shouldUpdateReactComponent(prevElement, nextElement) {
 module.exports = shouldUpdateReactComponent;
 
 /***/ }),
-/* 55 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7155,12 +7972,12 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactElement = __webpack_require__(10);
 
-var getIteratorFn = __webpack_require__(52);
+var getIteratorFn = __webpack_require__(78);
 var invariant = __webpack_require__(1);
-var KeyEscapeUtils = __webpack_require__(38);
+var KeyEscapeUtils = __webpack_require__(64);
 var warning = __webpack_require__(2);
 
 var SEPARATOR = '.';
@@ -7310,7 +8127,7 @@ module.exports = traverseAllChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 56 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7699,16 +8516,37 @@ module.exports = validateDOMNesting;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 57 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(113);
+module.exports = __webpack_require__(270);
 
 /***/ }),
-/* 58 */
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = supportsProtoAssignment;
+var x = {};
+var y = { supports: true };
+try {
+  x.__proto__ = y;
+} catch (err) {}
+
+function supportsProtoAssignment() {
+  return x.supports || false;
+};
+
+/***/ }),
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7798,7 +8636,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 59 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7830,7 +8668,7 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 60 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7871,7 +8709,766 @@ function getActiveElement() /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 61 */
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var MapCache = __webpack_require__(56),
+    setCacheAdd = __webpack_require__(229),
+    setCacheHas = __webpack_require__(230);
+
+/**
+ *
+ * Creates an array cache object to store unique values.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [values] The values to cache.
+ */
+function SetCache(values) {
+    var index = -1,
+        length = values == null ? 0 : values.length;
+
+    this.__data__ = new MapCache();
+    while (++index < length) {
+        this.add(values[index]);
+    }
+}
+
+// Add methods to `SetCache`.
+SetCache.prototype.add = SetCache.prototype.push = setCacheAdd;
+SetCache.prototype.has = setCacheHas;
+
+module.exports = SetCache;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ListCache = __webpack_require__(38),
+    stackClear = __webpack_require__(234),
+    stackDelete = __webpack_require__(235),
+    stackGet = __webpack_require__(236),
+    stackHas = __webpack_require__(237),
+    stackSet = __webpack_require__(238);
+
+/**
+ * Creates a stack cache object to store key-value pairs.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function Stack(entries) {
+  var data = this.__data__ = new ListCache(entries);
+  this.size = data.size;
+}
+
+// Add methods to `Stack`.
+Stack.prototype.clear = stackClear;
+Stack.prototype['delete'] = stackDelete;
+Stack.prototype.get = stackGet;
+Stack.prototype.has = stackHas;
+Stack.prototype.set = stackSet;
+
+module.exports = Stack;
+
+/***/ }),
+/* 90 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A specialized version of `_.map` for arrays without support for iteratee
+ * shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the new mapped array.
+ */
+function arrayMap(array, iteratee) {
+  var index = -1,
+      length = array == null ? 0 : array.length,
+      result = Array(length);
+
+  while (++index < length) {
+    result[index] = iteratee(array[index], index, array);
+  }
+  return result;
+}
+
+module.exports = arrayMap;
+
+/***/ }),
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseAssignValue = __webpack_require__(92),
+    eq = __webpack_require__(44);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Assigns `value` to `key` of `object` if the existing value is not equivalent
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function assignValue(object, key, value) {
+  var objValue = object[key];
+  if (!(hasOwnProperty.call(object, key) && eq(objValue, value)) || value === undefined && !(key in object)) {
+    baseAssignValue(object, key, value);
+  }
+}
+
+module.exports = assignValue;
+
+/***/ }),
+/* 92 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var defineProperty = __webpack_require__(101);
+
+/**
+ * The base implementation of `assignValue` and `assignMergeValue` without
+ * value checks.
+ *
+ * @private
+ * @param {Object} object The object to modify.
+ * @param {string} key The key of the property to assign.
+ * @param {*} value The value to assign.
+ */
+function baseAssignValue(object, key, value) {
+  if (key == '__proto__' && defineProperty) {
+    defineProperty(object, key, {
+      'configurable': true,
+      'enumerable': true,
+      'value': value,
+      'writable': true
+    });
+  } else {
+    object[key] = value;
+  }
+}
+
+module.exports = baseAssignValue;
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * The base implementation of `_.findIndex` and `_.findLastIndex` without
+ * support for iteratee shorthands.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {Function} predicate The function invoked per iteration.
+ * @param {number} fromIndex The index to search from.
+ * @param {boolean} [fromRight] Specify iterating from right to left.
+ * @returns {number} Returns the index of the matched value, else `-1`.
+ */
+function baseFindIndex(array, predicate, fromIndex, fromRight) {
+  var length = array.length,
+      index = fromIndex + (fromRight ? 1 : -1);
+
+  while (fromRight ? index-- : ++index < length) {
+    if (predicate(array[index], index, array)) {
+      return index;
+    }
+  }
+  return -1;
+}
+
+module.exports = baseFindIndex;
+
+/***/ }),
+/* 94 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var castPath = __webpack_require__(100),
+    isKey = __webpack_require__(41),
+    toKey = __webpack_require__(43);
+
+/**
+ * The base implementation of `_.get` without support for default values.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array|string} path The path of the property to get.
+ * @returns {*} Returns the resolved value.
+ */
+function baseGet(object, path) {
+  path = isKey(path, object) ? [path] : castPath(path);
+
+  var index = 0,
+      length = path.length;
+
+  while (object != null && index < length) {
+    object = object[toKey(path[index++])];
+  }
+  return index && index == length ? object : undefined;
+}
+
+module.exports = baseGet;
+
+/***/ }),
+/* 95 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIsEqualDeep = __webpack_require__(180),
+    isObject = __webpack_require__(22),
+    isObjectLike = __webpack_require__(21);
+
+/**
+ * The base implementation of `_.isEqual` which supports partial comparisons
+ * and tracks traversed objects.
+ *
+ * @private
+ * @param {*} value The value to compare.
+ * @param {*} other The other value to compare.
+ * @param {Function} [customizer] The function to customize comparisons.
+ * @param {boolean} [bitmask] The bitmask of comparison flags.
+ *  The bitmask may be composed of the following flags:
+ *     1 - Unordered comparison
+ *     2 - Partial comparison
+ * @param {Object} [stack] Tracks traversed `value` and `other` objects.
+ * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+ */
+function baseIsEqual(value, other, customizer, bitmask, stack) {
+  if (value === other) {
+    return true;
+  }
+  if (value == null || other == null || !isObject(value) && !isObjectLike(other)) {
+    return value !== value && other !== other;
+  }
+  return baseIsEqualDeep(value, other, baseIsEqual, customizer, bitmask, stack);
+}
+
+module.exports = baseIsEqual;
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var baseMatches = __webpack_require__(186),
+    baseMatchesProperty = __webpack_require__(187),
+    identity = __webpack_require__(58),
+    isArray = __webpack_require__(17),
+    property = __webpack_require__(250);
+
+/**
+ * The base implementation of `_.iteratee`.
+ *
+ * @private
+ * @param {*} [value=_.identity] The value to convert to an iteratee.
+ * @returns {Function} Returns the iteratee.
+ */
+function baseIteratee(value) {
+  // Don't store the `typeof` result in a variable to avoid a JIT bug in Safari 9.
+  // See https://bugs.webkit.org/show_bug.cgi?id=156034 for more details.
+  if (typeof value == 'function') {
+    return value;
+  }
+  if (value == null) {
+    return identity;
+  }
+  if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) == 'object') {
+    return isArray(value) ? baseMatchesProperty(value[0], value[1]) : baseMatches(value);
+  }
+  return property(value);
+}
+
+module.exports = baseIteratee;
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var identity = __webpack_require__(58),
+    overRest = __webpack_require__(228),
+    setToString = __webpack_require__(232);
+
+/**
+ * The base implementation of `_.rest` which doesn't validate or coerce arguments.
+ *
+ * @private
+ * @param {Function} func The function to apply a rest parameter to.
+ * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @returns {Function} Returns the new function.
+ */
+function baseRest(func, start) {
+  return setToString(overRest(func, start, identity), func + '');
+}
+
+module.exports = baseRest;
+
+/***/ }),
+/* 98 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * The base implementation of `_.unary` without support for storing metadata.
+ *
+ * @private
+ * @param {Function} func The function to cap arguments for.
+ * @returns {Function} Returns the new capped function.
+ */
+function baseUnary(func) {
+  return function (value) {
+    return func(value);
+  };
+}
+
+module.exports = baseUnary;
+
+/***/ }),
+/* 99 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Checks if a `cache` value for `key` exists.
+ *
+ * @private
+ * @param {Object} cache The cache to query.
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function cacheHas(cache, key) {
+  return cache.has(key);
+}
+
+module.exports = cacheHas;
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isArray = __webpack_require__(17),
+    stringToPath = __webpack_require__(240);
+
+/**
+ * Casts `value` to a path array if it's not one.
+ *
+ * @private
+ * @param {*} value The value to inspect.
+ * @returns {Array} Returns the cast property path array.
+ */
+function castPath(value) {
+  return isArray(value) ? value : stringToPath(value);
+}
+
+module.exports = castPath;
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getNative = __webpack_require__(19);
+
+var defineProperty = function () {
+  try {
+    var func = getNative(Object, 'defineProperty');
+    func({}, '', {});
+    return func;
+  } catch (e) {}
+}();
+
+module.exports = defineProperty;
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var SetCache = __webpack_require__(88),
+    arraySome = __webpack_require__(174),
+    cacheHas = __webpack_require__(99);
+
+/** Used to compose bitmasks for comparison styles. */
+var UNORDERED_COMPARE_FLAG = 1,
+    PARTIAL_COMPARE_FLAG = 2;
+
+/**
+ * A specialized version of `baseIsEqualDeep` for arrays with support for
+ * partial deep comparisons.
+ *
+ * @private
+ * @param {Array} array The array to compare.
+ * @param {Array} other The other array to compare.
+ * @param {Function} equalFunc The function to determine equivalents of values.
+ * @param {Function} customizer The function to customize comparisons.
+ * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
+ *  for more details.
+ * @param {Object} stack Tracks traversed `array` and `other` objects.
+ * @returns {boolean} Returns `true` if the arrays are equivalent, else `false`.
+ */
+function equalArrays(array, other, equalFunc, customizer, bitmask, stack) {
+  var isPartial = bitmask & PARTIAL_COMPARE_FLAG,
+      arrLength = array.length,
+      othLength = other.length;
+
+  if (arrLength != othLength && !(isPartial && othLength > arrLength)) {
+    return false;
+  }
+  // Assume cyclic values are equal.
+  var stacked = stack.get(array);
+  if (stacked && stack.get(other)) {
+    return stacked == other;
+  }
+  var index = -1,
+      result = true,
+      seen = bitmask & UNORDERED_COMPARE_FLAG ? new SetCache() : undefined;
+
+  stack.set(array, other);
+  stack.set(other, array);
+
+  // Ignore non-index properties.
+  while (++index < arrLength) {
+    var arrValue = array[index],
+        othValue = other[index];
+
+    if (customizer) {
+      var compared = isPartial ? customizer(othValue, arrValue, index, other, array, stack) : customizer(arrValue, othValue, index, array, other, stack);
+    }
+    if (compared !== undefined) {
+      if (compared) {
+        continue;
+      }
+      result = false;
+      break;
+    }
+    // Recursively compare arrays (susceptible to call stack limits).
+    if (seen) {
+      if (!arraySome(other, function (othValue, othIndex) {
+        if (!cacheHas(seen, othIndex) && (arrValue === othValue || equalFunc(arrValue, othValue, customizer, bitmask, stack))) {
+          return seen.push(othIndex);
+        }
+      })) {
+        result = false;
+        break;
+      }
+    } else if (!(arrValue === othValue || equalFunc(arrValue, othValue, customizer, bitmask, stack))) {
+      result = false;
+      break;
+    }
+  }
+  stack['delete'](array);
+  stack['delete'](other);
+  return result;
+}
+
+module.exports = equalArrays;
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = (typeof global === 'undefined' ? 'undefined' : _typeof(global)) == 'object' && global && global.Object === Object && global;
+
+module.exports = freeGlobal;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Checks if `value` is likely a prototype object.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a prototype, else `false`.
+ */
+function isPrototype(value) {
+  var Ctor = value && value.constructor,
+      proto = typeof Ctor == 'function' && Ctor.prototype || objectProto;
+
+  return value === proto;
+}
+
+module.exports = isPrototype;
+
+/***/ }),
+/* 105 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isObject = __webpack_require__(22);
+
+/**
+ * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` if suitable for strict
+ *  equality comparisons, else `false`.
+ */
+function isStrictComparable(value) {
+  return value === value && !isObject(value);
+}
+
+module.exports = isStrictComparable;
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A specialized version of `matchesProperty` for source values suitable
+ * for strict equality comparisons, i.e. `===`.
+ *
+ * @private
+ * @param {string} key The key of the property to get.
+ * @param {*} srcValue The value to match.
+ * @returns {Function} Returns the new spec function.
+ */
+function matchesStrictComparable(key, srcValue) {
+  return function (object) {
+    if (object == null) {
+      return false;
+    }
+    return object[key] === srcValue && (srcValue !== undefined || key in Object(object));
+  };
+}
+
+module.exports = matchesStrictComparable;
+
+/***/ }),
+/* 107 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/**
+ * Converts `func` to its source code.
+ *
+ * @private
+ * @param {Function} func The function to convert.
+ * @returns {string} Returns the source code.
+ */
+function toSource(func) {
+  if (func != null) {
+    try {
+      return funcToString.call(func);
+    } catch (e) {}
+    try {
+      return func + '';
+    } catch (e) {}
+  }
+  return '';
+}
+
+module.exports = toSource;
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var root = __webpack_require__(12),
+    stubFalse = __webpack_require__(251);
+
+/** Detect free variable `exports`. */
+var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
+
+/** Detect free variable `module`. */
+var freeModule = freeExports && ( false ? 'undefined' : _typeof(module)) == 'object' && module && !module.nodeType && module;
+
+/** Detect the popular CommonJS extension `module.exports`. */
+var moduleExports = freeModule && freeModule.exports === freeExports;
+
+/** Built-in value references. */
+var Buffer = moduleExports ? root.Buffer : undefined;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeIsBuffer = Buffer ? Buffer.isBuffer : undefined;
+
+/**
+ * Checks if `value` is a buffer.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.3.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a buffer, else `false`.
+ * @example
+ *
+ * _.isBuffer(new Buffer(2));
+ * // => true
+ *
+ * _.isBuffer(new Uint8Array(2));
+ * // => false
+ */
+var isBuffer = nativeIsBuffer || stubFalse;
+
+module.exports = isBuffer;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)(module)))
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGetTag = __webpack_require__(25),
+    isObject = __webpack_require__(22);
+
+/** `Object#toString` result references. */
+var asyncTag = '[object AsyncFunction]',
+    funcTag = '[object Function]',
+    genTag = '[object GeneratorFunction]',
+    proxyTag = '[object Proxy]';
+
+/**
+ * Checks if `value` is classified as a `Function` object.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+ * @example
+ *
+ * _.isFunction(_);
+ * // => true
+ *
+ * _.isFunction(/abc/);
+ * // => false
+ */
+function isFunction(value) {
+    if (!isObject(value)) {
+        return false;
+    }
+    // The use of `Object#toString` avoids issues with the `typeof` operator
+    // in Safari 9 which returns 'object' for typed arrays and other constructors.
+    var tag = baseGetTag(value);
+    return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
+}
+
+module.exports = isFunction;
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIsTypedArray = __webpack_require__(184),
+    baseUnary = __webpack_require__(98),
+    nodeUtil = __webpack_require__(226);
+
+/* Node.js helper references. */
+var nodeIsTypedArray = nodeUtil && nodeUtil.isTypedArray;
+
+/**
+ * Checks if `value` is classified as a typed array.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ * @example
+ *
+ * _.isTypedArray(new Uint8Array);
+ * // => true
+ *
+ * _.isTypedArray([]);
+ * // => false
+ */
+var isTypedArray = nodeIsTypedArray ? baseUnary(nodeIsTypedArray) : baseIsTypedArray;
+
+module.exports = isTypedArray;
+
+/***/ }),
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8025,7 +9622,7 @@ var CSSProperty = {
 module.exports = CSSProperty;
 
 /***/ }),
-/* 62 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8045,7 +9642,7 @@ module.exports = CSSProperty;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var PooledClass = __webpack_require__(16);
+var PooledClass = __webpack_require__(18);
 
 var invariant = __webpack_require__(1);
 
@@ -8138,7 +9735,7 @@ module.exports = CallbackQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 63 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8155,11 +9752,11 @@ module.exports = CallbackQueue;
 
 
 
-var DOMProperty = __webpack_require__(17);
+var DOMProperty = __webpack_require__(20);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(7);
 
-var quoteAttributeValueForBrowser = __webpack_require__(171);
+var quoteAttributeValueForBrowser = __webpack_require__(323);
 var warning = __webpack_require__(2);
 
 var VALID_ATTRIBUTE_NAME_REGEX = new RegExp('^[' + DOMProperty.ATTRIBUTE_NAME_START_CHAR + '][' + DOMProperty.ATTRIBUTE_NAME_CHAR + ']*$');
@@ -8366,7 +9963,7 @@ module.exports = DOMPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 64 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8383,11 +9980,11 @@ module.exports = DOMPropertyOperations;
 
 
 
-var PooledClass = __webpack_require__(16);
+var PooledClass = __webpack_require__(18);
 var ReactElement = __webpack_require__(10);
 
 var emptyFunction = __webpack_require__(8);
-var traverseAllChildren = __webpack_require__(55);
+var traverseAllChildren = __webpack_require__(81);
 
 var twoArgumentPooler = PooledClass.twoArgumentPooler;
 var fourArgumentPooler = PooledClass.fourArgumentPooler;
@@ -8562,7 +10159,7 @@ var ReactChildren = {
 module.exports = ReactChildren;
 
 /***/ }),
-/* 65 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8584,16 +10181,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var ReactComponent = __webpack_require__(40);
+var ReactComponent = __webpack_require__(66);
 var ReactElement = __webpack_require__(10);
-var ReactPropTypeLocations = __webpack_require__(30);
-var ReactPropTypeLocationNames = __webpack_require__(44);
-var ReactNoopUpdateQueue = __webpack_require__(43);
+var ReactPropTypeLocations = __webpack_require__(50);
+var ReactPropTypeLocationNames = __webpack_require__(70);
+var ReactNoopUpdateQueue = __webpack_require__(69);
 
-var emptyObject = __webpack_require__(20);
+var emptyObject = __webpack_require__(27);
 var invariant = __webpack_require__(1);
-var keyMirror = __webpack_require__(26);
-var keyOf = __webpack_require__(15);
+var keyMirror = __webpack_require__(37);
+var keyOf = __webpack_require__(16);
 var warning = __webpack_require__(2);
 
 var MIXINS_KEY = keyOf({ mixins: null });
@@ -9303,7 +10900,7 @@ module.exports = ReactClass;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 66 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9327,7 +10924,7 @@ var ReactDOMComponentFlags = {
 module.exports = ReactDOMComponentFlags;
 
 /***/ }),
-/* 67 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9346,8 +10943,8 @@ module.exports = ReactDOMComponentFlags;
 
 var _assign = __webpack_require__(4);
 
-var DisabledInputUtils = __webpack_require__(27);
-var LinkedValueUtils = __webpack_require__(39);
+var DisabledInputUtils = __webpack_require__(47);
+var LinkedValueUtils = __webpack_require__(65);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
@@ -9535,7 +11132,7 @@ module.exports = ReactDOMSelect;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 68 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9561,15 +11158,15 @@ module.exports = ReactDOMSelect;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactComponentTreeHook = __webpack_require__(9);
 var ReactElement = __webpack_require__(10);
-var ReactPropTypeLocations = __webpack_require__(30);
+var ReactPropTypeLocations = __webpack_require__(50);
 
-var checkReactTypeSpec = __webpack_require__(80);
+var checkReactTypeSpec = __webpack_require__(130);
 
-var canDefineProperty = __webpack_require__(47);
-var getIteratorFn = __webpack_require__(52);
+var canDefineProperty = __webpack_require__(73);
+var getIteratorFn = __webpack_require__(78);
 var warning = __webpack_require__(2);
 
 function getDeclarationErrorAddendum() {
@@ -9772,7 +11369,7 @@ module.exports = ReactElementValidator;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 69 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9808,7 +11405,7 @@ ReactEmptyComponent.injection = ReactEmptyComponentInjection;
 module.exports = ReactEmptyComponent;
 
 /***/ }),
-/* 70 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9836,7 +11433,7 @@ var ReactFeatureFlags = {
 module.exports = ReactFeatureFlags;
 
 /***/ }),
-/* 71 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9919,7 +11516,7 @@ module.exports = ReactHostComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 72 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9936,11 +11533,11 @@ module.exports = ReactHostComponent;
 
 
 
-var ReactDOMSelection = __webpack_require__(129);
+var ReactDOMSelection = __webpack_require__(281);
 
-var containsNode = __webpack_require__(91);
-var focusNode = __webpack_require__(59);
-var getActiveElement = __webpack_require__(60);
+var containsNode = __webpack_require__(150);
+var focusNode = __webpack_require__(86);
+var getActiveElement = __webpack_require__(87);
 
 function isInDocument(node) {
   return containsNode(document.documentElement, node);
@@ -10049,7 +11646,7 @@ var ReactInputSelection = {
 module.exports = ReactInputSelection;
 
 /***/ }),
-/* 73 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10068,27 +11665,27 @@ module.exports = ReactInputSelection;
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMLazyTree = __webpack_require__(18);
-var DOMProperty = __webpack_require__(17);
-var ReactBrowserEventEmitter = __webpack_require__(29);
-var ReactCurrentOwner = __webpack_require__(13);
+var DOMLazyTree = __webpack_require__(23);
+var DOMProperty = __webpack_require__(20);
+var ReactBrowserEventEmitter = __webpack_require__(49);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMContainerInfo = __webpack_require__(121);
-var ReactDOMFeatureFlags = __webpack_require__(124);
+var ReactDOMContainerInfo = __webpack_require__(273);
+var ReactDOMFeatureFlags = __webpack_require__(276);
 var ReactElement = __webpack_require__(10);
-var ReactFeatureFlags = __webpack_require__(70);
-var ReactInstanceMap = __webpack_require__(23);
+var ReactFeatureFlags = __webpack_require__(120);
+var ReactInstanceMap = __webpack_require__(32);
 var ReactInstrumentation = __webpack_require__(7);
-var ReactMarkupChecksum = __webpack_require__(142);
-var ReactReconciler = __webpack_require__(19);
-var ReactUpdateQueue = __webpack_require__(46);
+var ReactMarkupChecksum = __webpack_require__(294);
+var ReactReconciler = __webpack_require__(24);
+var ReactUpdateQueue = __webpack_require__(72);
 var ReactUpdates = __webpack_require__(11);
 
-var emptyObject = __webpack_require__(20);
-var instantiateReactComponent = __webpack_require__(84);
+var emptyObject = __webpack_require__(27);
+var instantiateReactComponent = __webpack_require__(134);
 var invariant = __webpack_require__(1);
-var setInnerHTML = __webpack_require__(33);
-var shouldUpdateReactComponent = __webpack_require__(54);
+var setInnerHTML = __webpack_require__(53);
+var shouldUpdateReactComponent = __webpack_require__(80);
 var warning = __webpack_require__(2);
 
 var ATTR_NAME = DOMProperty.ID_ATTRIBUTE_NAME;
@@ -10590,7 +12187,7 @@ module.exports = ReactMount;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 74 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10607,7 +12204,7 @@ module.exports = ReactMount;
 
 
 
-var keyMirror = __webpack_require__(26);
+var keyMirror = __webpack_require__(37);
 
 /**
  * When a component's children are updated, a series of update configuration
@@ -10628,7 +12225,7 @@ var ReactMultiChildUpdateTypes = keyMirror({
 module.exports = ReactMultiChildUpdateTypes;
 
 /***/ }),
-/* 75 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10675,7 +12272,7 @@ module.exports = ReactNodeTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 76 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10695,11 +12292,11 @@ module.exports = ReactNodeTypes;
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var ReactElement = __webpack_require__(10);
-var ReactPropTypeLocationNames = __webpack_require__(44);
-var ReactPropTypesSecret = __webpack_require__(45);
+var ReactPropTypeLocationNames = __webpack_require__(70);
+var ReactPropTypesSecret = __webpack_require__(71);
 
 var emptyFunction = __webpack_require__(8);
-var getIteratorFn = __webpack_require__(52);
+var getIteratorFn = __webpack_require__(78);
 var warning = __webpack_require__(2);
 
 /**
@@ -11115,7 +12712,7 @@ module.exports = ReactPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 77 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11135,7 +12732,7 @@ module.exports = ReactPropTypes;
 module.exports = '15.3.2';
 
 /***/ }),
-/* 78 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11168,7 +12765,7 @@ var ViewportMetrics = {
 module.exports = ViewportMetrics;
 
 /***/ }),
-/* 79 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11233,7 +12830,7 @@ module.exports = accumulateInto;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 80 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11254,8 +12851,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactPropTypeLocationNames = __webpack_require__(44);
-var ReactPropTypesSecret = __webpack_require__(45);
+var ReactPropTypeLocationNames = __webpack_require__(70);
+var ReactPropTypesSecret = __webpack_require__(71);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -11329,7 +12926,7 @@ module.exports = checkReactTypeSpec;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 81 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11366,7 +12963,7 @@ function forEachAccumulated(arr, cb, scope) {
 module.exports = forEachAccumulated;
 
 /***/ }),
-/* 82 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11383,7 +12980,7 @@ module.exports = forEachAccumulated;
 
 
 
-var ReactNodeTypes = __webpack_require__(75);
+var ReactNodeTypes = __webpack_require__(125);
 
 function getHostComponentFromComposite(inst) {
   var type;
@@ -11402,7 +12999,7 @@ function getHostComponentFromComposite(inst) {
 module.exports = getHostComponentFromComposite;
 
 /***/ }),
-/* 83 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11441,7 +13038,7 @@ function getTextContentAccessor() {
 module.exports = getTextContentAccessor;
 
 /***/ }),
-/* 84 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11463,9 +13060,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var ReactCompositeComponent = __webpack_require__(117);
-var ReactEmptyComponent = __webpack_require__(69);
-var ReactHostComponent = __webpack_require__(71);
+var ReactCompositeComponent = __webpack_require__(269);
+var ReactEmptyComponent = __webpack_require__(119);
+var ReactHostComponent = __webpack_require__(121);
 
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
@@ -11569,7 +13166,7 @@ module.exports = instantiateReactComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 85 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11626,7 +13223,7 @@ function isTextInputElement(elem) {
 module.exports = isTextInputElement;
 
 /***/ }),
-/* 86 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11644,8 +13241,8 @@ module.exports = isTextInputElement;
 
 
 var ExecutionEnvironment = __webpack_require__(6);
-var escapeTextContentForBrowser = __webpack_require__(32);
-var setInnerHTML = __webpack_require__(33);
+var escapeTextContentForBrowser = __webpack_require__(52);
+var setInnerHTML = __webpack_require__(53);
 
 /**
  * Set the textContent property of a node, ensuring that whitespace is preserved
@@ -11680,123 +13277,1625 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = setTextContent;
 
 /***/ }),
-/* 87 */
+/* 137 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;_e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }return _arr;
+  }return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = catchErrors;
+function catchErrors(_ref) {
+  var filename = _ref.filename;
+  var components = _ref.components;
+  var imports = _ref.imports;
+
+  var _imports = _slicedToArray(imports, 3);
+
+  var React = _imports[0];
+  var ErrorReporter = _imports[1];
+  var reporterOptions = _imports[2];
+
+  if (!React || !React.Component) {
+    throw new Error('imports[0] for react-transform-catch-errors does not look like React.');
+  }
+  if (typeof ErrorReporter !== 'function') {
+    throw new Error('imports[1] for react-transform-catch-errors does not look like a React component.');
+  }
+
+  return function wrapToCatchErrors(ReactClass, componentId) {
+    var originalRender = ReactClass.prototype.render;
+
+    ReactClass.prototype.render = function tryRender() {
+      try {
+        return originalRender.apply(this, arguments);
+      } catch (err) {
+        setTimeout(function () {
+          if (typeof console.reportErrorsAsExceptions !== 'undefined') {
+            var prevReportErrorAsExceptions = console.reportErrorsAsExceptions;
+            // We're in React Native. Don't throw.
+            // Stop react-native from triggering its own error handler
+            console.reportErrorsAsExceptions = false;
+            // Log an error
+            console.error(err);
+            // Reactivate it so other errors are still handled
+            console.reportErrorsAsExceptions = prevReportErrorAsExceptions;
+          } else {
+            throw err;
+          }
+        });
+
+        return React.createElement(ErrorReporter, _extends({
+          error: err,
+          filename: filename
+        }, reporterOptions));
+      }
+    };
+
+    return ReactClass;
+  };
+}
+
+/***/ }),
+/* 138 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;_e = err;
+    } finally {
+      try {
+        if (!_n && _i['return']) _i['return']();
+      } finally {
+        if (_d) throw _e;
+      }
+    }return _arr;
+  }return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError('Invalid attempt to destructure non-iterable instance');
+    }
+  };
+}();
+
+exports['default'] = proxyReactComponents;
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { 'default': obj };
+}
+
+var _reactProxy = __webpack_require__(145);
+
+var _globalWindow = __webpack_require__(162);
+
+var _globalWindow2 = _interopRequireDefault(_globalWindow);
+
+var componentProxies = undefined;
+if (_globalWindow2['default'].__reactComponentProxies) {
+  componentProxies = _globalWindow2['default'].__reactComponentProxies;
+} else {
+  componentProxies = {};
+  Object.defineProperty(_globalWindow2['default'], '__reactComponentProxies', {
+    configurable: true,
+    enumerable: false,
+    writable: false,
+    value: componentProxies
+  });
+}
+
+function proxyReactComponents(_ref) {
+  var filename = _ref.filename;
+  var components = _ref.components;
+  var imports = _ref.imports;
+  var locals = _ref.locals;
+
+  var _imports = _slicedToArray(imports, 1);
+
+  var React = _imports[0];
+
+  var _locals = _slicedToArray(locals, 1);
+
+  var hot = _locals[0].hot;
+
+  if (!React.Component) {
+    throw new Error('imports[0] for react-transform-hmr does not look like React.');
+  }
+
+  if (!hot || typeof hot.accept !== 'function') {
+    throw new Error('locals[0] does not appear to be a `module` object with Hot Module ' + 'replacement API enabled. You should disable react-transform-hmr in ' + 'production by using `env` section in Babel configuration. See the ' + 'example in README: https://github.com/gaearon/react-transform-hmr');
+  }
+
+  if (Object.keys(components).some(function (key) {
+    return !components[key].isInFunction;
+  })) {
+    hot.accept(function (err) {
+      if (err) {
+        console.warn('[React Transform HMR] There was an error updating ' + filename + ':');
+        console.error(err);
+      }
+    });
+  }
+
+  var forceUpdate = (0, _reactProxy.getForceUpdate)(React);
+
+  return function wrapWithProxy(ReactClass, uniqueId) {
+    var _components$uniqueId = components[uniqueId];
+    var _components$uniqueId$isInFunction = _components$uniqueId.isInFunction;
+    var isInFunction = _components$uniqueId$isInFunction === undefined ? false : _components$uniqueId$isInFunction;
+    var _components$uniqueId$displayName = _components$uniqueId.displayName;
+    var displayName = _components$uniqueId$displayName === undefined ? uniqueId : _components$uniqueId$displayName;
+
+    if (isInFunction) {
+      return ReactClass;
+    }
+
+    var globalUniqueId = filename + '$' + uniqueId;
+    if (componentProxies[globalUniqueId]) {
+      (function () {
+        console.info('[React Transform HMR] Patching ' + displayName);
+        var instances = componentProxies[globalUniqueId].update(ReactClass);
+        setTimeout(function () {
+          return instances.forEach(forceUpdate);
+        });
+      })();
+    } else {
+      componentProxies[globalUniqueId] = (0, _reactProxy.createProxy)(ReactClass);
+    }
+
+    return componentProxies[globalUniqueId].get();
+  };
+}
+
+module.exports = exports['default'];
+
+/***/ }),
+/* 139 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.__RewireAPI__ = exports.__ResetDependency__ = exports.__set__ = exports.__Rewire__ = exports.__GetDependency__ = exports.__get__ = exports.RedBoxError = undefined;
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var _createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;
+  };
+}();
+
+var _react = __webpack_require__(35);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(83);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _style = __webpack_require__(326);
+
+var _style2 = _interopRequireDefault(_style);
+
+var _errorStackParser = __webpack_require__(147);
+
+var _errorStackParser2 = _interopRequireDefault(_errorStackParser);
+
+var _objectAssign = __webpack_require__(327);
+
+var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+var _lib = __webpack_require__(325);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+
+function _possibleConstructorReturn(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }return call && ((typeof call === "undefined" ? "undefined" : _typeof2(call)) === "object" || typeof call === "function") ? call : self;
+}
+
+function _inherits(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + (typeof superClass === "undefined" ? "undefined" : _typeof2(superClass)));
+  }subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+}
+
+var RedBoxError = exports.RedBoxError = function (_get__2) {
+  _inherits(RedBoxError, _get__2);
+
+  function RedBoxError() {
+    _classCallCheck(this, RedBoxError);
+
+    return _possibleConstructorReturn(this, (RedBoxError.__proto__ || Object.getPrototypeOf(RedBoxError)).apply(this, arguments));
+  }
+
+  _createClass(RedBoxError, [{
+    key: 'renderFrames',
+    value: function renderFrames(frames) {
+      var _props = this.props,
+          filename = _props.filename,
+          editorScheme = _props.editorScheme,
+          useLines = _props.useLines,
+          useColumns = _props.useColumns;
+
+      var _get__3 = _get__('assign')({}, _get__('style'), this.props.style),
+          frame = _get__3.frame,
+          file = _get__3.file,
+          linkToFile = _get__3.linkToFile;
+
+      return frames.map(function (f, index) {
+        var text = void 0;
+        var url = void 0;
+
+        if (index === 0 && filename && !_get__('isFilenameAbsolute')(f.fileName)) {
+          url = _get__('makeUrl')(filename, editorScheme);
+          text = _get__('makeLinkText')(filename);
+        } else {
+          var lines = useLines ? f.lineNumber : null;
+          var columns = useColumns ? f.columnNumber : null;
+          url = _get__('makeUrl')(f.fileName, editorScheme, lines, columns);
+          text = _get__('makeLinkText')(f.fileName, lines, columns);
+        }
+
+        return _get__('React').createElement('div', { style: frame, key: index }, _get__('React').createElement('div', null, f.functionName), _get__('React').createElement('div', { style: file }, _get__('React').createElement('a', { href: url, style: linkToFile }, text)));
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props2 = this.props,
+          error = _props2.error,
+          className = _props2.className;
+
+      var _get__4 = _get__('assign')({}, _get__('style'), this.props.style),
+          redbox = _get__4.redbox,
+          message = _get__4.message,
+          stack = _get__4.stack,
+          frame = _get__4.frame;
+
+      var frames = void 0;
+      var parseError = void 0;
+      try {
+        frames = _get__('ErrorStackParser').parse(error);
+      } catch (e) {
+        parseError = new Error('Failed to parse stack trace. Stack trace information unavailable.');
+      }
+
+      if (parseError) {
+        frames = _get__('React').createElement('div', { style: frame, key: 0 }, _get__('React').createElement('div', null, parseError.message));
+      } else {
+        frames = this.renderFrames(frames);
+      }
+
+      return _get__('React').createElement('div', { style: redbox, className: className }, _get__('React').createElement('div', { style: message }, error.name, ': ', error.message), _get__('React').createElement('div', { style: stack }, frames));
+    }
+  }]);
+
+  return RedBoxError;
+}(_get__('Component'));
+
+// "Portal" component for actual RedBoxError component to
+// render to (directly under body). Prevents bugs as in #27.
+
+
+RedBoxError.propTypes = {
+  error: _get__('PropTypes').instanceOf(Error).isRequired,
+  filename: _get__('PropTypes').string,
+  editorScheme: _get__('PropTypes').string,
+  useLines: _get__('PropTypes').bool,
+  useColumns: _get__('PropTypes').bool,
+  style: _get__('PropTypes').object,
+  className: _get__('PropTypes').string
+};
+RedBoxError.displayName = 'RedBoxError';
+RedBoxError.defaultProps = {
+  useLines: true,
+  useColumns: true
+};
+
+var RedBox = function (_get__5) {
+  _inherits(RedBox, _get__5);
+
+  function RedBox() {
+    _classCallCheck(this, RedBox);
+
+    return _possibleConstructorReturn(this, (RedBox.__proto__ || Object.getPrototypeOf(RedBox)).apply(this, arguments));
+  }
+
+  _createClass(RedBox, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.el = document.createElement('div');
+      document.body.appendChild(this.el);
+      this.renderRedBoxError();
+    }
+  }, {
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate() {
+      this.renderRedBoxError();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _get__('ReactDOM').unmountComponentAtNode(this.el);
+      document.body.removeChild(this.el);
+      this.el = null;
+    }
+  }, {
+    key: 'renderRedBoxError',
+    value: function renderRedBoxError() {
+      _get__('ReactDOM').render(_get__('React').createElement(_get__('RedBoxError'), this.props), this.el);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return null;
+    }
+  }]);
+
+  return RedBox;
+}(_get__('Component'));
+
+RedBox.propTypes = {
+  error: _get__('PropTypes').instanceOf(Error).isRequired
+};
+RedBox.displayName = 'RedBox';
+exports.default = RedBox;
+
+var _RewiredData__ = Object.create(null);
+
+var INTENTIONAL_UNDEFINED = '__INTENTIONAL_UNDEFINED__';
+var _RewireAPI__ = {};
+
+(function () {
+  function addPropertyToAPIObject(name, value) {
+    Object.defineProperty(_RewireAPI__, name, {
+      value: value,
+      enumerable: false,
+      configurable: true
+    });
+  }
+
+  addPropertyToAPIObject('__get__', _get__);
+  addPropertyToAPIObject('__GetDependency__', _get__);
+  addPropertyToAPIObject('__Rewire__', _set__);
+  addPropertyToAPIObject('__set__', _set__);
+  addPropertyToAPIObject('__reset__', _reset__);
+  addPropertyToAPIObject('__ResetDependency__', _reset__);
+  addPropertyToAPIObject('__with__', _with__);
+})();
+
+function _get__(variableName) {
+  if (_RewiredData__ === undefined || _RewiredData__[variableName] === undefined) {
+    return _get_original__(variableName);
+  } else {
+    var value = _RewiredData__[variableName];
+
+    if (value === INTENTIONAL_UNDEFINED) {
+      return undefined;
+    } else {
+      return value;
+    }
+  }
+}
+
+function _get_original__(variableName) {
+  switch (variableName) {
+    case 'PropTypes':
+      return _react.PropTypes;
+
+    case 'assign':
+      return _objectAssign2.default;
+
+    case 'style':
+      return _style2.default;
+
+    case 'isFilenameAbsolute':
+      return _lib.isFilenameAbsolute;
+
+    case 'makeUrl':
+      return _lib.makeUrl;
+
+    case 'makeLinkText':
+      return _lib.makeLinkText;
+
+    case 'ErrorStackParser':
+      return _errorStackParser2.default;
+
+    case 'Component':
+      return _react.Component;
+
+    case 'ReactDOM':
+      return _reactDom2.default;
+
+    case 'React':
+      return _react2.default;
+
+    case 'RedBoxError':
+      return RedBoxError;
+  }
+
+  return undefined;
+}
+
+function _assign__(variableName, value) {
+  if (_RewiredData__ === undefined || _RewiredData__[variableName] === undefined) {
+    return _set_original__(variableName, value);
+  } else {
+    return _RewiredData__[variableName] = value;
+  }
+}
+
+function _set_original__(variableName, _value) {
+  switch (variableName) {}
+
+  return undefined;
+}
+
+function _update_operation__(operation, variableName, prefix) {
+  var oldValue = _get__(variableName);
+
+  var newValue = operation === '++' ? oldValue + 1 : oldValue - 1;
+
+  _assign__(variableName, newValue);
+
+  return prefix ? newValue : oldValue;
+}
+
+function _set__(variableName, value) {
+  if ((typeof variableName === 'undefined' ? 'undefined' : _typeof(variableName)) === 'object') {
+    Object.keys(variableName).forEach(function (name) {
+      _RewiredData__[name] = variableName[name];
+    });
+  } else {
+    if (value === undefined) {
+      _RewiredData__[variableName] = INTENTIONAL_UNDEFINED;
+    } else {
+      _RewiredData__[variableName] = value;
+    }
+
+    return function () {
+      _reset__(variableName);
+    };
+  }
+}
+
+function _reset__(variableName) {
+  delete _RewiredData__[variableName];
+}
+
+function _with__(object) {
+  var rewiredVariableNames = Object.keys(object);
+  var previousValues = {};
+
+  function reset() {
+    rewiredVariableNames.forEach(function (variableName) {
+      _RewiredData__[variableName] = previousValues[variableName];
+    });
+  }
+
+  return function (callback) {
+    rewiredVariableNames.forEach(function (variableName) {
+      previousValues[variableName] = _RewiredData__[variableName];
+      _RewiredData__[variableName] = object[variableName];
+    });
+    var result = callback();
+
+    if (!!result && typeof result.then == 'function') {
+      result.then(reset).catch(reset);
+    } else {
+      reset();
+    }
+
+    return result;
+  };
+}
+
+var _typeOfOriginalExport = typeof RedBox === 'undefined' ? 'undefined' : _typeof(RedBox);
+
+function addNonEnumerableProperty(name, value) {
+  Object.defineProperty(RedBox, name, {
+    value: value,
+    enumerable: false,
+    configurable: true
+  });
+}
+
+if ((_typeOfOriginalExport === 'object' || _typeOfOriginalExport === 'function') && Object.isExtensible(RedBox)) {
+  addNonEnumerableProperty('__get__', _get__);
+  addNonEnumerableProperty('__GetDependency__', _get__);
+  addNonEnumerableProperty('__Rewire__', _set__);
+  addNonEnumerableProperty('__set__', _set__);
+  addNonEnumerableProperty('__reset__', _reset__);
+  addNonEnumerableProperty('__ResetDependency__', _reset__);
+  addNonEnumerableProperty('__with__', _with__);
+  addNonEnumerableProperty('__RewireAPI__', _RewireAPI__);
+}
+
+exports.__get__ = _get__;
+exports.__GetDependency__ = _get__;
+exports.__Rewire__ = _set__;
+exports.__set__ = _set__;
+exports.__ResetDependency__ = _reset__;
+exports.__RewireAPI__ = _RewireAPI__;
+
+/***/ }),
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a unary function that invokes `func` with its argument transformed.
+ *
+ * @private
+ * @param {Function} func The function to wrap.
+ * @param {Function} transform The argument transform.
+ * @returns {Function} Returns the new function.
+ */
+function overArg(func, transform) {
+  return function (arg) {
+    return func(transform(arg));
+  };
+}
+
+module.exports = overArg;
+
+/***/ }),
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+  value: true
 });
+exports.default = bindAutoBindMethods;
+/**
+ * Copyright 2013-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of React source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * Original:
+ * https://github.com/facebook/react/blob/6508b1ad273a6f371e8d90ae676e5390199461b4/src/isomorphic/classic/class/ReactClass.js#L650-L713
+ */
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+function bindAutoBindMethod(component, method) {
+  var boundMethod = method.bind(component);
 
-var _react = __webpack_require__(57);
+  boundMethod.__reactBoundContext = component;
+  boundMethod.__reactBoundMethod = method;
+  boundMethod.__reactBoundArguments = null;
 
-var _react2 = _interopRequireDefault(_react);
+  var componentName = component.constructor.displayName,
+      _bind = boundMethod.bind;
 
-var _highcharts = __webpack_require__(103);
+  boundMethod.bind = function (newThis) {
+    var args = Array.prototype.slice.call(arguments, 1);
+    if (newThis !== component && newThis !== null) {
+      console.warn('bind(): React component methods may only be bound to the ' + 'component instance. See ' + componentName);
+    } else if (!args.length) {
+      console.warn('bind(): You are binding a component method to the component. ' + 'React does this for you automatically in a high-performance ' + 'way, so you can safely remove this call. See ' + componentName);
+      return boundMethod;
+    }
 
-var _highcharts2 = _interopRequireDefault(_highcharts);
+    var reboundMethod = _bind.apply(boundMethod, arguments);
+    reboundMethod.__reactBoundContext = component;
+    reboundMethod.__reactBoundMethod = method;
+    reboundMethod.__reactBoundArguments = args;
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+    return reboundMethod;
+  };
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+  return boundMethod;
+}
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+function bindAutoBindMethodsFromMap(component) {
+  for (var autoBindKey in component.__reactAutoBindMap) {
+    if (!component.__reactAutoBindMap.hasOwnProperty(autoBindKey)) {
+      return;
+    }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    // Tweak: skip methods that are already bound.
+    // This is to preserve method reference in case it is used
+    // as a subscription handler that needs to be detached later.
+    if (component.hasOwnProperty(autoBindKey) && component[autoBindKey].__reactBoundContext === component) {
+      continue;
+    }
 
-var HighCharts = function (_Component) {
-	_inherits(HighCharts, _Component);
+    var method = component.__reactAutoBindMap[autoBindKey];
+    component[autoBindKey] = bindAutoBindMethod(component, method);
+  }
+}
 
-	function HighCharts(props) {
-		_classCallCheck(this, HighCharts);
+function bindAutoBindMethods(component) {
+  if (component.__reactAutoBindPairs) {
+    bindAutoBindMethodsFromArray(component);
+  } else if (component.__reactAutoBindMap) {
+    bindAutoBindMethodsFromMap(component);
+  }
+}
 
-		var _this = _possibleConstructorReturn(this, (HighCharts.__proto__ || Object.getPrototypeOf(HighCharts)).call(this, props));
+function bindAutoBindMethodsFromArray(component) {
+  var pairs = component.__reactAutoBindPairs;
 
-		_this.state = {};
-		return _this;
-	}
+  if (!pairs) {
+    return;
+  }
 
-	_createClass(HighCharts, [{
-		key: 'componentDidMount',
-		value: function componentDidMount() {
-			var self = this;
-			_highcharts2.default.chart(self.refs.highchartDom, {
-				chart: {
-					//alignTicks: false,
-					type: 'line'
-				},
-				xAxis: {
-					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-				},
-				yAxis: [{
-					title: {
-						text: 'Primary Axis'
-					},
-					gridLineWidth: 0
-				}, {
-					title: {
-						text: 'Secondary Axis'
-					},
-					opposite: true
-				}],
-				legend: {
-					layout: 'vertical',
-					backgroundColor: '#FFFFFF',
-					floating: true,
-					align: 'left',
-					x: 100,
-					verticalAlign: 'top',
-					y: 70
-				},
-				tooltip: {
-					formatter: function formatter() {
-						return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
-					}
-				},
-				plotOptions: {},
-				series: [{
-					data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+  for (var i = 0; i < pairs.length; i += 2) {
+    var autoBindKey = pairs[i];
 
-				}, {
-					data: [129.9, 271.5, 306.4, 29.2, 544.0, 376.0, 435.6, 348.5, 216.4, 294.1, 35.6, 354.4],
-					yAxis: 1
+    if (component.hasOwnProperty(autoBindKey) && component[autoBindKey].__reactBoundContext === component) {
+      continue;
+    }
 
-				}]
-			});
-		}
-	}, {
-		key: 'render',
-		value: function render() {
-			var self = this;
-			return _react2.default.createElement(
-				'div',
-				{ ref: 'hc' },
-				'HighChart\u7EC4\u4EF6',
-				_react2.default.createElement('div', { ref: 'highchartDom' })
-			);
-		}
-	}]);
+    var method = pairs[i + 1];
 
-	return HighCharts;
-}(_react.Component);
-
-exports.default = HighCharts;
+    component[autoBindKey] = bindAutoBindMethod(component, method);
+  }
+}
 
 /***/ }),
-/* 88 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = __webpack_require__(118);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }return target;
+};
+
+var _slicedToArray = function () {
+  function sliceIterator(arr, i) {
+    var _arr = [];var _n = true;var _d = false;var _e = undefined;try {
+      for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+        _arr.push(_s.value);if (i && _arr.length === i) break;
+      }
+    } catch (err) {
+      _d = true;_e = err;
+    } finally {
+      try {
+        if (!_n && _i["return"]) _i["return"]();
+      } finally {
+        if (_d) throw _e;
+      }
+    }return _arr;
+  }return function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      return sliceIterator(arr, i);
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+}();
+
+exports.default = proxyClass;
+exports.default = createClassProxy;
+
+var _find = __webpack_require__(244);
+
+var _find2 = _interopRequireDefault(_find);
+
+var _createPrototypeProxy = __webpack_require__(143);
+
+var _createPrototypeProxy2 = _interopRequireDefault(_createPrototypeProxy);
+
+var _bindAutoBindMethods = __webpack_require__(141);
+
+var _bindAutoBindMethods2 = _interopRequireDefault(_bindAutoBindMethods);
+
+var _deleteUnknownAutoBindMethods = __webpack_require__(144);
+
+var _deleteUnknownAutoBindMethods2 = _interopRequireDefault(_deleteUnknownAutoBindMethods);
+
+var _supportsProtoAssignment = __webpack_require__(84);
+
+var _supportsProtoAssignment2 = _interopRequireDefault(_supportsProtoAssignment);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function _toConsumableArray(arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }return arr2;
+  } else {
+    return Array.from(arr);
+  }
+}
+
+var RESERVED_STATICS = ['length', 'name', 'arguments', 'caller', 'prototype', 'toString'];
+
+function isEqualDescriptor(a, b) {
+  if (!a && !b) {
+    return true;
+  }
+  if (!a || !b) {
+    return false;
+  }
+  for (var key in a) {
+    if (a[key] !== b[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// This was originally a WeakMap but we had issues with React Native:
+// https://github.com/gaearon/react-proxy/issues/50#issuecomment-192928066
+var allProxies = [];
+function findProxy(Component) {
+  var pair = (0, _find2.default)(allProxies, function (_ref) {
+    var _ref2 = _slicedToArray(_ref, 1);
+
+    var key = _ref2[0];
+    return key === Component;
+  });
+  return pair ? pair[1] : null;
+}
+function addProxy(Component, proxy) {
+  allProxies.push([Component, proxy]);
+}
+
+function proxyClass(InitialComponent) {
+  // Prevent double wrapping.
+  // Given a proxy class, return the existing proxy managing it.
+  var existingProxy = findProxy(InitialComponent);
+  if (existingProxy) {
+    return existingProxy;
+  }
+
+  var prototypeProxy = (0, _createPrototypeProxy2.default)();
+  var CurrentComponent = undefined;
+  var ProxyComponent = undefined;
+
+  var staticDescriptors = {};
+  function wasStaticModifiedByUser(key) {
+    // Compare the descriptor with the one we previously set ourselves.
+    var currentDescriptor = Object.getOwnPropertyDescriptor(ProxyComponent, key);
+    return !isEqualDescriptor(staticDescriptors[key], currentDescriptor);
+  }
+
+  function instantiate(factory, context, params) {
+    var component = factory();
+
+    try {
+      return component.apply(context, params);
+    } catch (err) {
+      (function () {
+        // Native ES6 class instantiation
+        var instance = new (Function.prototype.bind.apply(component, [null].concat(_toConsumableArray(params))))();
+
+        Object.keys(instance).forEach(function (key) {
+          if (RESERVED_STATICS.indexOf(key) > -1) {
+            return;
+          }
+          context[key] = instance[key];
+        });
+      })();
+    }
+  }
+
+  try {
+    // Create a proxy constructor with matching name
+    ProxyComponent = new Function('factory', 'instantiate', 'return function ' + (InitialComponent.name || 'ProxyComponent') + '() {\n         return instantiate(factory, this, arguments);\n      }')(function () {
+      return CurrentComponent;
+    }, instantiate);
+  } catch (err) {
+    // Some environments may forbid dynamic evaluation
+    ProxyComponent = function ProxyComponent() {
+      return instantiate(function () {
+        return CurrentComponent;
+      }, this, arguments);
+    };
+  }
+
+  // Point proxy constructor to the proxy prototype
+  ProxyComponent.prototype = prototypeProxy.get();
+
+  // Proxy toString() to the current constructor
+  ProxyComponent.toString = function toString() {
+    return CurrentComponent.toString();
+  };
+
+  function update(NextComponent) {
+    if (typeof NextComponent !== 'function') {
+      throw new Error('Expected a constructor.');
+    }
+
+    // Prevent proxy cycles
+    var existingProxy = findProxy(NextComponent);
+    if (existingProxy) {
+      return update(existingProxy.__getCurrent());
+    }
+
+    // Save the next constructor so we call it
+    CurrentComponent = NextComponent;
+
+    // Update the prototype proxy with new methods
+    var mountedInstances = prototypeProxy.update(NextComponent.prototype);
+
+    // Set up the constructor property so accessing the statics work
+    ProxyComponent.prototype.constructor = ProxyComponent;
+
+    // Set up the same prototype for inherited statics
+    ProxyComponent.__proto__ = NextComponent.__proto__;
+
+    // Copy static methods and properties
+    Object.getOwnPropertyNames(NextComponent).forEach(function (key) {
+      if (RESERVED_STATICS.indexOf(key) > -1) {
+        return;
+      }
+
+      var staticDescriptor = _extends({}, Object.getOwnPropertyDescriptor(NextComponent, key), {
+        configurable: true
+      });
+
+      // Copy static unless user has redefined it at runtime
+      if (!wasStaticModifiedByUser(key)) {
+        Object.defineProperty(ProxyComponent, key, staticDescriptor);
+        staticDescriptors[key] = staticDescriptor;
+      }
+    });
+
+    // Remove old static methods and properties
+    Object.getOwnPropertyNames(ProxyComponent).forEach(function (key) {
+      if (RESERVED_STATICS.indexOf(key) > -1) {
+        return;
+      }
+
+      // Skip statics that exist on the next class
+      if (NextComponent.hasOwnProperty(key)) {
+        return;
+      }
+
+      // Skip non-configurable statics
+      var descriptor = Object.getOwnPropertyDescriptor(ProxyComponent, key);
+      if (descriptor && !descriptor.configurable) {
+        return;
+      }
+
+      // Delete static unless user has redefined it at runtime
+      if (!wasStaticModifiedByUser(key)) {
+        delete ProxyComponent[key];
+        delete staticDescriptors[key];
+      }
+    });
+
+    // Try to infer displayName
+    ProxyComponent.displayName = NextComponent.displayName || NextComponent.name;
+
+    // We might have added new methods that need to be auto-bound
+    mountedInstances.forEach(_bindAutoBindMethods2.default);
+    mountedInstances.forEach(_deleteUnknownAutoBindMethods2.default);
+
+    // Let the user take care of redrawing
+    return mountedInstances;
+  };
+
+  function get() {
+    return ProxyComponent;
+  }
+
+  function getCurrent() {
+    return CurrentComponent;
+  }
+
+  update(InitialComponent);
+
+  var proxy = { get: get, update: update };
+  addProxy(ProxyComponent, proxy);
+
+  Object.defineProperty(proxy, '__getCurrent', {
+    configurable: false,
+    writable: false,
+    enumerable: false,
+    value: getCurrent
+  });
+
+  return proxy;
+}
+
+function createFallback(Component) {
+  var CurrentComponent = Component;
+
+  return {
+    get: function get() {
+      return CurrentComponent;
+    },
+    update: function update(NextComponent) {
+      CurrentComponent = NextComponent;
+    }
+  };
+}
+
+function createClassProxy(Component) {
+  return Component.__proto__ && (0, _supportsProtoAssignment2.default)() ? proxyClass(Component) : createFallback(Component);
+}
 
 /***/ }),
-/* 89 */
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = createPrototypeProxy;
+
+var _assign = __webpack_require__(241);
+
+var _assign2 = _interopRequireDefault(_assign);
+
+var _difference = __webpack_require__(243);
+
+var _difference2 = _interopRequireDefault(_difference);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+function createPrototypeProxy() {
+  var proxy = {};
+  var current = null;
+  var mountedInstances = [];
+
+  /**
+   * Creates a proxied toString() method pointing to the current version's toString().
+   */
+  function proxyToString(name) {
+    // Wrap to always call the current version
+    return function toString() {
+      if (typeof current[name] === 'function') {
+        return current[name].toString();
+      } else {
+        return '<method was deleted>';
+      }
+    };
+  }
+
+  /**
+   * Creates a proxied method that calls the current version, whenever available.
+   */
+  function proxyMethod(name) {
+    // Wrap to always call the current version
+    var proxiedMethod = function proxiedMethod() {
+      if (typeof current[name] === 'function') {
+        return current[name].apply(this, arguments);
+      }
+    };
+
+    // Copy properties of the original function, if any
+    (0, _assign2.default)(proxiedMethod, current[name]);
+    proxiedMethod.toString = proxyToString(name);
+
+    return proxiedMethod;
+  }
+
+  /**
+   * Augments the original componentDidMount with instance tracking.
+   */
+  function proxiedComponentDidMount() {
+    mountedInstances.push(this);
+    if (typeof current.componentDidMount === 'function') {
+      return current.componentDidMount.apply(this, arguments);
+    }
+  }
+  proxiedComponentDidMount.toString = proxyToString('componentDidMount');
+
+  /**
+   * Augments the original componentWillUnmount with instance tracking.
+   */
+  function proxiedComponentWillUnmount() {
+    var index = mountedInstances.indexOf(this);
+    // Unless we're in a weird environment without componentDidMount
+    if (index !== -1) {
+      mountedInstances.splice(index, 1);
+    }
+    if (typeof current.componentWillUnmount === 'function') {
+      return current.componentWillUnmount.apply(this, arguments);
+    }
+  }
+  proxiedComponentWillUnmount.toString = proxyToString('componentWillUnmount');
+
+  /**
+   * Defines a property on the proxy.
+   */
+  function defineProxyProperty(name, descriptor) {
+    Object.defineProperty(proxy, name, descriptor);
+  }
+
+  /**
+   * Defines a property, attempting to keep the original descriptor configuration.
+   */
+  function defineProxyPropertyWithValue(name, value) {
+    var _ref = Object.getOwnPropertyDescriptor(current, name) || {};
+
+    var _ref$enumerable = _ref.enumerable;
+    var enumerable = _ref$enumerable === undefined ? false : _ref$enumerable;
+    var _ref$writable = _ref.writable;
+    var writable = _ref$writable === undefined ? true : _ref$writable;
+
+    defineProxyProperty(name, {
+      configurable: true,
+      enumerable: enumerable,
+      writable: writable,
+      value: value
+    });
+  }
+
+  /**
+   * Creates an auto-bind map mimicking the original map, but directed at proxy.
+   */
+  function createAutoBindMap() {
+    if (!current.__reactAutoBindMap) {
+      return;
+    }
+
+    var __reactAutoBindMap = {};
+    for (var name in current.__reactAutoBindMap) {
+      if (typeof proxy[name] === 'function' && current.__reactAutoBindMap.hasOwnProperty(name)) {
+        __reactAutoBindMap[name] = proxy[name];
+      }
+    }
+
+    return __reactAutoBindMap;
+  }
+
+  /**
+   * Creates an auto-bind map mimicking the original map, but directed at proxy.
+   */
+  function createAutoBindPairs() {
+    var __reactAutoBindPairs = [];
+
+    for (var i = 0; i < current.__reactAutoBindPairs.length; i += 2) {
+      var name = current.__reactAutoBindPairs[i];
+      var method = proxy[name];
+
+      if (typeof method === 'function') {
+        __reactAutoBindPairs.push(name, method);
+      }
+    }
+
+    return __reactAutoBindPairs;
+  }
+
+  /**
+   * Applies the updated prototype.
+   */
+  function update(next) {
+    // Save current source of truth
+    current = next;
+
+    // Find changed property names
+    var currentNames = Object.getOwnPropertyNames(current);
+    var previousName = Object.getOwnPropertyNames(proxy);
+    var removedNames = (0, _difference2.default)(previousName, currentNames);
+
+    // Remove properties and methods that are no longer there
+    removedNames.forEach(function (name) {
+      delete proxy[name];
+    });
+
+    // Copy every descriptor
+    currentNames.forEach(function (name) {
+      var descriptor = Object.getOwnPropertyDescriptor(current, name);
+      if (typeof descriptor.value === 'function') {
+        // Functions require additional wrapping so they can be bound later
+        defineProxyPropertyWithValue(name, proxyMethod(name));
+      } else {
+        // Other values can be copied directly
+        defineProxyProperty(name, descriptor);
+      }
+    });
+
+    // Track mounting and unmounting
+    defineProxyPropertyWithValue('componentDidMount', proxiedComponentDidMount);
+    defineProxyPropertyWithValue('componentWillUnmount', proxiedComponentWillUnmount);
+
+    if (current.hasOwnProperty('__reactAutoBindMap')) {
+      defineProxyPropertyWithValue('__reactAutoBindMap', createAutoBindMap());
+    }
+
+    if (current.hasOwnProperty('__reactAutoBindPairs')) {
+      defineProxyPropertyWithValue('__reactAutoBindPairs', createAutoBindPairs());
+    }
+
+    // Set up the prototype chain
+    proxy.__proto__ = next;
+
+    return mountedInstances;
+  }
+
+  /**
+   * Returns the up-to-date proxy prototype.
+   */
+  function get() {
+    return proxy;
+  }
+
+  return {
+    update: update,
+    get: get
+  };
+};
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = deleteUnknownAutoBindMethods;
+function shouldDeleteClassicInstanceMethod(component, name) {
+  if (component.__reactAutoBindMap && component.__reactAutoBindMap.hasOwnProperty(name)) {
+    // It's a known autobound function, keep it
+    return false;
+  }
+
+  if (component.__reactAutoBindPairs && component.__reactAutoBindPairs.indexOf(name) >= 0) {
+    // It's a known autobound function, keep it
+    return false;
+  }
+
+  if (component[name].__reactBoundArguments !== null) {
+    // It's a function bound to specific args, keep it
+    return false;
+  }
+
+  // It's a cached bound method for a function
+  // that was deleted by user, so we delete it from component.
+  return true;
+}
+
+function shouldDeleteModernInstanceMethod(component, name) {
+  var prototype = component.constructor.prototype;
+
+  var prototypeDescriptor = Object.getOwnPropertyDescriptor(prototype, name);
+
+  if (!prototypeDescriptor || !prototypeDescriptor.get) {
+    // This is definitely not an autobinding getter
+    return false;
+  }
+
+  if (prototypeDescriptor.get().length !== component[name].length) {
+    // The length doesn't match, bail out
+    return false;
+  }
+
+  // This seems like a method bound using an autobinding getter on the prototype
+  // Hopefully we won't run into too many false positives.
+  return true;
+}
+
+function shouldDeleteInstanceMethod(component, name) {
+  var descriptor = Object.getOwnPropertyDescriptor(component, name);
+  if (typeof descriptor.value !== 'function') {
+    // Not a function, or something fancy: bail out
+    return;
+  }
+
+  if (component.__reactAutoBindMap || component.__reactAutoBindPairs) {
+    // Classic
+    return shouldDeleteClassicInstanceMethod(component, name);
+  } else {
+    // Modern
+    return shouldDeleteModernInstanceMethod(component, name);
+  }
+}
+
+/**
+ * Deletes autobound methods from the instance.
+ *
+ * For classic React classes, we only delete the methods that no longer exist in map.
+ * This means the user actually deleted them in code.
+ *
+ * For modern classes, we delete methods that exist on prototype with the same length,
+ * and which have getters on prototype, but are normal values on the instance.
+ * This is usually an indication that an autobinding decorator is being used,
+ * and the getter will re-generate the memoized handler on next access.
+ */
+function deleteUnknownAutoBindMethods(component) {
+  var names = Object.getOwnPropertyNames(component);
+
+  names.forEach(function (name) {
+    if (shouldDeleteInstanceMethod(component, name)) {
+      delete component[name];
+    }
+  });
+}
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getForceUpdate = exports.createProxy = undefined;
+
+var _supportsProtoAssignment = __webpack_require__(84);
+
+var _supportsProtoAssignment2 = _interopRequireDefault(_supportsProtoAssignment);
+
+var _createClassProxy = __webpack_require__(142);
+
+var _createClassProxy2 = _interopRequireDefault(_createClassProxy);
+
+var _reactDeepForceUpdate = __webpack_require__(146);
+
+var _reactDeepForceUpdate2 = _interopRequireDefault(_reactDeepForceUpdate);
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
+
+if (!(0, _supportsProtoAssignment2.default)()) {
+  console.warn('This JavaScript environment does not support __proto__. ' + 'This means that react-proxy is unable to proxy React components. ' + 'Features that rely on react-proxy, such as react-transform-hmr, ' + 'will not function as expected.');
+}
+
+exports.createProxy = _createClassProxy2.default;
+exports.getForceUpdate = _reactDeepForceUpdate2.default;
+
+/***/ }),
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports["default"] = getForceUpdate;
+function traverseRenderedChildren(internalInstance, callback, argument) {
+  callback(internalInstance, argument);
+
+  if (internalInstance._renderedComponent) {
+    traverseRenderedChildren(internalInstance._renderedComponent, callback, argument);
+  } else {
+    for (var key in internalInstance._renderedChildren) {
+      if (internalInstance._renderedChildren.hasOwnProperty(key)) {
+        traverseRenderedChildren(internalInstance._renderedChildren[key], callback, argument);
+      }
+    }
+  }
+}
+
+function setPendingForceUpdate(internalInstance) {
+  if (internalInstance._pendingForceUpdate === false) {
+    internalInstance._pendingForceUpdate = true;
+  }
+}
+
+function forceUpdateIfPending(internalInstance, React) {
+  if (internalInstance._pendingForceUpdate === true) {
+    var publicInstance = internalInstance._instance;
+    React.Component.prototype.forceUpdate.call(publicInstance);
+  }
+}
+
+function getForceUpdate(React) {
+  return function (instance) {
+    var internalInstance = instance._reactInternalInstance;
+    traverseRenderedChildren(internalInstance, setPendingForceUpdate);
+    traverseRenderedChildren(internalInstance, forceUpdateIfPending, React);
+  };
+}
+
+module.exports = exports["default"];
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function (root, factory) {
+    'use strict';
+    // Universal Module Definition (UMD) to support AMD, CommonJS/Node.js, Rhino, and browsers.
+
+    /* istanbul ignore next */
+
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(328)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+        module.exports = factory(require('stackframe'));
+    } else {
+        root.ErrorStackParser = factory(root.StackFrame);
+    }
+})(undefined, function ErrorStackParser(StackFrame) {
+    'use strict';
+
+    var FIREFOX_SAFARI_STACK_REGEXP = /(^|@)\S+\:\d+/;
+    var CHROME_IE_STACK_REGEXP = /^\s*at .*(\S+\:\d+|\(native\))/m;
+    var SAFARI_NATIVE_CODE_REGEXP = /^(eval@)?(\[native code\])?$/;
+
+    function _map(array, fn, thisArg) {
+        if (typeof Array.prototype.map === 'function') {
+            return array.map(fn, thisArg);
+        } else {
+            var output = new Array(array.length);
+            for (var i = 0; i < array.length; i++) {
+                output[i] = fn.call(thisArg, array[i]);
+            }
+            return output;
+        }
+    }
+
+    function _filter(array, fn, thisArg) {
+        if (typeof Array.prototype.filter === 'function') {
+            return array.filter(fn, thisArg);
+        } else {
+            var output = [];
+            for (var i = 0; i < array.length; i++) {
+                if (fn.call(thisArg, array[i])) {
+                    output.push(array[i]);
+                }
+            }
+            return output;
+        }
+    }
+
+    function _indexOf(array, target) {
+        if (typeof Array.prototype.indexOf === 'function') {
+            return array.indexOf(target);
+        } else {
+            for (var i = 0; i < array.length; i++) {
+                if (array[i] === target) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+    }
+
+    return {
+        /**
+         * Given an Error object, extract the most information from it.
+         *
+         * @param {Error} error object
+         * @return {Array} of StackFrames
+         */
+        parse: function ErrorStackParser$$parse(error) {
+            if (typeof error.stacktrace !== 'undefined' || typeof error['opera#sourceloc'] !== 'undefined') {
+                return this.parseOpera(error);
+            } else if (error.stack && error.stack.match(CHROME_IE_STACK_REGEXP)) {
+                return this.parseV8OrIE(error);
+            } else if (error.stack) {
+                return this.parseFFOrSafari(error);
+            } else {
+                throw new Error('Cannot parse given Error object');
+            }
+        },
+
+        // Separate line and column numbers from a string of the form: (URI:Line:Column)
+        extractLocation: function ErrorStackParser$$extractLocation(urlLike) {
+            // Fail-fast but return locations like "(native)"
+            if (urlLike.indexOf(':') === -1) {
+                return [urlLike];
+            }
+
+            var regExp = /(.+?)(?:\:(\d+))?(?:\:(\d+))?$/;
+            var parts = regExp.exec(urlLike.replace(/[\(\)]/g, ''));
+            return [parts[1], parts[2] || undefined, parts[3] || undefined];
+        },
+
+        parseV8OrIE: function ErrorStackParser$$parseV8OrIE(error) {
+            var filtered = _filter(error.stack.split('\n'), function (line) {
+                return !!line.match(CHROME_IE_STACK_REGEXP);
+            }, this);
+
+            return _map(filtered, function (line) {
+                if (line.indexOf('(eval ') > -1) {
+                    // Throw away eval information until we implement stacktrace.js/stackframe#8
+                    line = line.replace(/eval code/g, 'eval').replace(/(\(eval at [^\()]*)|(\)\,.*$)/g, '');
+                }
+                var tokens = line.replace(/^\s+/, '').replace(/\(eval code/g, '(').split(/\s+/).slice(1);
+                var locationParts = this.extractLocation(tokens.pop());
+                var functionName = tokens.join(' ') || undefined;
+                var fileName = _indexOf(['eval', '<anonymous>'], locationParts[0]) > -1 ? undefined : locationParts[0];
+
+                return new StackFrame(functionName, undefined, fileName, locationParts[1], locationParts[2], line);
+            }, this);
+        },
+
+        parseFFOrSafari: function ErrorStackParser$$parseFFOrSafari(error) {
+            var filtered = _filter(error.stack.split('\n'), function (line) {
+                return !line.match(SAFARI_NATIVE_CODE_REGEXP);
+            }, this);
+
+            return _map(filtered, function (line) {
+                // Throw away eval information until we implement stacktrace.js/stackframe#8
+                if (line.indexOf(' > eval') > -1) {
+                    line = line.replace(/ line (\d+)(?: > eval line \d+)* > eval\:\d+\:\d+/g, ':$1');
+                }
+
+                if (line.indexOf('@') === -1 && line.indexOf(':') === -1) {
+                    // Safari eval frames only have function names and nothing else
+                    return new StackFrame(line);
+                } else {
+                    var tokens = line.split('@');
+                    var locationParts = this.extractLocation(tokens.pop());
+                    var functionName = tokens.join('@') || undefined;
+                    return new StackFrame(functionName, undefined, locationParts[0], locationParts[1], locationParts[2], line);
+                }
+            }, this);
+        },
+
+        parseOpera: function ErrorStackParser$$parseOpera(e) {
+            if (!e.stacktrace || e.message.indexOf('\n') > -1 && e.message.split('\n').length > e.stacktrace.split('\n').length) {
+                return this.parseOpera9(e);
+            } else if (!e.stack) {
+                return this.parseOpera10(e);
+            } else {
+                return this.parseOpera11(e);
+            }
+        },
+
+        parseOpera9: function ErrorStackParser$$parseOpera9(e) {
+            var lineRE = /Line (\d+).*script (?:in )?(\S+)/i;
+            var lines = e.message.split('\n');
+            var result = [];
+
+            for (var i = 2, len = lines.length; i < len; i += 2) {
+                var match = lineRE.exec(lines[i]);
+                if (match) {
+                    result.push(new StackFrame(undefined, undefined, match[2], match[1], undefined, lines[i]));
+                }
+            }
+
+            return result;
+        },
+
+        parseOpera10: function ErrorStackParser$$parseOpera10(e) {
+            var lineRE = /Line (\d+).*script (?:in )?(\S+)(?:: In function (\S+))?$/i;
+            var lines = e.stacktrace.split('\n');
+            var result = [];
+
+            for (var i = 0, len = lines.length; i < len; i += 2) {
+                var match = lineRE.exec(lines[i]);
+                if (match) {
+                    result.push(new StackFrame(match[3] || undefined, undefined, match[2], match[1], undefined, lines[i]));
+                }
+            }
+
+            return result;
+        },
+
+        // Opera 10.65+ Error.stack very similar to FF/Safari
+        parseOpera11: function ErrorStackParser$$parseOpera11(error) {
+            var filtered = _filter(error.stack.split('\n'), function (line) {
+                return !!line.match(FIREFOX_SAFARI_STACK_REGEXP) && !line.match(/^Error created at/);
+            }, this);
+
+            return _map(filtered, function (line) {
+                var tokens = line.split('@');
+                var locationParts = this.extractLocation(tokens.pop());
+                var functionCall = tokens.shift() || '';
+                var functionName = functionCall.replace(/<anonymous function(: (\w+))?>/, '$2').replace(/\([^\)]*\)/g, '') || undefined;
+                var argsRaw;
+                if (functionCall.match(/\(([^\)]*)\)/)) {
+                    argsRaw = functionCall.replace(/^[^\(]+\(([^\)]*)\)$/, '$1');
+                }
+                var args = argsRaw === undefined || argsRaw === '[arguments not available]' ? undefined : argsRaw.split(',');
+                return new StackFrame(functionName, args, locationParts[0], locationParts[1], locationParts[2], line);
+            }, this);
+        }
+    };
+});
+
+/***/ }),
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11833,7 +14932,7 @@ function camelize(string) {
 module.exports = camelize;
 
 /***/ }),
-/* 90 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11850,7 +14949,7 @@ module.exports = camelize;
 
 
 
-var camelize = __webpack_require__(89);
+var camelize = __webpack_require__(148);
 
 var msPattern = /^-ms-/;
 
@@ -11878,7 +14977,7 @@ function camelizeStyleName(string) {
 module.exports = camelizeStyleName;
 
 /***/ }),
-/* 91 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11895,7 +14994,7 @@ module.exports = camelizeStyleName;
  * 
  */
 
-var isTextNode = __webpack_require__(99);
+var isTextNode = __webpack_require__(158);
 
 /*eslint-disable no-bitwise */
 
@@ -11923,7 +15022,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 92 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12058,7 +15157,7 @@ module.exports = createArrayFromMixed;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 93 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12079,8 +15178,8 @@ module.exports = createArrayFromMixed;
 
 var ExecutionEnvironment = __webpack_require__(6);
 
-var createArrayFromMixed = __webpack_require__(92);
-var getMarkupWrap = __webpack_require__(94);
+var createArrayFromMixed = __webpack_require__(151);
+var getMarkupWrap = __webpack_require__(153);
 var invariant = __webpack_require__(1);
 
 /**
@@ -12148,7 +15247,7 @@ module.exports = createNodesFromMarkup;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 94 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12249,7 +15348,7 @@ module.exports = getMarkupWrap;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 95 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12293,7 +15392,7 @@ function getUnboundedScrollPosition(scrollable) {
 module.exports = getUnboundedScrollPosition;
 
 /***/ }),
-/* 96 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12331,7 +15430,7 @@ function hyphenate(string) {
 module.exports = hyphenate;
 
 /***/ }),
-/* 97 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12348,7 +15447,7 @@ module.exports = hyphenate;
 
 
 
-var hyphenate = __webpack_require__(96);
+var hyphenate = __webpack_require__(155);
 
 var msPattern = /^ms-/;
 
@@ -12375,7 +15474,7 @@ function hyphenateStyleName(string) {
 module.exports = hyphenateStyleName;
 
 /***/ }),
-/* 98 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12406,7 +15505,7 @@ function isNode(object) {
 module.exports = isNode;
 
 /***/ }),
-/* 99 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12423,7 +15522,7 @@ module.exports = isNode;
  * @typechecks
  */
 
-var isNode = __webpack_require__(98);
+var isNode = __webpack_require__(157);
 
 /**
  * @param {*} object The object to check.
@@ -12436,7 +15535,7 @@ function isTextNode(object) {
 module.exports = isTextNode;
 
 /***/ }),
-/* 100 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12471,7 +15570,7 @@ function memoizeStringOnly(callback) {
 module.exports = memoizeStringOnly;
 
 /***/ }),
-/* 101 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12499,7 +15598,7 @@ if (ExecutionEnvironment.canUseDOM) {
 module.exports = performance || {};
 
 /***/ }),
-/* 102 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12516,7 +15615,7 @@ module.exports = performance || {};
  * @typechecks
  */
 
-var performance = __webpack_require__(101);
+var performance = __webpack_require__(160);
 
 var performanceNow;
 
@@ -12538,21 +15637,3441 @@ if (performance.now) {
 module.exports = performanceNow;
 
 /***/ }),
-/* 103 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};/*
- Highcharts JS v5.0.9 (2017-03-08)
+/* WEBPACK VAR INJECTION */(function(global) {
 
- (c) 2009-2016 Torstein Honsi
-
- License: www.highcharts.com/license
-*/(function(I,a){"object"===( false?"undefined":_typeof(module))&&module.exports?module.exports=I.document?a(I):a:I.Highcharts=a(I);})("undefined"!==typeof window?window:undefined,function(I){I=function(){var a=window,B=a.document,z=a.navigator&&a.navigator.userAgent||"",C=B&&B.createElementNS&&!!B.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect,E=/(edge|msie|trident)/i.test(z)&&!window.opera,u=!C,h=/Firefox/.test(z),n=h&&4>parseInt(z.split("Firefox/")[1],10);return a.Highcharts?a.Highcharts.error(16,!0):{product:"Highcharts",version:"5.0.9",deg2rad:2*Math.PI/360,doc:B,hasBidiBug:n,hasTouch:B&&void 0!==B.documentElement.ontouchstart,isMS:E,isWebKit:/AppleWebKit/.test(z),isFirefox:h,isTouchDevice:/(Mobile|Android|Windows Phone)/.test(z),SVG_NS:"http://www.w3.org/2000/svg",chartCount:0,seriesTypes:{},symbolSizes:{},svg:C,vml:u,win:a,charts:[],marginNames:["plotTop","marginRight","marginBottom","plotLeft"],noop:function noop(){}};}();(function(a){var B=[],z=a.charts,C=a.doc,E=a.win;a.error=function(u,h){u=a.isNumber(u)?"Highcharts error #"+u+": www.highcharts.com/errors/"+u:u;if(h)throw Error(u);E.console&&console.log(u);};a.Fx=function(a,h,n){this.options=h;this.elem=a;this.prop=n;};a.Fx.prototype={dSetter:function dSetter(){var a=this.paths[0],h=this.paths[1],n=[],t=this.now,l=a.length,k;if(1===t)n=this.toD;else if(l===h.length&&1>t)for(;l--;){k=parseFloat(a[l]),n[l]=isNaN(k)?a[l]:t*parseFloat(h[l]-k)+k;}else n=h;this.elem.attr("d",n,null,!0);},update:function update(){var a=this.elem,h=this.prop,n=this.now,t=this.options.step;if(this[h+"Setter"])this[h+"Setter"]();else a.attr?a.element&&a.attr(h,n,null,!0):a.style[h]=n+this.unit;t&&t.call(a,n,this);},run:function run(a,h,n){var u=this,l=function l(a){return l.stopped?!1:u.step(a);},k;this.startTime=+new Date();this.start=a;this.end=h;this.unit=n;this.now=this.start;this.pos=0;l.elem=this.elem;l.prop=this.prop;l()&&1===B.push(l)&&(l.timerId=setInterval(function(){for(k=0;k<B.length;k++){B[k]()||B.splice(k--,1);}B.length||clearInterval(l.timerId);},13));},step:function step(a){var h=+new Date(),u,t=this.options;u=this.elem;var l=t.complete,k=t.duration,e=t.curAnim,c;if(u.attr&&!u.element)u=!1;else if(a||h>=k+this.startTime){this.now=this.end;this.pos=1;this.update();a=e[this.prop]=!0;for(c in e){!0!==e[c]&&(a=!1);}a&&l&&l.call(u);u=!1;}else this.pos=t.easing((h-this.startTime)/k),this.now=this.start+(this.end-this.start)*this.pos,this.update(),u=!0;return u;},initPath:function initPath(u,h,n){function t(a){var b,f;for(r=a.length;r--;){b="M"===a[r]||"L"===a[r],f=/[a-zA-Z]/.test(a[r+3]),b&&f&&a.splice(r+1,0,a[r+1],a[r+2],a[r+1],a[r+2]);}}function l(a,f){for(;a.length<m;){a[0]=f[m-a.length];var d=a.slice(0,b);[].splice.apply(a,[0,0].concat(d));A&&(d=a.slice(a.length-b),[].splice.apply(a,[a.length,0].concat(d)),r--);}a[0]="M";}function k(a,f){for(var c=(m-a.length)/b;0<c&&c--;){d=a.slice().splice(a.length/v-b,b*v),d[0]=f[m-b-c*b],H&&(d[b-6]=d[b-2],d[b-5]=d[b-1]),[].splice.apply(a,[a.length/v,0].concat(d)),A&&c--;}}h=h||"";var e,c=u.startX,p=u.endX,H=-1<h.indexOf("C"),b=H?7:3,m,d,r;h=h.split(" ");n=n.slice();var A=u.isArea,v=A?2:1,f;H&&(t(h),t(n));if(c&&p){for(r=0;r<c.length;r++){if(c[r]===p[0]){e=r;break;}else if(c[0]===p[p.length-c.length+r]){e=r;f=!0;break;}}void 0===e&&(h=[]);}h.length&&a.isNumber(e)&&(m=n.length+e*v*b,f?(l(h,n),k(n,h)):(l(n,h),k(h,n)));return[h,n];}};a.extend=function(a,h){var u;a||(a={});for(u in h){a[u]=h[u];}return a;};a.merge=function(){var u,h=arguments,n,t={},l=function l(k,e){var c,p;"object"!==(typeof k==="undefined"?"undefined":_typeof(k))&&(k={});for(p in e){e.hasOwnProperty(p)&&(c=e[p],a.isObject(c,!0)&&"renderTo"!==p&&"number"!==typeof c.nodeType?k[p]=l(k[p]||{},c):k[p]=e[p]);}return k;};!0===h[0]&&(t=h[1],h=Array.prototype.slice.call(h,2));n=h.length;for(u=0;u<n;u++){t=l(t,h[u]);}return t;};a.pInt=function(a,h){return parseInt(a,h||10);};a.isString=function(a){return"string"===typeof a;};a.isArray=function(a){a=Object.prototype.toString.call(a);return"[object Array]"===a||"[object Array Iterator]"===a;};a.isObject=function(u,h){return u&&"object"===(typeof u==="undefined"?"undefined":_typeof(u))&&(!h||!a.isArray(u));};a.isNumber=function(a){return"number"===typeof a&&!isNaN(a);};a.erase=function(a,h){for(var u=a.length;u--;){if(a[u]===h){a.splice(u,1);break;}}};a.defined=function(a){return void 0!==a&&null!==a;};a.attr=function(u,h,n){var t,l;if(a.isString(h))a.defined(n)?u.setAttribute(h,n):u&&u.getAttribute&&(l=u.getAttribute(h));else if(a.defined(h)&&a.isObject(h))for(t in h){u.setAttribute(t,h[t]);}return l;};a.splat=function(u){return a.isArray(u)?u:[u];};a.syncTimeout=function(a,h,n){if(h)return setTimeout(a,h,n);a.call(0,n);};a.pick=function(){var a=arguments,h,n,t=a.length;for(h=0;h<t;h++){if(n=a[h],void 0!==n&&null!==n)return n;}};a.css=function(u,h){a.isMS&&!a.svg&&h&&void 0!==h.opacity&&(h.filter="alpha(opacity\x3d"+100*h.opacity+")");a.extend(u.style,h);};a.createElement=function(u,h,n,t,l){u=C.createElement(u);var k=a.css;h&&a.extend(u,h);l&&k(u,{padding:0,border:"none",margin:0});n&&k(u,n);t&&t.appendChild(u);return u;};a.extendClass=function(u,h){var n=function n(){};n.prototype=new u();a.extend(n.prototype,h);return n;};a.pad=function(a,h,n){return Array((h||2)+1-String(a).length).join(n||0)+a;};a.relativeLength=function(a,h){return /%$/.test(a)?h*parseFloat(a)/100:parseFloat(a);};a.wrap=function(a,h,n){var t=a[h];a[h]=function(){var a=Array.prototype.slice.call(arguments),k=arguments,e=this;e.proceed=function(){t.apply(e,arguments.length?arguments:k);};a.unshift(t);a=n.apply(this,a);e.proceed=null;return a;};};a.getTZOffset=function(u){var h=a.Date;return 6E4*(h.hcGetTimezoneOffset&&h.hcGetTimezoneOffset(u)||h.hcTimezoneOffset||0);};a.dateFormat=function(u,h,n){if(!a.defined(h)||isNaN(h))return a.defaultOptions.lang.invalidDate||"";u=a.pick(u,"%Y-%m-%d %H:%M:%S");var t=a.Date,l=new t(h-a.getTZOffset(h)),k,e=l[t.hcGetHours](),c=l[t.hcGetDay](),p=l[t.hcGetDate](),H=l[t.hcGetMonth](),b=l[t.hcGetFullYear](),m=a.defaultOptions.lang,d=m.weekdays,r=m.shortWeekdays,A=a.pad,t=a.extend({a:r?r[c]:d[c].substr(0,3),A:d[c],d:A(p),e:A(p,2," "),w:c,b:m.shortMonths[H],B:m.months[H],m:A(H+1),y:b.toString().substr(2,2),Y:b,H:A(e),k:e,I:A(e%12||12),l:e%12||12,M:A(l[t.hcGetMinutes]()),p:12>e?"AM":"PM",P:12>e?"am":"pm",S:A(l.getSeconds()),L:A(Math.round(h%1E3),3)},a.dateFormats);for(k in t){for(;-1!==u.indexOf("%"+k);){u=u.replace("%"+k,"function"===typeof t[k]?t[k](h):t[k]);}}return n?u.substr(0,1).toUpperCase()+u.substr(1):u;};a.formatSingle=function(u,h){var n=/\.([0-9])/,t=a.defaultOptions.lang;/f$/.test(u)?(n=(n=u.match(n))?n[1]:-1,null!==h&&(h=a.numberFormat(h,n,t.decimalPoint,-1<u.indexOf(",")?t.thousandsSep:""))):h=a.dateFormat(u,h);return h;};a.format=function(u,h){for(var n="{",t=!1,l,k,e,c,p=[],H;u;){n=u.indexOf(n);if(-1===n)break;l=u.slice(0,n);if(t){l=l.split(":");k=l.shift().split(".");c=k.length;H=h;for(e=0;e<c;e++){H=H[k[e]];}l.length&&(H=a.formatSingle(l.join(":"),H));p.push(H);}else p.push(l);u=u.slice(n+1);n=(t=!t)?"}":"{";}p.push(u);return p.join("");};a.getMagnitude=function(a){return Math.pow(10,Math.floor(Math.log(a)/Math.LN10));};a.normalizeTickInterval=function(u,h,n,t,l){var k,e=u;n=a.pick(n,1);k=u/n;h||(h=l?[1,1.2,1.5,2,2.5,3,4,5,6,8,10]:[1,2,2.5,5,10],!1===t&&(1===n?h=a.grep(h,function(a){return 0===a%1;}):.1>=n&&(h=[1/n])));for(t=0;t<h.length&&!(e=h[t],l&&e*n>=u||!l&&k<=(h[t]+(h[t+1]||h[t]))/2);t++){}return e=a.correctFloat(e*n,-Math.round(Math.log(.001)/Math.LN10));};a.stableSort=function(a,h){var n=a.length,t,l;for(l=0;l<n;l++){a[l].safeI=l;}a.sort(function(a,e){t=h(a,e);return 0===t?a.safeI-e.safeI:t;});for(l=0;l<n;l++){delete a[l].safeI;}};a.arrayMin=function(a){for(var h=a.length,n=a[0];h--;){a[h]<n&&(n=a[h]);}return n;};a.arrayMax=function(a){for(var h=a.length,n=a[0];h--;){a[h]>n&&(n=a[h]);}return n;};a.destroyObjectProperties=function(a,h){for(var n in a){a[n]&&a[n]!==h&&a[n].destroy&&a[n].destroy(),delete a[n];}};a.discardElement=function(u){var h=a.garbageBin;h||(h=a.createElement("div"));u&&h.appendChild(u);h.innerHTML="";};a.correctFloat=function(a,h){return parseFloat(a.toPrecision(h||14));};a.setAnimation=function(u,h){h.renderer.globalAnimation=a.pick(u,h.options.chart.animation,!0);};a.animObject=function(u){return a.isObject(u)?a.merge(u):{duration:u?500:0};};a.timeUnits={millisecond:1,second:1E3,minute:6E4,hour:36E5,day:864E5,week:6048E5,month:24192E5,year:314496E5};a.numberFormat=function(u,h,n,t){u=+u||0;h=+h;var l=a.defaultOptions.lang,k=(u.toString().split(".")[1]||"").length,e,c;-1===h?h=Math.min(k,20):a.isNumber(h)||(h=2);c=(Math.abs(u)+Math.pow(10,-Math.max(h,k)-1)).toFixed(h);k=String(a.pInt(c));e=3<k.length?k.length%3:0;n=a.pick(n,l.decimalPoint);t=a.pick(t,l.thousandsSep);u=(0>u?"-":"")+(e?k.substr(0,e)+t:"");u+=k.substr(e).replace(/(\d{3})(?=\d)/g,"$1"+t);h&&(u+=n+c.slice(-h));return u;};Math.easeInOutSine=function(a){return-.5*(Math.cos(Math.PI*a)-1);};a.getStyle=function(u,h){return"width"===h?Math.min(u.offsetWidth,u.scrollWidth)-a.getStyle(u,"padding-left")-a.getStyle(u,"padding-right"):"height"===h?Math.min(u.offsetHeight,u.scrollHeight)-a.getStyle(u,"padding-top")-a.getStyle(u,"padding-bottom"):(u=E.getComputedStyle(u,void 0))&&a.pInt(u.getPropertyValue(h));};a.inArray=function(a,h){return h.indexOf?h.indexOf(a):[].indexOf.call(h,a);};a.grep=function(a,h){return[].filter.call(a,h);};a.find=function(a,h){return[].find.call(a,h);};a.map=function(a,h){for(var n=[],t=0,l=a.length;t<l;t++){n[t]=h.call(a[t],a[t],t,a);}return n;};a.offset=function(a){var h=C.documentElement;a=a.getBoundingClientRect();return{top:a.top+(E.pageYOffset||h.scrollTop)-(h.clientTop||0),left:a.left+(E.pageXOffset||h.scrollLeft)-(h.clientLeft||0)};};a.stop=function(a,h){for(var n=B.length;n--;){B[n].elem!==a||h&&h!==B[n].prop||(B[n].stopped=!0);}};a.each=function(a,h,n){return Array.prototype.forEach.call(a,h,n);};a.addEvent=function(u,h,n){function t(a){a.target=a.srcElement||E;n.call(u,a);}var l=u.hcEvents=u.hcEvents||{};u.addEventListener?u.addEventListener(h,n,!1):u.attachEvent&&(u.hcEventsIE||(u.hcEventsIE={}),u.hcEventsIE[n.toString()]=t,u.attachEvent("on"+h,t));l[h]||(l[h]=[]);l[h].push(n);return function(){a.removeEvent(u,h,n);};};a.removeEvent=function(u,h,n){function t(a,c){u.removeEventListener?u.removeEventListener(a,c,!1):u.attachEvent&&(c=u.hcEventsIE[c.toString()],u.detachEvent("on"+a,c));}function l(){var a,c;if(u.nodeName)for(c in h?(a={},a[h]=!0):a=e,a){if(e[c])for(a=e[c].length;a--;){t(c,e[c][a]);}}}var k,e=u.hcEvents,c;e&&(h?(k=e[h]||[],n?(c=a.inArray(n,k),-1<c&&(k.splice(c,1),e[h]=k),t(h,n)):(l(),e[h]=[])):(l(),u.hcEvents={}));};a.fireEvent=function(u,h,n,t){var l;l=u.hcEvents;var k,e;n=n||{};if(C.createEvent&&(u.dispatchEvent||u.fireEvent))l=C.createEvent("Events"),l.initEvent(h,!0,!0),a.extend(l,n),u.dispatchEvent?u.dispatchEvent(l):u.fireEvent(h,l);else if(l)for(l=l[h]||[],k=l.length,n.target||a.extend(n,{preventDefault:function preventDefault(){n.defaultPrevented=!0;},target:u,type:h}),h=0;h<k;h++){(e=l[h])&&!1===e.call(u,n)&&n.preventDefault();}t&&!n.defaultPrevented&&t(n);};a.animate=function(u,h,n){var t,l="",k,e,c;a.isObject(n)||(t=arguments,n={duration:t[2],easing:t[3],complete:t[4]});a.isNumber(n.duration)||(n.duration=400);n.easing="function"===typeof n.easing?n.easing:Math[n.easing]||Math.easeInOutSine;n.curAnim=a.merge(h);for(c in h){a.stop(u,c),e=new a.Fx(u,n,c),k=null,"d"===c?(e.paths=e.initPath(u,u.d,h.d),e.toD=h.d,t=0,k=1):u.attr?t=u.attr(c):(t=parseFloat(a.getStyle(u,c))||0,"opacity"!==c&&(l="px")),k||(k=h[c]),k&&k.match&&k.match("px")&&(k=k.replace(/px/g,"")),e.run(t,k,l);}};a.seriesType=function(u,h,n,t,l){var k=a.getOptions(),e=a.seriesTypes;k.plotOptions[u]=a.merge(k.plotOptions[h],n);e[u]=a.extendClass(e[h]||function(){},t);e[u].prototype.type=u;l&&(e[u].prototype.pointClass=a.extendClass(a.Point,l));return e[u];};a.uniqueKey=function(){var a=Math.random().toString(36).substring(2,9),h=0;return function(){return"highcharts-"+a+"-"+h++;};}();E.jQuery&&(E.jQuery.fn.highcharts=function(){var u=[].slice.call(arguments);if(this[0])return u[0]?(new a[a.isString(u[0])?u.shift():"Chart"](this[0],u[0],u[1]),this):z[a.attr(this[0],"data-highcharts-chart")];});C&&!C.defaultView&&(a.getStyle=function(u,h){var n={width:"clientWidth",height:"clientHeight"}[h];if(u.style[h])return a.pInt(u.style[h]);"opacity"===h&&(h="filter");if(n)return u.style.zoom=1,Math.max(u[n]-2*a.getStyle(u,"padding"),0);u=u.currentStyle[h.replace(/\-(\w)/g,function(a,l){return l.toUpperCase();})];"filter"===h&&(u=u.replace(/alpha\(opacity=([0-9]+)\)/,function(a,l){return l/100;}));return""===u?1:a.pInt(u);});Array.prototype.forEach||(a.each=function(a,h,n){for(var t=0,l=a.length;t<l;t++){if(!1===h.call(n,a[t],t,a))return t;}});Array.prototype.indexOf||(a.inArray=function(a,h){var n,t=0;if(h)for(n=h.length;t<n;t++){if(h[t]===a)return t;}return-1;});Array.prototype.filter||(a.grep=function(a,h){for(var n=[],t=0,l=a.length;t<l;t++){h(a[t],t)&&n.push(a[t]);}return n;});Array.prototype.find||(a.find=function(a,h){var n,t=a.length;for(n=0;n<t;n++){if(h(a[n],n))return a[n];}});})(I);(function(a){var B=a.each,z=a.isNumber,C=a.map,E=a.merge,u=a.pInt;a.Color=function(h){if(!(this instanceof a.Color))return new a.Color(h);this.init(h);};a.Color.prototype={parsers:[{regex:/rgba\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]?(?:\.[0-9]+)?)\s*\)/,parse:function parse(a){return[u(a[1]),u(a[2]),u(a[3]),parseFloat(a[4],10)];}},{regex:/rgb\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*\)/,parse:function parse(a){return[u(a[1]),u(a[2]),u(a[3]),1];}}],names:{white:"#ffffff",black:"#000000"},init:function init(h){var n,t,l,k;if((this.input=h=this.names[h]||h)&&h.stops)this.stops=C(h.stops,function(e){return new a.Color(e[1]);});else if(h&&"#"===h[0]&&(n=h.length,h=parseInt(h.substr(1),16),7===n?t=[(h&16711680)>>16,(h&65280)>>8,h&255,1]:4===n&&(t=[(h&3840)>>4|(h&3840)>>8,(h&240)>>4|h&240,(h&15)<<4|h&15,1])),!t)for(l=this.parsers.length;l--&&!t;){k=this.parsers[l],(n=k.regex.exec(h))&&(t=k.parse(n));}this.rgba=t||[];},get:function get(a){var h=this.input,t=this.rgba,l;this.stops?(l=E(h),l.stops=[].concat(l.stops),B(this.stops,function(k,e){l.stops[e]=[l.stops[e][0],k.get(a)];})):l=t&&z(t[0])?"rgb"===a||!a&&1===t[3]?"rgb("+t[0]+","+t[1]+","+t[2]+")":"a"===a?t[3]:"rgba("+t.join(",")+")":h;return l;},brighten:function brighten(a){var h,t=this.rgba;if(this.stops)B(this.stops,function(l){l.brighten(a);});else if(z(a)&&0!==a)for(h=0;3>h;h++){t[h]+=u(255*a),0>t[h]&&(t[h]=0),255<t[h]&&(t[h]=255);}return this;},setOpacity:function setOpacity(a){this.rgba[3]=a;return this;}};a.color=function(h){return new a.Color(h);};})(I);(function(a){var B,z,C=a.addEvent,E=a.animate,u=a.attr,h=a.charts,n=a.color,t=a.css,l=a.createElement,k=a.defined,e=a.deg2rad,c=a.destroyObjectProperties,p=a.doc,H=a.each,b=a.extend,m=a.erase,d=a.grep,r=a.hasTouch,A=a.inArray,v=a.isArray,f=a.isFirefox,y=a.isMS,G=a.isObject,F=a.isString,q=a.isWebKit,x=a.merge,J=a.noop,K=a.pick,L=a.pInt,g=a.removeEvent,D=a.stop,S=a.svg,M=a.SVG_NS,R=a.symbolSizes,N=a.win;B=a.SVGElement=function(){return this;};B.prototype={opacity:1,SVG_NS:M,textProps:"direction fontSize fontWeight fontFamily fontStyle color lineHeight width textAlign textDecoration textOverflow textOutline".split(" "),init:function init(a,g){this.element="span"===g?l(g):p.createElementNS(this.SVG_NS,g);this.renderer=a;},animate:function animate(w,g,b){g=a.animObject(K(g,this.renderer.globalAnimation,!0));0!==g.duration?(b&&(g.complete=b),E(this,w,g)):(this.attr(w,null,b),g.step&&g.step.call(this));return this;},colorGradient:function colorGradient(w,g,b){var f=this.renderer,d,c,q,D,O,y,r,G,e,m,p,l=[],Q;w.linearGradient?c="linearGradient":w.radialGradient&&(c="radialGradient");if(c){q=w[c];O=f.gradients;r=w.stops;m=b.radialReference;v(q)&&(w[c]=q={x1:q[0],y1:q[1],x2:q[2],y2:q[3],gradientUnits:"userSpaceOnUse"});"radialGradient"===c&&m&&!k(q.gradientUnits)&&(D=q,q=x(q,f.getRadialAttr(m,D),{gradientUnits:"userSpaceOnUse"}));for(p in q){"id"!==p&&l.push(p,q[p]);}for(p in r){l.push(r[p]);}l=l.join(",");O[l]?m=O[l].attr("id"):(q.id=m=a.uniqueKey(),O[l]=y=f.createElement(c).attr(q).add(f.defs),y.radAttr=D,y.stops=[],H(r,function(w){0===w[1].indexOf("rgba")?(d=a.color(w[1]),G=d.get("rgb"),e=d.get("a")):(G=w[1],e=1);w=f.createElement("stop").attr({offset:w[0],"stop-color":G,"stop-opacity":e}).add(y);y.stops.push(w);}));Q="url("+f.url+"#"+m+")";b.setAttribute(g,Q);b.gradient=l;w.toString=function(){return Q;};}},applyTextOutline:function applyTextOutline(a){var w=this.element,g,b,f,d;-1!==a.indexOf("contrast")&&(a=a.replace(/contrast/g,this.renderer.getContrast(w.style.fill)));this.fakeTS=!0;this.ySetter=this.xSetter;g=[].slice.call(w.getElementsByTagName("tspan"));a=a.split(" ");b=a[a.length-1];(f=a[0])&&"none"!==f&&(f=f.replace(/(^[\d\.]+)(.*?)$/g,function(a,w,g){return 2*w+g;}),H(g,function(a){"highcharts-text-outline"===a.getAttribute("class")&&m(g,w.removeChild(a));}),d=w.firstChild,H(g,function(a,g){0===g&&(a.setAttribute("x",w.getAttribute("x")),g=w.getAttribute("y"),a.setAttribute("y",g||0),null===g&&w.setAttribute("y",0));a=a.cloneNode(1);u(a,{"class":"highcharts-text-outline",fill:b,stroke:b,"stroke-width":f,"stroke-linejoin":"round"});w.insertBefore(a,d);}));},attr:function attr(a,g,b,f){var w,d=this.element,q,c=this,y;"string"===typeof a&&void 0!==g&&(w=a,a={},a[w]=g);if("string"===typeof a)c=(this[a+"Getter"]||this._defaultGetter).call(this,a,d);else{for(w in a){g=a[w],y=!1,f||D(this,w),this.symbolName&&/^(x|y|width|height|r|start|end|innerR|anchorX|anchorY)/.test(w)&&(q||(this.symbolAttr(a),q=!0),y=!0),!this.rotation||"x"!==w&&"y"!==w||(this.doTransform=!0),y||(y=this[w+"Setter"]||this._defaultSetter,y.call(this,g,w,d),this.shadows&&/^(width|height|visibility|x|y|d|transform|cx|cy|r)$/.test(w)&&this.updateShadows(w,g,y));}this.doTransform&&(this.updateTransform(),this.doTransform=!1);}b&&b();return c;},updateShadows:function updateShadows(a,g,b){for(var w=this.shadows,f=w.length;f--;){b.call(w[f],"height"===a?Math.max(g-(w[f].cutHeight||0),0):"d"===a?this.d:g,a,w[f]);}},addClass:function addClass(a,g){var w=this.attr("class")||"";-1===w.indexOf(a)&&(g||(a=(w+(w?" ":"")+a).replace("  "," ")),this.attr("class",a));return this;},hasClass:function hasClass(a){return-1!==u(this.element,"class").indexOf(a);},removeClass:function removeClass(a){u(this.element,"class",(u(this.element,"class")||"").replace(a,""));return this;},symbolAttr:function symbolAttr(a){var w=this;H("x y r start end width height innerR anchorX anchorY".split(" "),function(g){w[g]=K(a[g],w[g]);});w.attr({d:w.renderer.symbols[w.symbolName](w.x,w.y,w.width,w.height,w)});},clip:function clip(a){return this.attr("clip-path",a?"url("+this.renderer.url+"#"+a.id+")":"none");},crisp:function crisp(a,g){var w,f={},b;g=g||a.strokeWidth||0;b=Math.round(g)%2/2;a.x=Math.floor(a.x||this.x||0)+b;a.y=Math.floor(a.y||this.y||0)+b;a.width=Math.floor((a.width||this.width||0)-2*b);a.height=Math.floor((a.height||this.height||0)-2*b);k(a.strokeWidth)&&(a.strokeWidth=g);for(w in a){this[w]!==a[w]&&(this[w]=f[w]=a[w]);}return f;},css:function css(a){var w=this.styles,g={},f=this.element,d,q="",c=!w,D=["textOverflow","width"];a&&a.color&&(a.fill=a.color);if(w)for(d in a){a[d]!==w[d]&&(g[d]=a[d],c=!0);}if(c){w&&(a=b(w,g));w=this.textWidth=a&&a.width&&"auto"!==a.width&&"text"===f.nodeName.toLowerCase()&&L(a.width);this.styles=a;w&&!S&&this.renderer.forExport&&delete a.width;if(y&&!S)t(this.element,a);else{w=function w(a,_w){return"-"+_w.toLowerCase();};for(d in a){-1===A(d,D)&&(q+=d.replace(/([A-Z])/g,w)+":"+a[d]+";");}q&&u(f,"style",q);}this.added&&("text"===this.element.nodeName&&this.renderer.buildText(this),a&&a.textOutline&&this.applyTextOutline(a.textOutline));}return this;},strokeWidth:function strokeWidth(){return this["stroke-width"]||0;},on:function on(a,g){var w=this,f=w.element;r&&"click"===a?(f.ontouchstart=function(a){w.touchEventFired=Date.now();a.preventDefault();g.call(f,a);},f.onclick=function(a){(-1===N.navigator.userAgent.indexOf("Android")||1100<Date.now()-(w.touchEventFired||0))&&g.call(f,a);}):f["on"+a]=g;return this;},setRadialReference:function setRadialReference(a){var w=this.renderer.gradients[this.element.gradient];this.element.radialReference=a;w&&w.radAttr&&w.animate(this.renderer.getRadialAttr(a,w.radAttr));return this;},translate:function translate(a,g){return this.attr({translateX:a,translateY:g});},invert:function invert(a){this.inverted=a;this.updateTransform();return this;},updateTransform:function updateTransform(){var a=this.translateX||0,g=this.translateY||0,f=this.scaleX,b=this.scaleY,d=this.inverted,q=this.rotation,c=this.element;d&&(a+=this.width,g+=this.height);a=["translate("+a+","+g+")"];d?a.push("rotate(90) scale(-1,1)"):q&&a.push("rotate("+q+" "+(c.getAttribute("x")||0)+" "+(c.getAttribute("y")||0)+")");(k(f)||k(b))&&a.push("scale("+K(f,1)+" "+K(b,1)+")");a.length&&c.setAttribute("transform",a.join(" "));},toFront:function toFront(){var a=this.element;a.parentNode.appendChild(a);return this;},align:function align(a,g,f){var w,b,d,q,c={};b=this.renderer;d=b.alignedObjects;var D,y;if(a){if(this.alignOptions=a,this.alignByTranslate=g,!f||F(f))this.alignTo=w=f||"renderer",m(d,this),d.push(this),f=null;}else a=this.alignOptions,g=this.alignByTranslate,w=this.alignTo;f=K(f,b[w],b);w=a.align;b=a.verticalAlign;d=(f.x||0)+(a.x||0);q=(f.y||0)+(a.y||0);"right"===w?D=1:"center"===w&&(D=2);D&&(d+=(f.width-(a.width||0))/D);c[g?"translateX":"x"]=Math.round(d);"bottom"===b?y=1:"middle"===b&&(y=2);y&&(q+=(f.height-(a.height||0))/y);c[g?"translateY":"y"]=Math.round(q);this[this.placed?"animate":"attr"](c);this.placed=!0;this.alignAttr=c;return this;},getBBox:function getBBox(a,g){var w,f=this.renderer,d,q=this.element,c=this.styles,D,y=this.textStr,x,r=f.cache,G=f.cacheKeys,m;g=K(g,this.rotation);d=g*e;D=c&&c.fontSize;void 0!==y&&(m=y.toString(),-1===m.indexOf("\x3c")&&(m=m.replace(/[0-9]/g,"0")),m+=["",g||0,D,c&&c.width,c&&c.textOverflow].join());m&&!a&&(w=r[m]);if(!w){if(q.namespaceURI===this.SVG_NS||f.forExport){try{(x=this.fakeTS&&function(a){H(q.querySelectorAll(".highcharts-text-outline"),function(w){w.style.display=a;});})&&x("none"),w=q.getBBox?b({},q.getBBox()):{width:q.offsetWidth,height:q.offsetHeight},x&&x("");}catch(X){}if(!w||0>w.width)w={width:0,height:0};}else w=this.htmlGetBBox();f.isSVG&&(a=w.width,f=w.height,c&&"11px"===c.fontSize&&17===Math.round(f)&&(w.height=f=14),g&&(w.width=Math.abs(f*Math.sin(d))+Math.abs(a*Math.cos(d)),w.height=Math.abs(f*Math.cos(d))+Math.abs(a*Math.sin(d))));if(m&&0<w.height){for(;250<G.length;){delete r[G.shift()];}r[m]||G.push(m);r[m]=w;}}return w;},show:function show(a){return this.attr({visibility:a?"inherit":"visible"});},hide:function hide(){return this.attr({visibility:"hidden"});},fadeOut:function fadeOut(a){var w=this;w.animate({opacity:0},{duration:a||150,complete:function complete(){w.attr({y:-9999});}});},add:function add(a){var w=this.renderer,g=this.element,f;a&&(this.parentGroup=a);this.parentInverted=a&&a.inverted;void 0!==this.textStr&&w.buildText(this);this.added=!0;if(!a||a.handleZ||this.zIndex)f=this.zIndexSetter();f||(a?a.element:w.box).appendChild(g);if(this.onAdd)this.onAdd();return this;},safeRemoveChild:function safeRemoveChild(a){var w=a.parentNode;w&&w.removeChild(a);},destroy:function destroy(){var a=this.element||{},g=this.renderer.isSVG&&"SPAN"===a.nodeName&&this.parentGroup,f,b;a.onclick=a.onmouseout=a.onmouseover=a.onmousemove=a.point=null;D(this);this.clipPath&&(this.clipPath=this.clipPath.destroy());if(this.stops){for(b=0;b<this.stops.length;b++){this.stops[b]=this.stops[b].destroy();}this.stops=null;}this.safeRemoveChild(a);for(this.destroyShadows();g&&g.div&&0===g.div.childNodes.length;){a=g.parentGroup,this.safeRemoveChild(g.div),delete g.div,g=a;}this.alignTo&&m(this.renderer.alignedObjects,this);for(f in this){delete this[f];}return null;},shadow:function shadow(a,g,f){var w=[],b,d,c=this.element,q,D,y,x;if(!a)this.destroyShadows();else if(!this.shadows){D=K(a.width,3);y=(a.opacity||.15)/D;x=this.parentInverted?"(-1,-1)":"("+K(a.offsetX,1)+", "+K(a.offsetY,1)+")";for(b=1;b<=D;b++){d=c.cloneNode(0),q=2*D+1-2*b,u(d,{isShadow:"true",stroke:a.color||"#000000","stroke-opacity":y*b,"stroke-width":q,transform:"translate"+x,fill:"none"}),f&&(u(d,"height",Math.max(u(d,"height")-q,0)),d.cutHeight=q),g?g.element.appendChild(d):c.parentNode.insertBefore(d,c),w.push(d);}this.shadows=w;}return this;},destroyShadows:function destroyShadows(){H(this.shadows||[],function(a){this.safeRemoveChild(a);},this);this.shadows=void 0;},xGetter:function xGetter(a){"circle"===this.element.nodeName&&("x"===a?a="cx":"y"===a&&(a="cy"));return this._defaultGetter(a);},_defaultGetter:function _defaultGetter(a){a=K(this[a],this.element?this.element.getAttribute(a):null,0);/^[\-0-9\.]+$/.test(a)&&(a=parseFloat(a));return a;},dSetter:function dSetter(a,g,f){a&&a.join&&(a=a.join(" "));/(NaN| {2}|^$)/.test(a)&&(a="M 0 0");f.setAttribute(g,a);this[g]=a;},dashstyleSetter:function dashstyleSetter(a){var w,g=this["stroke-width"];"inherit"===g&&(g=1);if(a=a&&a.toLowerCase()){a=a.replace("shortdashdotdot","3,1,1,1,1,1,").replace("shortdashdot","3,1,1,1").replace("shortdot","1,1,").replace("shortdash","3,1,").replace("longdash","8,3,").replace(/dot/g,"1,3,").replace("dash","4,3,").replace(/,$/,"").split(",");for(w=a.length;w--;){a[w]=L(a[w])*g;}a=a.join(",").replace(/NaN/g,"none");this.element.setAttribute("stroke-dasharray",a);}},alignSetter:function alignSetter(a){this.element.setAttribute("text-anchor",{left:"start",center:"middle",right:"end"}[a]);},opacitySetter:function opacitySetter(a,g,f){this[g]=a;f.setAttribute(g,a);},titleSetter:function titleSetter(a){var w=this.element.getElementsByTagName("title")[0];w||(w=p.createElementNS(this.SVG_NS,"title"),this.element.appendChild(w));w.firstChild&&w.removeChild(w.firstChild);w.appendChild(p.createTextNode(String(K(a),"").replace(/<[^>]*>/g,"")));},textSetter:function textSetter(a){a!==this.textStr&&(delete this.bBox,this.textStr=a,this.added&&this.renderer.buildText(this));},fillSetter:function fillSetter(a,g,f){"string"===typeof a?f.setAttribute(g,a):a&&this.colorGradient(a,g,f);},visibilitySetter:function visibilitySetter(a,g,f){"inherit"===a?f.removeAttribute(g):f.setAttribute(g,a);},zIndexSetter:function zIndexSetter(a,g){var w=this.renderer,f=this.parentGroup,b=(f||w).element||w.box,d,c=this.element,q;d=this.added;var D;k(a)&&(c.zIndex=a,a=+a,this[g]===a&&(d=!1),this[g]=a);if(d){(a=this.zIndex)&&f&&(f.handleZ=!0);g=b.childNodes;for(D=0;D<g.length&&!q;D++){f=g[D],d=f.zIndex,f!==c&&(L(d)>a||!k(a)&&k(d)||0>a&&!k(d)&&b!==w.box)&&(b.insertBefore(c,f),q=!0);}q||b.appendChild(c);}return q;},_defaultSetter:function _defaultSetter(a,g,f){f.setAttribute(g,a);}};B.prototype.yGetter=B.prototype.xGetter;B.prototype.translateXSetter=B.prototype.translateYSetter=B.prototype.rotationSetter=B.prototype.verticalAlignSetter=B.prototype.scaleXSetter=B.prototype.scaleYSetter=function(a,g){this[g]=a;this.doTransform=!0;};B.prototype["stroke-widthSetter"]=B.prototype.strokeSetter=function(a,g,f){this[g]=a;this.stroke&&this["stroke-width"]?(B.prototype.fillSetter.call(this,this.stroke,"stroke",f),f.setAttribute("stroke-width",this["stroke-width"]),this.hasStroke=!0):"stroke-width"===g&&0===a&&this.hasStroke&&(f.removeAttribute("stroke"),this.hasStroke=!1);};z=a.SVGRenderer=function(){this.init.apply(this,arguments);};z.prototype={Element:B,SVG_NS:M,init:function init(a,g,b,d,c,D){var w;d=this.createElement("svg").attr({version:"1.1","class":"highcharts-root"}).css(this.getStyle(d));w=d.element;a.appendChild(w);-1===a.innerHTML.indexOf("xmlns")&&u(w,"xmlns",this.SVG_NS);this.isSVG=!0;this.box=w;this.boxWrapper=d;this.alignedObjects=[];this.url=(f||q)&&p.getElementsByTagName("base").length?N.location.href.replace(/#.*?$/,"").replace(/<[^>]*>/g,"").replace(/([\('\)])/g,"\\$1").replace(/ /g,"%20"):"";this.createElement("desc").add().element.appendChild(p.createTextNode("Created with Highcharts 5.0.9"));this.defs=this.createElement("defs").add();this.allowHTML=D;this.forExport=c;this.gradients={};this.cache={};this.cacheKeys=[];this.imgCount=0;this.setSize(g,b,!1);var y;f&&a.getBoundingClientRect&&(g=function g(){t(a,{left:0,top:0});y=a.getBoundingClientRect();t(a,{left:Math.ceil(y.left)-y.left+"px",top:Math.ceil(y.top)-y.top+"px"});},g(),this.unSubPixelFix=C(N,"resize",g));},getStyle:function getStyle(a){return this.style=b({fontFamily:'"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',fontSize:"12px"},a);},setStyle:function setStyle(a){this.boxWrapper.css(this.getStyle(a));},isHidden:function isHidden(){return!this.boxWrapper.getBBox().width;},destroy:function destroy(){var a=this.defs;this.box=null;this.boxWrapper=this.boxWrapper.destroy();c(this.gradients||{});this.gradients=null;a&&(this.defs=a.destroy());this.unSubPixelFix&&this.unSubPixelFix();return this.alignedObjects=null;},createElement:function createElement(a){var g=new this.Element();g.init(this,a);return g;},draw:J,getRadialAttr:function getRadialAttr(a,g){return{cx:a[0]-a[2]/2+g.cx*a[2],cy:a[1]-a[2]/2+g.cy*a[2],r:g.r*a[2]};},buildText:function buildText(a){var g=a.element,f=this,w=f.forExport,b=K(a.textStr,"").toString(),c=-1!==b.indexOf("\x3c"),q=g.childNodes,D,y,x,r,G=u(g,"x"),m=a.styles,e=a.textWidth,l=m&&m.lineHeight,v=m&&m.textOutline,k=m&&"ellipsis"===m.textOverflow,h=m&&"nowrap"===m.whiteSpace,F=m&&m.fontSize,A,J=q.length,m=e&&!a.added&&this.box,n=function n(a){var w;w=/(px|em)$/.test(a&&a.style.fontSize)?a.style.fontSize:F||f.style.fontSize||12;return l?L(l):f.fontMetrics(w,a.getAttribute("style")?a:g).h;};A=[b,k,h,l,v,F,e].join();if(A!==a.textCache){for(a.textCache=A;J--;){g.removeChild(q[J]);}c||v||k||e||-1!==b.indexOf(" ")?(D=/<.*class="([^"]+)".*>/,y=/<.*style="([^"]+)".*>/,x=/<.*href="(http[^"]+)".*>/,m&&m.appendChild(g),b=c?b.replace(/<(b|strong)>/g,'\x3cspan style\x3d"font-weight:bold"\x3e').replace(/<(i|em)>/g,'\x3cspan style\x3d"font-style:italic"\x3e').replace(/<a/g,"\x3cspan").replace(/<\/(b|strong|i|em|a)>/g,"\x3c/span\x3e").split(/<br.*?>/g):[b],b=d(b,function(a){return""!==a;}),H(b,function(b,d){var c,q=0;b=b.replace(/^\s+|\s+$/g,"").replace(/<span/g,"|||\x3cspan").replace(/<\/span>/g,"\x3c/span\x3e|||");c=b.split("|||");H(c,function(b){if(""!==b||1===c.length){var m={},v=p.createElementNS(f.SVG_NS,"tspan"),l,F;D.test(b)&&(l=b.match(D)[1],u(v,"class",l));y.test(b)&&(F=b.match(y)[1].replace(/(;| |^)color([ :])/,"$1fill$2"),u(v,"style",F));x.test(b)&&!w&&(u(v,"onclick",'location.href\x3d"'+b.match(x)[1]+'"'),t(v,{cursor:"pointer"}));b=(b.replace(/<(.|\n)*?>/g,"")||" ").replace(/&lt;/g,"\x3c").replace(/&gt;/g,"\x3e");if(" "!==b){v.appendChild(p.createTextNode(b));q?m.dx=0:d&&null!==G&&(m.x=G);u(v,m);g.appendChild(v);!q&&d&&(!S&&w&&t(v,{display:"block"}),u(v,"dy",n(v)));if(e){m=b.replace(/([^\^])-/g,"$1- ").split(" ");l=1<c.length||d||1<m.length&&!h;for(var A,H,O=[],J=n(v),K=a.rotation,L=b,P=L.length;(l||k)&&(m.length||O.length);){a.rotation=0,A=a.getBBox(!0),H=A.width,!S&&f.forExport&&(H=f.measureSpanWidth(v.firstChild.data,a.styles)),A=H>e,void 0===r&&(r=A),k&&r?(P/=2,""===L||!A&&.5>P?m=[]:(L=b.substring(0,L.length+(A?-1:1)*Math.ceil(P)),m=[L+(3<e?"\u2026":"")],v.removeChild(v.firstChild))):A&&1!==m.length?(v.removeChild(v.firstChild),O.unshift(m.pop())):(m=O,O=[],m.length&&!h&&(v=p.createElementNS(M,"tspan"),u(v,{dy:J,x:G}),F&&u(v,"style",F),g.appendChild(v)),H>e&&(e=H)),m.length&&v.appendChild(p.createTextNode(m.join(" ").replace(/- /g,"-")));}a.rotation=K;}q++;}}});}),r&&a.attr("title",a.textStr),m&&m.removeChild(g),v&&a.applyTextOutline&&a.applyTextOutline(v)):g.appendChild(p.createTextNode(b.replace(/&lt;/g,"\x3c").replace(/&gt;/g,"\x3e")));}},getContrast:function getContrast(a){a=n(a).rgba;return 510<a[0]+a[1]+a[2]?"#000000":"#FFFFFF";},button:function button(a,g,f,d,c,q,D,m,r){var w=this.label(a,g,f,r,null,null,null,null,"button"),G=0;w.attr(x({padding:8,r:2},c));var e,v,p,l;c=x({fill:"#f7f7f7",stroke:"#cccccc","stroke-width":1,style:{color:"#333333",cursor:"pointer",fontWeight:"normal"}},c);e=c.style;delete c.style;q=x(c,{fill:"#e6e6e6"},q);v=q.style;delete q.style;D=x(c,{fill:"#e6ebf5",style:{color:"#000000",fontWeight:"bold"}},D);p=D.style;delete D.style;m=x(c,{style:{color:"#cccccc"}},m);l=m.style;delete m.style;C(w.element,y?"mouseover":"mouseenter",function(){3!==G&&w.setState(1);});C(w.element,y?"mouseout":"mouseleave",function(){3!==G&&w.setState(G);});w.setState=function(a){1!==a&&(w.state=G=a);w.removeClass(/highcharts-button-(normal|hover|pressed|disabled)/).addClass("highcharts-button-"+["normal","hover","pressed","disabled"][a||0]);w.attr([c,q,D,m][a||0]).css([e,v,p,l][a||0]);};w.attr(c).css(b({cursor:"default"},e));return w.on("click",function(a){3!==G&&d.call(w,a);});},crispLine:function crispLine(a,g){a[1]===a[4]&&(a[1]=a[4]=Math.round(a[1])-g%2/2);a[2]===a[5]&&(a[2]=a[5]=Math.round(a[2])+g%2/2);return a;},path:function path(a){var g={fill:"none"};v(a)?g.d=a:G(a)&&b(g,a);return this.createElement("path").attr(g);},circle:function circle(a,g,f){a=G(a)?a:{x:a,y:g,r:f};g=this.createElement("circle");g.xSetter=g.ySetter=function(a,g,f){f.setAttribute("c"+g,a);};return g.attr(a);},arc:function arc(a,g,f,b,d,c){G(a)?(b=a,g=b.y,f=b.r,a=b.x):b={innerR:b,start:d,end:c};a=this.symbol("arc",a,g,f,f,b);a.r=f;return a;},rect:function rect(a,g,f,b,d,c){d=G(a)?a.r:d;var w=this.createElement("rect");a=G(a)?a:void 0===a?{}:{x:a,y:g,width:Math.max(f,0),height:Math.max(b,0)};void 0!==c&&(a.strokeWidth=c,a=w.crisp(a));a.fill="none";d&&(a.r=d);w.rSetter=function(a,g,f){u(f,{rx:a,ry:a});};return w.attr(a);},setSize:function setSize(a,g,f){var b=this.alignedObjects,d=b.length;this.width=a;this.height=g;for(this.boxWrapper.animate({width:a,height:g},{step:function step(){this.attr({viewBox:"0 0 "+this.attr("width")+" "+this.attr("height")});},duration:K(f,!0)?void 0:0});d--;){b[d].align();}},g:function g(a){var g=this.createElement("g");return a?g.attr({"class":"highcharts-"+a}):g;},image:function image(a,g,f,d,c){var w={preserveAspectRatio:"none"};1<arguments.length&&b(w,{x:g,y:f,width:d,height:c});w=this.createElement("image").attr(w);w.element.setAttributeNS?w.element.setAttributeNS("http://www.w3.org/1999/xlink","href",a):w.element.setAttribute("hc-svg-href",a);return w;},symbol:function symbol(a,g,f,d,c,q){var w=this,D,y=this.symbols[a],m=k(g)&&y&&this.symbols[a](Math.round(g),Math.round(f),d,c,q),x=/^url\((.*?)\)$/,G,r;y?(D=this.path(m),D.attr("fill","none"),b(D,{symbolName:a,x:g,y:f,width:d,height:c}),q&&b(D,q)):x.test(a)&&(G=a.match(x)[1],D=this.image(G),D.imgwidth=K(R[G]&&R[G].width,q&&q.width),D.imgheight=K(R[G]&&R[G].height,q&&q.height),r=function r(){D.attr({width:D.width,height:D.height});},H(["width","height"],function(a){D[a+"Setter"]=function(a,g){var f={},b=this["img"+g],d="width"===g?"translateX":"translateY";this[g]=a;k(b)&&(this.element&&this.element.setAttribute(g,b),this.alignByTranslate||(f[d]=((this[g]||0)-b)/2,this.attr(f)));};}),k(g)&&D.attr({x:g,y:f}),D.isImg=!0,k(D.imgwidth)&&k(D.imgheight)?r():(D.attr({width:0,height:0}),l("img",{onload:function onload(){var a=h[w.chartIndex];0===this.width&&(t(this,{position:"absolute",top:"-999em"}),p.body.appendChild(this));R[G]={width:this.width,height:this.height};D.imgwidth=this.width;D.imgheight=this.height;D.element&&r();this.parentNode&&this.parentNode.removeChild(this);w.imgCount--;if(!w.imgCount&&a&&a.onload)a.onload();},src:G}),this.imgCount++));return D;},symbols:{circle:function circle(a,g,f,b){return this.arc(a+f/2,g+b/2,f/2,b/2,{start:0,end:2*Math.PI,open:!1});},square:function square(a,g,f,b){return["M",a,g,"L",a+f,g,a+f,g+b,a,g+b,"Z"];},triangle:function triangle(a,g,f,b){return["M",a+f/2,g,"L",a+f,g+b,a,g+b,"Z"];},"triangle-down":function triangleDown(a,g,f,b){return["M",a,g,"L",a+f,g,a+f/2,g+b,"Z"];},diamond:function diamond(a,g,f,b){return["M",a+f/2,g,"L",a+f,g+b/2,a+f/2,g+b,a,g+b/2,"Z"];},arc:function arc(a,g,f,b,d){var c=d.start,w=d.r||f,q=d.r||b||f,D=d.end-.001;f=d.innerR;b=d.open;var y=Math.cos(c),m=Math.sin(c),x=Math.cos(D),D=Math.sin(D);d=d.end-c<Math.PI?0:1;w=["M",a+w*y,g+q*m,"A",w,q,0,d,1,a+w*x,g+q*D];k(f)&&w.push(b?"M":"L",a+f*x,g+f*D,"A",f,f,0,d,0,a+f*y,g+f*m);w.push(b?"":"Z");return w;},callout:function callout(a,g,f,b,d){var c=Math.min(d&&d.r||0,f,b),q=c+6,D=d&&d.anchorX;d=d&&d.anchorY;var w;w=["M",a+c,g,"L",a+f-c,g,"C",a+f,g,a+f,g,a+f,g+c,"L",a+f,g+b-c,"C",a+f,g+b,a+f,g+b,a+f-c,g+b,"L",a+c,g+b,"C",a,g+b,a,g+b,a,g+b-c,"L",a,g+c,"C",a,g,a,g,a+c,g];D&&D>f?d>g+q&&d<g+b-q?w.splice(13,3,"L",a+f,d-6,a+f+6,d,a+f,d+6,a+f,g+b-c):w.splice(13,3,"L",a+f,b/2,D,d,a+f,b/2,a+f,g+b-c):D&&0>D?d>g+q&&d<g+b-q?w.splice(33,3,"L",a,d+6,a-6,d,a,d-6,a,g+c):w.splice(33,3,"L",a,b/2,D,d,a,b/2,a,g+c):d&&d>b&&D>a+q&&D<a+f-q?w.splice(23,3,"L",D+6,g+b,D,g+b+6,D-6,g+b,a+c,g+b):d&&0>d&&D>a+q&&D<a+f-q&&w.splice(3,3,"L",D-6,g,D,g-6,D+6,g,f-c,g);return w;}},clipRect:function clipRect(g,f,b,d){var c=a.uniqueKey(),q=this.createElement("clipPath").attr({id:c}).add(this.defs);g=this.rect(g,f,b,d,0).add(q);g.id=c;g.clipPath=q;g.count=0;return g;},text:function text(a,g,f,b){var d=!S&&this.forExport,c={};if(b&&(this.allowHTML||!this.forExport))return this.html(a,g,f);c.x=Math.round(g||0);f&&(c.y=Math.round(f));if(a||0===a)c.text=a;a=this.createElement("text").attr(c);d&&a.css({position:"absolute"});b||(a.xSetter=function(a,g,f){var b=f.getElementsByTagName("tspan"),d,c=f.getAttribute(g),q;for(q=0;q<b.length;q++){d=b[q],d.getAttribute(g)===c&&d.setAttribute(g,a);}f.setAttribute(g,a);});return a;},fontMetrics:function fontMetrics(a,g){a=a||g&&g.style&&g.style.fontSize||this.style&&this.style.fontSize;a=/px/.test(a)?L(a):/em/.test(a)?parseFloat(a)*(g?this.fontMetrics(null,g.parentNode).f:16):12;g=24>a?a+3:Math.round(1.2*a);return{h:g,b:Math.round(.8*g),f:a};},rotCorr:function rotCorr(a,g,f){var b=a;g&&f&&(b=Math.max(b*Math.cos(g*e),4));return{x:-a/3*Math.sin(g*e),y:b};},label:function label(f,d,c,q,D,y,m,G,r){var w=this,e=w.g("button"!==r&&"label"),v=e.text=w.text("",0,0,m).attr({zIndex:1}),p,l,F=0,A=3,h=0,J,t,S,n,M,K={},L,u,O=/^url\((.*?)\)$/.test(q),R=O,P,Q,N,U;r&&e.addClass("highcharts-"+r);R=O;P=function P(){return(L||0)%2/2;};Q=function Q(){var a=v.element.style,g={};l=(void 0===J||void 0===t||M)&&k(v.textStr)&&v.getBBox();e.width=(J||l.width||0)+2*A+h;e.height=(t||l.height||0)+2*A;u=A+w.fontMetrics(a&&a.fontSize,v).b;R&&(p||(e.box=p=w.symbols[q]||O?w.symbol(q):w.rect(),p.addClass(("button"===r?"":"highcharts-label-box")+(r?" highcharts-"+r+"-box":"")),p.add(e),a=P(),g.x=a,g.y=(G?-u:0)+a),g.width=Math.round(e.width),g.height=Math.round(e.height),p.attr(b(g,K)),K={});};N=function N(){var a=h+A,g;g=G?0:u;k(J)&&l&&("center"===M||"right"===M)&&(a+={center:.5,right:1}[M]*(J-l.width));if(a!==v.x||g!==v.y)v.attr("x",a),void 0!==g&&v.attr("y",g);v.x=a;v.y=g;};U=function U(a,g){p?p.attr(a,g):K[a]=g;};e.onAdd=function(){v.add(e);e.attr({text:f||0===f?f:"",x:d,y:c});p&&k(D)&&e.attr({anchorX:D,anchorY:y});};e.widthSetter=function(g){J=a.isNumber(g)?g:null;};e.heightSetter=function(a){t=a;};e["text-alignSetter"]=function(a){M=a;};e.paddingSetter=function(a){k(a)&&a!==A&&(A=e.padding=a,N());};e.paddingLeftSetter=function(a){k(a)&&a!==h&&(h=a,N());};e.alignSetter=function(a){a={left:0,center:.5,right:1}[a];a!==F&&(F=a,l&&e.attr({x:S}));};e.textSetter=function(a){void 0!==a&&v.textSetter(a);Q();N();};e["stroke-widthSetter"]=function(a,g){a&&(R=!0);L=this["stroke-width"]=a;U(g,a);};e.strokeSetter=e.fillSetter=e.rSetter=function(a,g){"fill"===g&&a&&(R=!0);U(g,a);};e.anchorXSetter=function(a,g){D=a;U(g,Math.round(a)-P()-S);};e.anchorYSetter=function(a,g){y=a;U(g,a-n);};e.xSetter=function(a){e.x=a;F&&(a-=F*((J||l.width)+2*A));S=Math.round(a);e.attr("translateX",S);};e.ySetter=function(a){n=e.y=Math.round(a);e.attr("translateY",n);};var W=e.css;return b(e,{css:function css(a){if(a){var g={};a=x(a);H(e.textProps,function(f){void 0!==a[f]&&(g[f]=a[f],delete a[f]);});v.css(g);}return W.call(e,a);},getBBox:function getBBox(){return{width:l.width+2*A,height:l.height+2*A,x:l.x-A,y:l.y-A};},shadow:function shadow(a){a&&(Q(),p&&p.shadow(a));return e;},destroy:function destroy(){g(e.element,"mouseenter");g(e.element,"mouseleave");v&&(v=v.destroy());p&&(p=p.destroy());B.prototype.destroy.call(e);e=w=Q=N=U=null;}});}};a.Renderer=z;})(I);(function(a){var B=a.attr,z=a.createElement,C=a.css,E=a.defined,u=a.each,h=a.extend,n=a.isFirefox,t=a.isMS,l=a.isWebKit,k=a.pInt,e=a.SVGRenderer,c=a.win,p=a.wrap;h(a.SVGElement.prototype,{htmlCss:function htmlCss(a){var b=this.element;if(b=a&&"SPAN"===b.tagName&&a.width)delete a.width,this.textWidth=b,this.updateTransform();a&&"ellipsis"===a.textOverflow&&(a.whiteSpace="nowrap",a.overflow="hidden");this.styles=h(this.styles,a);C(this.element,a);return this;},htmlGetBBox:function htmlGetBBox(){var a=this.element;"text"===a.nodeName&&(a.style.position="absolute");return{x:a.offsetLeft,y:a.offsetTop,width:a.offsetWidth,height:a.offsetHeight};},htmlUpdateTransform:function htmlUpdateTransform(){if(this.added){var a=this.renderer,b=this.element,c=this.translateX||0,d=this.translateY||0,e=this.x||0,p=this.y||0,v=this.textAlign||"left",f={left:0,center:.5,right:1}[v],y=this.styles;C(b,{marginLeft:c,marginTop:d});this.shadows&&u(this.shadows,function(a){C(a,{marginLeft:c+1,marginTop:d+1});});this.inverted&&u(b.childNodes,function(f){a.invertChild(f,b);});if("SPAN"===b.tagName){var G=this.rotation,F=k(this.textWidth),q=y&&y.whiteSpace,x=[G,v,b.innerHTML,this.textWidth,this.textAlign].join();x!==this.cTT&&(y=a.fontMetrics(b.style.fontSize).b,E(G)&&this.setSpanRotation(G,f,y),C(b,{width:"",whiteSpace:q||"nowrap"}),b.offsetWidth>F&&/[ \-]/.test(b.textContent||b.innerText)&&C(b,{width:F+"px",display:"block",whiteSpace:q||"normal"}),this.getSpanCorrection(b.offsetWidth,y,f,G,v));C(b,{left:e+(this.xCorr||0)+"px",top:p+(this.yCorr||0)+"px"});l&&(y=b.offsetHeight);this.cTT=x;}}else this.alignOnAdd=!0;},setSpanRotation:function setSpanRotation(a,b,e){var d={},m=t?"-ms-transform":l?"-webkit-transform":n?"MozTransform":c.opera?"-o-transform":"";d[m]=d.transform="rotate("+a+"deg)";d[m+(n?"Origin":"-origin")]=d.transformOrigin=100*b+"% "+e+"px";C(this.element,d);},getSpanCorrection:function getSpanCorrection(a,b,c){this.xCorr=-a*c;this.yCorr=-b;}});h(e.prototype,{html:function html(a,b,c){var d=this.createElement("span"),e=d.element,m=d.renderer,v=m.isSVG,f=function f(a,_f){u(["opacity","visibility"],function(b){p(a,b+"Setter",function(a,b,d,c){a.call(this,b,d,c);_f[d]=b;});});};d.textSetter=function(a){a!==e.innerHTML&&delete this.bBox;e.innerHTML=this.textStr=a;d.htmlUpdateTransform();};v&&f(d,d.element.style);d.xSetter=d.ySetter=d.alignSetter=d.rotationSetter=function(a,f){"align"===f&&(f="textAlign");d[f]=a;d.htmlUpdateTransform();};d.attr({text:a,x:Math.round(b),y:Math.round(c)}).css({fontFamily:this.style.fontFamily,fontSize:this.style.fontSize,position:"absolute"});e.style.whiteSpace="nowrap";d.css=d.htmlCss;v&&(d.add=function(a){var b,c=m.box.parentNode,q=[];if(this.parentGroup=a){if(b=a.div,!b){for(;a;){q.push(a),a=a.parentGroup;}u(q.reverse(),function(a){var y,e=B(a.element,"class");e&&(e={className:e});b=a.div=a.div||z("div",e,{position:"absolute",left:(a.translateX||0)+"px",top:(a.translateY||0)+"px",display:a.display,opacity:a.opacity,pointerEvents:a.styles&&a.styles.pointerEvents},b||c);y=b.style;h(a,{on:function on(){d.on.apply({element:q[0].div},arguments);return a;},translateXSetter:function translateXSetter(f,g){y.left=f+"px";a[g]=f;a.doTransform=!0;},translateYSetter:function translateYSetter(f,g){y.top=f+"px";a[g]=f;a.doTransform=!0;}});f(a,y);});}}else b=c;b.appendChild(e);d.added=!0;d.alignOnAdd&&d.htmlUpdateTransform();return d;});return d;}});})(I);(function(a){var B,z,C=a.createElement,E=a.css,u=a.defined,h=a.deg2rad,n=a.discardElement,t=a.doc,l=a.each,k=a.erase,e=a.extend;B=a.extendClass;var c=a.isArray,p=a.isNumber,H=a.isObject,b=a.merge;z=a.noop;var m=a.pick,d=a.pInt,r=a.SVGElement,A=a.SVGRenderer,v=a.win;a.svg||(z={docMode8:t&&8===t.documentMode,init:function init(a,b){var f=["\x3c",b,' filled\x3d"f" stroked\x3d"f"'],d=["position: ","absolute",";"],c="div"===b;("shape"===b||c)&&d.push("left:0;top:0;width:1px;height:1px;");d.push("visibility: ",c?"hidden":"visible");f.push(' style\x3d"',d.join(""),'"/\x3e');b&&(f=c||"span"===b||"img"===b?f.join(""):a.prepVML(f),this.element=C(f));this.renderer=a;},add:function add(a){var f=this.renderer,b=this.element,d=f.box,c=a&&a.inverted,d=a?a.element||a:d;a&&(this.parentGroup=a);c&&f.invertChild(b,d);d.appendChild(b);this.added=!0;this.alignOnAdd&&!this.deferUpdateTransform&&this.updateTransform();if(this.onAdd)this.onAdd();this.className&&this.attr("class",this.className);return this;},updateTransform:r.prototype.htmlUpdateTransform,setSpanRotation:function setSpanRotation(){var a=this.rotation,b=Math.cos(a*h),d=Math.sin(a*h);E(this.element,{filter:a?["progid:DXImageTransform.Microsoft.Matrix(M11\x3d",b,", M12\x3d",-d,", M21\x3d",d,", M22\x3d",b,", sizingMethod\x3d'auto expand')"].join(""):"none"});},getSpanCorrection:function getSpanCorrection(a,b,d,c,q){var f=c?Math.cos(c*h):1,e=c?Math.sin(c*h):0,y=m(this.elemHeight,this.element.offsetHeight),r;this.xCorr=0>f&&-a;this.yCorr=0>e&&-y;r=0>f*e;this.xCorr+=e*b*(r?1-d:d);this.yCorr-=f*b*(c?r?d:1-d:1);q&&"left"!==q&&(this.xCorr-=a*d*(0>f?-1:1),c&&(this.yCorr-=y*d*(0>e?-1:1)),E(this.element,{textAlign:q}));},pathToVML:function pathToVML(a){for(var f=a.length,b=[];f--;){p(a[f])?b[f]=Math.round(10*a[f])-5:"Z"===a[f]?b[f]="x":(b[f]=a[f],!a.isArc||"wa"!==a[f]&&"at"!==a[f]||(b[f+5]===b[f+7]&&(b[f+7]+=a[f+7]>a[f+5]?1:-1),b[f+6]===b[f+8]&&(b[f+8]+=a[f+8]>a[f+6]?1:-1)));}return b.join(" ")||"x";},clip:function clip(a){var f=this,b;a?(b=a.members,k(b,f),b.push(f),f.destroyClip=function(){k(b,f);},a=a.getCSS(f)):(f.destroyClip&&f.destroyClip(),a={clip:f.docMode8?"inherit":"rect(auto)"});return f.css(a);},css:r.prototype.htmlCss,safeRemoveChild:function safeRemoveChild(a){a.parentNode&&n(a);},destroy:function destroy(){this.destroyClip&&this.destroyClip();return r.prototype.destroy.apply(this);},on:function on(a,b){this.element["on"+a]=function(){var a=v.event;a.target=a.srcElement;b(a);};return this;},cutOffPath:function cutOffPath(a,b){var f;a=a.split(/[ ,]/);f=a.length;if(9===f||11===f)a[f-4]=a[f-2]=d(a[f-2])-10*b;return a.join(" ");},shadow:function shadow(a,b,c){var f=[],q,e=this.element,y=this.renderer,r,v=e.style,g,D=e.path,p,l,G,k;D&&"string"!==typeof D.value&&(D="x");l=D;if(a){G=m(a.width,3);k=(a.opacity||.15)/G;for(q=1;3>=q;q++){p=2*G+1-2*q,c&&(l=this.cutOffPath(D.value,p+.5)),g=['\x3cshape isShadow\x3d"true" strokeweight\x3d"',p,'" filled\x3d"false" path\x3d"',l,'" coordsize\x3d"10 10" style\x3d"',e.style.cssText,'" /\x3e'],r=C(y.prepVML(g),null,{left:d(v.left)+m(a.offsetX,1),top:d(v.top)+m(a.offsetY,1)}),c&&(r.cutOff=p+1),g=['\x3cstroke color\x3d"',a.color||"#000000",'" opacity\x3d"',k*q,'"/\x3e'],C(y.prepVML(g),null,null,r),b?b.element.appendChild(r):e.parentNode.insertBefore(r,e),f.push(r);}this.shadows=f;}return this;},updateShadows:z,setAttr:function setAttr(a,b){this.docMode8?this.element[a]=b:this.element.setAttribute(a,b);},classSetter:function classSetter(a){(this.added?this.element:this).className=a;},dashstyleSetter:function dashstyleSetter(a,b,d){(d.getElementsByTagName("stroke")[0]||C(this.renderer.prepVML(["\x3cstroke/\x3e"]),null,null,d))[b]=a||"solid";this[b]=a;},dSetter:function dSetter(a,b,d){var f=this.shadows;a=a||[];this.d=a.join&&a.join(" ");d.path=a=this.pathToVML(a);if(f)for(d=f.length;d--;){f[d].path=f[d].cutOff?this.cutOffPath(a,f[d].cutOff):a;}this.setAttr(b,a);},fillSetter:function fillSetter(a,b,d){var f=d.nodeName;"SPAN"===f?d.style.color=a:"IMG"!==f&&(d.filled="none"!==a,this.setAttr("fillcolor",this.renderer.color(a,d,b,this)));},"fill-opacitySetter":function fillOpacitySetter(a,b,d){C(this.renderer.prepVML(["\x3c",b.split("-")[0],' opacity\x3d"',a,'"/\x3e']),null,null,d);},opacitySetter:z,rotationSetter:function rotationSetter(a,b,d){d=d.style;this[b]=d[b]=a;d.left=-Math.round(Math.sin(a*h)+1)+"px";d.top=Math.round(Math.cos(a*h))+"px";},strokeSetter:function strokeSetter(a,b,d){this.setAttr("strokecolor",this.renderer.color(a,d,b,this));},"stroke-widthSetter":function strokeWidthSetter(a,b,d){d.stroked=!!a;this[b]=a;p(a)&&(a+="px");this.setAttr("strokeweight",a);},titleSetter:function titleSetter(a,b){this.setAttr(b,a);},visibilitySetter:function visibilitySetter(a,b,d){"inherit"===a&&(a="visible");this.shadows&&l(this.shadows,function(f){f.style[b]=a;});"DIV"===d.nodeName&&(a="hidden"===a?"-999em":0,this.docMode8||(d.style[b]=a?"visible":"hidden"),b="top");d.style[b]=a;},xSetter:function xSetter(a,b,d){this[b]=a;"x"===b?b="left":"y"===b&&(b="top");this.updateClipping?(this[b]=a,this.updateClipping()):d.style[b]=a;},zIndexSetter:function zIndexSetter(a,b,d){d.style[b]=a;}},z["stroke-opacitySetter"]=z["fill-opacitySetter"],a.VMLElement=z=B(r,z),z.prototype.ySetter=z.prototype.widthSetter=z.prototype.heightSetter=z.prototype.xSetter,z={Element:z,isIE8:-1<v.navigator.userAgent.indexOf("MSIE 8.0"),init:function init(a,b,d){var f,c;this.alignedObjects=[];f=this.createElement("div").css({position:"relative"});c=f.element;a.appendChild(f.element);this.isVML=!0;this.box=c;this.boxWrapper=f;this.gradients={};this.cache={};this.cacheKeys=[];this.imgCount=0;this.setSize(b,d,!1);if(!t.namespaces.hcv){t.namespaces.add("hcv","urn:schemas-microsoft-com:vml");try{t.createStyleSheet().cssText="hcv\\:fill, hcv\\:path, hcv\\:shape, hcv\\:stroke{ behavior:url(#default#VML); display: inline-block; } ";}catch(x){t.styleSheets[0].cssText+="hcv\\:fill, hcv\\:path, hcv\\:shape, hcv\\:stroke{ behavior:url(#default#VML); display: inline-block; } ";}}},isHidden:function isHidden(){return!this.box.offsetWidth;},clipRect:function clipRect(a,b,d,c){var f=this.createElement(),m=H(a);return e(f,{members:[],count:0,left:(m?a.x:a)+1,top:(m?a.y:b)+1,width:(m?a.width:d)-1,height:(m?a.height:c)-1,getCSS:function getCSS(a){var b=a.element,d=b.nodeName,g=a.inverted,f=this.top-("shape"===d?b.offsetTop:0),c=this.left,b=c+this.width,q=f+this.height,f={clip:"rect("+Math.round(g?c:f)+"px,"+Math.round(g?q:b)+"px,"+Math.round(g?b:q)+"px,"+Math.round(g?f:c)+"px)"};!g&&a.docMode8&&"DIV"===d&&e(f,{width:b+"px",height:q+"px"});return f;},updateClipping:function updateClipping(){l(f.members,function(a){a.element&&a.css(f.getCSS(a));});}});},color:function color(b,d,c,e){var f=this,m,r=/^rgba/,v,p,g="none";b&&b.linearGradient?p="gradient":b&&b.radialGradient&&(p="pattern");if(p){var D,y,k=b.linearGradient||b.radialGradient,A,h,w,G,t,F="";b=b.stops;var n,H=[],u=function u(){v=['\x3cfill colors\x3d"'+H.join(",")+'" opacity\x3d"',w,'" o:opacity2\x3d"',h,'" type\x3d"',p,'" ',F,'focus\x3d"100%" method\x3d"any" /\x3e'];C(f.prepVML(v),null,null,d);};A=b[0];n=b[b.length-1];0<A[0]&&b.unshift([0,A[1]]);1>n[0]&&b.push([1,n[1]]);l(b,function(g,b){r.test(g[1])?(m=a.color(g[1]),D=m.get("rgb"),y=m.get("a")):(D=g[1],y=1);H.push(100*g[0]+"% "+D);b?(w=y,G=D):(h=y,t=D);});if("fill"===c){if("gradient"===p)c=k.x1||k[0]||0,b=k.y1||k[1]||0,A=k.x2||k[2]||0,k=k.y2||k[3]||0,F='angle\x3d"'+(90-180*Math.atan((k-b)/(A-c))/Math.PI)+'"',u();else{var g=k.r,z=2*g,B=2*g,E=k.cx,V=k.cy,I=d.radialReference,T,g=function g(){I&&(T=e.getBBox(),E+=(I[0]-T.x)/T.width-.5,V+=(I[1]-T.y)/T.height-.5,z*=I[2]/T.width,B*=I[2]/T.height);F='src\x3d"'+a.getOptions().global.VMLRadialGradientURL+'" size\x3d"'+z+","+B+'" origin\x3d"0.5,0.5" position\x3d"'+E+","+V+'" color2\x3d"'+t+'" ';u();};e.added?g():e.onAdd=g;g=G;}}else g=D;}else r.test(b)&&"IMG"!==d.tagName?(m=a.color(b),e[c+"-opacitySetter"](m.get("a"),c,d),g=m.get("rgb")):(g=d.getElementsByTagName(c),g.length&&(g[0].opacity=1,g[0].type="solid"),g=b);return g;},prepVML:function prepVML(a){var b=this.isIE8;a=a.join("");b?(a=a.replace("/\x3e",' xmlns\x3d"urn:schemas-microsoft-com:vml" /\x3e'),a=-1===a.indexOf('style\x3d"')?a.replace("/\x3e",' style\x3d"display:inline-block;behavior:url(#default#VML);" /\x3e'):a.replace('style\x3d"','style\x3d"display:inline-block;behavior:url(#default#VML);')):a=a.replace("\x3c","\x3chcv:");return a;},text:A.prototype.html,path:function path(a){var b={coordsize:"10 10"};c(a)?b.d=a:H(a)&&e(b,a);return this.createElement("shape").attr(b);},circle:function circle(a,b,d){var f=this.symbol("circle");H(a)&&(d=a.r,b=a.y,a=a.x);f.isCircle=!0;f.r=d;return f.attr({x:a,y:b});},g:function g(a){var b;a&&(b={className:"highcharts-"+a,"class":"highcharts-"+a});return this.createElement("div").attr(b);},image:function image(a,b,d,c,q){var f=this.createElement("img").attr({src:a});1<arguments.length&&f.attr({x:b,y:d,width:c,height:q});return f;},createElement:function createElement(a){return"rect"===a?this.symbol(a):A.prototype.createElement.call(this,a);},invertChild:function invertChild(a,b){var f=this;b=b.style;var c="IMG"===a.tagName&&a.style;E(a,{flip:"x",left:d(b.width)-(c?d(c.top):1),top:d(b.height)-(c?d(c.left):1),rotation:-90});l(a.childNodes,function(b){f.invertChild(b,a);});},symbols:{arc:function arc(a,b,d,c,q){var f=q.start,e=q.end,m=q.r||d||c;d=q.innerR;c=Math.cos(f);var r=Math.sin(f),g=Math.cos(e),D=Math.sin(e);if(0===e-f)return["x"];f=["wa",a-m,b-m,a+m,b+m,a+m*c,b+m*r,a+m*g,b+m*D];q.open&&!d&&f.push("e","M",a,b);f.push("at",a-d,b-d,a+d,b+d,a+d*g,b+d*D,a+d*c,b+d*r,"x","e");f.isArc=!0;return f;},circle:function circle(a,b,d,c,q){q&&u(q.r)&&(d=c=2*q.r);q&&q.isCircle&&(a-=d/2,b-=c/2);return["wa",a,b,a+d,b+c,a+d,b+c/2,a+d,b+c/2,"e"];},rect:function rect(a,b,d,c,q){return A.prototype.symbols[u(q)&&q.r?"callout":"square"].call(0,a,b,d,c,q);}}},a.VMLRenderer=B=function B(){this.init.apply(this,arguments);},B.prototype=b(A.prototype,z),a.Renderer=B);A.prototype.measureSpanWidth=function(a,b){var d=t.createElement("span");a=t.createTextNode(a);d.appendChild(a);E(d,b);this.box.appendChild(d);b=d.offsetWidth;n(d);return b;};})(I);(function(a){function B(){var l=a.defaultOptions.global,k=t.moment;if(l.timezone){if(k)return function(a){return-k.tz(a,l.timezone).utcOffset();};a.error(25);}return l.useUTC&&l.getTimezoneOffset;}function z(){var l=a.defaultOptions.global,k,e=l.useUTC,c=e?"getUTC":"get",p=e?"setUTC":"set";a.Date=k=l.Date||t.Date;k.hcTimezoneOffset=e&&l.timezoneOffset;k.hcGetTimezoneOffset=B();k.hcMakeTime=function(a,b,c,d,r,p){var m;e?(m=k.UTC.apply(0,arguments),m+=u(m)):m=new k(a,b,n(c,1),n(d,0),n(r,0),n(p,0)).getTime();return m;};E("Minutes Hours Day Date Month FullYear".split(" "),function(a){k["hcGet"+a]=c+a;});E("Milliseconds Seconds Minutes Hours Date Month FullYear".split(" "),function(a){k["hcSet"+a]=p+a;});}var C=a.color,E=a.each,u=a.getTZOffset,h=a.merge,n=a.pick,t=a.win;a.defaultOptions={colors:"#7cb5ec #434348 #90ed7d #f7a35c #8085e9 #f15c80 #e4d354 #2b908f #f45b5b #91e8e1".split(" "),symbols:["circle","diamond","square","triangle","triangle-down"],lang:{loading:"Loading...",months:"January February March April May June July August September October November December".split(" "),shortMonths:"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),weekdays:"Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),decimalPoint:".",numericSymbols:"kMGTPE".split(""),resetZoom:"Reset zoom",resetZoomTitle:"Reset zoom level 1:1",thousandsSep:" "},global:{useUTC:!0,VMLRadialGradientURL:"http://code.highcharts.com/5.0.9/gfx/vml-radial-gradient.png"},chart:{borderRadius:0,defaultSeriesType:"line",ignoreHiddenSeries:!0,spacing:[10,10,15,10],resetZoomButton:{theme:{zIndex:20},position:{align:"right",x:-10,y:10}},width:null,height:null,borderColor:"#335cad",backgroundColor:"#ffffff",plotBorderColor:"#cccccc"},title:{text:"Chart title",align:"center",margin:15,widthAdjust:-44},subtitle:{text:"",align:"center",widthAdjust:-44},plotOptions:{},labels:{style:{position:"absolute",color:"#333333"}},legend:{enabled:!0,align:"center",layout:"horizontal",labelFormatter:function labelFormatter(){return this.name;},borderColor:"#999999",borderRadius:0,navigation:{activeColor:"#003399",inactiveColor:"#cccccc"},itemStyle:{color:"#333333",fontSize:"12px",fontWeight:"bold"},itemHoverStyle:{color:"#000000"},itemHiddenStyle:{color:"#cccccc"},shadow:!1,itemCheckboxStyle:{position:"absolute",width:"13px",height:"13px"},squareSymbol:!0,symbolPadding:5,verticalAlign:"bottom",x:0,y:0,title:{style:{fontWeight:"bold"}}},loading:{labelStyle:{fontWeight:"bold",position:"relative",top:"45%"},style:{position:"absolute",backgroundColor:"#ffffff",opacity:.5,textAlign:"center"}},tooltip:{enabled:!0,animation:a.svg,borderRadius:3,dateTimeLabelFormats:{millisecond:"%A, %b %e, %H:%M:%S.%L",second:"%A, %b %e, %H:%M:%S",minute:"%A, %b %e, %H:%M",hour:"%A, %b %e, %H:%M",day:"%A, %b %e, %Y",week:"Week from %A, %b %e, %Y",month:"%B %Y",year:"%Y"},footerFormat:"",padding:8,snap:a.isTouchDevice?25:10,backgroundColor:C("#f7f7f7").setOpacity(.85).get(),borderWidth:1,headerFormat:'\x3cspan style\x3d"font-size: 10px"\x3e{point.key}\x3c/span\x3e\x3cbr/\x3e',pointFormat:"<span style=\"color:{point.color}\">\u25CF</span> {series.name}: <b>{point.y}</b><br/>",shadow:!0,style:{color:"#333333",cursor:"default",fontSize:"12px",pointerEvents:"none",whiteSpace:"nowrap"}},credits:{enabled:!0,href:"http://www.highcharts.com",position:{align:"right",x:-10,verticalAlign:"bottom",y:-5},style:{cursor:"pointer",color:"#999999",fontSize:"9px"},text:"Highcharts.com"}};a.setOptions=function(l){a.defaultOptions=h(!0,a.defaultOptions,l);z();return a.defaultOptions;};a.getOptions=function(){return a.defaultOptions;};a.defaultPlotOptions=a.defaultOptions.plotOptions;z();})(I);(function(a){var B=a.arrayMax,z=a.arrayMin,C=a.defined,E=a.destroyObjectProperties,u=a.each,h=a.erase,n=a.merge,t=a.pick;a.PlotLineOrBand=function(a,k){this.axis=a;k&&(this.options=k,this.id=k.id);};a.PlotLineOrBand.prototype={render:function render(){var a=this,k=a.axis,e=k.horiz,c=a.options,p=c.label,h=a.label,b=c.to,m=c.from,d=c.value,r=C(m)&&C(b),A=C(d),v=a.svgElem,f=!v,y=[],G,F=c.color,q=t(c.zIndex,0),x=c.events,y={"class":"highcharts-plot-"+(r?"band ":"line ")+(c.className||"")},J={},u=k.chart.renderer,L=r?"bands":"lines",g=k.log2lin;k.isLog&&(m=g(m),b=g(b),d=g(d));A?(y={stroke:F,"stroke-width":c.width},c.dashStyle&&(y.dashstyle=c.dashStyle)):r&&(F&&(y.fill=F),c.borderWidth&&(y.stroke=c.borderColor,y["stroke-width"]=c.borderWidth));J.zIndex=q;L+="-"+q;(F=k[L])||(k[L]=F=u.g("plot-"+L).attr(J).add());f&&(a.svgElem=v=u.path().attr(y).add(F));if(A)y=k.getPlotLinePath(d,v.strokeWidth());else if(r)y=k.getPlotBandPath(m,b,c);else return;if(f&&y&&y.length){if(v.attr({d:y}),x)for(G in c=function c(b){v.on(b,function(g){x[b].apply(a,[g]);});},x){c(G);}}else v&&(y?(v.show(),v.animate({d:y})):(v.hide(),h&&(a.label=h=h.destroy())));p&&C(p.text)&&y&&y.length&&0<k.width&&0<k.height&&!y.flat?(p=n({align:e&&r&&"center",x:e?!r&&4:10,verticalAlign:!e&&r&&"middle",y:e?r?16:10:r?6:-4,rotation:e&&!r&&90},p),this.renderLabel(p,y,r,q)):h&&h.hide();return a;},renderLabel:function renderLabel(a,k,e,c){var p=this.label,l=this.axis.chart.renderer;p||(p={align:a.textAlign||a.align,rotation:a.rotation,"class":"highcharts-plot-"+(e?"band":"line")+"-label "+(a.className||"")},p.zIndex=c,this.label=p=l.text(a.text,0,0,a.useHTML).attr(p).add(),p.css(a.style));c=[k[1],k[4],e?k[6]:k[1]];k=[k[2],k[5],e?k[7]:k[2]];e=z(c);l=z(k);p.align(a,!1,{x:e,y:l,width:B(c)-e,height:B(k)-l});p.show();},destroy:function destroy(){h(this.axis.plotLinesAndBands,this);delete this.axis;E(this);}};a.AxisPlotLineOrBandExtension={getPlotBandPath:function getPlotBandPath(a,k){k=this.getPlotLinePath(k,null,null,!0);(a=this.getPlotLinePath(a,null,null,!0))&&k?(a.flat=a.toString()===k.toString(),a.push(k[4],k[5],k[1],k[2],"z")):a=null;return a;},addPlotBand:function addPlotBand(a){return this.addPlotBandOrLine(a,"plotBands");},addPlotLine:function addPlotLine(a){return this.addPlotBandOrLine(a,"plotLines");},addPlotBandOrLine:function addPlotBandOrLine(l,k){var e=new a.PlotLineOrBand(this,l).render(),c=this.userOptions;e&&(k&&(c[k]=c[k]||[],c[k].push(l)),this.plotLinesAndBands.push(e));return e;},removePlotBandOrLine:function removePlotBandOrLine(a){for(var k=this.plotLinesAndBands,e=this.options,c=this.userOptions,p=k.length;p--;){k[p].id===a&&k[p].destroy();}u([e.plotLines||[],c.plotLines||[],e.plotBands||[],c.plotBands||[]],function(c){for(p=c.length;p--;){c[p].id===a&&h(c,c[p]);}});}};})(I);(function(a){var B=a.correctFloat,z=a.defined,C=a.destroyObjectProperties,E=a.isNumber,u=a.merge,h=a.pick,n=a.deg2rad;a.Tick=function(a,l,k,e){this.axis=a;this.pos=l;this.type=k||"";this.isNew=!0;k||e||this.addLabel();};a.Tick.prototype={addLabel:function addLabel(){var a=this.axis,l=a.options,k=a.chart,e=a.categories,c=a.names,p=this.pos,n=l.labels,b=a.tickPositions,m=p===b[0],d=p===b[b.length-1],c=e?h(e[p],c[p],p):p,e=this.label,b=b.info,r;a.isDatetimeAxis&&b&&(r=l.dateTimeLabelFormats[b.higherRanks[p]||b.unitName]);this.isFirst=m;this.isLast=d;l=a.labelFormatter.call({axis:a,chart:k,isFirst:m,isLast:d,dateTimeLabelFormat:r,value:a.isLog?B(a.lin2log(c)):c});z(e)?e&&e.attr({text:l}):(this.labelLength=(this.label=e=z(l)&&n.enabled?k.renderer.text(l,0,0,n.useHTML).css(u(n.style)).add(a.labelGroup):null)&&e.getBBox().width,this.rotation=0);},getLabelSize:function getLabelSize(){return this.label?this.label.getBBox()[this.axis.horiz?"height":"width"]:0;},handleOverflow:function handleOverflow(a){var l=this.axis,k=a.x,e=l.chart.chartWidth,c=l.chart.spacing,p=h(l.labelLeft,Math.min(l.pos,c[3])),c=h(l.labelRight,Math.max(l.pos+l.len,e-c[1])),t=this.label,b=this.rotation,m={left:0,center:.5,right:1}[l.labelAlign],d=t.getBBox().width,r=l.getSlotWidth(),A=r,v=1,f,y={};if(b)0>b&&k-m*d<p?f=Math.round(k/Math.cos(b*n)-p):0<b&&k+m*d>c&&(f=Math.round((e-k)/Math.cos(b*n)));else if(e=k+(1-m)*d,k-m*d<p?A=a.x+A*(1-m)-p:e>c&&(A=c-a.x+A*m,v=-1),A=Math.min(r,A),A<r&&"center"===l.labelAlign&&(a.x+=v*(r-A-m*(r-Math.min(d,A)))),d>A||l.autoRotation&&(t.styles||{}).width)f=A;f&&(y.width=f,(l.options.labels.style||{}).textOverflow||(y.textOverflow="ellipsis"),t.css(y));},getPosition:function getPosition(a,l,k,e){var c=this.axis,p=c.chart,h=e&&p.oldChartHeight||p.chartHeight;return{x:a?c.translate(l+k,null,null,e)+c.transB:c.left+c.offset+(c.opposite?(e&&p.oldChartWidth||p.chartWidth)-c.right-c.left:0),y:a?h-c.bottom+c.offset-(c.opposite?c.height:0):h-c.translate(l+k,null,null,e)-c.transB};},getLabelPosition:function getLabelPosition(a,h,k,e,c,p,H,b){var m=this.axis,d=m.transA,r=m.reversed,l=m.staggerLines,v=m.tickRotCorr||{x:0,y:0},f=c.y;z(f)||(f=0===m.side?k.rotation?-8:-k.getBBox().height:2===m.side?v.y+8:Math.cos(k.rotation*n)*(v.y-k.getBBox(!1,0).height/2));a=a+c.x+v.x-(p&&e?p*d*(r?-1:1):0);h=h+f-(p&&!e?p*d*(r?1:-1):0);l&&(k=H/(b||1)%l,m.opposite&&(k=l-k-1),h+=m.labelOffset/l*k);return{x:a,y:Math.round(h)};},getMarkPath:function getMarkPath(a,h,k,e,c,p){return p.crispLine(["M",a,h,"L",a+(c?0:-k),h+(c?k:0)],e);},renderGridLine:function renderGridLine(a,h,k){var e=this.axis,c=e.options,p=this.gridLine,l={},b=this.pos,m=this.type,d=e.tickmarkOffset,r=e.chart.renderer,A=m?m+"Grid":"grid",v=c[A+"LineWidth"],f=c[A+"LineColor"],c=c[A+"LineDashStyle"];p||(l.stroke=f,l["stroke-width"]=v,c&&(l.dashstyle=c),m||(l.zIndex=1),a&&(l.opacity=0),this.gridLine=p=r.path().attr(l).addClass("highcharts-"+(m?m+"-":"")+"grid-line").add(e.gridGroup));if(!a&&p&&(a=e.getPlotLinePath(b+d,p.strokeWidth()*k,a,!0)))p[this.isNew?"attr":"animate"]({d:a,opacity:h});},renderMark:function renderMark(a,l,k){var e=this.axis,c=e.options,p=e.chart.renderer,n=this.type,b=n?n+"Tick":"tick",m=e.tickSize(b),d=this.mark,r=!d,A=a.x;a=a.y;var v=h(c[b+"Width"],!n&&e.isXAxis?1:0),c=c[b+"Color"];m&&(e.opposite&&(m[0]=-m[0]),r&&(this.mark=d=p.path().addClass("highcharts-"+(n?n+"-":"")+"tick").add(e.axisGroup),d.attr({stroke:c,"stroke-width":v})),d[r?"attr":"animate"]({d:this.getMarkPath(A,a,m[0],d.strokeWidth()*k,e.horiz,p),opacity:l}));},renderLabel:function renderLabel(a,l,k,e){var c=this.axis,p=c.horiz,n=c.options,b=this.label,m=n.labels,d=m.step,r=c.tickmarkOffset,A=!0,v=a.x;a=a.y;b&&E(v)&&(b.xy=a=this.getLabelPosition(v,a,b,p,m,r,e,d),this.isFirst&&!this.isLast&&!h(n.showFirstLabel,1)||this.isLast&&!this.isFirst&&!h(n.showLastLabel,1)?A=!1:!p||c.isRadial||m.step||m.rotation||l||0===k||this.handleOverflow(a),d&&e%d&&(A=!1),A&&E(a.y)?(a.opacity=k,b[this.isNew?"attr":"animate"](a)):b.attr("y",-9999),this.isNew=!1);},render:function render(a,l,k){var e=this.axis,c=e.horiz,p=this.getPosition(c,this.pos,e.tickmarkOffset,l),n=p.x,b=p.y,e=c&&n===e.pos+e.len||!c&&b===e.pos?-1:1;k=h(k,1);this.isActive=!0;this.renderGridLine(l,k,e);this.renderMark(p,k,e);this.renderLabel(p,l,k,a);},destroy:function destroy(){C(this,this.axis);}};})(I);(function(a){var B=a.addEvent,z=a.animObject,C=a.arrayMax,E=a.arrayMin,u=a.AxisPlotLineOrBandExtension,h=a.color,n=a.correctFloat,t=a.defaultOptions,l=a.defined,k=a.deg2rad,e=a.destroyObjectProperties,c=a.each,p=a.extend,H=a.fireEvent,b=a.format,m=a.getMagnitude,d=a.grep,r=a.inArray,A=a.isArray,v=a.isNumber,f=a.isString,y=a.merge,G=a.normalizeTickInterval,F=a.pick,q=a.PlotLineOrBand,x=a.removeEvent,J=a.splat,K=a.syncTimeout,L=a.Tick;a.Axis=function(){this.init.apply(this,arguments);};a.Axis.prototype={defaultOptions:{dateTimeLabelFormats:{millisecond:"%H:%M:%S.%L",second:"%H:%M:%S",minute:"%H:%M",hour:"%H:%M",day:"%e. %b",week:"%e. %b",month:"%b '%y",year:"%Y"},endOnTick:!1,labels:{enabled:!0,style:{color:"#666666",cursor:"default",fontSize:"11px"},x:0},minPadding:.01,maxPadding:.01,minorTickLength:2,minorTickPosition:"outside",startOfWeek:1,startOnTick:!1,tickLength:10,tickmarkPlacement:"between",tickPixelInterval:100,tickPosition:"outside",title:{align:"middle",style:{color:"#666666"}},type:"linear",minorGridLineColor:"#f2f2f2",minorGridLineWidth:1,minorTickColor:"#999999",lineColor:"#ccd6eb",lineWidth:1,gridLineColor:"#e6e6e6",tickColor:"#ccd6eb"},defaultYAxisOptions:{endOnTick:!0,tickPixelInterval:72,showLastLabel:!0,labels:{x:-8},maxPadding:.05,minPadding:.05,startOnTick:!0,title:{rotation:270,text:"Values"},stackLabels:{enabled:!1,formatter:function formatter(){return a.numberFormat(this.total,-1);},style:{fontSize:"11px",fontWeight:"bold",color:"#000000",textOutline:"1px contrast"}},gridLineWidth:1,lineWidth:0},defaultLeftAxisOptions:{labels:{x:-15},title:{rotation:270}},defaultRightAxisOptions:{labels:{x:15},title:{rotation:90}},defaultBottomAxisOptions:{labels:{autoRotation:[-45],x:0},title:{rotation:0}},defaultTopAxisOptions:{labels:{autoRotation:[-45],x:0},title:{rotation:0}},init:function init(a,b){var g=b.isX;this.chart=a;this.horiz=a.inverted?!g:g;this.isXAxis=g;this.coll=this.coll||(g?"xAxis":"yAxis");this.opposite=b.opposite;this.side=b.side||(this.horiz?this.opposite?0:2:this.opposite?1:3);this.setOptions(b);var d=this.options,c=d.type;this.labelFormatter=d.labels.formatter||this.defaultLabelFormatter;this.userOptions=b;this.minPixelPadding=0;this.reversed=d.reversed;this.visible=!1!==d.visible;this.zoomEnabled=!1!==d.zoomEnabled;this.hasNames="category"===c||!0===d.categories;this.categories=d.categories||this.hasNames;this.names=this.names||[];this.isLog="logarithmic"===c;this.isDatetimeAxis="datetime"===c;this.positiveValuesOnly=this.isLog&&!this.allowNegativeLog;this.isLinked=l(d.linkedTo);this.ticks={};this.labelEdge=[];this.minorTicks={};this.plotLinesAndBands=[];this.alternateBands={};this.len=0;this.minRange=this.userMinRange=d.minRange||d.maxZoom;this.range=d.range;this.offset=d.offset||0;this.stacks={};this.oldStacks={};this.stacksTouched=0;this.min=this.max=null;this.crosshair=F(d.crosshair,J(a.options.tooltip.crosshairs)[g?0:1],!1);var f;b=this.options.events;-1===r(this,a.axes)&&(g?a.axes.splice(a.xAxis.length,0,this):a.axes.push(this),a[this.coll].push(this));this.series=this.series||[];a.inverted&&g&&void 0===this.reversed&&(this.reversed=!0);this.removePlotLine=this.removePlotBand=this.removePlotBandOrLine;for(f in b){B(this,f,b[f]);}this.lin2log=d.linearToLogConverter||this.lin2log;this.isLog&&(this.val2lin=this.log2lin,this.lin2val=this.lin2log);},setOptions:function setOptions(a){this.options=y(this.defaultOptions,"yAxis"===this.coll&&this.defaultYAxisOptions,[this.defaultTopAxisOptions,this.defaultRightAxisOptions,this.defaultBottomAxisOptions,this.defaultLeftAxisOptions][this.side],y(t[this.coll],a));},defaultLabelFormatter:function defaultLabelFormatter(){var g=this.axis,d=this.value,c=g.categories,f=this.dateTimeLabelFormat,q=t.lang,e=q.numericSymbols,q=q.numericSymbolMagnitude||1E3,w=e&&e.length,m,r=g.options.labels.format,g=g.isLog?Math.abs(d):g.tickInterval;if(r)m=b(r,this);else if(c)m=d;else if(f)m=a.dateFormat(f,d);else if(w&&1E3<=g)for(;w--&&void 0===m;){c=Math.pow(q,w+1),g>=c&&0===10*d%c&&null!==e[w]&&0!==d&&(m=a.numberFormat(d/c,-1)+e[w]);}void 0===m&&(m=1E4<=Math.abs(d)?a.numberFormat(d,-1):a.numberFormat(d,-1,void 0,""));return m;},getSeriesExtremes:function getSeriesExtremes(){var a=this,b=a.chart;a.hasVisibleSeries=!1;a.dataMin=a.dataMax=a.threshold=null;a.softThreshold=!a.isXAxis;a.buildStacks&&a.buildStacks();c(a.series,function(g){if(g.visible||!b.options.chart.ignoreHiddenSeries){var c=g.options,f=c.threshold,q;a.hasVisibleSeries=!0;a.positiveValuesOnly&&0>=f&&(f=null);if(a.isXAxis)c=g.xData,c.length&&(g=E(c),v(g)||g instanceof Date||(c=d(c,function(a){return v(a);}),g=E(c)),a.dataMin=Math.min(F(a.dataMin,c[0]),g),a.dataMax=Math.max(F(a.dataMax,c[0]),C(c)));else if(g.getExtremes(),q=g.dataMax,g=g.dataMin,l(g)&&l(q)&&(a.dataMin=Math.min(F(a.dataMin,g),g),a.dataMax=Math.max(F(a.dataMax,q),q)),l(f)&&(a.threshold=f),!c.softThreshold||a.positiveValuesOnly)a.softThreshold=!1;}});},translate:function translate(a,b,d,c,f,q){var g=this.linkedParent||this,D=1,e=0,m=c?g.oldTransA:g.transA;c=c?g.oldMin:g.min;var r=g.minPixelPadding;f=(g.isOrdinal||g.isBroken||g.isLog&&f)&&g.lin2val;m||(m=g.transA);d&&(D*=-1,e=g.len);g.reversed&&(D*=-1,e-=D*(g.sector||g.len));b?(a=(a*D+e-r)/m+c,f&&(a=g.lin2val(a))):(f&&(a=g.val2lin(a)),a=D*(a-c)*m+e+D*r+(v(q)?m*q:0));return a;},toPixels:function toPixels(a,b){return this.translate(a,!1,!this.horiz,null,!0)+(b?0:this.pos);},toValue:function toValue(a,b){return this.translate(a-(b?0:this.pos),!0,!this.horiz,null,!0);},getPlotLinePath:function getPlotLinePath(a,b,d,c,f){var g=this.chart,q=this.left,D=this.top,e,m,r=d&&g.oldChartHeight||g.chartHeight,p=d&&g.oldChartWidth||g.chartWidth,x;e=this.transB;var k=function k(a,b,g){if(a<b||a>g)c?a=Math.min(Math.max(b,a),g):x=!0;return a;};f=F(f,this.translate(a,null,null,d));a=d=Math.round(f+e);e=m=Math.round(r-f-e);v(f)?this.horiz?(e=D,m=r-this.bottom,a=d=k(a,q,q+this.width)):(a=q,d=p-this.right,e=m=k(e,D,D+this.height)):x=!0;return x&&!c?null:g.renderer.crispLine(["M",a,e,"L",d,m],b||1);},getLinearTickPositions:function getLinearTickPositions(a,b,d){var g,c=n(Math.floor(b/a)*a);d=n(Math.ceil(d/a)*a);var f=[];if(this.single)return[b];for(b=c;b<=d;){f.push(b);b=n(b+a);if(b===g)break;g=b;}return f;},getMinorTickPositions:function getMinorTickPositions(){var a=this,b=a.options,d=a.tickPositions,f=a.minorTickInterval,q=[],e=a.pointRangePadding||0,m=a.min-e,e=a.max+e,r=e-m;if(r&&r/f<a.len/3)if(a.isLog)c(this.paddedTicks,function(b,g,d){g&&q.push.apply(q,a.getLogTickPositions(f,d[g-1],d[g],!0));});else if(a.isDatetimeAxis&&"auto"===b.minorTickInterval)q=q.concat(a.getTimeTicks(a.normalizeTimeTickInterval(f),m,e,b.startOfWeek));else for(b=m+(d[0]-m)%f;b<=e&&b!==q[0];b+=f){q.push(b);}0!==q.length&&a.trimTicks(q);return q;},adjustForMinRange:function adjustForMinRange(){var a=this.options,b=this.min,d=this.max,f,q=this.dataMax-this.dataMin>=this.minRange,e,m,r,p,v,x;this.isXAxis&&void 0===this.minRange&&!this.isLog&&(l(a.min)||l(a.max)?this.minRange=null:(c(this.series,function(a){p=a.xData;for(m=v=a.xIncrement?1:p.length-1;0<m;m--){if(r=p[m]-p[m-1],void 0===e||r<e)e=r;}}),this.minRange=Math.min(5*e,this.dataMax-this.dataMin)));d-b<this.minRange&&(x=this.minRange,f=(x-d+b)/2,f=[b-f,F(a.min,b-f)],q&&(f[2]=this.isLog?this.log2lin(this.dataMin):this.dataMin),b=C(f),d=[b+x,F(a.max,b+x)],q&&(d[2]=this.isLog?this.log2lin(this.dataMax):this.dataMax),d=E(d),d-b<x&&(f[0]=d-x,f[1]=F(a.min,d-x),b=C(f)));this.min=b;this.max=d;},getClosest:function getClosest(){var a;this.categories?a=1:c(this.series,function(b){var g=b.closestPointRange,d=b.visible||!b.chart.options.chart.ignoreHiddenSeries;!b.noSharedTooltip&&l(g)&&d&&(a=l(a)?Math.min(a,g):g);});return a;},nameToX:function nameToX(a){var b=A(this.categories),g=b?this.categories:this.names,d=a.options.x,c;a.series.requireSorting=!1;l(d)||(d=!1===this.options.uniqueNames?a.series.autoIncrement():r(a.name,g));-1===d?b||(c=g.length):c=d;this.names[c]=a.name;return c;},updateNames:function updateNames(){var a=this;0<this.names.length&&(this.names.length=0,this.minRange=void 0,c(this.series||[],function(b){b.xIncrement=null;if(!b.points||b.isDirtyData)b.processData(),b.generatePoints();c(b.points,function(g,d){var c;g.options&&(c=a.nameToX(g),c!==g.x&&(g.x=c,b.xData[d]=c));});}));},setAxisTranslation:function setAxisTranslation(a){var b=this,g=b.max-b.min,d=b.axisPointRange||0,q,e=0,m=0,r=b.linkedParent,p=!!b.categories,v=b.transA,x=b.isXAxis;if(x||p||d)q=b.getClosest(),r?(e=r.minPointOffset,m=r.pointRangePadding):c(b.series,function(a){var g=p?1:x?F(a.options.pointRange,q,0):b.axisPointRange||0;a=a.options.pointPlacement;d=Math.max(d,g);b.single||(e=Math.max(e,f(a)?0:g/2),m=Math.max(m,"on"===a?0:g));}),r=b.ordinalSlope&&q?b.ordinalSlope/q:1,b.minPointOffset=e*=r,b.pointRangePadding=m*=r,b.pointRange=Math.min(d,g),x&&(b.closestPointRange=q);a&&(b.oldTransA=v);b.translationSlope=b.transA=v=b.options.staticScale||b.len/(g+m||1);b.transB=b.horiz?b.left:b.bottom;b.minPixelPadding=v*e;},minFromRange:function minFromRange(){return this.max-this.range;},setTickInterval:function setTickInterval(b){var g=this,d=g.chart,f=g.options,q=g.isLog,e=g.log2lin,r=g.isDatetimeAxis,p=g.isXAxis,x=g.isLinked,k=f.maxPadding,h=f.minPadding,y=f.tickInterval,A=f.tickPixelInterval,J=g.categories,t=g.threshold,u=g.softThreshold,L,K,z,B;r||J||x||this.getTickAmount();z=F(g.userMin,f.min);B=F(g.userMax,f.max);x?(g.linkedParent=d[g.coll][f.linkedTo],d=g.linkedParent.getExtremes(),g.min=F(d.min,d.dataMin),g.max=F(d.max,d.dataMax),f.type!==g.linkedParent.options.type&&a.error(11,1)):(!u&&l(t)&&(g.dataMin>=t?(L=t,h=0):g.dataMax<=t&&(K=t,k=0)),g.min=F(z,L,g.dataMin),g.max=F(B,K,g.dataMax));q&&(g.positiveValuesOnly&&!b&&0>=Math.min(g.min,F(g.dataMin,g.min))&&a.error(10,1),g.min=n(e(g.min),15),g.max=n(e(g.max),15));g.range&&l(g.max)&&(g.userMin=g.min=z=Math.max(g.min,g.minFromRange()),g.userMax=B=g.max,g.range=null);H(g,"foundExtremes");g.beforePadding&&g.beforePadding();g.adjustForMinRange();!(J||g.axisPointRange||g.usePercentage||x)&&l(g.min)&&l(g.max)&&(e=g.max-g.min)&&(!l(z)&&h&&(g.min-=e*h),!l(B)&&k&&(g.max+=e*k));v(f.floor)?g.min=Math.max(g.min,f.floor):v(f.softMin)&&(g.min=Math.min(g.min,f.softMin));v(f.ceiling)?g.max=Math.min(g.max,f.ceiling):v(f.softMax)&&(g.max=Math.max(g.max,f.softMax));u&&l(g.dataMin)&&(t=t||0,!l(z)&&g.min<t&&g.dataMin>=t?g.min=t:!l(B)&&g.max>t&&g.dataMax<=t&&(g.max=t));g.tickInterval=g.min===g.max||void 0===g.min||void 0===g.max?1:x&&!y&&A===g.linkedParent.options.tickPixelInterval?y=g.linkedParent.tickInterval:F(y,this.tickAmount?(g.max-g.min)/Math.max(this.tickAmount-1,1):void 0,J?1:(g.max-g.min)*A/Math.max(g.len,A));p&&!b&&c(g.series,function(a){a.processData(g.min!==g.oldMin||g.max!==g.oldMax);});g.setAxisTranslation(!0);g.beforeSetTickPositions&&g.beforeSetTickPositions();g.postProcessTickInterval&&(g.tickInterval=g.postProcessTickInterval(g.tickInterval));g.pointRange&&!y&&(g.tickInterval=Math.max(g.pointRange,g.tickInterval));b=F(f.minTickInterval,g.isDatetimeAxis&&g.closestPointRange);!y&&g.tickInterval<b&&(g.tickInterval=b);r||q||y||(g.tickInterval=G(g.tickInterval,null,m(g.tickInterval),F(f.allowDecimals,!(.5<g.tickInterval&&5>g.tickInterval&&1E3<g.max&&9999>g.max)),!!this.tickAmount));this.tickAmount||(g.tickInterval=g.unsquish());this.setTickPositions();},setTickPositions:function setTickPositions(){var a=this.options,b,d=a.tickPositions,c=a.tickPositioner,f=a.startOnTick,q=a.endOnTick;this.tickmarkOffset=this.categories&&"between"===a.tickmarkPlacement&&1===this.tickInterval?.5:0;this.minorTickInterval="auto"===a.minorTickInterval&&this.tickInterval?this.tickInterval/5:a.minorTickInterval;this.single=this.min===this.max&&l(this.min)&&!this.tickAmount&&!1!==a.allowDecimals;this.tickPositions=b=d&&d.slice();!b&&(b=this.isDatetimeAxis?this.getTimeTicks(this.normalizeTimeTickInterval(this.tickInterval,a.units),this.min,this.max,a.startOfWeek,this.ordinalPositions,this.closestPointRange,!0):this.isLog?this.getLogTickPositions(this.tickInterval,this.min,this.max):this.getLinearTickPositions(this.tickInterval,this.min,this.max),b.length>this.len&&(b=[b[0],b.pop()]),this.tickPositions=b,c&&(c=c.apply(this,[this.min,this.max])))&&(this.tickPositions=b=c);this.paddedTicks=b.slice(0);this.trimTicks(b,f,q);this.isLinked||(this.single&&(this.min-=.5,this.max+=.5),d||c||this.adjustTickAmount());},trimTicks:function trimTicks(a,b,d){var g=a[0],c=a[a.length-1],f=this.minPointOffset||0;if(!this.isLinked){if(b)this.min=g;else for(;this.min-f>a[0];){a.shift();}if(d)this.max=c;else for(;this.max+f<a[a.length-1];){a.pop();}0===a.length&&l(g)&&a.push((c+g)/2);}},alignToOthers:function alignToOthers(){var a={},b,d=this.options;!1===this.chart.options.chart.alignTicks||!1===d.alignTicks||this.isLog||c(this.chart[this.coll],function(g){var d=g.options,d=[g.horiz?d.left:d.top,d.width,d.height,d.pane].join();g.series.length&&(a[d]?b=!0:a[d]=1);});return b;},getTickAmount:function getTickAmount(){var a=this.options,b=a.tickAmount,d=a.tickPixelInterval;!l(a.tickInterval)&&this.len<d&&!this.isRadial&&!this.isLog&&a.startOnTick&&a.endOnTick&&(b=2);!b&&this.alignToOthers()&&(b=Math.ceil(this.len/d)+1);4>b&&(this.finalTickAmt=b,b=5);this.tickAmount=b;},adjustTickAmount:function adjustTickAmount(){var a=this.tickInterval,b=this.tickPositions,d=this.tickAmount,c=this.finalTickAmt,f=b&&b.length;if(f<d){for(;b.length<d;){b.push(n(b[b.length-1]+a));}this.transA*=(f-1)/(d-1);this.max=b[b.length-1];}else f>d&&(this.tickInterval*=2,this.setTickPositions());if(l(c)){for(a=d=b.length;a--;){(3===c&&1===a%2||2>=c&&0<a&&a<d-1)&&b.splice(a,1);}this.finalTickAmt=void 0;}},setScale:function setScale(){var a,b;this.oldMin=this.min;this.oldMax=this.max;this.oldAxisLength=this.len;this.setAxisSize();b=this.len!==this.oldAxisLength;c(this.series,function(b){if(b.isDirtyData||b.isDirty||b.xAxis.isDirty)a=!0;});b||a||this.isLinked||this.forceRedraw||this.userMin!==this.oldUserMin||this.userMax!==this.oldUserMax||this.alignToOthers()?(this.resetStacks&&this.resetStacks(),this.forceRedraw=!1,this.getSeriesExtremes(),this.setTickInterval(),this.oldUserMin=this.userMin,this.oldUserMax=this.userMax,this.isDirty||(this.isDirty=b||this.min!==this.oldMin||this.max!==this.oldMax)):this.cleanStacks&&this.cleanStacks();},setExtremes:function setExtremes(a,b,d,f,q){var g=this,e=g.chart;d=F(d,!0);c(g.series,function(a){delete a.kdTree;});q=p(q,{min:a,max:b});H(g,"setExtremes",q,function(){g.userMin=a;g.userMax=b;g.eventArgs=q;d&&e.redraw(f);});},zoom:function zoom(a,b){var g=this.dataMin,d=this.dataMax,c=this.options,f=Math.min(g,F(c.min,g)),c=Math.max(d,F(c.max,d));if(a!==this.min||b!==this.max)this.allowZoomOutside||(l(g)&&(a<f&&(a=f),a>c&&(a=c)),l(d)&&(b<f&&(b=f),b>c&&(b=c))),this.displayBtn=void 0!==a||void 0!==b,this.setExtremes(a,b,!1,void 0,{trigger:"zoom"});return!0;},setAxisSize:function setAxisSize(){var a=this.chart,b=this.options,d=b.offsets||[0,0,0,0],c=this.horiz,f=F(b.width,a.plotWidth-d[3]+d[1]),q=F(b.height,a.plotHeight-d[0]+d[2]),e=F(b.top,a.plotTop+d[0]),b=F(b.left,a.plotLeft+d[3]),d=/%$/;d.test(q)&&(q=Math.round(parseFloat(q)/100*a.plotHeight));d.test(e)&&(e=Math.round(parseFloat(e)/100*a.plotHeight+a.plotTop));this.left=b;this.top=e;this.width=f;this.height=q;this.bottom=a.chartHeight-q-e;this.right=a.chartWidth-f-b;this.len=Math.max(c?f:q,0);this.pos=c?b:e;},getExtremes:function getExtremes(){var a=this.isLog,b=this.lin2log;return{min:a?n(b(this.min)):this.min,max:a?n(b(this.max)):this.max,dataMin:this.dataMin,dataMax:this.dataMax,userMin:this.userMin,userMax:this.userMax};},getThreshold:function getThreshold(a){var b=this.isLog,g=this.lin2log,d=b?g(this.min):this.min,b=b?g(this.max):this.max;null===a?a=d:d>a?a=d:b<a&&(a=b);return this.translate(a,0,1,0,1);},autoLabelAlign:function autoLabelAlign(a){a=(F(a,0)-90*this.side+720)%360;return 15<a&&165>a?"right":195<a&&345>a?"left":"center";},tickSize:function tickSize(a){var b=this.options,g=b[a+"Length"],d=F(b[a+"Width"],"tick"===a&&this.isXAxis?1:0);if(d&&g)return"inside"===b[a+"Position"]&&(g=-g),[g,d];},labelMetrics:function labelMetrics(){return this.chart.renderer.fontMetrics(this.options.labels.style&&this.options.labels.style.fontSize,this.ticks[0]&&this.ticks[0].label);},unsquish:function unsquish(){var a=this.options.labels,b=this.horiz,d=this.tickInterval,f=d,q=this.len/(((this.categories?1:0)+this.max-this.min)/d),e,m=a.rotation,r=this.labelMetrics(),p,x=Number.MAX_VALUE,v,h=function h(a){a/=q||1;a=1<a?Math.ceil(a):1;return a*d;};b?(v=!a.staggerLines&&!a.step&&(l(m)?[m]:q<F(a.autoRotationLimit,80)&&a.autoRotation))&&c(v,function(a){var b;if(a===m||a&&-90<=a&&90>=a)p=h(Math.abs(r.h/Math.sin(k*a))),b=p+Math.abs(a/360),b<x&&(x=b,e=a,f=p);}):a.step||(f=h(r.h));this.autoRotation=v;this.labelRotation=F(e,m);return f;},getSlotWidth:function getSlotWidth(){var a=this.chart,b=this.horiz,d=this.options.labels,c=Math.max(this.tickPositions.length-(this.categories?0:1),1),f=a.margin[3];return b&&2>(d.step||0)&&!d.rotation&&(this.staggerLines||1)*this.len/c||!b&&(f&&f-a.spacing[3]||.33*a.chartWidth);},renderUnsquish:function renderUnsquish(){var a=this.chart,b=a.renderer,d=this.tickPositions,q=this.ticks,e=this.options.labels,m=this.horiz,r=this.getSlotWidth(),p=Math.max(1,Math.round(r-2*(e.padding||5))),x={},v=this.labelMetrics(),k=e.style&&e.style.textOverflow,h,l=0,A,n;f(e.rotation)||(x.rotation=e.rotation||0);c(d,function(a){(a=q[a])&&a.labelLength>l&&(l=a.labelLength);});this.maxLabelLength=l;if(this.autoRotation)l>p&&l>v.h?x.rotation=this.labelRotation:this.labelRotation=0;else if(r&&(h={width:p+"px"},!k))for(h.textOverflow="clip",A=d.length;!m&&A--;){if(n=d[A],p=q[n].label)p.styles&&"ellipsis"===p.styles.textOverflow?p.css({textOverflow:"clip"}):q[n].labelLength>r&&p.css({width:r+"px"}),p.getBBox().height>this.len/d.length-(v.h-v.f)&&(p.specCss={textOverflow:"ellipsis"});}x.rotation&&(h={width:(l>.5*a.chartHeight?.33*a.chartHeight:a.chartHeight)+"px"},k||(h.textOverflow="ellipsis"));if(this.labelAlign=e.align||this.autoLabelAlign(this.labelRotation))x.align=this.labelAlign;c(d,function(a){var b=(a=q[a])&&a.label;b&&(b.attr(x),h&&b.css(y(h,b.specCss)),delete b.specCss,a.rotation=x.rotation);});this.tickRotCorr=b.rotCorr(v.b,this.labelRotation||0,0!==this.side);},hasData:function hasData(){return this.hasVisibleSeries||l(this.min)&&l(this.max)&&!!this.tickPositions;},addTitle:function addTitle(a){var b=this.chart.renderer,d=this.horiz,g=this.opposite,c=this.options.title,f;this.axisTitle||((f=c.textAlign)||(f=(d?{low:"left",middle:"center",high:"right"}:{low:g?"right":"left",middle:"center",high:g?"left":"right"})[c.align]),this.axisTitle=b.text(c.text,0,0,c.useHTML).attr({zIndex:7,rotation:c.rotation||0,align:f}).addClass("highcharts-axis-title").css(c.style).add(this.axisGroup),this.axisTitle.isNew=!0);this.axisTitle[a?"show":"hide"](!0);},generateTick:function generateTick(a){var b=this.ticks;b[a]?b[a].addLabel():b[a]=new L(this,a);},getOffset:function getOffset(){var a=this,b=a.chart,d=b.renderer,f=a.options,q=a.tickPositions,e=a.ticks,m=a.horiz,r=a.side,p=b.inverted?[1,0,3,2][r]:r,x,v,h=0,k,y=0,A=f.title,n=f.labels,G=0,J=b.axisOffset,b=b.clipOffset,t=[-1,1,1,-1][r],u,H=f.className,L=a.axisParent,K=this.tickSize("tick");x=a.hasData();a.showAxis=v=x||F(f.showEmpty,!0);a.staggerLines=a.horiz&&n.staggerLines;a.axisGroup||(a.gridGroup=d.g("grid").attr({zIndex:f.gridZIndex||1}).addClass("highcharts-"+this.coll.toLowerCase()+"-grid "+(H||"")).add(L),a.axisGroup=d.g("axis").attr({zIndex:f.zIndex||2}).addClass("highcharts-"+this.coll.toLowerCase()+" "+(H||"")).add(L),a.labelGroup=d.g("axis-labels").attr({zIndex:n.zIndex||7}).addClass("highcharts-"+a.coll.toLowerCase()+"-labels "+(H||"")).add(L));if(x||a.isLinked)c(q,function(b,d){a.generateTick(b,d);}),a.renderUnsquish(),!1===n.reserveSpace||0!==r&&2!==r&&{1:"left",3:"right"}[r]!==a.labelAlign&&"center"!==a.labelAlign||c(q,function(a){G=Math.max(e[a].getLabelSize(),G);}),a.staggerLines&&(G*=a.staggerLines,a.labelOffset=G*(a.opposite?-1:1));else for(u in e){e[u].destroy(),delete e[u];}A&&A.text&&!1!==A.enabled&&(a.addTitle(v),v&&(h=a.axisTitle.getBBox()[m?"height":"width"],k=A.offset,y=l(k)?0:F(A.margin,m?5:10)));a.renderLine();a.offset=t*F(f.offset,J[r]);a.tickRotCorr=a.tickRotCorr||{x:0,y:0};d=0===r?-a.labelMetrics().h:2===r?a.tickRotCorr.y:0;y=Math.abs(G)+y;G&&(y=y-d+t*(m?F(n.y,a.tickRotCorr.y+8*t):n.x));a.axisTitleMargin=F(k,y);J[r]=Math.max(J[r],a.axisTitleMargin+h+t*a.offset,y,x&&q.length&&K?K[0]+t*a.offset:0);f=f.offset?0:2*Math.floor(a.axisLine.strokeWidth()/2);b[p]=Math.max(b[p],f);},getLinePath:function getLinePath(a){var b=this.chart,d=this.opposite,g=this.offset,f=this.horiz,c=this.left+(d?this.width:0)+g,g=b.chartHeight-this.bottom-(d?this.height:0)+g;d&&(a*=-1);return b.renderer.crispLine(["M",f?this.left:c,f?g:this.top,"L",f?b.chartWidth-this.right:c,f?g:b.chartHeight-this.bottom],a);},renderLine:function renderLine(){this.axisLine||(this.axisLine=this.chart.renderer.path().addClass("highcharts-axis-line").add(this.axisGroup),this.axisLine.attr({stroke:this.options.lineColor,"stroke-width":this.options.lineWidth,zIndex:7}));},getTitlePosition:function getTitlePosition(){var a=this.horiz,b=this.left,d=this.top,f=this.len,c=this.options.title,q=a?b:d,e=this.opposite,m=this.offset,r=c.x||0,p=c.y||0,x=this.chart.renderer.fontMetrics(c.style&&c.style.fontSize,this.axisTitle).f,f={low:q+(a?0:f),middle:q+f/2,high:q+(a?f:0)}[c.align],b=(a?d+this.height:b)+(a?1:-1)*(e?-1:1)*this.axisTitleMargin+(2===this.side?x:0);return{x:a?f+r:b+(e?this.width:0)+m+r,y:a?b+p-(e?this.height:0)+m:f+p};},renderMinorTick:function renderMinorTick(a){var b=this.chart.hasRendered&&v(this.oldMin),d=this.minorTicks;d[a]||(d[a]=new L(this,a,"minor"));b&&d[a].isNew&&d[a].render(null,!0);d[a].render(null,!1,1);},renderTick:function renderTick(a,b){var d=this.isLinked,g=this.ticks,f=this.chart.hasRendered&&v(this.oldMin);if(!d||a>=this.min&&a<=this.max)g[a]||(g[a]=new L(this,a)),f&&g[a].isNew&&g[a].render(b,!0,.1),g[a].render(b);},render:function render(){var a=this,b=a.chart,d=a.options,f=a.isLog,e=a.lin2log,m=a.isLinked,r=a.tickPositions,p=a.axisTitle,x=a.ticks,v=a.minorTicks,h=a.alternateBands,k=d.stackLabels,y=d.alternateGridColor,l=a.tickmarkOffset,A=a.axisLine,n=a.showAxis,G=z(b.renderer.globalAnimation),J,t;a.labelEdge.length=0;a.overlap=!1;c([x,v,h],function(a){for(var b in a){a[b].isActive=!1;}});if(a.hasData()||m)a.minorTickInterval&&!a.categories&&c(a.getMinorTickPositions(),function(b){a.renderMinorTick(b);}),r.length&&(c(r,function(b,d){a.renderTick(b,d);}),l&&(0===a.min||a.single)&&(x[-1]||(x[-1]=new L(a,-1,null,!0)),x[-1].render(-1))),y&&c(r,function(d,g){t=void 0!==r[g+1]?r[g+1]+l:a.max-l;0===g%2&&d<a.max&&t<=a.max+(b.polar?-l:l)&&(h[d]||(h[d]=new q(a)),J=d+l,h[d].options={from:f?e(J):J,to:f?e(t):t,color:y},h[d].render(),h[d].isActive=!0);}),a._addedPlotLB||(c((d.plotLines||[]).concat(d.plotBands||[]),function(b){a.addPlotBandOrLine(b);}),a._addedPlotLB=!0);c([x,v,h],function(a){var d,g,f=[],c=G.duration;for(d in a){a[d].isActive||(a[d].render(d,!1,0),a[d].isActive=!1,f.push(d));}K(function(){for(g=f.length;g--;){a[f[g]]&&!a[f[g]].isActive&&(a[f[g]].destroy(),delete a[f[g]]);}},a!==h&&b.hasRendered&&c?c:0);});A&&(A[A.isPlaced?"animate":"attr"]({d:this.getLinePath(A.strokeWidth())}),A.isPlaced=!0,A[n?"show":"hide"](!0));p&&n&&(p[p.isNew?"attr":"animate"](a.getTitlePosition()),p.isNew=!1);k&&k.enabled&&a.renderStackTotals();a.isDirty=!1;},redraw:function redraw(){this.visible&&(this.render(),c(this.plotLinesAndBands,function(a){a.render();}));c(this.series,function(a){a.isDirty=!0;});},keepProps:"extKey hcEvents names series userMax userMin".split(" "),destroy:function destroy(a){var b=this,d=b.stacks,g,f=b.plotLinesAndBands,q;a||x(b);for(g in d){e(d[g]),d[g]=null;}c([b.ticks,b.minorTicks,b.alternateBands],function(a){e(a);});if(f)for(a=f.length;a--;){f[a].destroy();}c("stackTotalGroup axisLine axisTitle axisGroup gridGroup labelGroup cross".split(" "),function(a){b[a]&&(b[a]=b[a].destroy());});for(q in b){b.hasOwnProperty(q)&&-1===r(q,b.keepProps)&&delete b[q];}},drawCrosshair:function drawCrosshair(a,b){var d,f=this.crosshair,g=F(f.snap,!0),c,q=this.cross;a||(a=this.cross&&this.cross.e);this.crosshair&&!1!==(l(b)||!g)?(g?l(b)&&(c=this.isXAxis?b.plotX:this.len-b.plotY):c=a&&(this.horiz?a.chartX-this.pos:this.len-a.chartY+this.pos),l(c)&&(d=this.getPlotLinePath(b&&(this.isXAxis?b.x:F(b.stackY,b.y)),null,null,null,c)||null),l(d)?(b=this.categories&&!this.isRadial,q||(this.cross=q=this.chart.renderer.path().addClass("highcharts-crosshair highcharts-crosshair-"+(b?"category ":"thin ")+f.className).attr({zIndex:F(f.zIndex,2)}).add(),q.attr({stroke:f.color||(b?h("#ccd6eb").setOpacity(.25).get():"#cccccc"),"stroke-width":F(f.width,1)}),f.dashStyle&&q.attr({dashstyle:f.dashStyle})),q.show().attr({d:d}),b&&!f.width&&q.attr({"stroke-width":this.transA}),this.cross.e=a):this.hideCrosshair()):this.hideCrosshair();},hideCrosshair:function hideCrosshair(){this.cross&&this.cross.hide();}};p(a.Axis.prototype,u);})(I);(function(a){var B=a.Axis,z=a.Date,C=a.dateFormat,E=a.defaultOptions,u=a.defined,h=a.each,n=a.extend,t=a.getMagnitude,l=a.getTZOffset,k=a.normalizeTickInterval,e=a.pick,c=a.timeUnits;B.prototype.getTimeTicks=function(a,k,b,m){var d=[],r={},p=E.global.useUTC,v,f=new z(k-Math.abs(l(k))),y=z.hcMakeTime,G=a.unitRange,t=a.count,q;if(u(k)){f[z.hcSetMilliseconds](G>=c.second?0:t*Math.floor(f.getMilliseconds()/t));if(G>=c.second)f[z.hcSetSeconds](G>=c.minute?0:t*Math.floor(f.getSeconds()/t));if(G>=c.minute)f[z.hcSetMinutes](G>=c.hour?0:t*Math.floor(f[z.hcGetMinutes]()/t));if(G>=c.hour)f[z.hcSetHours](G>=c.day?0:t*Math.floor(f[z.hcGetHours]()/t));if(G>=c.day)f[z.hcSetDate](G>=c.month?1:t*Math.floor(f[z.hcGetDate]()/t));G>=c.month&&(f[z.hcSetMonth](G>=c.year?0:t*Math.floor(f[z.hcGetMonth]()/t)),v=f[z.hcGetFullYear]());if(G>=c.year)f[z.hcSetFullYear](v-v%t);if(G===c.week)f[z.hcSetDate](f[z.hcGetDate]()-f[z.hcGetDay]()+e(m,1));v=f[z.hcGetFullYear]();m=f[z.hcGetMonth]();var x=f[z.hcGetDate](),J=f[z.hcGetHours]();if(z.hcTimezoneOffset||z.hcGetTimezoneOffset)q=(!p||!!z.hcGetTimezoneOffset)&&(b-k>4*c.month||l(k)!==l(b)),f=f.getTime(),f=new z(f+l(f));p=f.getTime();for(k=1;p<b;){d.push(p),p=G===c.year?y(v+k*t,0):G===c.month?y(v,m+k*t):!q||G!==c.day&&G!==c.week?q&&G===c.hour?y(v,m,x,J+k*t):p+G*t:y(v,m,x+k*t*(G===c.day?1:7)),k++;}d.push(p);G<=c.hour&&1E4>d.length&&h(d,function(a){0===a%18E5&&"000000000"===C("%H%M%S%L",a)&&(r[a]="day");});}d.info=n(a,{higherRanks:r,totalRange:G*t});return d;};B.prototype.normalizeTimeTickInterval=function(a,e){var b=e||[["millisecond",[1,2,5,10,20,25,50,100,200,500]],["second",[1,2,5,10,15,30]],["minute",[1,2,5,10,15,30]],["hour",[1,2,3,4,6,8,12]],["day",[1,2]],["week",[1,2]],["month",[1,2,3,4,6]],["year",null]];e=b[b.length-1];var m=c[e[0]],d=e[1],r;for(r=0;r<b.length&&!(e=b[r],m=c[e[0]],d=e[1],b[r+1]&&a<=(m*d[d.length-1]+c[b[r+1][0]])/2);r++){}m===c.year&&a<5*m&&(d=[1,2,5]);a=k(a/m,d,"year"===e[0]?Math.max(t(a/m),1):1);return{unitRange:m,count:a,unitName:e[0]};};})(I);(function(a){var B=a.Axis,z=a.getMagnitude,C=a.map,E=a.normalizeTickInterval,u=a.pick;B.prototype.getLogTickPositions=function(a,n,t,l){var k=this.options,e=this.len,c=this.lin2log,p=this.log2lin,h=[];l||(this._minorAutoInterval=null);if(.5<=a)a=Math.round(a),h=this.getLinearTickPositions(a,n,t);else if(.08<=a)for(var e=Math.floor(n),b,m,d,r,A,k=.3<a?[1,2,4]:.15<a?[1,2,4,6,8]:[1,2,3,4,5,6,7,8,9];e<t+1&&!A;e++){for(m=k.length,b=0;b<m&&!A;b++){d=p(c(e)*k[b]),d>n&&(!l||r<=t)&&void 0!==r&&h.push(r),r>t&&(A=!0),r=d;}}else n=c(n),t=c(t),a=k[l?"minorTickInterval":"tickInterval"],a=u("auto"===a?null:a,this._minorAutoInterval,k.tickPixelInterval/(l?5:1)*(t-n)/((l?e/this.tickPositions.length:e)||1)),a=E(a,null,z(a)),h=C(this.getLinearTickPositions(a,n,t),p),l||(this._minorAutoInterval=a/5);l||(this.tickInterval=a);return h;};B.prototype.log2lin=function(a){return Math.log(a)/Math.LN10;};B.prototype.lin2log=function(a){return Math.pow(10,a);};})(I);(function(a){var B=a.dateFormat,z=a.each,C=a.extend,E=a.format,u=a.isNumber,h=a.map,n=a.merge,t=a.pick,l=a.splat,k=a.syncTimeout,e=a.timeUnits;a.Tooltip=function(){this.init.apply(this,arguments);};a.Tooltip.prototype={init:function init(a,e){this.chart=a;this.options=e;this.crosshairs=[];this.now={x:0,y:0};this.isHidden=!0;this.split=e.split&&!a.inverted;this.shared=e.shared||this.split;},cleanSplit:function cleanSplit(a){z(this.chart.series,function(c){var e=c&&c.tt;e&&(!e.isActive||a?c.tt=e.destroy():e.isActive=!1);});},getLabel:function getLabel(){var a=this.chart.renderer,e=this.options;this.label||(this.split?this.label=a.g("tooltip"):(this.label=a.label("",0,0,e.shape||"callout",null,null,e.useHTML,null,"tooltip").attr({padding:e.padding,r:e.borderRadius}),this.label.attr({fill:e.backgroundColor,"stroke-width":e.borderWidth}).css(e.style).shadow(e.shadow)),this.label.attr({zIndex:8}).add());return this.label;},update:function update(a){this.destroy();this.init(this.chart,n(!0,this.options,a));},destroy:function destroy(){this.label&&(this.label=this.label.destroy());this.split&&this.tt&&(this.cleanSplit(this.chart,!0),this.tt=this.tt.destroy());clearTimeout(this.hideTimer);clearTimeout(this.tooltipTimeout);},move:function move(a,e,k,b){var c=this,d=c.now,r=!1!==c.options.animation&&!c.isHidden&&(1<Math.abs(a-d.x)||1<Math.abs(e-d.y)),p=c.followPointer||1<c.len;C(d,{x:r?(2*d.x+a)/3:a,y:r?(d.y+e)/2:e,anchorX:p?void 0:r?(2*d.anchorX+k)/3:k,anchorY:p?void 0:r?(d.anchorY+b)/2:b});c.getLabel().attr(d);r&&(clearTimeout(this.tooltipTimeout),this.tooltipTimeout=setTimeout(function(){c&&c.move(a,e,k,b);},32));},hide:function hide(a){var c=this;clearTimeout(this.hideTimer);a=t(a,this.options.hideDelay,500);this.isHidden||(this.hideTimer=k(function(){c.getLabel()[a?"fadeOut":"hide"]();c.isHidden=!0;},a));},getAnchor:function getAnchor(a,e){var c,b=this.chart,m=b.inverted,d=b.plotTop,r=b.plotLeft,p=0,v=0,f,k;a=l(a);c=a[0].tooltipPos;this.followPointer&&e&&(void 0===e.chartX&&(e=b.pointer.normalize(e)),c=[e.chartX-b.plotLeft,e.chartY-d]);c||(z(a,function(a){f=a.series.yAxis;k=a.series.xAxis;p+=a.plotX+(!m&&k?k.left-r:0);v+=(a.plotLow?(a.plotLow+a.plotHigh)/2:a.plotY)+(!m&&f?f.top-d:0);}),p/=a.length,v/=a.length,c=[m?b.plotWidth-v:p,this.shared&&!m&&1<a.length&&e?e.chartY-d:m?b.plotHeight-p:v]);return h(c,Math.round);},getPosition:function getPosition(a,e,k){var b=this.chart,c=this.distance,d={},r=k.h||0,p,v=["y",b.chartHeight,e,k.plotY+b.plotTop,b.plotTop,b.plotTop+b.plotHeight],f=["x",b.chartWidth,a,k.plotX+b.plotLeft,b.plotLeft,b.plotLeft+b.plotWidth],h=!this.followPointer&&t(k.ttBelow,!b.inverted===!!k.negative),l=function l(a,b,f,g,q,e){var m=f<g-c,x=g+c+f<b,v=g-c-f;g+=c;if(h&&x)d[a]=g;else if(!h&&m)d[a]=v;else if(m)d[a]=Math.min(e-f,0>v-r?v:v-r);else if(x)d[a]=Math.max(q,g+r+f>b?g:g+r);else return!1;},n=function n(a,b,f,g){var q;g<c||g>b-c?q=!1:d[a]=g<f/2?1:g>b-f/2?b-f-2:g-f/2;return q;},q=function q(a){var b=v;v=f;f=b;p=a;},x=function x(){!1!==l.apply(0,v)?!1!==n.apply(0,f)||p||(q(!0),x()):p?d.x=d.y=0:(q(!0),x());};(b.inverted||1<this.len)&&q();x();return d;},defaultFormatter:function defaultFormatter(a){var c=this.points||l(this),e;e=[a.tooltipFooterHeaderFormatter(c[0])];e=e.concat(a.bodyFormatter(c));e.push(a.tooltipFooterHeaderFormatter(c[0],!0));return e;},refresh:function refresh(a,e){var c,b=this.options,m,d=a,r,p={},v=[];c=b.formatter||this.defaultFormatter;var p=this.shared,f;clearTimeout(this.hideTimer);this.followPointer=l(d)[0].series.tooltipOptions.followPointer;r=this.getAnchor(d,e);e=r[0];m=r[1];!p||d.series&&d.series.noSharedTooltip?p=d.getLabelConfig():(z(d,function(a){a.setState("hover");v.push(a.getLabelConfig());}),p={x:d[0].category,y:d[0].y},p.points=v,d=d[0]);this.len=v.length;p=c.call(p,this);f=d.series;this.distance=t(f.tooltipOptions.distance,16);!1===p?this.hide():(c=this.getLabel(),this.isHidden&&c.attr({opacity:1}).show(),this.split?this.renderSplit(p,a):(c.attr({text:p&&p.join?p.join(""):p}),c.removeClass(/highcharts-color-[\d]+/g).addClass("highcharts-color-"+t(d.colorIndex,f.colorIndex)),c.attr({stroke:b.borderColor||d.color||f.color||"#666666"}),this.updatePosition({plotX:e,plotY:m,negative:d.negative,ttBelow:d.ttBelow,h:r[2]||0})),this.isHidden=!1);},renderSplit:function renderSplit(c,e){var p=this,b=[],m=this.chart,d=m.renderer,r=!0,k=this.options,v,f=this.getLabel();z(c.slice(0,e.length+1),function(a,c){c=e[c-1]||{isHeader:!0,plotX:e[0].plotX};var h=c.series||p,q=h.tt,x=c.series||{},l="highcharts-color-"+t(c.colorIndex,x.colorIndex,"none");q||(h.tt=q=d.label(null,null,null,"callout").addClass("highcharts-tooltip-box "+l).attr({padding:k.padding,r:k.borderRadius,fill:k.backgroundColor,stroke:c.color||x.color||"#333333","stroke-width":k.borderWidth}).add(f));q.isActive=!0;q.attr({text:a});q.css(k.style);a=q.getBBox();x=a.width+q.strokeWidth();c.isHeader?(v=a.height,x=Math.max(0,Math.min(c.plotX+m.plotLeft-x/2,m.chartWidth-x))):x=c.plotX+m.plotLeft-t(k.distance,16)-x;0>x&&(r=!1);a=(c.series&&c.series.yAxis&&c.series.yAxis.pos)+(c.plotY||0);a-=m.plotTop;b.push({target:c.isHeader?m.plotHeight+v:a,rank:c.isHeader?1:0,size:h.tt.getBBox().height+1,point:c,x:x,tt:q});});this.cleanSplit();a.distribute(b,m.plotHeight+v);z(b,function(a){var b=a.point,d=b.series;a.tt.attr({visibility:void 0===a.pos?"hidden":"inherit",x:r||b.isHeader?a.x:b.plotX+m.plotLeft+t(k.distance,16),y:a.pos+m.plotTop,anchorX:b.isHeader?b.plotX+m.plotLeft:b.plotX+d.xAxis.pos,anchorY:b.isHeader?a.pos+m.plotTop-15:b.plotY+d.yAxis.pos});});},updatePosition:function updatePosition(a){var c=this.chart,e=this.getLabel(),e=(this.options.positioner||this.getPosition).call(this,e.width,e.height,a);this.move(Math.round(e.x),Math.round(e.y||0),a.plotX+c.plotLeft,a.plotY+c.plotTop);},getDateFormat:function getDateFormat(a,p,k,b){var c=B("%m-%d %H:%M:%S.%L",p),d,r,h={millisecond:15,second:12,minute:9,hour:6,day:3},v="millisecond";for(r in e){if(a===e.week&&+B("%w",p)===k&&"00:00:00.000"===c.substr(6)){r="week";break;}if(e[r]>a){r=v;break;}if(h[r]&&c.substr(h[r])!=="01-01 00:00:00.000".substr(h[r]))break;"week"!==r&&(v=r);}r&&(d=b[r]);return d;},getXDateFormat:function getXDateFormat(a,e,k){e=e.dateTimeLabelFormats;var b=k&&k.closestPointRange;return(b?this.getDateFormat(b,a.x,k.options.startOfWeek,e):e.day)||e.year;},tooltipFooterHeaderFormatter:function tooltipFooterHeaderFormatter(a,e){var c=e?"footer":"header";e=a.series;var b=e.tooltipOptions,m=b.xDateFormat,d=e.xAxis,r=d&&"datetime"===d.options.type&&u(a.key),c=b[c+"Format"];r&&!m&&(m=this.getXDateFormat(a,b,d));r&&m&&(c=c.replace("{point.key}","{point.key:"+m+"}"));return E(c,{point:a,series:e});},bodyFormatter:function bodyFormatter(a){return h(a,function(a){var c=a.series.tooltipOptions;return(c.pointFormatter||a.point.tooltipFormatter).call(a.point,c.pointFormat);});}};})(I);(function(a){var B=a.addEvent,z=a.attr,C=a.charts,E=a.color,u=a.css,h=a.defined,n=a.doc,t=a.each,l=a.extend,k=a.fireEvent,e=a.offset,c=a.pick,p=a.removeEvent,H=a.splat,b=a.Tooltip,m=a.win;a.Pointer=function(a,b){this.init(a,b);};a.Pointer.prototype={init:function init(a,e){this.options=e;this.chart=a;this.runChartClick=e.chart.events&&!!e.chart.events.click;this.pinchDown=[];this.lastValidTouch={};b&&e.tooltip.enabled&&(a.tooltip=new b(a,e.tooltip),this.followTouchMove=c(e.tooltip.followTouchMove,!0));this.setDOMEvents();},zoomOption:function zoomOption(a){var b=this.chart,d=b.options.chart,e=d.zoomType||"",b=b.inverted;/touch/.test(a.type)&&(e=c(d.pinchType,e));this.zoomX=a=/x/.test(e);this.zoomY=e=/y/.test(e);this.zoomHor=a&&!b||e&&b;this.zoomVert=e&&!b||a&&b;this.hasZoom=a||e;},normalize:function normalize(a,b){var d,c;a=a||m.event;a.target||(a.target=a.srcElement);c=a.touches?a.touches.length?a.touches.item(0):a.changedTouches[0]:a;b||(this.chartPosition=b=e(this.chart.container));void 0===c.pageX?(d=Math.max(a.x,a.clientX-b.left),b=a.y):(d=c.pageX-b.left,b=c.pageY-b.top);return l(a,{chartX:Math.round(d),chartY:Math.round(b)});},getCoordinates:function getCoordinates(a){var b={xAxis:[],yAxis:[]};t(this.chart.axes,function(d){b[d.isXAxis?"xAxis":"yAxis"].push({axis:d,value:d.toValue(a[d.horiz?"chartX":"chartY"])});});return b;},getKDPoints:function getKDPoints(a,b,e){var d=[],f,m,r;t(a,function(a){f=a.noSharedTooltip&&b;m=!b&&a.directTouch;a.visible&&!f&&!m&&c(a.options.enableMouseTracking,!0)&&(r=a.searchPoint(e,!f&&1===a.kdDimensions))&&r.series&&d.push(r);});d.sort(function(a,d){var f=a.distX-d.distX,c=a.dist-d.dist,e=(d.series.group&&d.series.group.zIndex)-(a.series.group&&a.series.group.zIndex);return 0!==f&&b?f:0!==c?c:0!==e?e:a.series.index>d.series.index?-1:1;});if(b)for(a=d.length;a--;){(d[a].x!==d[0].x||d[a].series.noSharedTooltip)&&d.splice(a,1);}return d;},getPointFromEvent:function getPointFromEvent(a){a=a.target;for(var b;a&&!b;){b=a.point,a=a.parentNode;}return b;},getHoverData:function getHoverData(a,b,e,m,f,k){var d=a;a=b;var r;if(m)f?(r=[],t(e,function(a){var b=a.noSharedTooltip&&f,e=!f&&a.directTouch;a.visible&&!b&&!e&&c(a.options.enableMouseTracking,!0)&&(a=a.searchKDTree({clientX:d.clientX,plotY:d.plotY},!b&&1===a.kdDimensions))&&a.series&&r.push(a);}),0===r.length&&(r=[d])):r=[d];else{if(a&&!a.options.stickyTracking)r=this.getKDPoints([a],f,k);else{if(!f)if(a)a.options.stickyTracking||(e=[a]);else for(m=0;m<e.length;m++){if(e[m].directTouch||!e[m].options.stickyTracking)e=[];}r=this.getKDPoints(e,f,k);}a=(d=r[0])&&d.series;}r.sort(function(a,b){return a.series.index-b.series.index;});return{hoverPoint:d,hoverSeries:a,hoverPoints:r};},runPointActions:function runPointActions(b,c){var d=this.chart,e=d.tooltip,f=e?e.shared:!1,m=c||d.hoverPoint,r=m&&m.series||d.hoverSeries;c=this.getHoverData(m,r,d.series,!!c||r&&r.directTouch,f,b);var k,q,m=c.hoverPoint;k=(r=c.hoverSeries)&&r.tooltipOptions.followPointer;q=(f=f&&m&&!m.series.noSharedTooltip)?c.hoverPoints:[m];if(m&&(m!==d.hoverPoint||e&&e.isHidden)){t(d.hoverPoints||[],function(b){-1===a.inArray(b,q)&&b.setState();});t(q||[],function(a){a.setState("hover");});if(d.hoverSeries!==r)r.onMouseOver();r&&!r.directTouch&&(d.hoverPoint&&d.hoverPoint.firePointEvent("mouseOut"),m.firePointEvent("mouseOver"));d.hoverPoints=q;d.hoverPoint=m;e&&e.refresh(f?q:m,b);}else k&&e&&!e.isHidden&&(m=e.getAnchor([{}],b),e.updatePosition({plotX:m[0],plotY:m[1]}));this.unDocMouseMove||(this.unDocMouseMove=B(n,"mousemove",function(b){var d=C[a.hoverChartIndex];if(d)d.pointer.onDocumentMouseMove(b);}));t(q,function(a){t(d.axes,function(d){(!a||a.series&&a.series[d.coll]===d)&&d.drawCrosshair(b,a);});});},reset:function reset(a,b){var d=this.chart,c=d.hoverSeries,f=d.hoverPoint,e=d.hoverPoints,m=d.tooltip,r=m&&m.shared?e:f;a&&r&&t(H(r),function(b){b.series.isCartesian&&void 0===b.plotX&&(a=!1);});if(a)m&&r&&(m.refresh(r),f&&(f.setState(f.state,!0),t(d.axes,function(a){a.crosshair&&a.drawCrosshair(null,f);})));else{if(f)f.onMouseOut();e&&t(e,function(a){a.setState();});if(c)c.onMouseOut();m&&m.hide(b);this.unDocMouseMove&&(this.unDocMouseMove=this.unDocMouseMove());t(d.axes,function(a){a.hideCrosshair();});this.hoverX=d.hoverPoints=d.hoverPoint=null;}},scaleGroups:function scaleGroups(a,b){var d=this.chart,c;t(d.series,function(f){c=a||f.getPlotBox();f.xAxis&&f.xAxis.zoomEnabled&&f.group&&(f.group.attr(c),f.markerGroup&&(f.markerGroup.attr(c),f.markerGroup.clip(b?d.clipRect:null)),f.dataLabelsGroup&&f.dataLabelsGroup.attr(c));});d.clipRect.attr(b||d.clipBox);},dragStart:function dragStart(a){var b=this.chart;b.mouseIsDown=a.type;b.cancelClick=!1;b.mouseDownX=this.mouseDownX=a.chartX;b.mouseDownY=this.mouseDownY=a.chartY;},drag:function drag(a){var b=this.chart,d=b.options.chart,c=a.chartX,f=a.chartY,e=this.zoomHor,m=this.zoomVert,k=b.plotLeft,q=b.plotTop,x=b.plotWidth,p=b.plotHeight,h,l=this.selectionMarker,g=this.mouseDownX,n=this.mouseDownY,t=d.panKey&&a[d.panKey+"Key"];l&&l.touch||(c<k?c=k:c>k+x&&(c=k+x),f<q?f=q:f>q+p&&(f=q+p),this.hasDragged=Math.sqrt(Math.pow(g-c,2)+Math.pow(n-f,2)),10<this.hasDragged&&(h=b.isInsidePlot(g-k,n-q),b.hasCartesianSeries&&(this.zoomX||this.zoomY)&&h&&!t&&!l&&(this.selectionMarker=l=b.renderer.rect(k,q,e?1:x,m?1:p,0).attr({fill:d.selectionMarkerFill||E("#335cad").setOpacity(.25).get(),"class":"highcharts-selection-marker",zIndex:7}).add()),l&&e&&(c-=g,l.attr({width:Math.abs(c),x:(0<c?0:c)+g})),l&&m&&(c=f-n,l.attr({height:Math.abs(c),y:(0<c?0:c)+n})),h&&!l&&d.panning&&b.pan(a,d.panning)));},drop:function drop(a){var b=this,d=this.chart,c=this.hasPinched;if(this.selectionMarker){var f={originalEvent:a,xAxis:[],yAxis:[]},e=this.selectionMarker,m=e.attr?e.attr("x"):e.x,p=e.attr?e.attr("y"):e.y,q=e.attr?e.attr("width"):e.width,x=e.attr?e.attr("height"):e.height,n;if(this.hasDragged||c)t(d.axes,function(d){if(d.zoomEnabled&&h(d.min)&&(c||b[{xAxis:"zoomX",yAxis:"zoomY"}[d.coll]])){var e=d.horiz,g="touchend"===a.type?d.minPixelPadding:0,r=d.toValue((e?m:p)+g),e=d.toValue((e?m+q:p+x)-g);f[d.coll].push({axis:d,min:Math.min(r,e),max:Math.max(r,e)});n=!0;}}),n&&k(d,"selection",f,function(a){d.zoom(l(a,c?{animation:!1}:null));});this.selectionMarker=this.selectionMarker.destroy();c&&this.scaleGroups();}d&&(u(d.container,{cursor:d._cursor}),d.cancelClick=10<this.hasDragged,d.mouseIsDown=this.hasDragged=this.hasPinched=!1,this.pinchDown=[]);},onContainerMouseDown:function onContainerMouseDown(a){a=this.normalize(a);this.zoomOption(a);a.preventDefault&&a.preventDefault();this.dragStart(a);},onDocumentMouseUp:function onDocumentMouseUp(b){C[a.hoverChartIndex]&&C[a.hoverChartIndex].pointer.drop(b);},onDocumentMouseMove:function onDocumentMouseMove(a){var b=this.chart,d=this.chartPosition;a=this.normalize(a,d);!d||this.inClass(a.target,"highcharts-tracker")||b.isInsidePlot(a.chartX-b.plotLeft,a.chartY-b.plotTop)||this.reset();},onContainerMouseLeave:function onContainerMouseLeave(b){var d=C[a.hoverChartIndex];d&&(b.relatedTarget||b.toElement)&&(d.pointer.reset(),d.pointer.chartPosition=null);},onContainerMouseMove:function onContainerMouseMove(b){var d=this.chart;h(a.hoverChartIndex)&&C[a.hoverChartIndex]&&C[a.hoverChartIndex].mouseIsDown||(a.hoverChartIndex=d.index);b=this.normalize(b);b.returnValue=!1;"mousedown"===d.mouseIsDown&&this.drag(b);!this.inClass(b.target,"highcharts-tracker")&&!d.isInsidePlot(b.chartX-d.plotLeft,b.chartY-d.plotTop)||d.openMenu||this.runPointActions(b);},inClass:function inClass(a,b){for(var d;a;){if(d=z(a,"class")){if(-1!==d.indexOf(b))return!0;if(-1!==d.indexOf("highcharts-container"))return!1;}a=a.parentNode;}},onTrackerMouseOut:function onTrackerMouseOut(a){var b=this.chart.hoverSeries;a=a.relatedTarget||a.toElement;if(!(!b||!a||b.options.stickyTracking||this.inClass(a,"highcharts-tooltip")||this.inClass(a,"highcharts-series-"+b.index)&&this.inClass(a,"highcharts-tracker")))b.onMouseOut();},onContainerClick:function onContainerClick(a){var b=this.chart,d=b.hoverPoint,c=b.plotLeft,f=b.plotTop;a=this.normalize(a);b.cancelClick||(d&&this.inClass(a.target,"highcharts-tracker")?(k(d.series,"click",l(a,{point:d})),b.hoverPoint&&d.firePointEvent("click",a)):(l(a,this.getCoordinates(a)),b.isInsidePlot(a.chartX-c,a.chartY-f)&&k(b,"click",a)));},setDOMEvents:function setDOMEvents(){var b=this,c=b.chart.container;c.onmousedown=function(a){b.onContainerMouseDown(a);};c.onmousemove=function(a){b.onContainerMouseMove(a);};c.onclick=function(a){b.onContainerClick(a);};B(c,"mouseleave",b.onContainerMouseLeave);1===a.chartCount&&B(n,"mouseup",b.onDocumentMouseUp);a.hasTouch&&(c.ontouchstart=function(a){b.onContainerTouchStart(a);},c.ontouchmove=function(a){b.onContainerTouchMove(a);},1===a.chartCount&&B(n,"touchend",b.onDocumentTouchEnd));},destroy:function destroy(){var b;p(this.chart.container,"mouseleave",this.onContainerMouseLeave);a.chartCount||(p(n,"mouseup",this.onDocumentMouseUp),p(n,"touchend",this.onDocumentTouchEnd));clearInterval(this.tooltipTimeout);for(b in this){this[b]=null;}}};})(I);(function(a){var B=a.charts,z=a.each,C=a.extend,E=a.map,u=a.noop,h=a.pick;C(a.Pointer.prototype,{pinchTranslate:function pinchTranslate(a,h,l,k,e,c){this.zoomHor&&this.pinchTranslateDirection(!0,a,h,l,k,e,c);this.zoomVert&&this.pinchTranslateDirection(!1,a,h,l,k,e,c);},pinchTranslateDirection:function pinchTranslateDirection(a,h,l,k,e,c,p,u){var b=this.chart,m=a?"x":"y",d=a?"X":"Y",r="chart"+d,n=a?"width":"height",v=b["plot"+(a?"Left":"Top")],f,y,t=u||1,F=b.inverted,q=b.bounds[a?"h":"v"],x=1===h.length,J=h[0][r],K=l[0][r],L=!x&&h[1][r],g=!x&&l[1][r],D;l=function l(){!x&&20<Math.abs(J-L)&&(t=u||Math.abs(K-g)/Math.abs(J-L));y=(v-K)/t+J;f=b["plot"+(a?"Width":"Height")]/t;};l();h=y;h<q.min?(h=q.min,D=!0):h+f>q.max&&(h=q.max-f,D=!0);D?(K-=.8*(K-p[m][0]),x||(g-=.8*(g-p[m][1])),l()):p[m]=[K,g];F||(c[m]=y-v,c[n]=f);c=F?1/t:t;e[n]=f;e[m]=h;k[F?a?"scaleY":"scaleX":"scale"+d]=t;k["translate"+d]=c*v+(K-c*J);},pinch:function pinch(a){var n=this,l=n.chart,k=n.pinchDown,e=a.touches,c=e.length,p=n.lastValidTouch,H=n.hasZoom,b=n.selectionMarker,m={},d=1===c&&(n.inClass(a.target,"highcharts-tracker")&&l.runTrackerClick||n.runChartClick),r={};1<c&&(n.initiated=!0);H&&n.initiated&&!d&&a.preventDefault();E(e,function(a){return n.normalize(a);});"touchstart"===a.type?(z(e,function(a,b){k[b]={chartX:a.chartX,chartY:a.chartY};}),p.x=[k[0].chartX,k[1]&&k[1].chartX],p.y=[k[0].chartY,k[1]&&k[1].chartY],z(l.axes,function(a){if(a.zoomEnabled){var b=l.bounds[a.horiz?"h":"v"],d=a.minPixelPadding,c=a.toPixels(h(a.options.min,a.dataMin)),e=a.toPixels(h(a.options.max,a.dataMax)),m=Math.max(c,e);b.min=Math.min(a.pos,Math.min(c,e)-d);b.max=Math.max(a.pos+a.len,m+d);}}),n.res=!0):n.followTouchMove&&1===c?this.runPointActions(n.normalize(a)):k.length&&(b||(n.selectionMarker=b=C({destroy:u,touch:!0},l.plotBox)),n.pinchTranslate(k,e,m,b,r,p),n.hasPinched=H,n.scaleGroups(m,r),n.res&&(n.res=!1,this.reset(!1,0)));},touch:function touch(n,t){var l=this.chart,k,e;if(l.index!==a.hoverChartIndex)this.onContainerMouseLeave({relatedTarget:!0});a.hoverChartIndex=l.index;1===n.touches.length?(n=this.normalize(n),(e=l.isInsidePlot(n.chartX-l.plotLeft,n.chartY-l.plotTop))&&!l.openMenu?(t&&this.runPointActions(n),"touchmove"===n.type&&(t=this.pinchDown,k=t[0]?4<=Math.sqrt(Math.pow(t[0].chartX-n.chartX,2)+Math.pow(t[0].chartY-n.chartY,2)):!1),h(k,!0)&&this.pinch(n)):t&&this.reset()):2===n.touches.length&&this.pinch(n);},onContainerTouchStart:function onContainerTouchStart(a){this.zoomOption(a);this.touch(a,!0);},onContainerTouchMove:function onContainerTouchMove(a){this.touch(a);},onDocumentTouchEnd:function onDocumentTouchEnd(h){B[a.hoverChartIndex]&&B[a.hoverChartIndex].pointer.drop(h);}});})(I);(function(a){var B=a.addEvent,z=a.charts,C=a.css,E=a.doc,u=a.extend,h=a.noop,n=a.Pointer,t=a.removeEvent,l=a.win,k=a.wrap;if(l.PointerEvent||l.MSPointerEvent){var e={},c=!!l.PointerEvent,p=function p(){var a,c=[];c.item=function(a){return this[a];};for(a in e){e.hasOwnProperty(a)&&c.push({pageX:e[a].pageX,pageY:e[a].pageY,target:e[a].target});}return c;},H=function H(b,c,d,e){"touch"!==b.pointerType&&b.pointerType!==b.MSPOINTER_TYPE_TOUCH||!z[a.hoverChartIndex]||(e(b),e=z[a.hoverChartIndex].pointer,e[c]({type:d,target:b.currentTarget,preventDefault:h,touches:p()}));};u(n.prototype,{onContainerPointerDown:function onContainerPointerDown(a){H(a,"onContainerTouchStart","touchstart",function(a){e[a.pointerId]={pageX:a.pageX,pageY:a.pageY,target:a.currentTarget};});},onContainerPointerMove:function onContainerPointerMove(a){H(a,"onContainerTouchMove","touchmove",function(a){e[a.pointerId]={pageX:a.pageX,pageY:a.pageY};e[a.pointerId].target||(e[a.pointerId].target=a.currentTarget);});},onDocumentPointerUp:function onDocumentPointerUp(a){H(a,"onDocumentTouchEnd","touchend",function(a){delete e[a.pointerId];});},batchMSEvents:function batchMSEvents(a){a(this.chart.container,c?"pointerdown":"MSPointerDown",this.onContainerPointerDown);a(this.chart.container,c?"pointermove":"MSPointerMove",this.onContainerPointerMove);a(E,c?"pointerup":"MSPointerUp",this.onDocumentPointerUp);}});k(n.prototype,"init",function(a,c,d){a.call(this,c,d);this.hasZoom&&C(c.container,{"-ms-touch-action":"none","touch-action":"none"});});k(n.prototype,"setDOMEvents",function(a){a.apply(this);(this.hasZoom||this.followTouchMove)&&this.batchMSEvents(B);});k(n.prototype,"destroy",function(a){this.batchMSEvents(t);a.call(this);});}})(I);(function(a){var B,z=a.addEvent,C=a.css,E=a.discardElement,u=a.defined,h=a.each,n=a.isFirefox,t=a.marginNames,l=a.merge,k=a.pick,e=a.setAnimation,c=a.stableSort,p=a.win,H=a.wrap;B=a.Legend=function(a,c){this.init(a,c);};B.prototype={init:function init(a,c){this.chart=a;this.setOptions(c);c.enabled&&(this.render(),z(this.chart,"endResize",function(){this.legend.positionCheckboxes();}));},setOptions:function setOptions(a){var b=k(a.padding,8);this.options=a;this.itemStyle=a.itemStyle;this.itemHiddenStyle=l(this.itemStyle,a.itemHiddenStyle);this.itemMarginTop=a.itemMarginTop||0;this.initialItemX=this.padding=b;this.initialItemY=b-5;this.itemHeight=this.maxItemWidth=0;this.symbolWidth=k(a.symbolWidth,16);this.pages=[];},update:function update(a,c){var b=this.chart;this.setOptions(l(!0,this.options,a));this.destroy();b.isDirtyLegend=b.isDirtyBox=!0;k(c,!0)&&b.redraw();},colorizeItem:function colorizeItem(a,c){a.legendGroup[c?"removeClass":"addClass"]("highcharts-legend-item-hidden");var b=this.options,e=a.legendItem,m=a.legendLine,k=a.legendSymbol,f=this.itemHiddenStyle.color,b=c?b.itemStyle.color:f,p=c?a.color||f:f,h=a.options&&a.options.marker,l={fill:p},q;e&&e.css({fill:b,color:b});m&&m.attr({stroke:p});if(k){if(h&&k.isMarker&&(l=a.pointAttribs(),!c))for(q in l){l[q]=f;}k.attr(l);}},positionItem:function positionItem(a){var b=this.options,d=b.symbolPadding,b=!b.rtl,c=a._legendItemPos,e=c[0],c=c[1],k=a.checkbox;(a=a.legendGroup)&&a.element&&a.translate(b?e:this.legendWidth-e-2*d-4,c);k&&(k.x=e,k.y=c);},destroyItem:function destroyItem(a){var b=a.checkbox;h(["legendItem","legendLine","legendSymbol","legendGroup"],function(b){a[b]&&(a[b]=a[b].destroy());});b&&E(a.checkbox);},destroy:function destroy(){function a(a){this[a]&&(this[a]=this[a].destroy());}h(this.getAllItems(),function(b){h(["legendItem","legendGroup"],a,b);});h("clipRect up down pager nav box title group".split(" "),a,this);this.display=null;},positionCheckboxes:function positionCheckboxes(a){var b=this.group&&this.group.alignAttr,d,c=this.clipHeight||this.legendHeight,e=this.titleHeight;b&&(d=b.translateY,h(this.allItems,function(m){var f=m.checkbox,k;f&&(k=d+e+f.y+(a||0)+3,C(f,{left:b.translateX+m.checkboxOffset+f.x-20+"px",top:k+"px",display:k>d-6&&k<d+c-6?"":"none"}));}));},renderTitle:function renderTitle(){var a=this.padding,c=this.options.title,d=0;c.text&&(this.title||(this.title=this.chart.renderer.label(c.text,a-3,a-4,null,null,null,null,null,"legend-title").attr({zIndex:1}).css(c.style).add(this.group)),a=this.title.getBBox(),d=a.height,this.offsetWidth=a.width,this.contentGroup.attr({translateY:d}));this.titleHeight=d;},setText:function setText(b){var c=this.options;b.legendItem.attr({text:c.labelFormat?a.format(c.labelFormat,b):c.labelFormatter.call(b)});},renderItem:function renderItem(a){var b=this.chart,d=b.renderer,c=this.options,e="horizontal"===c.layout,p=this.symbolWidth,f=c.symbolPadding,h=this.itemStyle,n=this.itemHiddenStyle,t=this.padding,q=e?k(c.itemDistance,20):0,x=!c.rtl,J=c.width,u=c.itemMarginBottom||0,L=this.itemMarginTop,g=this.initialItemX,D=a.legendItem,H=!a.series,z=!H&&a.series.drawLegendSymbol?a.series:a,B=z.options,B=this.createCheckboxForItem&&B&&B.showCheckbox,C=c.useHTML;D||(a.legendGroup=d.g("legend-item").addClass("highcharts-"+z.type+"-series highcharts-color-"+a.colorIndex+(a.options.className?" "+a.options.className:"")+(H?" highcharts-series-"+a.index:"")).attr({zIndex:1}).add(this.scrollGroup),a.legendItem=D=d.text("",x?p+f:-f,this.baseline||0,C).css(l(a.visible?h:n)).attr({align:x?"left":"right",zIndex:2}).add(a.legendGroup),this.baseline||(h=h.fontSize,this.fontMetrics=d.fontMetrics(h,D),this.baseline=this.fontMetrics.f+3+L,D.attr("y",this.baseline)),this.symbolHeight=c.symbolHeight||this.fontMetrics.f,z.drawLegendSymbol(this,a),this.setItemEvents&&this.setItemEvents(a,D,C),B&&this.createCheckboxForItem(a));this.colorizeItem(a,a.visible);this.setText(a);d=D.getBBox();p=a.checkboxOffset=c.itemWidth||a.legendItemWidth||p+f+d.width+q+(B?20:0);this.itemHeight=f=Math.round(a.legendItemHeight||d.height);e&&this.itemX-g+p>(J||b.chartWidth-2*t-g-c.x)&&(this.itemX=g,this.itemY+=L+this.lastLineHeight+u,this.lastLineHeight=0);this.maxItemWidth=Math.max(this.maxItemWidth,p);this.lastItemY=L+this.itemY+u;this.lastLineHeight=Math.max(f,this.lastLineHeight);a._legendItemPos=[this.itemX,this.itemY];e?this.itemX+=p:(this.itemY+=L+f+u,this.lastLineHeight=f);this.offsetWidth=J||Math.max((e?this.itemX-g-q:p)+t,this.offsetWidth);},getAllItems:function getAllItems(){var a=[];h(this.chart.series,function(b){var d=b&&b.options;b&&k(d.showInLegend,u(d.linkedTo)?!1:void 0,!0)&&(a=a.concat(b.legendItems||("point"===d.legendType?b.data:b)));});return a;},adjustMargins:function adjustMargins(a,c){var b=this.chart,e=this.options,m=e.align.charAt(0)+e.verticalAlign.charAt(0)+e.layout.charAt(0);e.floating||h([/(lth|ct|rth)/,/(rtv|rm|rbv)/,/(rbh|cb|lbh)/,/(lbv|lm|ltv)/],function(d,f){d.test(m)&&!u(a[f])&&(b[t[f]]=Math.max(b[t[f]],b.legend[(f+1)%2?"legendHeight":"legendWidth"]+[1,-1,-1,1][f]*e[f%2?"x":"y"]+k(e.margin,12)+c[f]));});},render:function render(){var a=this,e=a.chart,d=e.renderer,k=a.group,p,n,f,y,t=a.box,u=a.options,q=a.padding;a.itemX=a.initialItemX;a.itemY=a.initialItemY;a.offsetWidth=0;a.lastItemY=0;k||(a.group=k=d.g("legend").attr({zIndex:7}).add(),a.contentGroup=d.g().attr({zIndex:1}).add(k),a.scrollGroup=d.g().add(a.contentGroup));a.renderTitle();p=a.getAllItems();c(p,function(a,b){return(a.options&&a.options.legendIndex||0)-(b.options&&b.options.legendIndex||0);});u.reversed&&p.reverse();a.allItems=p;a.display=n=!!p.length;a.lastLineHeight=0;h(p,function(b){a.renderItem(b);});f=(u.width||a.offsetWidth)+q;y=a.lastItemY+a.lastLineHeight+a.titleHeight;y=a.handleOverflow(y);y+=q;t||(a.box=t=d.rect().addClass("highcharts-legend-box").attr({r:u.borderRadius}).add(k),t.isNew=!0);t.attr({stroke:u.borderColor,"stroke-width":u.borderWidth||0,fill:u.backgroundColor||"none"}).shadow(u.shadow);0<f&&0<y&&(t[t.isNew?"attr":"animate"](t.crisp({x:0,y:0,width:f,height:y},t.strokeWidth())),t.isNew=!1);t[n?"show":"hide"]();a.legendWidth=f;a.legendHeight=y;h(p,function(b){a.positionItem(b);});n&&k.align(l(u,{width:f,height:y}),!0,"spacingBox");e.isResizing||this.positionCheckboxes();},handleOverflow:function handleOverflow(a){var b=this,d=this.chart,c=d.renderer,e=this.options,p=e.y,d=d.spacingBox.height+("top"===e.verticalAlign?-p:p)-this.padding,p=e.maxHeight,f,l=this.clipRect,n=e.navigation,t=k(n.animation,!0),q=n.arrowSize||12,x=this.nav,u=this.pages,K=this.padding,L,g=this.allItems,D=function D(a){a?l.attr({height:a}):l&&(b.clipRect=l.destroy(),b.contentGroup.clip());b.contentGroup.div&&(b.contentGroup.div.style.clip=a?"rect("+K+"px,9999px,"+(K+a)+"px,0)":"auto");};"horizontal"!==e.layout||"middle"===e.verticalAlign||e.floating||(d/=2);p&&(d=Math.min(d,p));u.length=0;a>d&&!1!==n.enabled?(this.clipHeight=f=Math.max(d-20-this.titleHeight-K,0),this.currentPage=k(this.currentPage,1),this.fullHeight=a,h(g,function(a,b){var d=a._legendItemPos[1];a=Math.round(a.legendItem.getBBox().height);var c=u.length;if(!c||d-u[c-1]>f&&(L||d)!==u[c-1])u.push(L||d),c++;b===g.length-1&&d+a-u[c-1]>f&&u.push(d);d!==L&&(L=d);}),l||(l=b.clipRect=c.clipRect(0,K,9999,0),b.contentGroup.clip(l)),D(f),x||(this.nav=x=c.g().attr({zIndex:1}).add(this.group),this.up=c.symbol("triangle",0,0,q,q).on("click",function(){b.scroll(-1,t);}).add(x),this.pager=c.text("",15,10).addClass("highcharts-legend-navigation").css(n.style).add(x),this.down=c.symbol("triangle-down",0,0,q,q).on("click",function(){b.scroll(1,t);}).add(x)),b.scroll(0),a=d):x&&(D(),this.nav=x.destroy(),this.scrollGroup.attr({translateY:1}),this.clipHeight=0);return a;},scroll:function scroll(a,c){var b=this.pages,m=b.length;a=this.currentPage+a;var k=this.clipHeight,p=this.options.navigation,f=this.pager,h=this.padding;a>m&&(a=m);0<a&&(void 0!==c&&e(c,this.chart),this.nav.attr({translateX:h,translateY:k+this.padding+7+this.titleHeight,visibility:"visible"}),this.up.attr({"class":1===a?"highcharts-legend-nav-inactive":"highcharts-legend-nav-active"}),f.attr({text:a+"/"+m}),this.down.attr({x:18+this.pager.getBBox().width,"class":a===m?"highcharts-legend-nav-inactive":"highcharts-legend-nav-active"}),this.up.attr({fill:1===a?p.inactiveColor:p.activeColor}).css({cursor:1===a?"default":"pointer"}),this.down.attr({fill:a===m?p.inactiveColor:p.activeColor}).css({cursor:a===m?"default":"pointer"}),c=-b[a-1]+this.initialItemY,this.scrollGroup.animate({translateY:c}),this.currentPage=a,this.positionCheckboxes(c));}};a.LegendSymbolMixin={drawRectangle:function drawRectangle(a,c){var b=a.symbolHeight,e=a.options.squareSymbol;c.legendSymbol=this.chart.renderer.rect(e?(a.symbolWidth-b)/2:0,a.baseline-b+1,e?b:a.symbolWidth,b,k(a.options.symbolRadius,b/2)).addClass("highcharts-point").attr({zIndex:3}).add(c.legendGroup);},drawLineMarker:function drawLineMarker(a){var b=this.options,c=b.marker,e=a.symbolWidth,p=a.symbolHeight,h=p/2,f=this.chart.renderer,n=this.legendGroup;a=a.baseline-Math.round(.3*a.fontMetrics.b);var t;t={"stroke-width":b.lineWidth||0};b.dashStyle&&(t.dashstyle=b.dashStyle);this.legendLine=f.path(["M",0,a,"L",e,a]).addClass("highcharts-graph").attr(t).add(n);c&&!1!==c.enabled&&(b=Math.min(k(c.radius,h),h),0===this.symbol.indexOf("url")&&(c=l(c,{width:p,height:p}),b=0),this.legendSymbol=c=f.symbol(this.symbol,e/2-b,a-b,2*b,2*b,c).addClass("highcharts-point").add(n),c.isMarker=!0);}};(/Trident\/7\.0/.test(p.navigator.userAgent)||n)&&H(B.prototype,"positionItem",function(a,c){var b=this,e=function e(){c._legendItemPos&&a.call(b,c);};e();setTimeout(e);});})(I);(function(a){var B=a.addEvent,z=a.animate,C=a.animObject,E=a.attr,u=a.doc,h=a.Axis,n=a.createElement,t=a.defaultOptions,l=a.discardElement,k=a.charts,e=a.css,c=a.defined,p=a.each,H=a.extend,b=a.find,m=a.fireEvent,d=a.getStyle,r=a.grep,A=a.isNumber,v=a.isObject,f=a.isString,y=a.Legend,G=a.marginNames,F=a.merge,q=a.Pointer,x=a.pick,J=a.pInt,K=a.removeEvent,L=a.seriesTypes,g=a.splat,D=a.svg,S=a.syncTimeout,M=a.win,R=a.Renderer,N=a.Chart=function(){this.getArgs.apply(this,arguments);};a.chart=function(a,b,c){return new N(a,b,c);};N.prototype={callbacks:[],getArgs:function getArgs(){var a=[].slice.call(arguments);if(f(a[0])||a[0].nodeName)this.renderTo=a.shift();this.init(a[0],a[1]);},init:function init(b,c){var d,f=b.series;b.series=null;d=F(t,b);d.series=b.series=f;this.userOptions=b;b=d.chart;f=b.events;this.margin=[];this.spacing=[];this.bounds={h:{},v:{}};this.callback=c;this.isResizing=0;this.options=d;this.axes=[];this.series=[];this.hasCartesianSeries=b.showAxes;var g;this.index=k.length;k.push(this);a.chartCount++;if(f)for(g in f){B(this,g,f[g]);}this.xAxis=[];this.yAxis=[];this.pointCount=this.colorCounter=this.symbolCounter=0;this.firstRender();},initSeries:function initSeries(b){var c=this.options.chart;(c=L[b.type||c.type||c.defaultSeriesType])||a.error(17,!0);c=new c();c.init(this,b);return c;},orderSeries:function orderSeries(a){var b=this.series;for(a=a||0;a<b.length;a++){b[a]&&(b[a].index=a,b[a].name=b[a].name||"Series "+(b[a].index+1));}},isInsidePlot:function isInsidePlot(a,b,c){var d=c?b:a;a=c?a:b;return 0<=d&&d<=this.plotWidth&&0<=a&&a<=this.plotHeight;},redraw:function redraw(b){var c=this.axes,d=this.series,f=this.pointer,g=this.legend,e=this.isDirtyLegend,q,k,h=this.hasCartesianSeries,x=this.isDirtyBox,l,w=this.renderer,r=w.isHidden(),n=[];this.setResponsive&&this.setResponsive(!1);a.setAnimation(b,this);r&&this.cloneRenderTo();this.layOutTitles();for(b=d.length;b--;){if(l=d[b],l.options.stacking&&(q=!0,l.isDirty)){k=!0;break;}}if(k)for(b=d.length;b--;){l=d[b],l.options.stacking&&(l.isDirty=!0);}p(d,function(a){a.isDirty&&"point"===a.options.legendType&&(a.updateTotals&&a.updateTotals(),e=!0);a.isDirtyData&&m(a,"updatedData");});e&&g.options.enabled&&(g.render(),this.isDirtyLegend=!1);q&&this.getStacks();h&&p(c,function(a){a.updateNames();a.setScale();});this.getMargins();h&&(p(c,function(a){a.isDirty&&(x=!0);}),p(c,function(a){var b=a.min+","+a.max;a.extKey!==b&&(a.extKey=b,n.push(function(){m(a,"afterSetExtremes",H(a.eventArgs,a.getExtremes()));delete a.eventArgs;}));(x||q)&&a.redraw();}));x&&this.drawChartBox();m(this,"predraw");p(d,function(a){(x||a.isDirty)&&a.visible&&a.redraw();a.isDirtyData=!1;});f&&f.reset(!0);w.draw();m(this,"redraw");m(this,"render");r&&this.cloneRenderTo(!0);p(n,function(a){a.call();});},get:function get(a){function c(b){return b.id===a||b.options&&b.options.id===a;}var d,f=this.series,g;d=b(this.axes,c)||b(this.series,c);for(g=0;!d&&g<f.length;g++){d=b(f[g].points||[],c);}return d;},getAxes:function getAxes(){var a=this,b=this.options,c=b.xAxis=g(b.xAxis||{}),b=b.yAxis=g(b.yAxis||{});p(c,function(a,b){a.index=b;a.isX=!0;});p(b,function(a,b){a.index=b;});c=c.concat(b);p(c,function(b){new h(a,b);});},getSelectedPoints:function getSelectedPoints(){var a=[];p(this.series,function(b){a=a.concat(r(b.points||[],function(a){return a.selected;}));});return a;},getSelectedSeries:function getSelectedSeries(){return r(this.series,function(a){return a.selected;});},setTitle:function setTitle(a,b,c){var d=this,f=d.options,g;g=f.title=F({style:{color:"#333333",fontSize:f.isStock?"16px":"18px"}},f.title,a);f=f.subtitle=F({style:{color:"#666666"}},f.subtitle,b);p([["title",a,g],["subtitle",b,f]],function(a,b){var c=a[0],f=d[c],g=a[1];a=a[2];f&&g&&(d[c]=f=f.destroy());a&&a.text&&!f&&(d[c]=d.renderer.text(a.text,0,0,a.useHTML).attr({align:a.align,"class":"highcharts-"+c,zIndex:a.zIndex||4}).add(),d[c].update=function(a){d.setTitle(!b&&a,b&&a);},d[c].css(a.style));});d.layOutTitles(c);},layOutTitles:function layOutTitles(a){var b=0,c,d=this.renderer,f=this.spacingBox;p(["title","subtitle"],function(a){var c=this[a],g=this.options[a],e;c&&(e=g.style.fontSize,e=d.fontMetrics(e,c).b,c.css({width:(g.width||f.width+g.widthAdjust)+"px"}).align(H({y:b+e+("title"===a?-3:2)},g),!1,"spacingBox"),g.floating||g.verticalAlign||(b=Math.ceil(b+c.getBBox().height)));},this);c=this.titleOffset!==b;this.titleOffset=b;!this.isDirtyBox&&c&&(this.isDirtyBox=c,this.hasRendered&&x(a,!0)&&this.isDirtyBox&&this.redraw());},getChartSize:function getChartSize(){var b=this.options.chart,f=b.width,b=b.height,g=this.renderToClone||this.renderTo;c(f)||(this.containerWidth=d(g,"width"));c(b)||(this.containerHeight=d(g,"height"));this.chartWidth=Math.max(0,f||this.containerWidth||600);this.chartHeight=Math.max(0,a.relativeLength(b,this.chartWidth)||this.containerHeight||400);},cloneRenderTo:function cloneRenderTo(a){var b=this.renderToClone,c=this.container;if(a){if(b){for(;b.childNodes.length;){this.renderTo.appendChild(b.firstChild);}l(b);delete this.renderToClone;}}else c&&c.parentNode===this.renderTo&&this.renderTo.removeChild(c),this.renderToClone=b=this.renderTo.cloneNode(0),e(b,{position:"absolute",top:"-9999px",display:"block"}),b.style.setProperty&&b.style.setProperty("display","block","important"),u.body.appendChild(b),c&&b.appendChild(c);},setClassName:function setClassName(a){this.container.className="highcharts-container "+(a||"");},getContainer:function getContainer(){var b,c=this.options,d=c.chart,g,e;b=this.renderTo;var q=a.uniqueKey(),m;b||(this.renderTo=b=d.renderTo);f(b)&&(this.renderTo=b=u.getElementById(b));b||a.error(13,!0);g=J(E(b,"data-highcharts-chart"));A(g)&&k[g]&&k[g].hasRendered&&k[g].destroy();E(b,"data-highcharts-chart",this.index);b.innerHTML="";d.skipClone||b.offsetWidth||this.cloneRenderTo();this.getChartSize();g=this.chartWidth;e=this.chartHeight;m=H({position:"relative",overflow:"hidden",width:g+"px",height:e+"px",textAlign:"left",lineHeight:"normal",zIndex:0,"-webkit-tap-highlight-color":"rgba(0,0,0,0)"},d.style);this.container=b=n("div",{id:q},m,this.renderToClone||b);this._cursor=b.style.cursor;this.renderer=new(a[d.renderer]||R)(b,g,e,null,d.forExport,c.exporting&&c.exporting.allowHTML);this.setClassName(d.className);this.renderer.setStyle(d.style);this.renderer.chartIndex=this.index;},getMargins:function getMargins(a){var b=this.spacing,d=this.margin,f=this.titleOffset;this.resetMargins();f&&!c(d[0])&&(this.plotTop=Math.max(this.plotTop,f+this.options.title.margin+b[0]));this.legend.display&&this.legend.adjustMargins(d,b);this.extraMargin&&(this[this.extraMargin.type]=(this[this.extraMargin.type]||0)+this.extraMargin.value);this.extraTopMargin&&(this.plotTop+=this.extraTopMargin);a||this.getAxisMargins();},getAxisMargins:function getAxisMargins(){var a=this,b=a.axisOffset=[0,0,0,0],d=a.margin;a.hasCartesianSeries&&p(a.axes,function(a){a.visible&&a.getOffset();});p(G,function(f,g){c(d[g])||(a[f]+=b[g]);});a.setChartSize();},reflow:function reflow(a){var b=this,f=b.options.chart,g=b.renderTo,e=c(f.width),q=f.width||d(g,"width"),f=f.height||d(g,"height"),g=a?a.target:M;if(!e&&!b.isPrinting&&q&&f&&(g===M||g===u)){if(q!==b.containerWidth||f!==b.containerHeight)clearTimeout(b.reflowTimeout),b.reflowTimeout=S(function(){b.container&&b.setSize(void 0,void 0,!1);},a?100:0);b.containerWidth=q;b.containerHeight=f;}},initReflow:function initReflow(){var a=this,b;b=B(M,"resize",function(b){a.reflow(b);});B(a,"destroy",b);},setSize:function setSize(b,c,d){var f=this,g=f.renderer;f.isResizing+=1;a.setAnimation(d,f);f.oldChartHeight=f.chartHeight;f.oldChartWidth=f.chartWidth;void 0!==b&&(f.options.chart.width=b);void 0!==c&&(f.options.chart.height=c);f.getChartSize();b=g.globalAnimation;(b?z:e)(f.container,{width:f.chartWidth+"px",height:f.chartHeight+"px"},b);f.setChartSize(!0);g.setSize(f.chartWidth,f.chartHeight,d);p(f.axes,function(a){a.isDirty=!0;a.setScale();});f.isDirtyLegend=!0;f.isDirtyBox=!0;f.layOutTitles();f.getMargins();f.redraw(d);f.oldChartHeight=null;m(f,"resize");S(function(){f&&m(f,"endResize",null,function(){--f.isResizing;});},C(b).duration);},setChartSize:function setChartSize(a){var b=this.inverted,c=this.renderer,d=this.chartWidth,f=this.chartHeight,g=this.options.chart,e=this.spacing,q=this.clipOffset,k,m,h,x;this.plotLeft=k=Math.round(this.plotLeft);this.plotTop=m=Math.round(this.plotTop);this.plotWidth=h=Math.max(0,Math.round(d-k-this.marginRight));this.plotHeight=x=Math.max(0,Math.round(f-m-this.marginBottom));this.plotSizeX=b?x:h;this.plotSizeY=b?h:x;this.plotBorderWidth=g.plotBorderWidth||0;this.spacingBox=c.spacingBox={x:e[3],y:e[0],width:d-e[3]-e[1],height:f-e[0]-e[2]};this.plotBox=c.plotBox={x:k,y:m,width:h,height:x};d=2*Math.floor(this.plotBorderWidth/2);b=Math.ceil(Math.max(d,q[3])/2);c=Math.ceil(Math.max(d,q[0])/2);this.clipBox={x:b,y:c,width:Math.floor(this.plotSizeX-Math.max(d,q[1])/2-b),height:Math.max(0,Math.floor(this.plotSizeY-Math.max(d,q[2])/2-c))};a||p(this.axes,function(a){a.setAxisSize();a.setAxisTranslation();});},resetMargins:function resetMargins(){var a=this,b=a.options.chart;p(["margin","spacing"],function(c){var d=b[c],f=v(d)?d:[d,d,d,d];p(["Top","Right","Bottom","Left"],function(d,g){a[c][g]=x(b[c+d],f[g]);});});p(G,function(b,c){a[b]=x(a.margin[c],a.spacing[c]);});a.axisOffset=[0,0,0,0];a.clipOffset=[0,0,0,0];},drawChartBox:function drawChartBox(){var a=this.options.chart,b=this.renderer,c=this.chartWidth,d=this.chartHeight,f=this.chartBackground,g=this.plotBackground,e=this.plotBorder,q,k=this.plotBGImage,m=a.backgroundColor,p=a.plotBackgroundColor,h=a.plotBackgroundImage,x,l=this.plotLeft,r=this.plotTop,n=this.plotWidth,v=this.plotHeight,t=this.plotBox,y=this.clipRect,u=this.clipBox,J="animate";f||(this.chartBackground=f=b.rect().addClass("highcharts-background").add(),J="attr");q=a.borderWidth||0;x=q+(a.shadow?8:0);m={fill:m||"none"};if(q||f["stroke-width"])m.stroke=a.borderColor,m["stroke-width"]=q;f.attr(m).shadow(a.shadow);f[J]({x:x/2,y:x/2,width:c-x-q%2,height:d-x-q%2,r:a.borderRadius});J="animate";g||(J="attr",this.plotBackground=g=b.rect().addClass("highcharts-plot-background").add());g[J](t);g.attr({fill:p||"none"}).shadow(a.plotShadow);h&&(k?k.animate(t):this.plotBGImage=b.image(h,l,r,n,v).add());y?y.animate({width:u.width,height:u.height}):this.clipRect=b.clipRect(u);J="animate";e||(J="attr",this.plotBorder=e=b.rect().addClass("highcharts-plot-border").attr({zIndex:1}).add());e.attr({stroke:a.plotBorderColor,"stroke-width":a.plotBorderWidth||0,fill:"none"});e[J](e.crisp({x:l,y:r,width:n,height:v},-e.strokeWidth()));this.isDirtyBox=!1;},propFromSeries:function propFromSeries(){var a=this,b=a.options.chart,c,d=a.options.series,f,g;p(["inverted","angular","polar"],function(e){c=L[b.type||b.defaultSeriesType];g=b[e]||c&&c.prototype[e];for(f=d&&d.length;!g&&f--;){(c=L[d[f].type])&&c.prototype[e]&&(g=!0);}a[e]=g;});},linkSeries:function linkSeries(){var a=this,b=a.series;p(b,function(a){a.linkedSeries.length=0;});p(b,function(b){var c=b.options.linkedTo;f(c)&&(c=":previous"===c?a.series[b.index-1]:a.get(c))&&c.linkedParent!==b&&(c.linkedSeries.push(b),b.linkedParent=c,b.visible=x(b.options.visible,c.options.visible,b.visible));});},renderSeries:function renderSeries(){p(this.series,function(a){a.translate();a.render();});},renderLabels:function renderLabels(){var a=this,b=a.options.labels;b.items&&p(b.items,function(c){var d=H(b.style,c.style),f=J(d.left)+a.plotLeft,g=J(d.top)+a.plotTop+12;delete d.left;delete d.top;a.renderer.text(c.html,f,g).attr({zIndex:2}).css(d).add();});},render:function render(){var a=this.axes,b=this.renderer,c=this.options,d,f,g;this.setTitle();this.legend=new y(this,c.legend);this.getStacks&&this.getStacks();this.getMargins(!0);this.setChartSize();c=this.plotWidth;d=this.plotHeight-=21;p(a,function(a){a.setScale();});this.getAxisMargins();f=1.1<c/this.plotWidth;g=1.05<d/this.plotHeight;if(f||g)p(a,function(a){(a.horiz&&f||!a.horiz&&g)&&a.setTickInterval(!0);}),this.getMargins();this.drawChartBox();this.hasCartesianSeries&&p(a,function(a){a.visible&&a.render();});this.seriesGroup||(this.seriesGroup=b.g("series-group").attr({zIndex:3}).add());this.renderSeries();this.renderLabels();this.addCredits();this.setResponsive&&this.setResponsive();this.hasRendered=!0;},addCredits:function addCredits(a){var b=this;a=F(!0,this.options.credits,a);a.enabled&&!this.credits&&(this.credits=this.renderer.text(a.text+(this.mapCredits||""),0,0).addClass("highcharts-credits").on("click",function(){a.href&&(M.location.href=a.href);}).attr({align:a.position.align,zIndex:8}).css(a.style).add().align(a.position),this.credits.update=function(a){b.credits=b.credits.destroy();b.addCredits(a);});},destroy:function destroy(){var b=this,c=b.axes,d=b.series,f=b.container,g,e=f&&f.parentNode;m(b,"destroy");k[b.index]=void 0;a.chartCount--;b.renderTo.removeAttribute("data-highcharts-chart");K(b);for(g=c.length;g--;){c[g]=c[g].destroy();}this.scroller&&this.scroller.destroy&&this.scroller.destroy();for(g=d.length;g--;){d[g]=d[g].destroy();}p("title subtitle chartBackground plotBackground plotBGImage plotBorder seriesGroup clipRect credits pointer rangeSelector legend resetZoomButton tooltip renderer".split(" "),function(a){var c=b[a];c&&c.destroy&&(b[a]=c.destroy());});f&&(f.innerHTML="",K(f),e&&l(f));for(g in b){delete b[g];}},isReadyToRender:function isReadyToRender(){var a=this;return D||M!=M.top||"complete"===u.readyState?!0:(u.attachEvent("onreadystatechange",function(){u.detachEvent("onreadystatechange",a.firstRender);"complete"===u.readyState&&a.firstRender();}),!1);},firstRender:function firstRender(){var a=this,b=a.options;if(a.isReadyToRender()){a.getContainer();m(a,"init");a.resetMargins();a.setChartSize();a.propFromSeries();a.getAxes();p(b.series||[],function(b){a.initSeries(b);});a.linkSeries();m(a,"beforeRender");q&&(a.pointer=new q(a,b));a.render();if(!a.renderer.imgCount&&a.onload)a.onload();a.cloneRenderTo(!0);}},onload:function onload(){p([this.callback].concat(this.callbacks),function(a){a&&void 0!==this.index&&a.apply(this,[this]);},this);m(this,"load");m(this,"render");c(this.index)&&!1!==this.options.chart.reflow&&this.initReflow();this.onload=null;}};})(I);(function(a){var B,z=a.each,C=a.extend,E=a.erase,u=a.fireEvent,h=a.format,n=a.isArray,t=a.isNumber,l=a.pick,k=a.removeEvent;B=a.Point=function(){};B.prototype={init:function init(a,c,k){this.series=a;this.color=a.color;this.applyOptions(c,k);a.options.colorByPoint?(c=a.options.colors||a.chart.options.colors,this.color=this.color||c[a.colorCounter],c=c.length,k=a.colorCounter,a.colorCounter++,a.colorCounter===c&&(a.colorCounter=0)):k=a.colorIndex;this.colorIndex=l(this.colorIndex,k);a.chart.pointCount++;return this;},applyOptions:function applyOptions(a,c){var e=this.series,k=e.options.pointValKey||e.pointValKey;a=B.prototype.optionsToObject.call(this,a);C(this,a);this.options=this.options?C(this.options,a):a;a.group&&delete this.group;k&&(this.y=this[k]);this.isNull=l(this.isValid&&!this.isValid(),null===this.x||!t(this.y,!0));this.selected&&(this.state="select");"name"in this&&void 0===c&&e.xAxis&&e.xAxis.hasNames&&(this.x=e.xAxis.nameToX(this));void 0===this.x&&e&&(this.x=void 0===c?e.autoIncrement(this):c);return this;},optionsToObject:function optionsToObject(a){var c={},e=this.series,k=e.options.keys,b=k||e.pointArrayMap||["y"],m=b.length,d=0,h=0;if(t(a)||null===a)c[b[0]]=a;else if(n(a))for(!k&&a.length>m&&(e=_typeof(a[0]),"string"===e?c.name=a[0]:"number"===e&&(c.x=a[0]),d++);h<m;){k&&void 0===a[d]||(c[b[h]]=a[d]),d++,h++;}else"object"===(typeof a==="undefined"?"undefined":_typeof(a))&&(c=a,a.dataLabels&&(e._hasPointLabels=!0),a.marker&&(e._hasPointMarkers=!0));return c;},getClassName:function getClassName(){return"highcharts-point"+(this.selected?" highcharts-point-select":"")+(this.negative?" highcharts-negative":"")+(this.isNull?" highcharts-null-point":"")+(void 0!==this.colorIndex?" highcharts-color-"+this.colorIndex:"")+(this.options.className?" "+this.options.className:"")+(this.zone&&this.zone.className?" "+this.zone.className.replace("highcharts-negative",""):"");},getZone:function getZone(){var a=this.series,c=a.zones,a=a.zoneAxis||"y",k=0,h;for(h=c[k];this[a]>=h.value;){h=c[++k];}h&&h.color&&!this.options.color&&(this.color=h.color);return h;},destroy:function destroy(){var a=this.series.chart,c=a.hoverPoints,h;a.pointCount--;c&&(this.setState(),E(c,this),c.length||(a.hoverPoints=null));if(this===a.hoverPoint)this.onMouseOut();if(this.graphic||this.dataLabel)k(this),this.destroyElements();this.legendItem&&a.legend.destroyItem(this);for(h in this){this[h]=null;}},destroyElements:function destroyElements(){for(var a=["graphic","dataLabel","dataLabelUpper","connector","shadowGroup"],c,k=6;k--;){c=a[k],this[c]&&(this[c]=this[c].destroy());}},getLabelConfig:function getLabelConfig(){return{x:this.category,y:this.y,color:this.color,colorIndex:this.colorIndex,key:this.name||this.category,series:this.series,point:this,percentage:this.percentage,total:this.total||this.stackTotal};},tooltipFormatter:function tooltipFormatter(a){var c=this.series,e=c.tooltipOptions,k=l(e.valueDecimals,""),b=e.valuePrefix||"",m=e.valueSuffix||"";z(c.pointArrayMap||["y"],function(c){c="{point."+c;if(b||m)a=a.replace(c+"}",b+c+"}"+m);a=a.replace(c+"}",c+":,."+k+"f}");});return h(a,{point:this,series:this.series});},firePointEvent:function firePointEvent(a,c,k){var e=this,b=this.series.options;(b.point.events[a]||e.options&&e.options.events&&e.options.events[a])&&this.importEvents();"click"===a&&b.allowPointSelect&&(k=function k(a){e.select&&e.select(null,a.ctrlKey||a.metaKey||a.shiftKey);});u(this,a,c,k);},visible:!0};})(I);(function(a){var B=a.addEvent,z=a.animObject,C=a.arrayMax,E=a.arrayMin,u=a.correctFloat,h=a.Date,n=a.defaultOptions,t=a.defaultPlotOptions,l=a.defined,k=a.each,e=a.erase,c=a.extend,p=a.fireEvent,H=a.grep,b=a.isArray,m=a.isNumber,d=a.isString,r=a.merge,A=a.pick,v=a.removeEvent,f=a.splat,y=a.SVGElement,G=a.syncTimeout,F=a.win;a.Series=a.seriesType("line",null,{lineWidth:2,allowPointSelect:!1,showCheckbox:!1,animation:{duration:1E3},events:{},marker:{lineWidth:0,lineColor:"#ffffff",radius:4,states:{hover:{animation:{duration:50},enabled:!0,radiusPlus:2,lineWidthPlus:1},select:{fillColor:"#cccccc",lineColor:"#000000",lineWidth:2}}},point:{events:{}},dataLabels:{align:"center",formatter:function formatter(){return null===this.y?"":a.numberFormat(this.y,-1);},style:{fontSize:"11px",fontWeight:"bold",color:"contrast",textOutline:"1px contrast"},verticalAlign:"bottom",x:0,y:0,padding:5},cropThreshold:300,pointRange:0,softThreshold:!0,states:{hover:{animation:{duration:50},lineWidthPlus:1,marker:{},halo:{size:10,opacity:.25}},select:{marker:{}}},stickyTracking:!0,turboThreshold:1E3},{isCartesian:!0,pointClass:a.Point,sorted:!0,requireSorting:!0,directTouch:!1,axisTypes:["xAxis","yAxis"],colorCounter:0,parallelArrays:["x","y"],coll:"series",init:function init(a,b){var d=this,f,e,g=a.series,q;d.chart=a;d.options=b=d.setOptions(b);d.linkedSeries=[];d.bindAxes();c(d,{name:b.name,state:"",visible:!1!==b.visible,selected:!0===b.selected});e=b.events;for(f in e){B(d,f,e[f]);}if(e&&e.click||b.point&&b.point.events&&b.point.events.click||b.allowPointSelect)a.runTrackerClick=!0;d.getColor();d.getSymbol();k(d.parallelArrays,function(a){d[a+"Data"]=[];});d.setData(b.data,!1);d.isCartesian&&(a.hasCartesianSeries=!0);g.length&&(q=g[g.length-1]);d._i=A(q&&q._i,-1)+1;a.orderSeries(this.insert(g));},insert:function insert(a){var b=this.options.index,c;if(m(b)){for(c=a.length;c--;){if(b>=A(a[c].options.index,a[c]._i)){a.splice(c+1,0,this);break;}}-1===c&&a.unshift(this);c+=1;}else a.push(this);return A(c,a.length-1);},bindAxes:function bindAxes(){var b=this,c=b.options,d=b.chart,f;k(b.axisTypes||[],function(e){k(d[e],function(a){f=a.options;if(c[e]===f.index||void 0!==c[e]&&c[e]===f.id||void 0===c[e]&&0===f.index)b.insert(a.series),b[e]=a,a.isDirty=!0;});b[e]||b.optionalAxis===e||a.error(18,!0);});},updateParallelArrays:function updateParallelArrays(a,b){var c=a.series,d=arguments,f=m(b)?function(d){var f="y"===d&&c.toYData?c.toYData(a):a[d];c[d+"Data"][b]=f;}:function(a){Array.prototype[b].apply(c[a+"Data"],Array.prototype.slice.call(d,2));};k(c.parallelArrays,f);},autoIncrement:function autoIncrement(){var a=this.options,b=this.xIncrement,c,d=a.pointIntervalUnit,b=A(b,a.pointStart,0);this.pointInterval=c=A(this.pointInterval,a.pointInterval,1);d&&(a=new h(b),"day"===d?a=+a[h.hcSetDate](a[h.hcGetDate]()+c):"month"===d?a=+a[h.hcSetMonth](a[h.hcGetMonth]()+c):"year"===d&&(a=+a[h.hcSetFullYear](a[h.hcGetFullYear]()+c)),c=a-b);this.xIncrement=b+c;return b;},setOptions:function setOptions(a){var b=this.chart,c=b.options.plotOptions,b=b.userOptions||{},d=b.plotOptions||{},f=c[this.type];this.userOptions=a;c=r(f,c.series,a);this.tooltipOptions=r(n.tooltip,n.plotOptions[this.type].tooltip,b.tooltip,d.series&&d.series.tooltip,d[this.type]&&d[this.type].tooltip,a.tooltip);null===f.marker&&delete c.marker;this.zoneAxis=c.zoneAxis;a=this.zones=(c.zones||[]).slice();!c.negativeColor&&!c.negativeFillColor||c.zones||a.push({value:c[this.zoneAxis+"Threshold"]||c.threshold||0,className:"highcharts-negative",color:c.negativeColor,fillColor:c.negativeFillColor});a.length&&l(a[a.length-1].value)&&a.push({color:this.color,fillColor:this.fillColor});return c;},getCyclic:function getCyclic(a,b,c){var d,f=this.chart,g=this.userOptions,e=a+"Index",q=a+"Counter",k=c?c.length:A(f.options.chart[a+"Count"],f[a+"Count"]);b||(d=A(g[e],g["_"+e]),l(d)||(f.series.length||(f[q]=0),g["_"+e]=d=f[q]%k,f[q]+=1),c&&(b=c[d]));void 0!==d&&(this[e]=d);this[a]=b;},getColor:function getColor(){this.options.colorByPoint?this.options.color=null:this.getCyclic("color",this.options.color||t[this.type].color,this.chart.options.colors);},getSymbol:function getSymbol(){this.getCyclic("symbol",this.options.marker.symbol,this.chart.options.symbols);},drawLegendSymbol:a.LegendSymbolMixin.drawLineMarker,setData:function setData(c,f,e,h){var q=this,g=q.points,p=g&&g.length||0,l,x=q.options,r=q.chart,n=null,v=q.xAxis,t=x.turboThreshold,y=this.xData,u=this.yData,G=(l=q.pointArrayMap)&&l.length;c=c||[];l=c.length;f=A(f,!0);if(!1!==h&&l&&p===l&&!q.cropped&&!q.hasGroupedData&&q.visible)k(c,function(a,b){g[b].update&&a!==x.data[b]&&g[b].update(a,!1,null,!1);});else{q.xIncrement=null;q.colorCounter=0;k(this.parallelArrays,function(a){q[a+"Data"].length=0;});if(t&&l>t){for(e=0;null===n&&e<l;){n=c[e],e++;}if(m(n))for(e=0;e<l;e++){y[e]=this.autoIncrement(),u[e]=c[e];}else if(b(n)){if(G)for(e=0;e<l;e++){n=c[e],y[e]=n[0],u[e]=n.slice(1,G+1);}else for(e=0;e<l;e++){n=c[e],y[e]=n[0],u[e]=n[1];}}else a.error(12);}else for(e=0;e<l;e++){void 0!==c[e]&&(n={series:q},q.pointClass.prototype.applyOptions.apply(n,[c[e]]),q.updateParallelArrays(n,e));}d(u[0])&&a.error(14,!0);q.data=[];q.options.data=q.userOptions.data=c;for(e=p;e--;){g[e]&&g[e].destroy&&g[e].destroy();}v&&(v.minRange=v.userMinRange);q.isDirty=r.isDirtyBox=!0;q.isDirtyData=!!g;e=!1;}"point"===x.legendType&&(this.processData(),this.generatePoints());f&&r.redraw(e);},processData:function processData(b){var c=this.xData,d=this.yData,f=c.length,e;e=0;var g,q,k=this.xAxis,m,h=this.options;m=h.cropThreshold;var l=this.getExtremesFromAll||h.getExtremesFromAll,p=this.isCartesian,h=k&&k.val2lin,n=k&&k.isLog,r,v;if(p&&!this.isDirty&&!k.isDirty&&!this.yAxis.isDirty&&!b)return!1;k&&(b=k.getExtremes(),r=b.min,v=b.max);if(p&&this.sorted&&!l&&(!m||f>m||this.forceCrop))if(c[f-1]<r||c[0]>v)c=[],d=[];else if(c[0]<r||c[f-1]>v)e=this.cropData(this.xData,this.yData,r,v),c=e.xData,d=e.yData,e=e.start,g=!0;for(m=c.length||1;--m;){f=n?h(c[m])-h(c[m-1]):c[m]-c[m-1],0<f&&(void 0===q||f<q)?q=f:0>f&&this.requireSorting&&a.error(15);}this.cropped=g;this.cropStart=e;this.processedXData=c;this.processedYData=d;this.closestPointRange=q;},cropData:function cropData(a,b,c,d){var f=a.length,g=0,e=f,q=A(this.cropShoulder,1),k;for(k=0;k<f;k++){if(a[k]>=c){g=Math.max(0,k-q);break;}}for(c=k;c<f;c++){if(a[c]>d){e=c+q;break;}}return{xData:a.slice(g,e),yData:b.slice(g,e),start:g,end:e};},generatePoints:function generatePoints(){var a=this.options.data,b=this.data,c,d=this.processedXData,e=this.processedYData,g=this.pointClass,k=d.length,m=this.cropStart||0,h,l=this.hasGroupedData,p,n=[],r;b||l||(b=[],b.length=a.length,b=this.data=b);for(r=0;r<k;r++){h=m+r,l?(p=new g().init(this,[d[r]].concat(f(e[r]))),p.dataGroup=this.groupMap[r]):(p=b[h])||void 0===a[h]||(b[h]=p=new g().init(this,a[h],d[r])),p.index=h,n[r]=p;}if(b&&(k!==(c=b.length)||l))for(r=0;r<c;r++){r!==m||l||(r+=k),b[r]&&(b[r].destroyElements(),b[r].plotX=void 0);}this.data=b;this.points=n;},getExtremes:function getExtremes(a){var c=this.yAxis,d=this.processedXData,f,e=[],g=0;f=this.xAxis.getExtremes();var q=f.min,k=f.max,h,l,p,r;a=a||this.stackedYData||this.processedYData||[];f=a.length;for(r=0;r<f;r++){if(l=d[r],p=a[r],h=(m(p,!0)||b(p))&&(!c.positiveValuesOnly||p.length||0<p),l=this.getExtremesFromAll||this.options.getExtremesFromAll||this.cropped||(d[r+1]||l)>=q&&(d[r-1]||l)<=k,h&&l)if(h=p.length)for(;h--;){null!==p[h]&&(e[g++]=p[h]);}else e[g++]=p;}this.dataMin=E(e);this.dataMax=C(e);},translate:function translate(){this.processedXData||this.processData();this.generatePoints();var a=this.options,b=a.stacking,c=this.xAxis,d=c.categories,f=this.yAxis,e=this.points,k=e.length,h=!!this.modifyValue,p=a.pointPlacement,r="between"===p||m(p),n=a.threshold,v=a.startFromThreshold?n:0,t,y,G,F,H=Number.MAX_VALUE;"between"===p&&(p=.5);m(p)&&(p*=A(a.pointRange||c.pointRange));for(a=0;a<k;a++){var z=e[a],B=z.x,C=z.y;y=z.low;var E=b&&f.stacks[(this.negStacks&&C<(v?0:n)?"-":"")+this.stackKey],I;f.positiveValuesOnly&&null!==C&&0>=C&&(z.isNull=!0);z.plotX=t=u(Math.min(Math.max(-1E5,c.translate(B,0,0,0,1,p,"flags"===this.type)),1E5));b&&this.visible&&!z.isNull&&E&&E[B]&&(F=this.getStackIndicator(F,B,this.index),I=E[B],C=I.points[F.key],y=C[0],C=C[1],y===v&&F.key===E[B].base&&(y=A(n,f.min)),f.positiveValuesOnly&&0>=y&&(y=null),z.total=z.stackTotal=I.total,z.percentage=I.total&&z.y/I.total*100,z.stackY=C,I.setOffset(this.pointXOffset||0,this.barW||0));z.yBottom=l(y)?f.translate(y,0,1,0,1):null;h&&(C=this.modifyValue(C,z));z.plotY=y="number"===typeof C&&Infinity!==C?Math.min(Math.max(-1E5,f.translate(C,0,1,0,1)),1E5):void 0;z.isInside=void 0!==y&&0<=y&&y<=f.len&&0<=t&&t<=c.len;z.clientX=r?u(c.translate(B,0,0,0,1,p)):t;z.negative=z.y<(n||0);z.category=d&&void 0!==d[z.x]?d[z.x]:z.x;z.isNull||(void 0!==G&&(H=Math.min(H,Math.abs(t-G))),G=t);z.zone=this.zones.length&&z.getZone();}this.closestPointRangePx=H;},getValidPoints:function getValidPoints(a,b){var c=this.chart;return H(a||this.points||[],function(a){return b&&!c.isInsidePlot(a.plotX,a.plotY,c.inverted)?!1:!a.isNull;});},setClip:function setClip(a){var b=this.chart,c=this.options,d=b.renderer,f=b.inverted,e=this.clipBox,q=e||b.clipBox,k=this.sharedClipKey||["_sharedClip",a&&a.duration,a&&a.easing,q.height,c.xAxis,c.yAxis].join(),m=b[k],h=b[k+"m"];m||(a&&(q.width=0,b[k+"m"]=h=d.clipRect(-99,f?-b.plotLeft:-b.plotTop,99,f?b.chartWidth:b.chartHeight)),b[k]=m=d.clipRect(q),m.count={length:0});a&&!m.count[this.index]&&(m.count[this.index]=!0,m.count.length+=1);!1!==c.clip&&(this.group.clip(a||e?m:b.clipRect),this.markerGroup.clip(h),this.sharedClipKey=k);a||(m.count[this.index]&&(delete m.count[this.index],--m.count.length),0===m.count.length&&k&&b[k]&&(e||(b[k]=b[k].destroy()),b[k+"m"]&&(this.markerGroup.clip(),b[k+"m"]=b[k+"m"].destroy())));},animate:function animate(a){var b=this.chart,c=z(this.options.animation),d;a?this.setClip(c):(d=this.sharedClipKey,(a=b[d])&&a.animate({width:b.plotSizeX},c),b[d+"m"]&&b[d+"m"].animate({width:b.plotSizeX+99},c),this.animate=null);},afterAnimate:function afterAnimate(){this.setClip();p(this,"afterAnimate");},drawPoints:function drawPoints(){var a=this.points,b=this.chart,c,d,f,e,k=this.options.marker,h,p,l,r,n=this.markerGroup,v=A(k.enabled,this.xAxis.isRadial?!0:null,this.closestPointRangePx>=2*k.radius);if(!1!==k.enabled||this._hasPointMarkers)for(d=0;d<a.length;d++){f=a[d],c=f.plotY,e=f.graphic,h=f.marker||{},p=!!f.marker,l=v&&void 0===h.enabled||h.enabled,r=f.isInside,l&&m(c)&&null!==f.y?(c=A(h.symbol,this.symbol),f.hasImage=0===c.indexOf("url"),l=this.markerAttribs(f,f.selected&&"select"),e?e[r?"show":"hide"](!0).animate(l):r&&(0<l.width||f.hasImage)&&(f.graphic=e=b.renderer.symbol(c,l.x,l.y,l.width,l.height,p?h:k).add(n)),e&&e.attr(this.pointAttribs(f,f.selected&&"select")),e&&e.addClass(f.getClassName(),!0)):e&&(f.graphic=e.destroy());}},markerAttribs:function markerAttribs(a,b){var c=this.options.marker,d=a.marker||{},f=A(d.radius,c.radius);b&&(c=c.states[b],b=d.states&&d.states[b],f=A(b&&b.radius,c&&c.radius,f+(c&&c.radiusPlus||0)));a.hasImage&&(f=0);a={x:Math.floor(a.plotX)-f,y:a.plotY-f};f&&(a.width=a.height=2*f);return a;},pointAttribs:function pointAttribs(a,b){var c=this.options.marker,d=a&&a.options,f=d&&d.marker||{},e=this.color,q=d&&d.color,k=a&&a.color,d=A(f.lineWidth,c.lineWidth);a=a&&a.zone&&a.zone.color;e=q||a||k||e;a=f.fillColor||c.fillColor||e;e=f.lineColor||c.lineColor||e;b&&(c=c.states[b],b=f.states&&f.states[b]||{},d=A(b.lineWidth,c.lineWidth,d+A(b.lineWidthPlus,c.lineWidthPlus,0)),a=b.fillColor||c.fillColor||a,e=b.lineColor||c.lineColor||e);return{stroke:e,"stroke-width":d,fill:a};},destroy:function destroy(){var a=this,b=a.chart,c=/AppleWebKit\/533/.test(F.navigator.userAgent),d,f=a.data||[],g,m,h;p(a,"destroy");v(a);k(a.axisTypes||[],function(b){(h=a[b])&&h.series&&(e(h.series,a),h.isDirty=h.forceRedraw=!0);});a.legendItem&&a.chart.legend.destroyItem(a);for(d=f.length;d--;){(g=f[d])&&g.destroy&&g.destroy();}a.points=null;clearTimeout(a.animationTimeout);for(m in a){a[m]instanceof y&&!a[m].survive&&(d=c&&"group"===m?"hide":"destroy",a[m][d]());}b.hoverSeries===a&&(b.hoverSeries=null);e(b.series,a);b.orderSeries();for(m in a){delete a[m];}},getGraphPath:function getGraphPath(a,b,c){var d=this,f=d.options,e=f.step,q,m=[],h=[],p;a=a||d.points;(q=a.reversed)&&a.reverse();(e={right:1,center:2}[e]||e&&3)&&q&&(e=4-e);!f.connectNulls||b||c||(a=this.getValidPoints(a));k(a,function(g,k){var q=g.plotX,r=g.plotY,n=a[k-1];(g.leftCliff||n&&n.rightCliff)&&!c&&(p=!0);g.isNull&&!l(b)&&0<k?p=!f.connectNulls:g.isNull&&!b?p=!0:(0===k||p?k=["M",g.plotX,g.plotY]:d.getPointSpline?k=d.getPointSpline(a,g,k):e?(k=1===e?["L",n.plotX,r]:2===e?["L",(n.plotX+q)/2,n.plotY,"L",(n.plotX+q)/2,r]:["L",q,n.plotY],k.push("L",q,r)):k=["L",q,r],h.push(g.x),e&&h.push(g.x),m.push.apply(m,k),p=!1);});m.xMap=h;return d.graphPath=m;},drawGraph:function drawGraph(){var a=this,b=this.options,c=(this.gappedPath||this.getGraphPath).call(this),d=[["graph","highcharts-graph",b.lineColor||this.color,b.dashStyle]];k(this.zones,function(c,f){d.push(["zone-graph-"+f,"highcharts-graph highcharts-zone-graph-"+f+" "+(c.className||""),c.color||a.color,c.dashStyle||b.dashStyle]);});k(d,function(d,f){var e=d[0],g=a[e];g?(g.endX=c.xMap,g.animate({d:c})):c.length&&(a[e]=a.chart.renderer.path(c).addClass(d[1]).attr({zIndex:1}).add(a.group),g={stroke:d[2],"stroke-width":b.lineWidth,fill:a.fillGraph&&a.color||"none"},d[3]?g.dashstyle=d[3]:"square"!==b.linecap&&(g["stroke-linecap"]=g["stroke-linejoin"]="round"),g=a[e].attr(g).shadow(2>f&&b.shadow));g&&(g.startX=c.xMap,g.isArea=c.isArea);});},applyZones:function applyZones(){var a=this,b=this.chart,c=b.renderer,d=this.zones,f,e,m=this.clips||[],h,p=this.graph,l=this.area,r=Math.max(b.chartWidth,b.chartHeight),n=this[(this.zoneAxis||"y")+"Axis"],v,t,y=b.inverted,u,G,F,H,z=!1;d.length&&(p||l)&&n&&void 0!==n.min&&(t=n.reversed,u=n.horiz,p&&p.hide(),l&&l.hide(),v=n.getExtremes(),k(d,function(d,g){f=t?u?b.plotWidth:0:u?0:n.toPixels(v.min);f=Math.min(Math.max(A(e,f),0),r);e=Math.min(Math.max(Math.round(n.toPixels(A(d.value,v.max),!0)),0),r);z&&(f=e=n.toPixels(v.max));G=Math.abs(f-e);F=Math.min(f,e);H=Math.max(f,e);n.isXAxis?(h={x:y?H:F,y:0,width:G,height:r},u||(h.x=b.plotHeight-h.x)):(h={x:0,y:y?H:F,width:r,height:G},u&&(h.y=b.plotWidth-h.y));y&&c.isVML&&(h=n.isXAxis?{x:0,y:t?F:H,height:h.width,width:b.chartWidth}:{x:h.y-b.plotLeft-b.spacingBox.x,y:0,width:h.height,height:b.chartHeight});m[g]?m[g].animate(h):(m[g]=c.clipRect(h),p&&a["zone-graph-"+g].clip(m[g]),l&&a["zone-area-"+g].clip(m[g]));z=d.value>v.max;}),this.clips=m);},invertGroups:function invertGroups(a){function b(){k(["group","markerGroup"],function(b){c[b]&&(d.renderer.isVML&&c[b].attr({width:c.yAxis.len,height:c.xAxis.len}),c[b].width=c.yAxis.len,c[b].height=c.xAxis.len,c[b].invert(a));});}var c=this,d=c.chart,f;c.xAxis&&(f=B(d,"resize",b),B(c,"destroy",f),b(a),c.invertGroups=b);},plotGroup:function plotGroup(a,b,c,d,f){var e=this[a],k=!e;k&&(this[a]=e=this.chart.renderer.g(b).attr({zIndex:d||.1}).add(f),e.addClass("highcharts-series-"+this.index+" highcharts-"+this.type+"-series highcharts-color-"+this.colorIndex+" "+(this.options.className||"")));e.attr({visibility:c})[k?"attr":"animate"](this.getPlotBox());return e;},getPlotBox:function getPlotBox(){var a=this.chart,b=this.xAxis,c=this.yAxis;a.inverted&&(b=c,c=this.xAxis);return{translateX:b?b.left:a.plotLeft,translateY:c?c.top:a.plotTop,scaleX:1,scaleY:1};},render:function render(){var a=this,b=a.chart,c,d=a.options,f=!!a.animate&&b.renderer.isSVG&&z(d.animation).duration,e=a.visible?"inherit":"hidden",k=d.zIndex,m=a.hasRendered,h=b.seriesGroup,p=b.inverted;c=a.plotGroup("group","series",e,k,h);a.markerGroup=a.plotGroup("markerGroup","markers",e,k,h);f&&a.animate(!0);c.inverted=a.isCartesian?p:!1;a.drawGraph&&(a.drawGraph(),a.applyZones());a.drawDataLabels&&a.drawDataLabels();a.visible&&a.drawPoints();a.drawTracker&&!1!==a.options.enableMouseTracking&&a.drawTracker();a.invertGroups(p);!1===d.clip||a.sharedClipKey||m||c.clip(b.clipRect);f&&a.animate();m||(a.animationTimeout=G(function(){a.afterAnimate();},f));a.isDirty=!1;a.hasRendered=!0;},redraw:function redraw(){var a=this.chart,b=this.isDirty||this.isDirtyData,c=this.group,d=this.xAxis,f=this.yAxis;c&&(a.inverted&&c.attr({width:a.plotWidth,height:a.plotHeight}),c.animate({translateX:A(d&&d.left,a.plotLeft),translateY:A(f&&f.top,a.plotTop)}));this.translate();this.render();b&&delete this.kdTree;},kdDimensions:1,kdAxisArray:["clientX","plotY"],searchPoint:function searchPoint(a,b){var c=this.xAxis,d=this.yAxis,f=this.chart.inverted;return this.searchKDTree({clientX:f?c.len-a.chartY+c.pos:a.chartX-c.pos,plotY:f?d.len-a.chartX+d.pos:a.chartY-d.pos},b);},buildKDTree:function buildKDTree(){function a(c,d,f){var e,g;if(g=c&&c.length)return e=b.kdAxisArray[d%f],c.sort(function(a,b){return a[e]-b[e];}),g=Math.floor(g/2),{point:c[g],left:a(c.slice(0,g),d+1,f),right:a(c.slice(g+1),d+1,f)};}this.buildingKdTree=!0;var b=this,c=b.kdDimensions;delete b.kdTree;G(function(){b.kdTree=a(b.getValidPoints(null,!b.directTouch),c,c);b.buildingKdTree=!1;},b.options.kdNow?0:1);},searchKDTree:function searchKDTree(a,b){function c(a,b,g,m){var h=b.point,p=d.kdAxisArray[g%m],q,r,n=h;r=l(a[f])&&l(h[f])?Math.pow(a[f]-h[f],2):null;q=l(a[e])&&l(h[e])?Math.pow(a[e]-h[e],2):null;q=(r||0)+(q||0);h.dist=l(q)?Math.sqrt(q):Number.MAX_VALUE;h.distX=l(r)?Math.sqrt(r):Number.MAX_VALUE;p=a[p]-h[p];q=0>p?"left":"right";r=0>p?"right":"left";b[q]&&(q=c(a,b[q],g+1,m),n=q[k]<n[k]?q:h);b[r]&&Math.sqrt(p*p)<n[k]&&(a=c(a,b[r],g+1,m),n=a[k]<n[k]?a:n);return n;}var d=this,f=this.kdAxisArray[0],e=this.kdAxisArray[1],k=b?"distX":"dist";this.kdTree||this.buildingKdTree||this.buildKDTree();if(this.kdTree)return c(a,this.kdTree,this.kdDimensions,this.kdDimensions);}});})(I);(function(a){function B(a,e,c,h,n){var b=a.chart.inverted;this.axis=a;this.isNegative=c;this.options=e;this.x=h;this.total=null;this.points={};this.stack=n;this.rightCliff=this.leftCliff=0;this.alignOptions={align:e.align||(b?c?"left":"right":"center"),verticalAlign:e.verticalAlign||(b?"middle":c?"bottom":"top"),y:l(e.y,b?4:c?14:-6),x:l(e.x,b?c?-6:6:0)};this.textAlign=e.textAlign||(b?c?"right":"left":"center");}var z=a.Axis,C=a.Chart,E=a.correctFloat,u=a.defined,h=a.destroyObjectProperties,n=a.each,t=a.format,l=a.pick;a=a.Series;B.prototype={destroy:function destroy(){h(this,this.axis);},render:function render(a){var e=this.options,c=e.format,c=c?t(c,this):e.formatter.call(this);this.label?this.label.attr({text:c,visibility:"hidden"}):this.label=this.axis.chart.renderer.text(c,null,null,e.useHTML).css(e.style).attr({align:this.textAlign,rotation:e.rotation,visibility:"hidden"}).add(a);},setOffset:function setOffset(a,e){var c=this.axis,k=c.chart,h=k.inverted,b=c.reversed,b=this.isNegative&&!b||!this.isNegative&&b,m=c.translate(c.usePercentage?100:this.total,0,0,0,1),c=c.translate(0),c=Math.abs(m-c);a=k.xAxis[0].translate(this.x)+a;var d=k.plotHeight,h={x:h?b?m:m-c:a,y:h?d-a-e:b?d-m-c:d-m,width:h?c:e,height:h?e:c};if(e=this.label)e.align(this.alignOptions,null,h),h=e.alignAttr,e[!1===this.options.crop||k.isInsidePlot(h.x,h.y)?"show":"hide"](!0);}};C.prototype.getStacks=function(){var a=this;n(a.yAxis,function(a){a.stacks&&a.hasVisibleSeries&&(a.oldStacks=a.stacks);});n(a.series,function(e){!e.options.stacking||!0!==e.visible&&!1!==a.options.chart.ignoreHiddenSeries||(e.stackKey=e.type+l(e.options.stack,""));});};z.prototype.buildStacks=function(){var a=this.series,e,c=l(this.options.reversedStacks,!0),h=a.length,n;if(!this.isXAxis){this.usePercentage=!1;for(n=h;n--;){a[c?n:h-n-1].setStackedPoints();}for(n=h;n--;){e=a[c?n:h-n-1],e.setStackCliffs&&e.setStackCliffs();}if(this.usePercentage)for(n=0;n<h;n++){a[n].setPercentStacks();}}};z.prototype.renderStackTotals=function(){var a=this.chart,e=a.renderer,c=this.stacks,h,l,b=this.stackTotalGroup;b||(this.stackTotalGroup=b=e.g("stack-labels").attr({visibility:"visible",zIndex:6}).add());b.translate(a.plotLeft,a.plotTop);for(h in c){for(l in a=c[h],a){a[l].render(b);}}};z.prototype.resetStacks=function(){var a=this.stacks,e,c;if(!this.isXAxis)for(e in a){for(c in a[e]){a[e][c].touched<this.stacksTouched?(a[e][c].destroy(),delete a[e][c]):(a[e][c].total=null,a[e][c].cum=null);}}};z.prototype.cleanStacks=function(){var a,e,c;if(!this.isXAxis)for(e in this.oldStacks&&(a=this.stacks=this.oldStacks),a){for(c in a[e]){a[e][c].cum=a[e][c].total;}}};a.prototype.setStackedPoints=function(){if(this.options.stacking&&(!0===this.visible||!1===this.chart.options.chart.ignoreHiddenSeries)){var a=this.processedXData,e=this.processedYData,c=[],h=e.length,n=this.options,b=n.threshold,m=n.startFromThreshold?b:0,d=n.stack,n=n.stacking,r=this.stackKey,t="-"+r,v=this.negStacks,f=this.yAxis,y=f.stacks,G=f.oldStacks,F,q,x,z,K,C,g;f.stacksTouched+=1;for(K=0;K<h;K++){C=a[K],g=e[K],F=this.getStackIndicator(F,C,this.index),z=F.key,x=(q=v&&g<(m?0:b))?t:r,y[x]||(y[x]={}),y[x][C]||(G[x]&&G[x][C]?(y[x][C]=G[x][C],y[x][C].total=null):y[x][C]=new B(f,f.options.stackLabels,q,C,d)),x=y[x][C],null!==g&&(x.points[z]=x.points[this.index]=[l(x.cum,m)],u(x.cum)||(x.base=z),x.touched=f.stacksTouched,0<F.index&&!1===this.singleStacks&&(x.points[z][0]=x.points[this.index+","+C+",0"][0])),"percent"===n?(q=q?r:t,v&&y[q]&&y[q][C]?(q=y[q][C],x.total=q.total=Math.max(q.total,x.total)+Math.abs(g)||0):x.total=E(x.total+(Math.abs(g)||0))):x.total=E(x.total+(g||0)),x.cum=l(x.cum,m)+(g||0),null!==g&&(x.points[z].push(x.cum),c[K]=x.cum);}"percent"===n&&(f.usePercentage=!0);this.stackedYData=c;f.oldStacks={};}};a.prototype.setPercentStacks=function(){var a=this,e=a.stackKey,c=a.yAxis.stacks,h=a.processedXData,l;n([e,"-"+e],function(b){for(var e=h.length,d,k;e--;){if(d=h[e],l=a.getStackIndicator(l,d,a.index,b),d=(k=c[b]&&c[b][d])&&k.points[l.key])k=k.total?100/k.total:0,d[0]=E(d[0]*k),d[1]=E(d[1]*k),a.stackedYData[e]=d[1];}});};a.prototype.getStackIndicator=function(a,e,c,h){!u(a)||a.x!==e||h&&a.key!==h?a={x:e,index:0,key:h}:a.index++;a.key=[c,e,a.index].join();return a;};})(I);(function(a){var B=a.addEvent,z=a.animate,C=a.Axis,E=a.createElement,u=a.css,h=a.defined,n=a.each,t=a.erase,l=a.extend,k=a.fireEvent,e=a.inArray,c=a.isNumber,p=a.isObject,H=a.merge,b=a.pick,m=a.Point,d=a.Series,r=a.seriesTypes,A=a.setAnimation,v=a.splat;l(a.Chart.prototype,{addSeries:function addSeries(a,c,d){var f,e=this;a&&(c=b(c,!0),k(e,"addSeries",{options:a},function(){f=e.initSeries(a);e.isDirtyLegend=!0;e.linkSeries();c&&e.redraw(d);}));return f;},addAxis:function addAxis(a,c,d,e){var f=c?"xAxis":"yAxis",h=this.options;a=H(a,{index:this[f].length,isX:c});new C(this,a);h[f]=v(h[f]||{});h[f].push(a);b(d,!0)&&this.redraw(e);},showLoading:function showLoading(a){var b=this,c=b.options,d=b.loadingDiv,f=c.loading,e=function e(){d&&u(d,{left:b.plotLeft+"px",top:b.plotTop+"px",width:b.plotWidth+"px",height:b.plotHeight+"px"});};d||(b.loadingDiv=d=E("div",{className:"highcharts-loading highcharts-loading-hidden"},null,b.container),b.loadingSpan=E("span",{className:"highcharts-loading-inner"},null,d),B(b,"redraw",e));d.className="highcharts-loading";b.loadingSpan.innerHTML=a||c.lang.loading;u(d,l(f.style,{zIndex:10}));u(b.loadingSpan,f.labelStyle);b.loadingShown||(u(d,{opacity:0,display:""}),z(d,{opacity:f.style.opacity||.5},{duration:f.showDuration||0}));b.loadingShown=!0;e();},hideLoading:function hideLoading(){var a=this.options,b=this.loadingDiv;b&&(b.className="highcharts-loading highcharts-loading-hidden",z(b,{opacity:0},{duration:a.loading.hideDuration||100,complete:function complete(){u(b,{display:"none"});}}));this.loadingShown=!1;},propsRequireDirtyBox:"backgroundColor borderColor borderWidth margin marginTop marginRight marginBottom marginLeft spacing spacingTop spacingRight spacingBottom spacingLeft borderRadius plotBackgroundColor plotBackgroundImage plotBorderColor plotBorderWidth plotShadow shadow".split(" "),propsRequireUpdateSeries:"chart.inverted chart.polar chart.ignoreHiddenSeries chart.type colors plotOptions".split(" "),update:function update(a,d){var f,k={credits:"addCredits",title:"setTitle",subtitle:"setSubtitle"},m=a.chart,l,p;if(m){H(!0,this.options.chart,m);"className"in m&&this.setClassName(m.className);if("inverted"in m||"polar"in m)this.propFromSeries(),l=!0;for(f in m){m.hasOwnProperty(f)&&(-1!==e("chart."+f,this.propsRequireUpdateSeries)&&(p=!0),-1!==e(f,this.propsRequireDirtyBox)&&(this.isDirtyBox=!0));}"style"in m&&this.renderer.setStyle(m.style);}for(f in a){if(this[f]&&"function"===typeof this[f].update)this[f].update(a[f],!1);else if("function"===typeof this[k[f]])this[k[f]](a[f]);"chart"!==f&&-1!==e(f,this.propsRequireUpdateSeries)&&(p=!0);}a.colors&&(this.options.colors=a.colors);a.plotOptions&&H(!0,this.options.plotOptions,a.plotOptions);n(["xAxis","yAxis","series"],function(b){a[b]&&n(v(a[b]),function(a,c){(c=h(a.id)&&this.get(a.id)||this[b][c])&&c.coll===b&&c.update(a,!1);},this);},this);l&&n(this.axes,function(a){a.update({},!1);});p&&n(this.series,function(a){a.update({},!1);});a.loading&&H(!0,this.options.loading,a.loading);f=m&&m.width;m=m&&m.height;c(f)&&f!==this.chartWidth||c(m)&&m!==this.chartHeight?this.setSize(f,m):b(d,!0)&&this.redraw();},setSubtitle:function setSubtitle(a){this.setTitle(void 0,a);}});l(m.prototype,{update:function update(a,c,d,e){function f(){h.applyOptions(a);null===h.y&&k&&(h.graphic=k.destroy());p(a,!0)&&(k&&k.element&&a&&a.marker&&a.marker.symbol&&(h.graphic=k.destroy()),a&&a.dataLabels&&h.dataLabel&&(h.dataLabel=h.dataLabel.destroy()));l=h.index;m.updateParallelArrays(h,l);n.data[l]=p(n.data[l],!0)||p(a,!0)?h.options:a;m.isDirty=m.isDirtyData=!0;!m.fixedBox&&m.hasCartesianSeries&&(g.isDirtyBox=!0);"point"===n.legendType&&(g.isDirtyLegend=!0);c&&g.redraw(d);}var h=this,m=h.series,k=h.graphic,l,g=m.chart,n=m.options;c=b(c,!0);!1===e?f():h.firePointEvent("update",{options:a},f);},remove:function remove(a,b){this.series.removePoint(e(this,this.series.data),a,b);}});l(d.prototype,{addPoint:function addPoint(a,c,d,e){var f=this.options,h=this.data,m=this.chart,k=this.xAxis,k=k&&k.hasNames&&k.names,l=f.data,g,p,n=this.xData,r,v;c=b(c,!0);g={series:this};this.pointClass.prototype.applyOptions.apply(g,[a]);v=g.x;r=n.length;if(this.requireSorting&&v<n[r-1])for(p=!0;r&&n[r-1]>v;){r--;}this.updateParallelArrays(g,"splice",r,0,0);this.updateParallelArrays(g,r);k&&g.name&&(k[v]=g.name);l.splice(r,0,a);p&&(this.data.splice(r,0,null),this.processData());"point"===f.legendType&&this.generatePoints();d&&(h[0]&&h[0].remove?h[0].remove(!1):(h.shift(),this.updateParallelArrays(g,"shift"),l.shift()));this.isDirtyData=this.isDirty=!0;c&&m.redraw(e);},removePoint:function removePoint(a,c,d){var f=this,e=f.data,h=e[a],m=f.points,k=f.chart,l=function l(){m&&m.length===e.length&&m.splice(a,1);e.splice(a,1);f.options.data.splice(a,1);f.updateParallelArrays(h||{series:f},"splice",a,1);h&&h.destroy();f.isDirty=!0;f.isDirtyData=!0;c&&k.redraw();};A(d,k);c=b(c,!0);h?h.firePointEvent("remove",null,l):l();},remove:function remove(a,c,d){function f(){e.destroy();h.isDirtyLegend=h.isDirtyBox=!0;h.linkSeries();b(a,!0)&&h.redraw(c);}var e=this,h=e.chart;!1!==d?k(e,"remove",null,f):f();},update:function update(a,c){var d=this,f=this.chart,e=this.userOptions,h=this.oldType||this.type,m=a.type||e.type||f.options.chart.type,k=r[h].prototype,p=["group","markerGroup","dataLabelsGroup"],g;if(m&&m!==h||void 0!==a.zIndex)p.length=0;n(p,function(a){p[a]=d[a];delete d[a];});a=H(e,{animation:!1,index:this.index,pointStart:this.xData[0]},{data:this.options.data},a);this.remove(!1,null,!1);for(g in k){this[g]=void 0;}l(this,r[m||h].prototype);n(p,function(a){d[a]=p[a];});this.init(f,a);this.oldType=h;f.linkSeries();b(c,!0)&&f.redraw(!1);}});l(C.prototype,{update:function update(a,c){var d=this.chart;a=d.options[this.coll][this.options.index]=H(this.userOptions,a);this.destroy(!0);this.init(d,l(a,{events:void 0}));d.isDirtyBox=!0;b(c,!0)&&d.redraw();},remove:function remove(a){for(var c=this.chart,d=this.coll,f=this.series,e=f.length;e--;){f[e]&&f[e].remove(!1);}t(c.axes,this);t(c[d],this);c.options[d].splice(this.options.index,1);n(c[d],function(a,b){a.options.index=b;});this.destroy();c.isDirtyBox=!0;b(a,!0)&&c.redraw();},setTitle:function setTitle(a,b){this.update({title:a},b);},setCategories:function setCategories(a,b){this.update({categories:a},b);}});})(I);(function(a){var B=a.color,z=a.each,C=a.map,E=a.pick,u=a.Series,h=a.seriesType;h("area","line",{softThreshold:!1,threshold:0},{singleStacks:!1,getStackPoints:function getStackPoints(){var a=[],h=[],l=this.xAxis,k=this.yAxis,e=k.stacks[this.stackKey],c={},p=this.points,u=this.index,b=k.series,m=b.length,d,r=E(k.options.reversedStacks,!0)?1:-1,A,v;if(this.options.stacking){for(A=0;A<p.length;A++){c[p[A].x]=p[A];}for(v in e){null!==e[v].total&&h.push(v);}h.sort(function(a,b){return a-b;});d=C(b,function(){return this.visible;});z(h,function(b,p){var f=0,n,q;if(c[b]&&!c[b].isNull)a.push(c[b]),z([-1,1],function(a){var f=1===a?"rightNull":"leftNull",k=0,l=e[h[p+a]];if(l)for(A=u;0<=A&&A<m;){n=l.points[A],n||(A===u?c[b][f]=!0:d[A]&&(q=e[b].points[A])&&(k-=q[1]-q[0])),A+=r;}c[b][1===a?"rightCliff":"leftCliff"]=k;});else{for(A=u;0<=A&&A<m;){if(n=e[b].points[A]){f=n[1];break;}A+=r;}f=k.translate(f,0,1,0,1);a.push({isNull:!0,plotX:l.translate(b,0,0,0,1),x:b,plotY:f,yBottom:f});}});}return a;},getGraphPath:function getGraphPath(a){var h=u.prototype.getGraphPath,l=this.options,k=l.stacking,e=this.yAxis,c,p,n=[],b=[],m=this.index,d,r=e.stacks[this.stackKey],A=l.threshold,v=e.getThreshold(l.threshold),f,l=l.connectNulls||"percent"===k,y=function y(c,f,h){var l=a[c];c=k&&r[l.x].points[m];var p=l[h+"Null"]||0;h=l[h+"Cliff"]||0;var q,t,l=!0;h||p?(q=(p?c[0]:c[1])+h,t=c[0]+h,l=!!p):!k&&a[f]&&a[f].isNull&&(q=t=A);void 0!==q&&(b.push({plotX:d,plotY:null===q?v:e.getThreshold(q),isNull:l,isCliff:!0}),n.push({plotX:d,plotY:null===t?v:e.getThreshold(t),doCurve:!1}));};a=a||this.points;k&&(a=this.getStackPoints());for(c=0;c<a.length;c++){if(p=a[c].isNull,d=E(a[c].rectPlotX,a[c].plotX),f=E(a[c].yBottom,v),!p||l)l||y(c,c-1,"left"),p&&!k&&l||(b.push(a[c]),n.push({x:c,plotX:d,plotY:f})),l||y(c,c+1,"right");}c=h.call(this,b,!0,!0);n.reversed=!0;p=h.call(this,n,!0,!0);p.length&&(p[0]="L");p=c.concat(p);h=h.call(this,b,!1,l);p.xMap=c.xMap;this.areaPath=p;return h;},drawGraph:function drawGraph(){this.areaPath=[];u.prototype.drawGraph.apply(this);var a=this,h=this.areaPath,l=this.options,k=[["area","highcharts-area",this.color,l.fillColor]];z(this.zones,function(e,c){k.push(["zone-area-"+c,"highcharts-area highcharts-zone-area-"+c+" "+e.className,e.color||a.color,e.fillColor||l.fillColor]);});z(k,function(e){var c=e[0],k=a[c];k?(k.endX=h.xMap,k.animate({d:h})):(k=a[c]=a.chart.renderer.path(h).addClass(e[1]).attr({fill:E(e[3],B(e[2]).setOpacity(E(l.fillOpacity,.75)).get()),zIndex:0}).add(a.group),k.isArea=!0);k.startX=h.xMap;k.shiftUnit=l.step?2:1;});},drawLegendSymbol:a.LegendSymbolMixin.drawRectangle});})(I);(function(a){var B=a.pick;a=a.seriesType;a("spline","line",{},{getPointSpline:function getPointSpline(a,C,E){var u=C.plotX,h=C.plotY,n=a[E-1];E=a[E+1];var t,l,k,e;if(n&&!n.isNull&&!1!==n.doCurve&&!C.isCliff&&E&&!E.isNull&&!1!==E.doCurve&&!C.isCliff){a=n.plotY;k=E.plotX;E=E.plotY;var c=0;t=(1.5*u+n.plotX)/2.5;l=(1.5*h+a)/2.5;k=(1.5*u+k)/2.5;e=(1.5*h+E)/2.5;k!==t&&(c=(e-l)*(k-u)/(k-t)+h-e);l+=c;e+=c;l>a&&l>h?(l=Math.max(a,h),e=2*h-l):l<a&&l<h&&(l=Math.min(a,h),e=2*h-l);e>E&&e>h?(e=Math.max(E,h),l=2*h-e):e<E&&e<h&&(e=Math.min(E,h),l=2*h-e);C.rightContX=k;C.rightContY=e;}C=["C",B(n.rightContX,n.plotX),B(n.rightContY,n.plotY),B(t,u),B(l,h),u,h];n.rightContX=n.rightContY=null;return C;}});})(I);(function(a){var B=a.seriesTypes.area.prototype,z=a.seriesType;z("areaspline","spline",a.defaultPlotOptions.area,{getStackPoints:B.getStackPoints,getGraphPath:B.getGraphPath,setStackCliffs:B.setStackCliffs,drawGraph:B.drawGraph,drawLegendSymbol:a.LegendSymbolMixin.drawRectangle});})(I);(function(a){var B=a.animObject,z=a.color,C=a.each,E=a.extend,u=a.isNumber,h=a.merge,n=a.pick,t=a.Series,l=a.seriesType,k=a.svg;l("column","line",{borderRadius:0,groupPadding:.2,marker:null,pointPadding:.1,minPointLength:0,cropThreshold:50,pointRange:null,states:{hover:{halo:!1,brightness:.1,shadow:!1},select:{color:"#cccccc",borderColor:"#000000",shadow:!1}},dataLabels:{align:null,verticalAlign:null,y:null},softThreshold:!1,startFromThreshold:!0,stickyTracking:!1,tooltip:{distance:6},threshold:0,borderColor:"#ffffff"},{cropShoulder:0,directTouch:!0,trackerGroups:["group","dataLabelsGroup"],negStacks:!0,init:function init(){t.prototype.init.apply(this,arguments);var a=this,c=a.chart;c.hasRendered&&C(c.series,function(c){c.type===a.type&&(c.isDirty=!0);});},getColumnMetrics:function getColumnMetrics(){var a=this,c=a.options,h=a.xAxis,k=a.yAxis,b=h.reversed,m,d={},l=0;!1===c.grouping?l=1:C(a.chart.series,function(b){var c=b.options,f=b.yAxis,e;b.type===a.type&&b.visible&&k.len===f.len&&k.pos===f.pos&&(c.stacking?(m=b.stackKey,void 0===d[m]&&(d[m]=l++),e=d[m]):!1!==c.grouping&&(e=l++),b.columnIndex=e);});var t=Math.min(Math.abs(h.transA)*(h.ordinalSlope||c.pointRange||h.closestPointRange||h.tickInterval||1),h.len),v=t*c.groupPadding,f=(t-2*v)/(l||1),c=Math.min(c.maxPointWidth||h.len,n(c.pointWidth,f*(1-2*c.pointPadding)));a.columnMetrics={width:c,offset:(f-c)/2+(v+((a.columnIndex||0)+(b?1:0))*f-t/2)*(b?-1:1)};return a.columnMetrics;},crispCol:function crispCol(a,c,h,k){var b=this.chart,e=this.borderWidth,d=-(e%2?.5:0),e=e%2?.5:1;b.inverted&&b.renderer.isVML&&(e+=1);h=Math.round(a+h)+d;a=Math.round(a)+d;k=Math.round(c+k)+e;d=.5>=Math.abs(c)&&.5<k;c=Math.round(c)+e;k-=c;d&&k&&(--c,k+=1);return{x:a,y:c,width:h-a,height:k};},translate:function translate(){var a=this,c=a.chart,h=a.options,k=a.dense=2>a.closestPointRange*a.xAxis.transA,k=a.borderWidth=n(h.borderWidth,k?0:1),b=a.yAxis,m=a.translatedThreshold=b.getThreshold(h.threshold),d=n(h.minPointLength,5),l=a.getColumnMetrics(),u=l.width,v=a.barW=Math.max(u,1+2*k),f=a.pointXOffset=l.offset;c.inverted&&(m-=.5);h.pointPadding&&(v=Math.ceil(v));t.prototype.translate.apply(a);C(a.points,function(e){var h=n(e.yBottom,m),k=999+Math.abs(h),k=Math.min(Math.max(-k,e.plotY),b.len+k),l=e.plotX+f,p=v,r=Math.min(k,h),t,y=Math.max(k,h)-r;Math.abs(y)<d&&d&&(y=d,t=!b.reversed&&!e.negative||b.reversed&&e.negative,r=Math.abs(r-m)>d?h-d:m-(t?d:0));e.barX=l;e.pointWidth=u;e.tooltipPos=c.inverted?[b.len+b.pos-c.plotLeft-k,a.xAxis.len-l-p/2,y]:[l+p/2,k+b.pos-c.plotTop,y];e.shapeType="rect";e.shapeArgs=a.crispCol.apply(a,e.isNull?[e.plotX,b.len/2,0,0]:[l,r,p,y]);});},getSymbol:a.noop,drawLegendSymbol:a.LegendSymbolMixin.drawRectangle,drawGraph:function drawGraph(){this.group[this.dense?"addClass":"removeClass"]("highcharts-dense-data");},pointAttribs:function pointAttribs(a,c){var e=this.options,k,b=this.pointAttrToOptions||{};k=b.stroke||"borderColor";var m=b["stroke-width"]||"borderWidth",d=a&&a.color||this.color,l=a[k]||e[k]||this.color||d,n=a[m]||e[m]||this[m]||0,b=e.dashStyle;a&&this.zones.length&&(d=(d=a.getZone())&&d.color||a.options.color||this.color);c&&(a=h(e.states[c],a.options.states&&a.options.states[c]||{}),c=a.brightness,d=a.color||void 0!==c&&z(d).brighten(a.brightness).get()||d,l=a[k]||l,n=a[m]||n,b=a.dashStyle||b);k={fill:d,stroke:l,"stroke-width":n};e.borderRadius&&(k.r=e.borderRadius);b&&(k.dashstyle=b);return k;},drawPoints:function drawPoints(){var a=this,c=this.chart,k=a.options,l=c.renderer,b=k.animationLimit||250,m;C(a.points,function(d){var e=d.graphic;if(u(d.plotY)&&null!==d.y){m=d.shapeArgs;if(e)e[c.pointCount<b?"animate":"attr"](h(m));else d.graphic=e=l[d.shapeType](m).add(d.group||a.group);e.attr(a.pointAttribs(d,d.selected&&"select")).shadow(k.shadow,null,k.stacking&&!k.borderRadius);e.addClass(d.getClassName(),!0);}else e&&(d.graphic=e.destroy());});},animate:function animate(a){var c=this,e=this.yAxis,h=c.options,b=this.chart.inverted,m={};k&&(a?(m.scaleY=.001,a=Math.min(e.pos+e.len,Math.max(e.pos,e.toPixels(h.threshold))),b?m.translateX=a-e.len:m.translateY=a,c.group.attr(m)):(m[b?"translateX":"translateY"]=e.pos,c.group.animate(m,E(B(c.options.animation),{step:function step(a,b){c.group.attr({scaleY:Math.max(.001,b.pos)});}})),c.animate=null));},remove:function remove(){var a=this,c=a.chart;c.hasRendered&&C(c.series,function(c){c.type===a.type&&(c.isDirty=!0);});t.prototype.remove.apply(a,arguments);}});})(I);(function(a){a=a.seriesType;a("bar","column",null,{inverted:!0});})(I);(function(a){var B=a.Series;a=a.seriesType;a("scatter","line",{lineWidth:0,marker:{enabled:!0},tooltip:{headerFormat:"<span style=\"color:{point.color}\">\u25CF</span> <span style=\"font-size: 0.85em\"> {series.name}</span><br/>",pointFormat:"x: \x3cb\x3e{point.x}\x3c/b\x3e\x3cbr/\x3ey: \x3cb\x3e{point.y}\x3c/b\x3e\x3cbr/\x3e"}},{sorted:!1,requireSorting:!1,noSharedTooltip:!0,trackerGroups:["group","markerGroup","dataLabelsGroup"],takeOrdinalPosition:!1,kdDimensions:2,drawGraph:function drawGraph(){this.options.lineWidth&&B.prototype.drawGraph.call(this);}});})(I);(function(a){var B=a.pick,z=a.relativeLength;a.CenteredSeriesMixin={getCenter:function getCenter(){var a=this.options,E=this.chart,u=2*(a.slicedOffset||0),h=E.plotWidth-2*u,E=E.plotHeight-2*u,n=a.center,n=[B(n[0],"50%"),B(n[1],"50%"),a.size||"100%",a.innerSize||0],t=Math.min(h,E),l,k;for(l=0;4>l;++l){k=n[l],a=2>l||2===l&&/%$/.test(k),n[l]=z(k,[h,E,t,n[2]][l])+(a?u:0);}n[3]>n[2]&&(n[3]=n[2]);return n;}};})(I);(function(a){var B=a.addEvent,z=a.defined,C=a.each,E=a.extend,u=a.inArray,h=a.noop,n=a.pick,t=a.Point,l=a.Series,k=a.seriesType,e=a.setAnimation;k("pie","line",{center:[null,null],clip:!1,colorByPoint:!0,dataLabels:{distance:30,enabled:!0,formatter:function formatter(){return null===this.y?void 0:this.point.name;},x:0},ignoreHiddenPoint:!0,legendType:"point",marker:null,size:null,showInLegend:!1,slicedOffset:10,stickyTracking:!1,tooltip:{followPointer:!0},borderColor:"#ffffff",borderWidth:1,states:{hover:{brightness:.1,shadow:!1}}},{isCartesian:!1,requireSorting:!1,directTouch:!0,noSharedTooltip:!0,trackerGroups:["group","dataLabelsGroup"],axisTypes:[],pointAttribs:a.seriesTypes.column.prototype.pointAttribs,animate:function animate(a){var c=this,e=c.points,b=c.startAngleRad;a||(C(e,function(a){var d=a.graphic,e=a.shapeArgs;d&&(d.attr({r:a.startR||c.center[3]/2,start:b,end:b}),d.animate({r:e.r,start:e.start,end:e.end},c.options.animation));}),c.animate=null);},updateTotals:function updateTotals(){var a,e=0,h=this.points,b=h.length,k,d=this.options.ignoreHiddenPoint;for(a=0;a<b;a++){k=h[a],0>k.y&&(k.y=null),e+=d&&!k.visible?0:k.y;}this.total=e;for(a=0;a<b;a++){k=h[a],k.percentage=0<e&&(k.visible||!d)?k.y/e*100:0,k.total=e;}},generatePoints:function generatePoints(){l.prototype.generatePoints.call(this);this.updateTotals();},translate:function translate(a){this.generatePoints();var c=0,e=this.options,b=e.slicedOffset,h=b+(e.borderWidth||0),d,k,l,v=e.startAngle||0,f=this.startAngleRad=Math.PI/180*(v-90),v=(this.endAngleRad=Math.PI/180*(n(e.endAngle,v+360)-90))-f,t=this.points,u=e.dataLabels.distance,e=e.ignoreHiddenPoint,F,q=t.length,x;a||(this.center=a=this.getCenter());this.getX=function(b,c){l=Math.asin(Math.min((b-a[1])/(a[2]/2+u),1));return a[0]+(c?-1:1)*Math.cos(l)*(a[2]/2+u);};for(F=0;F<q;F++){x=t[F];d=f+c*v;if(!e||x.visible)c+=x.percentage/100;k=f+c*v;x.shapeType="arc";x.shapeArgs={x:a[0],y:a[1],r:a[2]/2,innerR:a[3]/2,start:Math.round(1E3*d)/1E3,end:Math.round(1E3*k)/1E3};l=(k+d)/2;l>1.5*Math.PI?l-=2*Math.PI:l<-Math.PI/2&&(l+=2*Math.PI);x.slicedTranslation={translateX:Math.round(Math.cos(l)*b),translateY:Math.round(Math.sin(l)*b)};d=Math.cos(l)*a[2]/2;k=Math.sin(l)*a[2]/2;x.tooltipPos=[a[0]+.7*d,a[1]+.7*k];x.half=l<-Math.PI/2||l>Math.PI/2?1:0;x.angle=l;h=Math.min(h,u/5);x.labelPos=[a[0]+d+Math.cos(l)*u,a[1]+k+Math.sin(l)*u,a[0]+d+Math.cos(l)*h,a[1]+k+Math.sin(l)*h,a[0]+d,a[1]+k,0>u?"center":x.half?"right":"left",l];}},drawGraph:null,drawPoints:function drawPoints(){var a=this,e=a.chart.renderer,h,b,k,d,l=a.options.shadow;l&&!a.shadowGroup&&(a.shadowGroup=e.g("shadow").add(a.group));C(a.points,function(c){if(null!==c.y){b=c.graphic;d=c.shapeArgs;h=c.getTranslate();var m=c.shadowGroup;l&&!m&&(m=c.shadowGroup=e.g("shadow").add(a.shadowGroup));m&&m.attr(h);k=a.pointAttribs(c,c.selected&&"select");b?b.setRadialReference(a.center).attr(k).animate(E(d,h)):(c.graphic=b=e[c.shapeType](d).setRadialReference(a.center).attr(h).add(a.group),c.visible||b.attr({visibility:"hidden"}),b.attr(k).attr({"stroke-linejoin":"round"}).shadow(l,m));b.addClass(c.getClassName());}});},searchPoint:h,sortByAngle:function sortByAngle(a,e){a.sort(function(a,b){return void 0!==a.angle&&(b.angle-a.angle)*e;});},drawLegendSymbol:a.LegendSymbolMixin.drawRectangle,getCenter:a.CenteredSeriesMixin.getCenter,getSymbol:h},{init:function init(){t.prototype.init.apply(this,arguments);var a=this,e;a.name=n(a.name,"Slice");e=function e(c){a.slice("select"===c.type);};B(a,"select",e);B(a,"unselect",e);return a;},setVisible:function setVisible(a,e){var c=this,b=c.series,h=b.chart,d=b.options.ignoreHiddenPoint;e=n(e,d);a!==c.visible&&(c.visible=c.options.visible=a=void 0===a?!c.visible:a,b.options.data[u(c,b.data)]=c.options,C(["graphic","dataLabel","connector","shadowGroup"],function(b){if(c[b])c[b][a?"show":"hide"](!0);}),c.legendItem&&h.legend.colorizeItem(c,a),a||"hover"!==c.state||c.setState(""),d&&(b.isDirty=!0),e&&h.redraw());},slice:function slice(a,h,k){var b=this.series;e(k,b.chart);n(h,!0);this.sliced=this.options.sliced=z(a)?a:!this.sliced;b.options.data[u(this,b.data)]=this.options;this.graphic.animate(this.getTranslate());this.shadowGroup&&this.shadowGroup.animate(this.getTranslate());},getTranslate:function getTranslate(){return this.sliced?this.slicedTranslation:{translateX:0,translateY:0};},haloPath:function haloPath(a){var c=this.shapeArgs;return this.sliced||!this.visible?[]:this.series.chart.renderer.symbols.arc(c.x,c.y,c.r+a,c.r+a,{innerR:this.shapeArgs.r,start:c.start,end:c.end});}});})(I);(function(a){var B=a.addEvent,z=a.arrayMax,C=a.defined,E=a.each,u=a.extend,h=a.format,n=a.map,t=a.merge,l=a.noop,k=a.pick,e=a.relativeLength,c=a.Series,p=a.seriesTypes,H=a.stableSort;a.distribute=function(a,c){function b(a,b){return a.target-b.target;}var e,h=!0,k=a,f=[],l;l=0;for(e=a.length;e--;){l+=a[e].size;}if(l>c){H(a,function(a,b){return(b.rank||0)-(a.rank||0);});for(l=e=0;l<=c;){l+=a[e].size,e++;}f=a.splice(e-1,a.length);}H(a,b);for(a=n(a,function(a){return{size:a.size,targets:[a.target]};});h;){for(e=a.length;e--;){h=a[e],l=(Math.min.apply(0,h.targets)+Math.max.apply(0,h.targets))/2,h.pos=Math.min(Math.max(0,l-h.size/2),c-h.size);}e=a.length;for(h=!1;e--;){0<e&&a[e-1].pos+a[e-1].size>a[e].pos&&(a[e-1].size+=a[e].size,a[e-1].targets=a[e-1].targets.concat(a[e].targets),a[e-1].pos+a[e-1].size>c&&(a[e-1].pos=c-a[e-1].size),a.splice(e,1),h=!0);}}e=0;E(a,function(a){var b=0;E(a.targets,function(){k[e].pos=a.pos+b;b+=k[e].size;e++;});});k.push.apply(k,f);H(k,b);};c.prototype.drawDataLabels=function(){var a=this,c=a.options,d=c.dataLabels,e=a.points,l,n,f=a.hasRendered||0,p,u,F=k(d.defer,!0),q=a.chart.renderer;if(d.enabled||a._hasPointLabels)a.dlProcessOptions&&a.dlProcessOptions(d),u=a.plotGroup("dataLabelsGroup","data-labels",F&&!f?"hidden":"visible",d.zIndex||6),F&&(u.attr({opacity:+f}),f||B(a,"afterAnimate",function(){a.visible&&u.show(!0);u[c.animation?"animate":"attr"]({opacity:1},{duration:200});})),n=d,E(e,function(b){var f,e=b.dataLabel,m,g,r,v=b.connector,y=!e,x;l=b.dlOptions||b.options&&b.options.dataLabels;if(f=k(l&&l.enabled,n.enabled)&&null!==b.y)for(g in d=t(n,l),m=b.getLabelConfig(),p=d.format?h(d.format,m):d.formatter.call(m,d),x=d.style,r=d.rotation,x.color=k(d.color,x.color,a.color,"#000000"),"contrast"===x.color&&(x.color=d.inside||0>d.distance||c.stacking?q.getContrast(b.color||a.color):"#000000"),c.cursor&&(x.cursor=c.cursor),m={fill:d.backgroundColor,stroke:d.borderColor,"stroke-width":d.borderWidth,r:d.borderRadius||0,rotation:r,padding:d.padding,zIndex:1},m){void 0===m[g]&&delete m[g];}!e||f&&C(p)?f&&C(p)&&(e?m.text=p:(e=b.dataLabel=q[r?"text":"label"](p,0,-9999,d.shape,null,null,d.useHTML,null,"data-label"),e.addClass("highcharts-data-label-color-"+b.colorIndex+" "+(d.className||"")+(d.useHTML?"highcharts-tracker":""))),e.attr(m),e.css(x).shadow(d.shadow),e.added||e.add(u),a.alignDataLabel(b,e,d,null,y)):(b.dataLabel=e.destroy(),v&&(b.connector=v.destroy()));});};c.prototype.alignDataLabel=function(a,c,d,e,h){var b=this.chart,f=b.inverted,l=k(a.plotX,-9999),m=k(a.plotY,-9999),n=c.getBBox(),q,p=d.rotation,r=d.align,t=this.visible&&(a.series.forceDL||b.isInsidePlot(l,Math.round(m),f)||e&&b.isInsidePlot(l,f?e.x+1:e.y+e.height-1,f)),A="justify"===k(d.overflow,"justify");t&&(q=d.style.fontSize,q=b.renderer.fontMetrics(q,c).b,e=u({x:f?b.plotWidth-m:l,y:Math.round(f?b.plotHeight-l:m),width:0,height:0},e),u(d,{width:n.width,height:n.height}),p?(A=!1,f=b.renderer.rotCorr(q,p),f={x:e.x+d.x+e.width/2+f.x,y:e.y+d.y+{top:0,middle:.5,bottom:1}[d.verticalAlign]*e.height},c[h?"attr":"animate"](f).attr({align:r}),l=(p+720)%360,l=180<l&&360>l,"left"===r?f.y-=l?n.height:0:"center"===r?(f.x-=n.width/2,f.y-=n.height/2):"right"===r&&(f.x-=n.width,f.y-=l?0:n.height)):(c.align(d,null,e),f=c.alignAttr),A?this.justifyDataLabel(c,d,f,n,e,h):k(d.crop,!0)&&(t=b.isInsidePlot(f.x,f.y)&&b.isInsidePlot(f.x+n.width,f.y+n.height)),d.shape&&!p&&c.attr({anchorX:a.plotX,anchorY:a.plotY}));t||(c.attr({y:-9999}),c.placed=!1);};c.prototype.justifyDataLabel=function(a,c,d,e,h,k){var b=this.chart,l=c.align,m=c.verticalAlign,n,q,p=a.box?0:a.padding||0;n=d.x+p;0>n&&("right"===l?c.align="left":c.x=-n,q=!0);n=d.x+e.width-p;n>b.plotWidth&&("left"===l?c.align="right":c.x=b.plotWidth-n,q=!0);n=d.y+p;0>n&&("bottom"===m?c.verticalAlign="top":c.y=-n,q=!0);n=d.y+e.height-p;n>b.plotHeight&&("top"===m?c.verticalAlign="bottom":c.y=b.plotHeight-n,q=!0);q&&(a.placed=!k,a.align(c,null,h));};p.pie&&(p.pie.prototype.drawDataLabels=function(){var b=this,e=b.data,d,h=b.chart,l=b.options.dataLabels,p=k(l.connectorPadding,10),f=k(l.connectorWidth,1),t=h.plotWidth,u=h.plotHeight,F,q=l.distance,x=b.center,B=x[2]/2,C=x[1],H=0<q,g,D,I,M,R=[[],[]],N,w,O,Q,P=[0,0,0,0];b.visible&&(l.enabled||b._hasPointLabels)&&(E(e,function(a){a.dataLabel&&a.visible&&a.dataLabel.shortened&&(a.dataLabel.attr({width:"auto"}).css({width:"auto",textOverflow:"clip"}),a.dataLabel.shortened=!1);}),c.prototype.drawDataLabels.apply(b),E(e,function(a){a.dataLabel&&a.visible&&(R[a.half].push(a),a.dataLabel._pos=null);}),E(R,function(c,f){var e,k,m=c.length,r,v,y;if(m)for(b.sortByAngle(c,f-.5),0<q&&(e=Math.max(0,C-B-q),k=Math.min(C+B+q,h.plotHeight),r=n(c,function(a){if(a.dataLabel)return y=a.dataLabel.getBBox().height||21,{target:a.labelPos[1]-e+y/2,size:y,rank:a.y};}),a.distribute(r,k+y-e)),Q=0;Q<m;Q++){d=c[Q],I=d.labelPos,g=d.dataLabel,O=!1===d.visible?"hidden":"inherit",v=I[1],r?void 0===r[Q].pos?O="hidden":(M=r[Q].size,w=e+r[Q].pos):w=v,N=l.justify?x[0]+(f?-1:1)*(B+q):b.getX(w<e+2||w>k-2?v:w,f),g._attr={visibility:O,align:I[6]},g._pos={x:N+l.x+({left:p,right:-p}[I[6]]||0),y:w+l.y-10},I.x=N,I.y=w,null===b.options.size&&(D=g.getBBox().width,v=null,N-D<p?(v=Math.round(D-N+p),P[3]=Math.max(v,P[3])):N+D>t-p&&(v=Math.round(N+D-t+p),P[1]=Math.max(v,P[1])),0>w-M/2?P[0]=Math.max(Math.round(-w+M/2),P[0]):w+M/2>u&&(P[2]=Math.max(Math.round(w+M/2-u),P[2])),g.sideOverflow=v);}}),0===z(P)||this.verifyDataLabelOverflow(P))&&(this.placeDataLabels(),H&&f&&E(this.points,function(a){var c;F=a.connector;if((g=a.dataLabel)&&g._pos&&a.visible){O=g._attr.visibility;if(c=!F)a.connector=F=h.renderer.path().addClass("highcharts-data-label-connector highcharts-color-"+a.colorIndex).add(b.dataLabelsGroup),F.attr({"stroke-width":f,stroke:l.connectorColor||a.color||"#666666"});F[c?"attr":"animate"]({d:b.connectorPath(a.labelPos)});F.attr("visibility",O);}else F&&(a.connector=F.destroy());}));},p.pie.prototype.connectorPath=function(a){var b=a.x,c=a.y;return k(this.options.dataLabels.softConnector,!0)?["M",b+("left"===a[6]?5:-5),c,"C",b,c,2*a[2]-a[4],2*a[3]-a[5],a[2],a[3],"L",a[4],a[5]]:["M",b+("left"===a[6]?5:-5),c,"L",a[2],a[3],"L",a[4],a[5]];},p.pie.prototype.placeDataLabels=function(){E(this.points,function(a){var b=a.dataLabel;b&&a.visible&&((a=b._pos)?(b.sideOverflow&&(b._attr.width=b.getBBox().width-b.sideOverflow,b.css({width:b._attr.width+"px",textOverflow:"ellipsis"}),b.shortened=!0),b.attr(b._attr),b[b.moved?"animate":"attr"](a),b.moved=!0):b&&b.attr({y:-9999}));},this);},p.pie.prototype.alignDataLabel=l,p.pie.prototype.verifyDataLabelOverflow=function(a){var b=this.center,c=this.options,h=c.center,k=c.minSize||80,l,f;null!==h[0]?l=Math.max(b[2]-Math.max(a[1],a[3]),k):(l=Math.max(b[2]-a[1]-a[3],k),b[0]+=(a[3]-a[1])/2);null!==h[1]?l=Math.max(Math.min(l,b[2]-Math.max(a[0],a[2])),k):(l=Math.max(Math.min(l,b[2]-a[0]-a[2]),k),b[1]+=(a[0]-a[2])/2);l<b[2]?(b[2]=l,b[3]=Math.min(e(c.innerSize||0,l),l),this.translate(b),this.drawDataLabels&&this.drawDataLabels()):f=!0;return f;});p.column&&(p.column.prototype.alignDataLabel=function(a,e,d,h,l){var b=this.chart.inverted,f=a.series,m=a.dlBox||a.shapeArgs,n=k(a.below,a.plotY>k(this.translatedThreshold,f.yAxis.len)),p=k(d.inside,!!this.options.stacking);m&&(h=t(m),0>h.y&&(h.height+=h.y,h.y=0),m=h.y+h.height-f.yAxis.len,0<m&&(h.height-=m),b&&(h={x:f.yAxis.len-h.y-h.height,y:f.xAxis.len-h.x-h.width,width:h.height,height:h.width}),p||(b?(h.x+=n?0:h.width,h.width=0):(h.y+=n?h.height:0,h.height=0)));d.align=k(d.align,!b||p?"center":n?"right":"left");d.verticalAlign=k(d.verticalAlign,b||p?"middle":n?"top":"bottom");c.prototype.alignDataLabel.call(this,a,e,d,h,l);});})(I);(function(a){var B=a.Chart,z=a.each,C=a.pick,E=a.addEvent;B.prototype.callbacks.push(function(a){function h(){var h=[];z(a.series||[],function(a){var l=a.options.dataLabels,k=a.dataLabelCollections||["dataLabel"];(l.enabled||a._hasPointLabels)&&!l.allowOverlap&&a.visible&&z(k,function(e){z(a.points,function(a){a[e]&&(a[e].labelrank=C(a.labelrank,a.shapeArgs&&a.shapeArgs.height),h.push(a[e]));});});});a.hideOverlappingLabels(h);}h();E(a,"redraw",h);});B.prototype.hideOverlappingLabels=function(a){var h=a.length,n,t,l,k,e,c,p,u,b,m=function m(a,b,c,e,f,h,k,l){return!(f>a+c||f+k<a||h>b+e||h+l<b);};for(t=0;t<h;t++){if(n=a[t])n.oldOpacity=n.opacity,n.newOpacity=1;}a.sort(function(a,b){return(b.labelrank||0)-(a.labelrank||0);});for(t=0;t<h;t++){for(l=a[t],n=t+1;n<h;++n){if(k=a[n],l&&k&&l.placed&&k.placed&&0!==l.newOpacity&&0!==k.newOpacity&&(e=l.alignAttr,c=k.alignAttr,p=l.parentGroup,u=k.parentGroup,b=2*(l.box?0:l.padding),e=m(e.x+p.translateX,e.y+p.translateY,l.width-b,l.height-b,c.x+u.translateX,c.y+u.translateY,k.width-b,k.height-b)))(l.labelrank<k.labelrank?l:k).newOpacity=0;}}z(a,function(a){var b,c;a&&(c=a.newOpacity,a.oldOpacity!==c&&a.placed&&(c?a.show(!0):b=function b(){a.hide();},a.alignAttr.opacity=c,a[a.isOld?"animate":"attr"](a.alignAttr,null,b)),a.isOld=!0);});};})(I);(function(a){var B=a.addEvent,z=a.Chart,C=a.createElement,E=a.css,u=a.defaultOptions,h=a.defaultPlotOptions,n=a.each,t=a.extend,l=a.fireEvent,k=a.hasTouch,e=a.inArray,c=a.isObject,p=a.Legend,H=a.merge,b=a.pick,m=a.Point,d=a.Series,r=a.seriesTypes,A=a.svg;a=a.TrackerMixin={drawTrackerPoint:function drawTrackerPoint(){var a=this,b=a.chart.pointer,c=function c(a){var c=b.getPointFromEvent(a);if(void 0!==c)c.onMouseOver(a);};n(a.points,function(a){a.graphic&&(a.graphic.element.point=a);a.dataLabel&&(a.dataLabel.div?a.dataLabel.div.point=a:a.dataLabel.element.point=a);});a._hasTracking||(n(a.trackerGroups,function(d){if(a[d]){a[d].addClass("highcharts-tracker").on("mouseover",c).on("mouseout",function(a){b.onTrackerMouseOut(a);});if(k)a[d].on("touchstart",c);a.options.cursor&&a[d].css(E).css({cursor:a.options.cursor});}}),a._hasTracking=!0);},drawTrackerGraph:function drawTrackerGraph(){var a=this,b=a.options,c=b.trackByArea,d=[].concat(c?a.areaPath:a.graphPath),e=d.length,h=a.chart,l=h.pointer,m=h.renderer,p=h.options.tooltip.snap,t=a.tracker,g,r=function r(){if(h.hoverSeries!==a)a.onMouseOver();},u="rgba(192,192,192,"+(A?.0001:.002)+")";if(e&&!c)for(g=e+1;g--;){"M"===d[g]&&d.splice(g+1,0,d[g+1]-p,d[g+2],"L"),(g&&"M"===d[g]||g===e)&&d.splice(g,0,"L",d[g-2]+p,d[g-1]);}t?t.attr({d:d}):a.graph&&(a.tracker=m.path(d).attr({"stroke-linejoin":"round",visibility:a.visible?"visible":"hidden",stroke:u,fill:c?u:"none","stroke-width":a.graph.strokeWidth()+(c?0:2*p),zIndex:2}).add(a.group),n([a.tracker,a.markerGroup],function(a){a.addClass("highcharts-tracker").on("mouseover",r).on("mouseout",function(a){l.onTrackerMouseOut(a);});b.cursor&&a.css({cursor:b.cursor});if(k)a.on("touchstart",r);}));}};r.column&&(r.column.prototype.drawTracker=a.drawTrackerPoint);r.pie&&(r.pie.prototype.drawTracker=a.drawTrackerPoint);r.scatter&&(r.scatter.prototype.drawTracker=a.drawTrackerPoint);t(p.prototype,{setItemEvents:function setItemEvents(a,b,c){var d=this,e=d.chart.renderer.boxWrapper,f="highcharts-legend-"+(a.series?"point":"series")+"-active";(c?b:a.legendGroup).on("mouseover",function(){a.setState("hover");e.addClass(f);b.css(d.options.itemHoverStyle);}).on("mouseout",function(){b.css(a.visible?d.itemStyle:d.itemHiddenStyle);e.removeClass(f);a.setState();}).on("click",function(b){var c=function c(){a.setVisible&&a.setVisible();};b={browserEvent:b};a.firePointEvent?a.firePointEvent("legendItemClick",b,c):l(a,"legendItemClick",b,c);});},createCheckboxForItem:function createCheckboxForItem(a){a.checkbox=C("input",{type:"checkbox",checked:a.selected,defaultChecked:a.selected},this.options.itemCheckboxStyle,this.chart.container);B(a.checkbox,"click",function(b){l(a.series||a,"checkboxClick",{checked:b.target.checked,item:a},function(){a.select();});});}});u.legend.itemStyle.cursor="pointer";t(z.prototype,{showResetZoom:function showResetZoom(){var a=this,b=u.lang,c=a.options.chart.resetZoomButton,d=c.theme,e=d.states,h="chart"===c.relativeTo?null:"plotBox";this.resetZoomButton=a.renderer.button(b.resetZoom,null,null,function(){a.zoomOut();},d,e&&e.hover).attr({align:c.position.align,title:b.resetZoomTitle}).addClass("highcharts-reset-zoom").add().align(c.position,!1,h);},zoomOut:function zoomOut(){var a=this;l(a,"selection",{resetSelection:!0},function(){a.zoom();});},zoom:function zoom(a){var d,e=this.pointer,h=!1,k;!a||a.resetSelection?n(this.axes,function(a){d=a.zoom();}):n(a.xAxis.concat(a.yAxis),function(a){var b=a.axis;e[b.isXAxis?"zoomX":"zoomY"]&&(d=b.zoom(a.min,a.max),b.displayBtn&&(h=!0));});k=this.resetZoomButton;h&&!k?this.showResetZoom():!h&&c(k)&&(this.resetZoomButton=k.destroy());d&&this.redraw(b(this.options.chart.animation,a&&a.animation,100>this.pointCount));},pan:function pan(a,b){var c=this,d=c.hoverPoints,e;d&&n(d,function(a){a.setState();});n("xy"===b?[1,0]:[1],function(b){b=c[b?"xAxis":"yAxis"][0];var d=b.horiz,f=a[d?"chartX":"chartY"],d=d?"mouseDownX":"mouseDownY",h=c[d],k=(b.pointRange||0)/2,g=b.getExtremes(),l=b.toValue(h-f,!0)+k,k=b.toValue(h+b.len-f,!0)-k,m=k<l,h=m?k:l,l=m?l:k,m=b.toValue(b.toPixels(g.min)-b.minPixelPadding),k=b.toValue(b.toPixels(g.max)+b.minPixelPadding),m=Math.min(g.dataMin,m)-h,g=l-Math.max(g.dataMax,k);b.series.length&&0>m&&0>g&&(b.setExtremes(h,l,!1,!1,{trigger:"pan"}),e=!0);c[d]=f;});e&&c.redraw(!1);E(c.container,{cursor:"move"});}});t(m.prototype,{select:function select(a,c){var d=this,f=d.series,h=f.chart;a=b(a,!d.selected);d.firePointEvent(a?"select":"unselect",{accumulate:c},function(){d.selected=d.options.selected=a;f.options.data[e(d,f.data)]=d.options;d.setState(a&&"select");c||n(h.getSelectedPoints(),function(a){a.selected&&a!==d&&(a.selected=a.options.selected=!1,f.options.data[e(a,f.data)]=a.options,a.setState(""),a.firePointEvent("unselect"));});});},onMouseOver:function onMouseOver(a){var b=this.series.chart.pointer;this.firePointEvent("mouseOver");b.runPointActions(a,this);},onMouseOut:function onMouseOut(){var a=this.series.chart;this.firePointEvent("mouseOut");n(a.hoverPoints||[],function(a){a.setState();});a.hoverPoints=a.hoverPoint=null;},importEvents:function importEvents(){if(!this.hasImportedEvents){var a=H(this.series.options.point,this.options).events,b;this.events=a;for(b in a){B(this,b,a[b]);}this.hasImportedEvents=!0;}},setState:function setState(a,c){var d=Math.floor(this.plotX),e=this.plotY,f=this.series,k=f.options.states[a]||{},l=h[f.type].marker&&f.options.marker,m=l&&!1===l.enabled,n=l&&l.states&&l.states[a]||{},p=!1===n.enabled,g=f.stateMarkerGraphic,r=this.marker||{},u=f.chart,v=f.halo,z,A=l&&f.markerAttribs;a=a||"";if(!(a===this.state&&!c||this.selected&&"select"!==a||!1===k.enabled||a&&(p||m&&!1===n.enabled)||a&&r.states&&r.states[a]&&!1===r.states[a].enabled)){A&&(z=f.markerAttribs(this,a));if(this.graphic)this.state&&this.graphic.removeClass("highcharts-point-"+this.state),a&&this.graphic.addClass("highcharts-point-"+a),this.graphic.attr(f.pointAttribs(this,a)),z&&this.graphic.animate(z,b(u.options.chart.animation,n.animation,l.animation)),g&&g.hide();else{if(a&&n){l=r.symbol||f.symbol;g&&g.currentSymbol!==l&&(g=g.destroy());if(g)g[c?"animate":"attr"]({x:z.x,y:z.y});else l&&(f.stateMarkerGraphic=g=u.renderer.symbol(l,z.x,z.y,z.width,z.height).add(f.markerGroup),g.currentSymbol=l);g&&g.attr(f.pointAttribs(this,a));}g&&(g[a&&u.isInsidePlot(d,e,u.inverted)?"show":"hide"](),g.element.point=this);}(d=k.halo)&&d.size?(v||(f.halo=v=u.renderer.path().add(A?f.markerGroup:f.group)),v[c?"animate":"attr"]({d:this.haloPath(d.size)}),v.attr({"class":"highcharts-halo highcharts-color-"+b(this.colorIndex,f.colorIndex)}),v.point=this,v.attr(t({fill:this.color||f.color,"fill-opacity":d.opacity,zIndex:-1},d.attributes))):v&&v.point&&v.point.haloPath&&v.animate({d:v.point.haloPath(0)});this.state=a;}},haloPath:function haloPath(a){return this.series.chart.renderer.symbols.circle(Math.floor(this.plotX)-a,this.plotY-a,2*a,2*a);}});t(d.prototype,{onMouseOver:function onMouseOver(){var a=this.chart,b=a.hoverSeries;if(b&&b!==this)b.onMouseOut();this.options.events.mouseOver&&l(this,"mouseOver");this.setState("hover");a.hoverSeries=this;},onMouseOut:function onMouseOut(){var a=this.options,b=this.chart,c=b.tooltip,d=b.hoverPoint;b.hoverSeries=null;if(d)d.onMouseOut();this&&a.events.mouseOut&&l(this,"mouseOut");!c||a.stickyTracking||c.shared&&!this.noSharedTooltip||c.hide();this.setState();},setState:function setState(a){var c=this,d=c.options,e=c.graph,h=d.states,k=d.lineWidth,d=0;a=a||"";if(c.state!==a&&(n([c.group,c.markerGroup,c.dataLabelsGroup],function(b){b&&(c.state&&b.removeClass("highcharts-series-"+c.state),a&&b.addClass("highcharts-series-"+a));}),c.state=a,!h[a]||!1!==h[a].enabled)&&(a&&(k=h[a].lineWidth||k+(h[a].lineWidthPlus||0)),e&&!e.dashstyle))for(k={"stroke-width":k},e.animate(k,b(c.chart.options.chart.animation,h[a]&&h[a].animation));c["zone-graph-"+d];){c["zone-graph-"+d].attr(k),d+=1;}},setVisible:function setVisible(a,b){var c=this,d=c.chart,e=c.legendItem,f,h=d.options.chart.ignoreHiddenSeries,k=c.visible;f=(c.visible=a=c.options.visible=c.userOptions.visible=void 0===a?!k:a)?"show":"hide";n(["group","dataLabelsGroup","markerGroup","tracker","tt"],function(a){if(c[a])c[a][f]();});if(d.hoverSeries===c||(d.hoverPoint&&d.hoverPoint.series)===c)c.onMouseOut();e&&d.legend.colorizeItem(c,a);c.isDirty=!0;c.options.stacking&&n(d.series,function(a){a.options.stacking&&a.visible&&(a.isDirty=!0);});n(c.linkedSeries,function(b){b.setVisible(a,!1);});h&&(d.isDirtyBox=!0);!1!==b&&d.redraw();l(c,f);},show:function show(){this.setVisible(!0);},hide:function hide(){this.setVisible(!1);},select:function select(a){this.selected=a=void 0===a?!this.selected:a;this.checkbox&&(this.checkbox.checked=a);l(this,a?"select":"unselect");},drawTracker:a.drawTrackerGraph});})(I);(function(a){var B=a.Chart,z=a.each,C=a.inArray,E=a.isArray,u=a.isObject,h=a.pick,n=a.splat;B.prototype.setResponsive=function(h){var l=this.options.responsive,k=[],e=this.currentResponsive;l&&l.rules&&z(l.rules,function(c){void 0===c._id&&(c._id=a.uniqueKey());this.matchResponsiveRule(c,k,h);},this);var c=a.merge.apply(0,a.map(k,function(c){return a.find(l.rules,function(a){return a._id===c;}).chartOptions;})),k=k.toString()||void 0;k!==(e&&e.ruleIds)&&(e&&this.update(e.undoOptions,h),k?(this.currentResponsive={ruleIds:k,mergedOptions:c,undoOptions:this.currentOptions(c)},this.update(c,h)):this.currentResponsive=void 0);};B.prototype.matchResponsiveRule=function(a,l){var k=a.condition;(k.callback||function(){return this.chartWidth<=h(k.maxWidth,Number.MAX_VALUE)&&this.chartHeight<=h(k.maxHeight,Number.MAX_VALUE)&&this.chartWidth>=h(k.minWidth,0)&&this.chartHeight>=h(k.minHeight,0);}).call(this)&&l.push(a._id);};B.prototype.currentOptions=function(a){function h(a,c,k,l){var b,e;for(b in a){if(!l&&-1<C(b,["series","xAxis","yAxis"]))for(a[b]=n(a[b]),k[b]=[],e=0;e<a[b].length;e++){c[b][e]&&(k[b][e]={},h(a[b][e],c[b][e],k[b][e],l+1));}else u(a[b])?(k[b]=E(a[b])?[]:{},h(a[b],c[b]||{},k[b],l+1)):k[b]=c[b]||null;}}var k={};h(a,this.options,k,0);return k;};})(I);return I;});
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(173)(module)))
+if (typeof window !== "undefined") {
+    module.exports = window;
+} else if (typeof global !== "undefined") {
+    module.exports = global;
+} else if (typeof self !== "undefined") {
+    module.exports = self;
+} else {
+    module.exports = {};
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
 
 /***/ }),
-/* 104 */
+/* 163 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getNative = __webpack_require__(19),
+    root = __webpack_require__(12);
+
+/* Built-in method references that are verified to be native. */
+var DataView = getNative(root, 'DataView');
+
+module.exports = DataView;
+
+/***/ }),
+/* 164 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var hashClear = __webpack_require__(204),
+    hashDelete = __webpack_require__(205),
+    hashGet = __webpack_require__(206),
+    hashHas = __webpack_require__(207),
+    hashSet = __webpack_require__(208);
+
+/**
+ * Creates a hash object.
+ *
+ * @private
+ * @constructor
+ * @param {Array} [entries] The key-value pairs to cache.
+ */
+function Hash(entries) {
+    var index = -1,
+        length = entries == null ? 0 : entries.length;
+
+    this.clear();
+    while (++index < length) {
+        var entry = entries[index];
+        this.set(entry[0], entry[1]);
+    }
+}
+
+// Add methods to `Hash`.
+Hash.prototype.clear = hashClear;
+Hash.prototype['delete'] = hashDelete;
+Hash.prototype.get = hashGet;
+Hash.prototype.has = hashHas;
+Hash.prototype.set = hashSet;
+
+module.exports = Hash;
+
+/***/ }),
+/* 165 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getNative = __webpack_require__(19),
+    root = __webpack_require__(12);
+
+/* Built-in method references that are verified to be native. */
+var Promise = getNative(root, 'Promise');
+
+module.exports = Promise;
+
+/***/ }),
+/* 166 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getNative = __webpack_require__(19),
+    root = __webpack_require__(12);
+
+/* Built-in method references that are verified to be native. */
+var Set = getNative(root, 'Set');
+
+module.exports = Set;
+
+/***/ }),
+/* 167 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root = __webpack_require__(12);
+
+/** Built-in value references. */
+var Uint8Array = root.Uint8Array;
+
+module.exports = Uint8Array;
+
+/***/ }),
+/* 168 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getNative = __webpack_require__(19),
+    root = __webpack_require__(12);
+
+/* Built-in method references that are verified to be native. */
+var WeakMap = getNative(root, 'WeakMap');
+
+module.exports = WeakMap;
+
+/***/ }),
+/* 169 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A faster alternative to `Function#apply`, this function invokes `func`
+ * with the `this` binding of `thisArg` and the arguments of `args`.
+ *
+ * @private
+ * @param {Function} func The function to invoke.
+ * @param {*} thisArg The `this` binding of `func`.
+ * @param {Array} args The arguments to invoke `func` with.
+ * @returns {*} Returns the result of `func`.
+ */
+function apply(func, thisArg, args) {
+  switch (args.length) {
+    case 0:
+      return func.call(thisArg);
+    case 1:
+      return func.call(thisArg, args[0]);
+    case 2:
+      return func.call(thisArg, args[0], args[1]);
+    case 3:
+      return func.call(thisArg, args[0], args[1], args[2]);
+  }
+  return func.apply(thisArg, args);
+}
+
+module.exports = apply;
+
+/***/ }),
+/* 170 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIndexOf = __webpack_require__(178);
+
+/**
+ * A specialized version of `_.includes` for arrays without support for
+ * specifying an index to search from.
+ *
+ * @private
+ * @param {Array} [array] The array to inspect.
+ * @param {*} target The value to search for.
+ * @returns {boolean} Returns `true` if `target` is found, else `false`.
+ */
+function arrayIncludes(array, value) {
+  var length = array == null ? 0 : array.length;
+  return !!length && baseIndexOf(array, value, 0) > -1;
+}
+
+module.exports = arrayIncludes;
+
+/***/ }),
+/* 171 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * This function is like `arrayIncludes` except that it accepts a comparator.
+ *
+ * @private
+ * @param {Array} [array] The array to inspect.
+ * @param {*} target The value to search for.
+ * @param {Function} comparator The comparator invoked per element.
+ * @returns {boolean} Returns `true` if `target` is found, else `false`.
+ */
+function arrayIncludesWith(array, value, comparator) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  while (++index < length) {
+    if (comparator(value, array[index])) {
+      return true;
+    }
+  }
+  return false;
+}
+
+module.exports = arrayIncludesWith;
+
+/***/ }),
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseTimes = __webpack_require__(191),
+    isArguments = __webpack_require__(59),
+    isArray = __webpack_require__(17),
+    isBuffer = __webpack_require__(108),
+    isIndex = __webpack_require__(57),
+    isTypedArray = __webpack_require__(110);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Creates an array of the enumerable property names of the array-like `value`.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @param {boolean} inherited Specify returning inherited property names.
+ * @returns {Array} Returns the array of property names.
+ */
+function arrayLikeKeys(value, inherited) {
+  var isArr = isArray(value),
+      isArg = !isArr && isArguments(value),
+      isBuff = !isArr && !isArg && isBuffer(value),
+      isType = !isArr && !isArg && !isBuff && isTypedArray(value),
+      skipIndexes = isArr || isArg || isBuff || isType,
+      result = skipIndexes ? baseTimes(value.length, String) : [],
+      length = result.length;
+
+  for (var key in value) {
+    if ((inherited || hasOwnProperty.call(value, key)) && !(skipIndexes && (
+    // Safari 9 has enumerable `arguments.length` in strict mode.
+    key == 'length' ||
+    // Node.js 0.10 has enumerable non-index properties on buffers.
+    isBuff && (key == 'offset' || key == 'parent') ||
+    // PhantomJS 2 has enumerable non-index properties on typed arrays.
+    isType && (key == 'buffer' || key == 'byteLength' || key == 'byteOffset') ||
+    // Skip index properties.
+    isIndex(key, length)))) {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = arrayLikeKeys;
+
+/***/ }),
+/* 173 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Appends the elements of `values` to `array`.
+ *
+ * @private
+ * @param {Array} array The array to modify.
+ * @param {Array} values The values to append.
+ * @returns {Array} Returns `array`.
+ */
+function arrayPush(array, values) {
+  var index = -1,
+      length = values.length,
+      offset = array.length;
+
+  while (++index < length) {
+    array[offset + index] = values[index];
+  }
+  return array;
+}
+
+module.exports = arrayPush;
+
+/***/ }),
+/* 174 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A specialized version of `_.some` for arrays without support for iteratee
+ * shorthands.
+ *
+ * @private
+ * @param {Array} [array] The array to iterate over.
+ * @param {Function} predicate The function invoked per iteration.
+ * @returns {boolean} Returns `true` if any element passes the predicate check,
+ *  else `false`.
+ */
+function arraySome(array, predicate) {
+  var index = -1,
+      length = array == null ? 0 : array.length;
+
+  while (++index < length) {
+    if (predicate(array[index], index, array)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+module.exports = arraySome;
+
+/***/ }),
+/* 175 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var SetCache = __webpack_require__(88),
+    arrayIncludes = __webpack_require__(170),
+    arrayIncludesWith = __webpack_require__(171),
+    arrayMap = __webpack_require__(90),
+    baseUnary = __webpack_require__(98),
+    cacheHas = __webpack_require__(99);
+
+/** Used as the size to enable large array optimizations. */
+var LARGE_ARRAY_SIZE = 200;
+
+/**
+ * The base implementation of methods like `_.difference` without support
+ * for excluding multiple arrays or iteratee shorthands.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {Array} values The values to exclude.
+ * @param {Function} [iteratee] The iteratee invoked per element.
+ * @param {Function} [comparator] The comparator invoked per element.
+ * @returns {Array} Returns the new array of filtered values.
+ */
+function baseDifference(array, values, iteratee, comparator) {
+  var index = -1,
+      includes = arrayIncludes,
+      isCommon = true,
+      length = array.length,
+      result = [],
+      valuesLength = values.length;
+
+  if (!length) {
+    return result;
+  }
+  if (iteratee) {
+    values = arrayMap(values, baseUnary(iteratee));
+  }
+  if (comparator) {
+    includes = arrayIncludesWith;
+    isCommon = false;
+  } else if (values.length >= LARGE_ARRAY_SIZE) {
+    includes = cacheHas;
+    isCommon = false;
+    values = new SetCache(values);
+  }
+  outer: while (++index < length) {
+    var value = array[index],
+        computed = iteratee == null ? value : iteratee(value);
+
+    value = comparator || value !== 0 ? value : 0;
+    if (isCommon && computed === computed) {
+      var valuesIndex = valuesLength;
+      while (valuesIndex--) {
+        if (values[valuesIndex] === computed) {
+          continue outer;
+        }
+      }
+      result.push(value);
+    } else if (!includes(values, computed, comparator)) {
+      result.push(value);
+    }
+  }
+  return result;
+}
+
+module.exports = baseDifference;
+
+/***/ }),
+/* 176 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var arrayPush = __webpack_require__(173),
+    isFlattenable = __webpack_require__(209);
+
+/**
+ * The base implementation of `_.flatten` with support for restricting flattening.
+ *
+ * @private
+ * @param {Array} array The array to flatten.
+ * @param {number} depth The maximum recursion depth.
+ * @param {boolean} [predicate=isFlattenable] The function invoked per iteration.
+ * @param {boolean} [isStrict] Restrict to values that pass `predicate` checks.
+ * @param {Array} [result=[]] The initial result value.
+ * @returns {Array} Returns the new flattened array.
+ */
+function baseFlatten(array, depth, predicate, isStrict, result) {
+  var index = -1,
+      length = array.length;
+
+  predicate || (predicate = isFlattenable);
+  result || (result = []);
+
+  while (++index < length) {
+    var value = array[index];
+    if (depth > 0 && predicate(value)) {
+      if (depth > 1) {
+        // Recursively flatten arrays (susceptible to call stack limits).
+        baseFlatten(value, depth - 1, predicate, isStrict, result);
+      } else {
+        arrayPush(result, value);
+      }
+    } else if (!isStrict) {
+      result[result.length] = value;
+    }
+  }
+  return result;
+}
+
+module.exports = baseFlatten;
+
+/***/ }),
+/* 177 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * The base implementation of `_.hasIn` without support for deep paths.
+ *
+ * @private
+ * @param {Object} [object] The object to query.
+ * @param {Array|string} key The key to check.
+ * @returns {boolean} Returns `true` if `key` exists, else `false`.
+ */
+function baseHasIn(object, key) {
+  return object != null && key in Object(object);
+}
+
+module.exports = baseHasIn;
+
+/***/ }),
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseFindIndex = __webpack_require__(93),
+    baseIsNaN = __webpack_require__(182),
+    strictIndexOf = __webpack_require__(239);
+
+/**
+ * The base implementation of `_.indexOf` without `fromIndex` bounds checks.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {*} value The value to search for.
+ * @param {number} fromIndex The index to search from.
+ * @returns {number} Returns the index of the matched value, else `-1`.
+ */
+function baseIndexOf(array, value, fromIndex) {
+    return value === value ? strictIndexOf(array, value, fromIndex) : baseFindIndex(array, baseIsNaN, fromIndex);
+}
+
+module.exports = baseIndexOf;
+
+/***/ }),
+/* 179 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGetTag = __webpack_require__(25),
+    isObjectLike = __webpack_require__(21);
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]';
+
+/**
+ * The base implementation of `_.isArguments`.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an `arguments` object,
+ */
+function baseIsArguments(value) {
+  return isObjectLike(value) && baseGetTag(value) == argsTag;
+}
+
+module.exports = baseIsArguments;
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Stack = __webpack_require__(89),
+    equalArrays = __webpack_require__(102),
+    equalByTag = __webpack_require__(197),
+    equalObjects = __webpack_require__(198),
+    getTag = __webpack_require__(201),
+    isArray = __webpack_require__(17),
+    isBuffer = __webpack_require__(108),
+    isTypedArray = __webpack_require__(110);
+
+/** Used to compose bitmasks for comparison styles. */
+var PARTIAL_COMPARE_FLAG = 2;
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    objectTag = '[object Object]';
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * A specialized version of `baseIsEqual` for arrays and objects which performs
+ * deep comparisons and tracks traversed objects enabling objects with circular
+ * references to be compared.
+ *
+ * @private
+ * @param {Object} object The object to compare.
+ * @param {Object} other The other object to compare.
+ * @param {Function} equalFunc The function to determine equivalents of values.
+ * @param {Function} [customizer] The function to customize comparisons.
+ * @param {number} [bitmask] The bitmask of comparison flags. See `baseIsEqual`
+ *  for more details.
+ * @param {Object} [stack] Tracks traversed `object` and `other` objects.
+ * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
+ */
+function baseIsEqualDeep(object, other, equalFunc, customizer, bitmask, stack) {
+  var objIsArr = isArray(object),
+      othIsArr = isArray(other),
+      objTag = arrayTag,
+      othTag = arrayTag;
+
+  if (!objIsArr) {
+    objTag = getTag(object);
+    objTag = objTag == argsTag ? objectTag : objTag;
+  }
+  if (!othIsArr) {
+    othTag = getTag(other);
+    othTag = othTag == argsTag ? objectTag : othTag;
+  }
+  var objIsObj = objTag == objectTag,
+      othIsObj = othTag == objectTag,
+      isSameTag = objTag == othTag;
+
+  if (isSameTag && isBuffer(object)) {
+    if (!isBuffer(other)) {
+      return false;
+    }
+    objIsArr = true;
+    objIsObj = false;
+  }
+  if (isSameTag && !objIsObj) {
+    stack || (stack = new Stack());
+    return objIsArr || isTypedArray(object) ? equalArrays(object, other, equalFunc, customizer, bitmask, stack) : equalByTag(object, other, objTag, equalFunc, customizer, bitmask, stack);
+  }
+  if (!(bitmask & PARTIAL_COMPARE_FLAG)) {
+    var objIsWrapped = objIsObj && hasOwnProperty.call(object, '__wrapped__'),
+        othIsWrapped = othIsObj && hasOwnProperty.call(other, '__wrapped__');
+
+    if (objIsWrapped || othIsWrapped) {
+      var objUnwrapped = objIsWrapped ? object.value() : object,
+          othUnwrapped = othIsWrapped ? other.value() : other;
+
+      stack || (stack = new Stack());
+      return equalFunc(objUnwrapped, othUnwrapped, customizer, bitmask, stack);
+    }
+  }
+  if (!isSameTag) {
+    return false;
+  }
+  stack || (stack = new Stack());
+  return equalObjects(object, other, equalFunc, customizer, bitmask, stack);
+}
+
+module.exports = baseIsEqualDeep;
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Stack = __webpack_require__(89),
+    baseIsEqual = __webpack_require__(95);
+
+/** Used to compose bitmasks for comparison styles. */
+var UNORDERED_COMPARE_FLAG = 1,
+    PARTIAL_COMPARE_FLAG = 2;
+
+/**
+ * The base implementation of `_.isMatch` without support for iteratee shorthands.
+ *
+ * @private
+ * @param {Object} object The object to inspect.
+ * @param {Object} source The object of property values to match.
+ * @param {Array} matchData The property names, values, and compare flags to match.
+ * @param {Function} [customizer] The function to customize comparisons.
+ * @returns {boolean} Returns `true` if `object` is a match, else `false`.
+ */
+function baseIsMatch(object, source, matchData, customizer) {
+  var index = matchData.length,
+      length = index,
+      noCustomizer = !customizer;
+
+  if (object == null) {
+    return !length;
+  }
+  object = Object(object);
+  while (index--) {
+    var data = matchData[index];
+    if (noCustomizer && data[2] ? data[1] !== object[data[0]] : !(data[0] in object)) {
+      return false;
+    }
+  }
+  while (++index < length) {
+    data = matchData[index];
+    var key = data[0],
+        objValue = object[key],
+        srcValue = data[1];
+
+    if (noCustomizer && data[2]) {
+      if (objValue === undefined && !(key in object)) {
+        return false;
+      }
+    } else {
+      var stack = new Stack();
+      if (customizer) {
+        var result = customizer(objValue, srcValue, key, object, source, stack);
+      }
+      if (!(result === undefined ? baseIsEqual(srcValue, objValue, customizer, UNORDERED_COMPARE_FLAG | PARTIAL_COMPARE_FLAG, stack) : result)) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+module.exports = baseIsMatch;
+
+/***/ }),
+/* 182 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * The base implementation of `_.isNaN` without support for number objects.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is `NaN`, else `false`.
+ */
+function baseIsNaN(value) {
+  return value !== value;
+}
+
+module.exports = baseIsNaN;
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isFunction = __webpack_require__(109),
+    isMasked = __webpack_require__(212),
+    isObject = __webpack_require__(22),
+    toSource = __webpack_require__(107);
+
+/**
+ * Used to match `RegExp`
+ * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
+ */
+var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
+
+/** Used to detect host constructors (Safari). */
+var reIsHostCtor = /^\[object .+?Constructor\]$/;
+
+/** Used for built-in method references. */
+var funcProto = Function.prototype,
+    objectProto = Object.prototype;
+
+/** Used to resolve the decompiled source of functions. */
+var funcToString = funcProto.toString;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/** Used to detect if a method is native. */
+var reIsNative = RegExp('^' + funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&').replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$');
+
+/**
+ * The base implementation of `_.isNative` without bad shim checks.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a native function,
+ *  else `false`.
+ */
+function baseIsNative(value) {
+  if (!isObject(value) || isMasked(value)) {
+    return false;
+  }
+  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
+  return pattern.test(toSource(value));
+}
+
+module.exports = baseIsNative;
+
+/***/ }),
+/* 184 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGetTag = __webpack_require__(25),
+    isLength = __webpack_require__(60),
+    isObjectLike = __webpack_require__(21);
+
+/** `Object#toString` result references. */
+var argsTag = '[object Arguments]',
+    arrayTag = '[object Array]',
+    boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    funcTag = '[object Function]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    objectTag = '[object Object]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    weakMapTag = '[object WeakMap]';
+
+var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]',
+    float32Tag = '[object Float32Array]',
+    float64Tag = '[object Float64Array]',
+    int8Tag = '[object Int8Array]',
+    int16Tag = '[object Int16Array]',
+    int32Tag = '[object Int32Array]',
+    uint8Tag = '[object Uint8Array]',
+    uint8ClampedTag = '[object Uint8ClampedArray]',
+    uint16Tag = '[object Uint16Array]',
+    uint32Tag = '[object Uint32Array]';
+
+/** Used to identify `toStringTag` values of typed arrays. */
+var typedArrayTags = {};
+typedArrayTags[float32Tag] = typedArrayTags[float64Tag] = typedArrayTags[int8Tag] = typedArrayTags[int16Tag] = typedArrayTags[int32Tag] = typedArrayTags[uint8Tag] = typedArrayTags[uint8ClampedTag] = typedArrayTags[uint16Tag] = typedArrayTags[uint32Tag] = true;
+typedArrayTags[argsTag] = typedArrayTags[arrayTag] = typedArrayTags[arrayBufferTag] = typedArrayTags[boolTag] = typedArrayTags[dataViewTag] = typedArrayTags[dateTag] = typedArrayTags[errorTag] = typedArrayTags[funcTag] = typedArrayTags[mapTag] = typedArrayTags[numberTag] = typedArrayTags[objectTag] = typedArrayTags[regexpTag] = typedArrayTags[setTag] = typedArrayTags[stringTag] = typedArrayTags[weakMapTag] = false;
+
+/**
+ * The base implementation of `_.isTypedArray` without Node.js optimizations.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is a typed array, else `false`.
+ */
+function baseIsTypedArray(value) {
+    return isObjectLike(value) && isLength(value.length) && !!typedArrayTags[baseGetTag(value)];
+}
+
+module.exports = baseIsTypedArray;
+
+/***/ }),
+/* 185 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isPrototype = __webpack_require__(104),
+    nativeKeys = __webpack_require__(225);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the array of property names.
+ */
+function baseKeys(object) {
+  if (!isPrototype(object)) {
+    return nativeKeys(object);
+  }
+  var result = [];
+  for (var key in Object(object)) {
+    if (hasOwnProperty.call(object, key) && key != 'constructor') {
+      result.push(key);
+    }
+  }
+  return result;
+}
+
+module.exports = baseKeys;
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIsMatch = __webpack_require__(181),
+    getMatchData = __webpack_require__(199),
+    matchesStrictComparable = __webpack_require__(106);
+
+/**
+ * The base implementation of `_.matches` which doesn't clone `source`.
+ *
+ * @private
+ * @param {Object} source The object of property values to match.
+ * @returns {Function} Returns the new spec function.
+ */
+function baseMatches(source) {
+  var matchData = getMatchData(source);
+  if (matchData.length == 1 && matchData[0][2]) {
+    return matchesStrictComparable(matchData[0][0], matchData[0][1]);
+  }
+  return function (object) {
+    return object === source || baseIsMatch(object, source, matchData);
+  };
+}
+
+module.exports = baseMatches;
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIsEqual = __webpack_require__(95),
+    get = __webpack_require__(246),
+    hasIn = __webpack_require__(247),
+    isKey = __webpack_require__(41),
+    isStrictComparable = __webpack_require__(105),
+    matchesStrictComparable = __webpack_require__(106),
+    toKey = __webpack_require__(43);
+
+/** Used to compose bitmasks for comparison styles. */
+var UNORDERED_COMPARE_FLAG = 1,
+    PARTIAL_COMPARE_FLAG = 2;
+
+/**
+ * The base implementation of `_.matchesProperty` which doesn't clone `srcValue`.
+ *
+ * @private
+ * @param {string} path The path of the property to get.
+ * @param {*} srcValue The value to match.
+ * @returns {Function} Returns the new spec function.
+ */
+function baseMatchesProperty(path, srcValue) {
+  if (isKey(path) && isStrictComparable(srcValue)) {
+    return matchesStrictComparable(toKey(path), srcValue);
+  }
+  return function (object) {
+    var objValue = get(object, path);
+    return objValue === undefined && objValue === srcValue ? hasIn(object, path) : baseIsEqual(srcValue, objValue, undefined, UNORDERED_COMPARE_FLAG | PARTIAL_COMPARE_FLAG);
+  };
+}
+
+module.exports = baseMatchesProperty;
+
+/***/ }),
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * The base implementation of `_.property` without support for deep paths.
+ *
+ * @private
+ * @param {string} key The key of the property to get.
+ * @returns {Function} Returns the new accessor function.
+ */
+function baseProperty(key) {
+  return function (object) {
+    return object == null ? undefined : object[key];
+  };
+}
+
+module.exports = baseProperty;
+
+/***/ }),
+/* 189 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGet = __webpack_require__(94);
+
+/**
+ * A specialized version of `baseProperty` which supports deep paths.
+ *
+ * @private
+ * @param {Array|string} path The path of the property to get.
+ * @returns {Function} Returns the new accessor function.
+ */
+function basePropertyDeep(path) {
+  return function (object) {
+    return baseGet(object, path);
+  };
+}
+
+module.exports = basePropertyDeep;
+
+/***/ }),
+/* 190 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var constant = __webpack_require__(242),
+    defineProperty = __webpack_require__(101),
+    identity = __webpack_require__(58);
+
+/**
+ * The base implementation of `setToString` without support for hot loop shorting.
+ *
+ * @private
+ * @param {Function} func The function to modify.
+ * @param {Function} string The `toString` result.
+ * @returns {Function} Returns `func`.
+ */
+var baseSetToString = !defineProperty ? identity : function (func, string) {
+  return defineProperty(func, 'toString', {
+    'configurable': true,
+    'enumerable': false,
+    'value': constant(string),
+    'writable': true
+  });
+};
+
+module.exports = baseSetToString;
+
+/***/ }),
+/* 191 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * The base implementation of `_.times` without support for iteratee shorthands
+ * or max array length checks.
+ *
+ * @private
+ * @param {number} n The number of times to invoke `iteratee`.
+ * @param {Function} iteratee The function invoked per iteration.
+ * @returns {Array} Returns the array of results.
+ */
+function baseTimes(n, iteratee) {
+  var index = -1,
+      result = Array(n);
+
+  while (++index < n) {
+    result[index] = iteratee(index);
+  }
+  return result;
+}
+
+module.exports = baseTimes;
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Symbol = __webpack_require__(28),
+    arrayMap = __webpack_require__(90),
+    isArray = __webpack_require__(17),
+    isSymbol = __webpack_require__(45);
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0;
+
+/** Used to convert symbols to primitives and strings. */
+var symbolProto = _Symbol ? _Symbol.prototype : undefined,
+    symbolToString = symbolProto ? symbolProto.toString : undefined;
+
+/**
+ * The base implementation of `_.toString` which doesn't convert nullish
+ * values to empty strings.
+ *
+ * @private
+ * @param {*} value The value to process.
+ * @returns {string} Returns the string.
+ */
+function baseToString(value) {
+  // Exit early for strings to avoid a performance hit in some environments.
+  if (typeof value == 'string') {
+    return value;
+  }
+  if (isArray(value)) {
+    // Recursively convert values (susceptible to call stack limits).
+    return arrayMap(value, baseToString) + '';
+  }
+  if (isSymbol(value)) {
+    return symbolToString ? symbolToString.call(value) : '';
+  }
+  var result = value + '';
+  return result == '0' && 1 / value == -INFINITY ? '-0' : result;
+}
+
+module.exports = baseToString;
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var assignValue = __webpack_require__(91),
+    baseAssignValue = __webpack_require__(92);
+
+/**
+ * Copies properties of `source` to `object`.
+ *
+ * @private
+ * @param {Object} source The object to copy properties from.
+ * @param {Array} props The property identifiers to copy.
+ * @param {Object} [object={}] The object to copy properties to.
+ * @param {Function} [customizer] The function to customize copied values.
+ * @returns {Object} Returns `object`.
+ */
+function copyObject(source, props, object, customizer) {
+  var isNew = !object;
+  object || (object = {});
+
+  var index = -1,
+      length = props.length;
+
+  while (++index < length) {
+    var key = props[index];
+
+    var newValue = customizer ? customizer(object[key], source[key], key, object, source) : undefined;
+
+    if (newValue === undefined) {
+      newValue = source[key];
+    }
+    if (isNew) {
+      baseAssignValue(object, key, newValue);
+    } else {
+      assignValue(object, key, newValue);
+    }
+  }
+  return object;
+}
+
+module.exports = copyObject;
+
+/***/ }),
+/* 194 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var root = __webpack_require__(12);
+
+/** Used to detect overreaching core-js shims. */
+var coreJsData = root['__core-js_shared__'];
+
+module.exports = coreJsData;
+
+/***/ }),
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseRest = __webpack_require__(97),
+    isIterateeCall = __webpack_require__(210);
+
+/**
+ * Creates a function like `_.assign`.
+ *
+ * @private
+ * @param {Function} assigner The function to assign values.
+ * @returns {Function} Returns the new assigner function.
+ */
+function createAssigner(assigner) {
+  return baseRest(function (object, sources) {
+    var index = -1,
+        length = sources.length,
+        customizer = length > 1 ? sources[length - 1] : undefined,
+        guard = length > 2 ? sources[2] : undefined;
+
+    customizer = assigner.length > 3 && typeof customizer == 'function' ? (length--, customizer) : undefined;
+
+    if (guard && isIterateeCall(sources[0], sources[1], guard)) {
+      customizer = length < 3 ? undefined : customizer;
+      length = 1;
+    }
+    object = Object(object);
+    while (++index < length) {
+      var source = sources[index];
+      if (source) {
+        assigner(object, source, index, customizer);
+      }
+    }
+    return object;
+  });
+}
+
+module.exports = createAssigner;
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseIteratee = __webpack_require__(96),
+    isArrayLike = __webpack_require__(29),
+    keys = __webpack_require__(46);
+
+/**
+ * Creates a `_.find` or `_.findLast` function.
+ *
+ * @private
+ * @param {Function} findIndexFunc The function to find the collection index.
+ * @returns {Function} Returns the new find function.
+ */
+function createFind(findIndexFunc) {
+  return function (collection, predicate, fromIndex) {
+    var iterable = Object(collection);
+    if (!isArrayLike(collection)) {
+      var iteratee = baseIteratee(predicate, 3);
+      collection = keys(collection);
+      predicate = function predicate(key) {
+        return iteratee(iterable[key], key, iterable);
+      };
+    }
+    var index = findIndexFunc(collection, predicate, fromIndex);
+    return index > -1 ? iterable[iteratee ? collection[index] : index] : undefined;
+  };
+}
+
+module.exports = createFind;
+
+/***/ }),
+/* 197 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Symbol = __webpack_require__(28),
+    Uint8Array = __webpack_require__(167),
+    eq = __webpack_require__(44),
+    equalArrays = __webpack_require__(102),
+    mapToArray = __webpack_require__(223),
+    setToArray = __webpack_require__(231);
+
+/** Used to compose bitmasks for comparison styles. */
+var UNORDERED_COMPARE_FLAG = 1,
+    PARTIAL_COMPARE_FLAG = 2;
+
+/** `Object#toString` result references. */
+var boolTag = '[object Boolean]',
+    dateTag = '[object Date]',
+    errorTag = '[object Error]',
+    mapTag = '[object Map]',
+    numberTag = '[object Number]',
+    regexpTag = '[object RegExp]',
+    setTag = '[object Set]',
+    stringTag = '[object String]',
+    symbolTag = '[object Symbol]';
+
+var arrayBufferTag = '[object ArrayBuffer]',
+    dataViewTag = '[object DataView]';
+
+/** Used to convert symbols to primitives and strings. */
+var symbolProto = _Symbol ? _Symbol.prototype : undefined,
+    symbolValueOf = symbolProto ? symbolProto.valueOf : undefined;
+
+/**
+ * A specialized version of `baseIsEqualDeep` for comparing objects of
+ * the same `toStringTag`.
+ *
+ * **Note:** This function only supports comparing values with tags of
+ * `Boolean`, `Date`, `Error`, `Number`, `RegExp`, or `String`.
+ *
+ * @private
+ * @param {Object} object The object to compare.
+ * @param {Object} other The other object to compare.
+ * @param {string} tag The `toStringTag` of the objects to compare.
+ * @param {Function} equalFunc The function to determine equivalents of values.
+ * @param {Function} customizer The function to customize comparisons.
+ * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
+ *  for more details.
+ * @param {Object} stack Tracks traversed `object` and `other` objects.
+ * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
+ */
+function equalByTag(object, other, tag, equalFunc, customizer, bitmask, stack) {
+  switch (tag) {
+    case dataViewTag:
+      if (object.byteLength != other.byteLength || object.byteOffset != other.byteOffset) {
+        return false;
+      }
+      object = object.buffer;
+      other = other.buffer;
+
+    case arrayBufferTag:
+      if (object.byteLength != other.byteLength || !equalFunc(new Uint8Array(object), new Uint8Array(other))) {
+        return false;
+      }
+      return true;
+
+    case boolTag:
+    case dateTag:
+    case numberTag:
+      // Coerce booleans to `1` or `0` and dates to milliseconds.
+      // Invalid dates are coerced to `NaN`.
+      return eq(+object, +other);
+
+    case errorTag:
+      return object.name == other.name && object.message == other.message;
+
+    case regexpTag:
+    case stringTag:
+      // Coerce regexes to strings and treat strings, primitives and objects,
+      // as equal. See http://www.ecma-international.org/ecma-262/7.0/#sec-regexp.prototype.tostring
+      // for more details.
+      return object == other + '';
+
+    case mapTag:
+      var convert = mapToArray;
+
+    case setTag:
+      var isPartial = bitmask & PARTIAL_COMPARE_FLAG;
+      convert || (convert = setToArray);
+
+      if (object.size != other.size && !isPartial) {
+        return false;
+      }
+      // Assume cyclic values are equal.
+      var stacked = stack.get(object);
+      if (stacked) {
+        return stacked == other;
+      }
+      bitmask |= UNORDERED_COMPARE_FLAG;
+
+      // Recursively compare objects (susceptible to call stack limits).
+      stack.set(object, other);
+      var result = equalArrays(convert(object), convert(other), equalFunc, customizer, bitmask, stack);
+      stack['delete'](object);
+      return result;
+
+    case symbolTag:
+      if (symbolValueOf) {
+        return symbolValueOf.call(object) == symbolValueOf.call(other);
+      }
+  }
+  return false;
+}
+
+module.exports = equalByTag;
+
+/***/ }),
+/* 198 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var keys = __webpack_require__(46);
+
+/** Used to compose bitmasks for comparison styles. */
+var PARTIAL_COMPARE_FLAG = 2;
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * A specialized version of `baseIsEqualDeep` for objects with support for
+ * partial deep comparisons.
+ *
+ * @private
+ * @param {Object} object The object to compare.
+ * @param {Object} other The other object to compare.
+ * @param {Function} equalFunc The function to determine equivalents of values.
+ * @param {Function} customizer The function to customize comparisons.
+ * @param {number} bitmask The bitmask of comparison flags. See `baseIsEqual`
+ *  for more details.
+ * @param {Object} stack Tracks traversed `object` and `other` objects.
+ * @returns {boolean} Returns `true` if the objects are equivalent, else `false`.
+ */
+function equalObjects(object, other, equalFunc, customizer, bitmask, stack) {
+  var isPartial = bitmask & PARTIAL_COMPARE_FLAG,
+      objProps = keys(object),
+      objLength = objProps.length,
+      othProps = keys(other),
+      othLength = othProps.length;
+
+  if (objLength != othLength && !isPartial) {
+    return false;
+  }
+  var index = objLength;
+  while (index--) {
+    var key = objProps[index];
+    if (!(isPartial ? key in other : hasOwnProperty.call(other, key))) {
+      return false;
+    }
+  }
+  // Assume cyclic values are equal.
+  var stacked = stack.get(object);
+  if (stacked && stack.get(other)) {
+    return stacked == other;
+  }
+  var result = true;
+  stack.set(object, other);
+  stack.set(other, object);
+
+  var skipCtor = isPartial;
+  while (++index < objLength) {
+    key = objProps[index];
+    var objValue = object[key],
+        othValue = other[key];
+
+    if (customizer) {
+      var compared = isPartial ? customizer(othValue, objValue, key, other, object, stack) : customizer(objValue, othValue, key, object, other, stack);
+    }
+    // Recursively compare objects (susceptible to call stack limits).
+    if (!(compared === undefined ? objValue === othValue || equalFunc(objValue, othValue, customizer, bitmask, stack) : compared)) {
+      result = false;
+      break;
+    }
+    skipCtor || (skipCtor = key == 'constructor');
+  }
+  if (result && !skipCtor) {
+    var objCtor = object.constructor,
+        othCtor = other.constructor;
+
+    // Non `Object` object instances with different constructors are not equal.
+    if (objCtor != othCtor && 'constructor' in object && 'constructor' in other && !(typeof objCtor == 'function' && objCtor instanceof objCtor && typeof othCtor == 'function' && othCtor instanceof othCtor)) {
+      result = false;
+    }
+  }
+  stack['delete'](object);
+  stack['delete'](other);
+  return result;
+}
+
+module.exports = equalObjects;
+
+/***/ }),
+/* 199 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isStrictComparable = __webpack_require__(105),
+    keys = __webpack_require__(46);
+
+/**
+ * Gets the property names, values, and compare flags of `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @returns {Array} Returns the match data of `object`.
+ */
+function getMatchData(object) {
+    var result = keys(object),
+        length = result.length;
+
+    while (length--) {
+        var key = result[length],
+            value = object[key];
+
+        result[length] = [key, value, isStrictComparable(value)];
+    }
+    return result;
+}
+
+module.exports = getMatchData;
+
+/***/ }),
+/* 200 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Symbol = __webpack_require__(28);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag = _Symbol ? _Symbol.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag),
+      tag = value[symToStringTag];
+
+  try {
+    value[symToStringTag] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag] = tag;
+    } else {
+      delete value[symToStringTag];
+    }
+  }
+  return result;
+}
+
+module.exports = getRawTag;
+
+/***/ }),
+/* 201 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var DataView = __webpack_require__(163),
+    Map = __webpack_require__(55),
+    Promise = __webpack_require__(165),
+    Set = __webpack_require__(166),
+    WeakMap = __webpack_require__(168),
+    baseGetTag = __webpack_require__(25),
+    toSource = __webpack_require__(107);
+
+/** `Object#toString` result references. */
+var mapTag = '[object Map]',
+    objectTag = '[object Object]',
+    promiseTag = '[object Promise]',
+    setTag = '[object Set]',
+    weakMapTag = '[object WeakMap]';
+
+var dataViewTag = '[object DataView]';
+
+/** Used to detect maps, sets, and weakmaps. */
+var dataViewCtorString = toSource(DataView),
+    mapCtorString = toSource(Map),
+    promiseCtorString = toSource(Promise),
+    setCtorString = toSource(Set),
+    weakMapCtorString = toSource(WeakMap);
+
+/**
+ * Gets the `toStringTag` of `value`.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+var getTag = baseGetTag;
+
+// Fallback for data views, maps, sets, and weak maps in IE 11 and promises in Node.js < 6.
+if (DataView && getTag(new DataView(new ArrayBuffer(1))) != dataViewTag || Map && getTag(new Map()) != mapTag || Promise && getTag(Promise.resolve()) != promiseTag || Set && getTag(new Set()) != setTag || WeakMap && getTag(new WeakMap()) != weakMapTag) {
+    getTag = function getTag(value) {
+        var result = baseGetTag(value),
+            Ctor = result == objectTag ? value.constructor : undefined,
+            ctorString = Ctor ? toSource(Ctor) : '';
+
+        if (ctorString) {
+            switch (ctorString) {
+                case dataViewCtorString:
+                    return dataViewTag;
+                case mapCtorString:
+                    return mapTag;
+                case promiseCtorString:
+                    return promiseTag;
+                case setCtorString:
+                    return setTag;
+                case weakMapCtorString:
+                    return weakMapTag;
+            }
+        }
+        return result;
+    };
+}
+
+module.exports = getTag;
+
+/***/ }),
+/* 202 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Gets the value at `key` of `object`.
+ *
+ * @private
+ * @param {Object} [object] The object to query.
+ * @param {string} key The key of the property to get.
+ * @returns {*} Returns the property value.
+ */
+function getValue(object, key) {
+  return object == null ? undefined : object[key];
+}
+
+module.exports = getValue;
+
+/***/ }),
+/* 203 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var castPath = __webpack_require__(100),
+    isArguments = __webpack_require__(59),
+    isArray = __webpack_require__(17),
+    isIndex = __webpack_require__(57),
+    isKey = __webpack_require__(41),
+    isLength = __webpack_require__(60),
+    toKey = __webpack_require__(43);
+
+/**
+ * Checks if `path` exists on `object`.
+ *
+ * @private
+ * @param {Object} object The object to query.
+ * @param {Array|string} path The path to check.
+ * @param {Function} hasFunc The function to check properties.
+ * @returns {boolean} Returns `true` if `path` exists, else `false`.
+ */
+function hasPath(object, path, hasFunc) {
+  path = isKey(path, object) ? [path] : castPath(path);
+
+  var index = -1,
+      length = path.length,
+      result = false;
+
+  while (++index < length) {
+    var key = toKey(path[index]);
+    if (!(result = object != null && hasFunc(object, key))) {
+      break;
+    }
+    object = object[key];
+  }
+  if (result || ++index != length) {
+    return result;
+  }
+  length = object == null ? 0 : object.length;
+  return !!length && isLength(length) && isIndex(key, length) && (isArray(object) || isArguments(object));
+}
+
+module.exports = hasPath;
+
+/***/ }),
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var nativeCreate = __webpack_require__(42);
+
+/**
+ * Removes all key-value entries from the hash.
+ *
+ * @private
+ * @name clear
+ * @memberOf Hash
+ */
+function hashClear() {
+  this.__data__ = nativeCreate ? nativeCreate(null) : {};
+  this.size = 0;
+}
+
+module.exports = hashClear;
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Removes `key` and its value from the hash.
+ *
+ * @private
+ * @name delete
+ * @memberOf Hash
+ * @param {Object} hash The hash to modify.
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function hashDelete(key) {
+  var result = this.has(key) && delete this.__data__[key];
+  this.size -= result ? 1 : 0;
+  return result;
+}
+
+module.exports = hashDelete;
+
+/***/ }),
+/* 206 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var nativeCreate = __webpack_require__(42);
+
+/** Used to stand-in for `undefined` hash values. */
+var HASH_UNDEFINED = '__lodash_hash_undefined__';
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Gets the hash value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf Hash
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function hashGet(key) {
+  var data = this.__data__;
+  if (nativeCreate) {
+    var result = data[key];
+    return result === HASH_UNDEFINED ? undefined : result;
+  }
+  return hasOwnProperty.call(data, key) ? data[key] : undefined;
+}
+
+module.exports = hashGet;
+
+/***/ }),
+/* 207 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var nativeCreate = __webpack_require__(42);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Checks if a hash value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf Hash
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function hashHas(key) {
+  var data = this.__data__;
+  return nativeCreate ? data[key] !== undefined : hasOwnProperty.call(data, key);
+}
+
+module.exports = hashHas;
+
+/***/ }),
+/* 208 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var nativeCreate = __webpack_require__(42);
+
+/** Used to stand-in for `undefined` hash values. */
+var HASH_UNDEFINED = '__lodash_hash_undefined__';
+
+/**
+ * Sets the hash `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf Hash
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the hash instance.
+ */
+function hashSet(key, value) {
+  var data = this.__data__;
+  this.size += this.has(key) ? 0 : 1;
+  data[key] = nativeCreate && value === undefined ? HASH_UNDEFINED : value;
+  return this;
+}
+
+module.exports = hashSet;
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _Symbol = __webpack_require__(28),
+    isArguments = __webpack_require__(59),
+    isArray = __webpack_require__(17);
+
+/** Built-in value references. */
+var spreadableSymbol = _Symbol ? _Symbol.isConcatSpreadable : undefined;
+
+/**
+ * Checks if `value` is a flattenable `arguments` object or array.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is flattenable, else `false`.
+ */
+function isFlattenable(value) {
+    return isArray(value) || isArguments(value) || !!(spreadableSymbol && value && value[spreadableSymbol]);
+}
+
+module.exports = isFlattenable;
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var eq = __webpack_require__(44),
+    isArrayLike = __webpack_require__(29),
+    isIndex = __webpack_require__(57),
+    isObject = __webpack_require__(22);
+
+/**
+ * Checks if the given arguments are from an iteratee call.
+ *
+ * @private
+ * @param {*} value The potential iteratee value argument.
+ * @param {*} index The potential iteratee index or key argument.
+ * @param {*} object The potential iteratee object argument.
+ * @returns {boolean} Returns `true` if the arguments are from an iteratee call,
+ *  else `false`.
+ */
+function isIterateeCall(value, index, object) {
+  if (!isObject(object)) {
+    return false;
+  }
+  var type = typeof index === 'undefined' ? 'undefined' : _typeof(index);
+  if (type == 'number' ? isArrayLike(object) && isIndex(index, object.length) : type == 'string' && index in object) {
+    return eq(object[index], value);
+  }
+  return false;
+}
+
+module.exports = isIterateeCall;
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+/**
+ * Checks if `value` is suitable for use as unique object key.
+ *
+ * @private
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is suitable, else `false`.
+ */
+function isKeyable(value) {
+  var type = typeof value === 'undefined' ? 'undefined' : _typeof(value);
+  return type == 'string' || type == 'number' || type == 'symbol' || type == 'boolean' ? value !== '__proto__' : value === null;
+}
+
+module.exports = isKeyable;
+
+/***/ }),
+/* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var coreJsData = __webpack_require__(194);
+
+/** Used to detect methods masquerading as native. */
+var maskSrcKey = function () {
+  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
+  return uid ? 'Symbol(src)_1.' + uid : '';
+}();
+
+/**
+ * Checks if `func` has its source masked.
+ *
+ * @private
+ * @param {Function} func The function to check.
+ * @returns {boolean} Returns `true` if `func` is masked, else `false`.
+ */
+function isMasked(func) {
+  return !!maskSrcKey && maskSrcKey in func;
+}
+
+module.exports = isMasked;
+
+/***/ }),
+/* 213 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Removes all key-value entries from the list cache.
+ *
+ * @private
+ * @name clear
+ * @memberOf ListCache
+ */
+function listCacheClear() {
+  this.__data__ = [];
+  this.size = 0;
+}
+
+module.exports = listCacheClear;
+
+/***/ }),
+/* 214 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var assocIndexOf = __webpack_require__(39);
+
+/** Used for built-in method references. */
+var arrayProto = Array.prototype;
+
+/** Built-in value references. */
+var splice = arrayProto.splice;
+
+/**
+ * Removes `key` and its value from the list cache.
+ *
+ * @private
+ * @name delete
+ * @memberOf ListCache
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function listCacheDelete(key) {
+  var data = this.__data__,
+      index = assocIndexOf(data, key);
+
+  if (index < 0) {
+    return false;
+  }
+  var lastIndex = data.length - 1;
+  if (index == lastIndex) {
+    data.pop();
+  } else {
+    splice.call(data, index, 1);
+  }
+  --this.size;
+  return true;
+}
+
+module.exports = listCacheDelete;
+
+/***/ }),
+/* 215 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var assocIndexOf = __webpack_require__(39);
+
+/**
+ * Gets the list cache value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf ListCache
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function listCacheGet(key) {
+  var data = this.__data__,
+      index = assocIndexOf(data, key);
+
+  return index < 0 ? undefined : data[index][1];
+}
+
+module.exports = listCacheGet;
+
+/***/ }),
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var assocIndexOf = __webpack_require__(39);
+
+/**
+ * Checks if a list cache value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf ListCache
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function listCacheHas(key) {
+  return assocIndexOf(this.__data__, key) > -1;
+}
+
+module.exports = listCacheHas;
+
+/***/ }),
+/* 217 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var assocIndexOf = __webpack_require__(39);
+
+/**
+ * Sets the list cache `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf ListCache
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the list cache instance.
+ */
+function listCacheSet(key, value) {
+  var data = this.__data__,
+      index = assocIndexOf(data, key);
+
+  if (index < 0) {
+    ++this.size;
+    data.push([key, value]);
+  } else {
+    data[index][1] = value;
+  }
+  return this;
+}
+
+module.exports = listCacheSet;
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var Hash = __webpack_require__(164),
+    ListCache = __webpack_require__(38),
+    Map = __webpack_require__(55);
+
+/**
+ * Removes all key-value entries from the map.
+ *
+ * @private
+ * @name clear
+ * @memberOf MapCache
+ */
+function mapCacheClear() {
+  this.size = 0;
+  this.__data__ = {
+    'hash': new Hash(),
+    'map': new (Map || ListCache)(),
+    'string': new Hash()
+  };
+}
+
+module.exports = mapCacheClear;
+
+/***/ }),
+/* 219 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getMapData = __webpack_require__(40);
+
+/**
+ * Removes `key` and its value from the map.
+ *
+ * @private
+ * @name delete
+ * @memberOf MapCache
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function mapCacheDelete(key) {
+  var result = getMapData(this, key)['delete'](key);
+  this.size -= result ? 1 : 0;
+  return result;
+}
+
+module.exports = mapCacheDelete;
+
+/***/ }),
+/* 220 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getMapData = __webpack_require__(40);
+
+/**
+ * Gets the map value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf MapCache
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function mapCacheGet(key) {
+  return getMapData(this, key).get(key);
+}
+
+module.exports = mapCacheGet;
+
+/***/ }),
+/* 221 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getMapData = __webpack_require__(40);
+
+/**
+ * Checks if a map value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf MapCache
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function mapCacheHas(key) {
+  return getMapData(this, key).has(key);
+}
+
+module.exports = mapCacheHas;
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var getMapData = __webpack_require__(40);
+
+/**
+ * Sets the map `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf MapCache
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the map cache instance.
+ */
+function mapCacheSet(key, value) {
+  var data = getMapData(this, key),
+      size = data.size;
+
+  data.set(key, value);
+  this.size += data.size == size ? 0 : 1;
+  return this;
+}
+
+module.exports = mapCacheSet;
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Converts `map` to its key-value pairs.
+ *
+ * @private
+ * @param {Object} map The map to convert.
+ * @returns {Array} Returns the key-value pairs.
+ */
+function mapToArray(map) {
+  var index = -1,
+      result = Array(map.size);
+
+  map.forEach(function (value, key) {
+    result[++index] = [key, value];
+  });
+  return result;
+}
+
+module.exports = mapToArray;
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var memoize = __webpack_require__(249);
+
+/** Used as the maximum memoize cache size. */
+var MAX_MEMOIZE_SIZE = 500;
+
+/**
+ * A specialized version of `_.memoize` which clears the memoized function's
+ * cache when it exceeds `MAX_MEMOIZE_SIZE`.
+ *
+ * @private
+ * @param {Function} func The function to have its output memoized.
+ * @returns {Function} Returns the new memoized function.
+ */
+function memoizeCapped(func) {
+  var result = memoize(func, function (key) {
+    if (cache.size === MAX_MEMOIZE_SIZE) {
+      cache.clear();
+    }
+    return key;
+  });
+
+  var cache = result.cache;
+  return result;
+}
+
+module.exports = memoizeCapped;
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var overArg = __webpack_require__(140);
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeKeys = overArg(Object.keys, Object);
+
+module.exports = nativeKeys;
+
+/***/ }),
+/* 226 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var freeGlobal = __webpack_require__(103);
+
+/** Detect free variable `exports`. */
+var freeExports = ( false ? 'undefined' : _typeof(exports)) == 'object' && exports && !exports.nodeType && exports;
+
+/** Detect free variable `module`. */
+var freeModule = freeExports && ( false ? 'undefined' : _typeof(module)) == 'object' && module && !module.nodeType && module;
+
+/** Detect the popular CommonJS extension `module.exports`. */
+var moduleExports = freeModule && freeModule.exports === freeExports;
+
+/** Detect free variable `process` from Node.js. */
+var freeProcess = moduleExports && freeGlobal.process;
+
+/** Used to access faster Node.js helpers. */
+var nodeUtil = function () {
+  try {
+    return freeProcess && freeProcess.binding('util');
+  } catch (e) {}
+}();
+
+module.exports = nodeUtil;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)(module)))
+
+/***/ }),
+/* 227 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString.call(value);
+}
+
+module.exports = objectToString;
+
+/***/ }),
+/* 228 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var apply = __webpack_require__(169);
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max;
+
+/**
+ * A specialized version of `baseRest` which transforms the rest array.
+ *
+ * @private
+ * @param {Function} func The function to apply a rest parameter to.
+ * @param {number} [start=func.length-1] The start position of the rest parameter.
+ * @param {Function} transform The rest array transform.
+ * @returns {Function} Returns the new function.
+ */
+function overRest(func, start, transform) {
+  start = nativeMax(start === undefined ? func.length - 1 : start, 0);
+  return function () {
+    var args = arguments,
+        index = -1,
+        length = nativeMax(args.length - start, 0),
+        array = Array(length);
+
+    while (++index < length) {
+      array[index] = args[start + index];
+    }
+    index = -1;
+    var otherArgs = Array(start + 1);
+    while (++index < start) {
+      otherArgs[index] = args[index];
+    }
+    otherArgs[start] = transform(array);
+    return apply(func, this, otherArgs);
+  };
+}
+
+module.exports = overRest;
+
+/***/ }),
+/* 229 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used to stand-in for `undefined` hash values. */
+var HASH_UNDEFINED = '__lodash_hash_undefined__';
+
+/**
+ * Adds `value` to the array cache.
+ *
+ * @private
+ * @name add
+ * @memberOf SetCache
+ * @alias push
+ * @param {*} value The value to cache.
+ * @returns {Object} Returns the cache instance.
+ */
+function setCacheAdd(value) {
+  this.__data__.set(value, HASH_UNDEFINED);
+  return this;
+}
+
+module.exports = setCacheAdd;
+
+/***/ }),
+/* 230 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Checks if `value` is in the array cache.
+ *
+ * @private
+ * @name has
+ * @memberOf SetCache
+ * @param {*} value The value to search for.
+ * @returns {number} Returns `true` if `value` is found, else `false`.
+ */
+function setCacheHas(value) {
+  return this.__data__.has(value);
+}
+
+module.exports = setCacheHas;
+
+/***/ }),
+/* 231 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Converts `set` to an array of its values.
+ *
+ * @private
+ * @param {Object} set The set to convert.
+ * @returns {Array} Returns the values.
+ */
+function setToArray(set) {
+  var index = -1,
+      result = Array(set.size);
+
+  set.forEach(function (value) {
+    result[++index] = value;
+  });
+  return result;
+}
+
+module.exports = setToArray;
+
+/***/ }),
+/* 232 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseSetToString = __webpack_require__(190),
+    shortOut = __webpack_require__(233);
+
+/**
+ * Sets the `toString` method of `func` to return `string`.
+ *
+ * @private
+ * @param {Function} func The function to modify.
+ * @param {Function} string The `toString` result.
+ * @returns {Function} Returns `func`.
+ */
+var setToString = shortOut(baseSetToString);
+
+module.exports = setToString;
+
+/***/ }),
+/* 233 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/** Used to detect hot functions by number of calls within a span of milliseconds. */
+var HOT_COUNT = 800,
+    HOT_SPAN = 16;
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeNow = Date.now;
+
+/**
+ * Creates a function that'll short out and invoke `identity` instead
+ * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
+ * milliseconds.
+ *
+ * @private
+ * @param {Function} func The function to restrict.
+ * @returns {Function} Returns the new shortable function.
+ */
+function shortOut(func) {
+  var count = 0,
+      lastCalled = 0;
+
+  return function () {
+    var stamp = nativeNow(),
+        remaining = HOT_SPAN - (stamp - lastCalled);
+
+    lastCalled = stamp;
+    if (remaining > 0) {
+      if (++count >= HOT_COUNT) {
+        return arguments[0];
+      }
+    } else {
+      count = 0;
+    }
+    return func.apply(undefined, arguments);
+  };
+}
+
+module.exports = shortOut;
+
+/***/ }),
+/* 234 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ListCache = __webpack_require__(38);
+
+/**
+ * Removes all key-value entries from the stack.
+ *
+ * @private
+ * @name clear
+ * @memberOf Stack
+ */
+function stackClear() {
+  this.__data__ = new ListCache();
+  this.size = 0;
+}
+
+module.exports = stackClear;
+
+/***/ }),
+/* 235 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Removes `key` and its value from the stack.
+ *
+ * @private
+ * @name delete
+ * @memberOf Stack
+ * @param {string} key The key of the value to remove.
+ * @returns {boolean} Returns `true` if the entry was removed, else `false`.
+ */
+function stackDelete(key) {
+  var data = this.__data__,
+      result = data['delete'](key);
+
+  this.size = data.size;
+  return result;
+}
+
+module.exports = stackDelete;
+
+/***/ }),
+/* 236 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Gets the stack value for `key`.
+ *
+ * @private
+ * @name get
+ * @memberOf Stack
+ * @param {string} key The key of the value to get.
+ * @returns {*} Returns the entry value.
+ */
+function stackGet(key) {
+  return this.__data__.get(key);
+}
+
+module.exports = stackGet;
+
+/***/ }),
+/* 237 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Checks if a stack value for `key` exists.
+ *
+ * @private
+ * @name has
+ * @memberOf Stack
+ * @param {string} key The key of the entry to check.
+ * @returns {boolean} Returns `true` if an entry for `key` exists, else `false`.
+ */
+function stackHas(key) {
+  return this.__data__.has(key);
+}
+
+module.exports = stackHas;
+
+/***/ }),
+/* 238 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var ListCache = __webpack_require__(38),
+    Map = __webpack_require__(55),
+    MapCache = __webpack_require__(56);
+
+/** Used as the size to enable large array optimizations. */
+var LARGE_ARRAY_SIZE = 200;
+
+/**
+ * Sets the stack `key` to `value`.
+ *
+ * @private
+ * @name set
+ * @memberOf Stack
+ * @param {string} key The key of the value to set.
+ * @param {*} value The value to set.
+ * @returns {Object} Returns the stack cache instance.
+ */
+function stackSet(key, value) {
+  var data = this.__data__;
+  if (data instanceof ListCache) {
+    var pairs = data.__data__;
+    if (!Map || pairs.length < LARGE_ARRAY_SIZE - 1) {
+      pairs.push([key, value]);
+      this.size = ++data.size;
+      return this;
+    }
+    data = this.__data__ = new MapCache(pairs);
+  }
+  data.set(key, value);
+  this.size = data.size;
+  return this;
+}
+
+module.exports = stackSet;
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * A specialized version of `_.indexOf` which performs strict equality
+ * comparisons of values, i.e. `===`.
+ *
+ * @private
+ * @param {Array} array The array to inspect.
+ * @param {*} value The value to search for.
+ * @param {number} fromIndex The index to search from.
+ * @returns {number} Returns the index of the matched value, else `-1`.
+ */
+function strictIndexOf(array, value, fromIndex) {
+  var index = fromIndex - 1,
+      length = array.length;
+
+  while (++index < length) {
+    if (array[index] === value) {
+      return index;
+    }
+  }
+  return -1;
+}
+
+module.exports = strictIndexOf;
+
+/***/ }),
+/* 240 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var memoizeCapped = __webpack_require__(224),
+    toString = __webpack_require__(255);
+
+/** Used to match property names within property paths. */
+var reLeadingDot = /^\./,
+    rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|$))/g;
+
+/** Used to match backslashes in property paths. */
+var reEscapeChar = /\\(\\)?/g;
+
+/**
+ * Converts `string` to a property path array.
+ *
+ * @private
+ * @param {string} string The string to convert.
+ * @returns {Array} Returns the property path array.
+ */
+var stringToPath = memoizeCapped(function (string) {
+  string = toString(string);
+
+  var result = [];
+  if (reLeadingDot.test(string)) {
+    result.push('');
+  }
+  string.replace(rePropName, function (match, number, quote, string) {
+    result.push(quote ? string.replace(reEscapeChar, '$1') : number || match);
+  });
+  return result;
+});
+
+module.exports = stringToPath;
+
+/***/ }),
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var assignValue = __webpack_require__(91),
+    copyObject = __webpack_require__(193),
+    createAssigner = __webpack_require__(195),
+    isArrayLike = __webpack_require__(29),
+    isPrototype = __webpack_require__(104),
+    keys = __webpack_require__(46);
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Assigns own enumerable string keyed properties of source objects to the
+ * destination object. Source objects are applied from left to right.
+ * Subsequent sources overwrite property assignments of previous sources.
+ *
+ * **Note:** This method mutates `object` and is loosely based on
+ * [`Object.assign`](https://mdn.io/Object/assign).
+ *
+ * @static
+ * @memberOf _
+ * @since 0.10.0
+ * @category Object
+ * @param {Object} object The destination object.
+ * @param {...Object} [sources] The source objects.
+ * @returns {Object} Returns `object`.
+ * @see _.assignIn
+ * @example
+ *
+ * function Foo() {
+ *   this.a = 1;
+ * }
+ *
+ * function Bar() {
+ *   this.c = 3;
+ * }
+ *
+ * Foo.prototype.b = 2;
+ * Bar.prototype.d = 4;
+ *
+ * _.assign({ 'a': 0 }, new Foo, new Bar);
+ * // => { 'a': 1, 'c': 3 }
+ */
+var assign = createAssigner(function (object, source) {
+  if (isPrototype(source) || isArrayLike(source)) {
+    copyObject(source, keys(source), object);
+    return;
+  }
+  for (var key in source) {
+    if (hasOwnProperty.call(source, key)) {
+      assignValue(object, key, source[key]);
+    }
+  }
+});
+
+module.exports = assign;
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Creates a function that returns `value`.
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Util
+ * @param {*} value The value to return from the new function.
+ * @returns {Function} Returns the new constant function.
+ * @example
+ *
+ * var objects = _.times(2, _.constant({ 'a': 1 }));
+ *
+ * console.log(objects);
+ * // => [{ 'a': 1 }, { 'a': 1 }]
+ *
+ * console.log(objects[0] === objects[1]);
+ * // => true
+ */
+function constant(value) {
+  return function () {
+    return value;
+  };
+}
+
+module.exports = constant;
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseDifference = __webpack_require__(175),
+    baseFlatten = __webpack_require__(176),
+    baseRest = __webpack_require__(97),
+    isArrayLikeObject = __webpack_require__(248);
+
+/**
+ * Creates an array of `array` values not included in the other given arrays
+ * using [`SameValueZero`](http://ecma-international.org/ecma-262/7.0/#sec-samevaluezero)
+ * for equality comparisons. The order and references of result values are
+ * determined by the first array.
+ *
+ * **Note:** Unlike `_.pullAll`, this method returns a new array.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Array
+ * @param {Array} array The array to inspect.
+ * @param {...Array} [values] The values to exclude.
+ * @returns {Array} Returns the new array of filtered values.
+ * @see _.without, _.xor
+ * @example
+ *
+ * _.difference([2, 1], [2, 3]);
+ * // => [1]
+ */
+var difference = baseRest(function (array, values) {
+    return isArrayLikeObject(array) ? baseDifference(array, baseFlatten(values, 1, isArrayLikeObject, true)) : [];
+});
+
+module.exports = difference;
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var createFind = __webpack_require__(196),
+    findIndex = __webpack_require__(245);
+
+/**
+ * Iterates over elements of `collection`, returning the first element
+ * `predicate` returns truthy for. The predicate is invoked with three
+ * arguments: (value, index|key, collection).
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Collection
+ * @param {Array|Object} collection The collection to inspect.
+ * @param {Function} [predicate=_.identity] The function invoked per iteration.
+ * @param {number} [fromIndex=0] The index to search from.
+ * @returns {*} Returns the matched element, else `undefined`.
+ * @example
+ *
+ * var users = [
+ *   { 'user': 'barney',  'age': 36, 'active': true },
+ *   { 'user': 'fred',    'age': 40, 'active': false },
+ *   { 'user': 'pebbles', 'age': 1,  'active': true }
+ * ];
+ *
+ * _.find(users, function(o) { return o.age < 40; });
+ * // => object for 'barney'
+ *
+ * // The `_.matches` iteratee shorthand.
+ * _.find(users, { 'age': 1, 'active': true });
+ * // => object for 'pebbles'
+ *
+ * // The `_.matchesProperty` iteratee shorthand.
+ * _.find(users, ['active', false]);
+ * // => object for 'fred'
+ *
+ * // The `_.property` iteratee shorthand.
+ * _.find(users, 'active');
+ * // => object for 'barney'
+ */
+var find = createFind(findIndex);
+
+module.exports = find;
+
+/***/ }),
+/* 245 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseFindIndex = __webpack_require__(93),
+    baseIteratee = __webpack_require__(96),
+    toInteger = __webpack_require__(253);
+
+/* Built-in method references for those with the same name as other `lodash` methods. */
+var nativeMax = Math.max;
+
+/**
+ * This method is like `_.find` except that it returns the index of the first
+ * element `predicate` returns truthy for instead of the element itself.
+ *
+ * @static
+ * @memberOf _
+ * @since 1.1.0
+ * @category Array
+ * @param {Array} array The array to inspect.
+ * @param {Function} [predicate=_.identity] The function invoked per iteration.
+ * @param {number} [fromIndex=0] The index to search from.
+ * @returns {number} Returns the index of the found element, else `-1`.
+ * @example
+ *
+ * var users = [
+ *   { 'user': 'barney',  'active': false },
+ *   { 'user': 'fred',    'active': false },
+ *   { 'user': 'pebbles', 'active': true }
+ * ];
+ *
+ * _.findIndex(users, function(o) { return o.user == 'barney'; });
+ * // => 0
+ *
+ * // The `_.matches` iteratee shorthand.
+ * _.findIndex(users, { 'user': 'fred', 'active': false });
+ * // => 1
+ *
+ * // The `_.matchesProperty` iteratee shorthand.
+ * _.findIndex(users, ['active', false]);
+ * // => 0
+ *
+ * // The `_.property` iteratee shorthand.
+ * _.findIndex(users, 'active');
+ * // => 2
+ */
+function findIndex(array, predicate, fromIndex) {
+  var length = array == null ? 0 : array.length;
+  if (!length) {
+    return -1;
+  }
+  var index = fromIndex == null ? 0 : toInteger(fromIndex);
+  if (index < 0) {
+    index = nativeMax(length + index, 0);
+  }
+  return baseFindIndex(array, baseIteratee(predicate, 3), index);
+}
+
+module.exports = findIndex;
+
+/***/ }),
+/* 246 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseGet = __webpack_require__(94);
+
+/**
+ * Gets the value at `path` of `object`. If the resolved value is
+ * `undefined`, the `defaultValue` is returned in its place.
+ *
+ * @static
+ * @memberOf _
+ * @since 3.7.0
+ * @category Object
+ * @param {Object} object The object to query.
+ * @param {Array|string} path The path of the property to get.
+ * @param {*} [defaultValue] The value returned for `undefined` resolved values.
+ * @returns {*} Returns the resolved value.
+ * @example
+ *
+ * var object = { 'a': [{ 'b': { 'c': 3 } }] };
+ *
+ * _.get(object, 'a[0].b.c');
+ * // => 3
+ *
+ * _.get(object, ['a', '0', 'b', 'c']);
+ * // => 3
+ *
+ * _.get(object, 'a.b.c', 'default');
+ * // => 'default'
+ */
+function get(object, path, defaultValue) {
+  var result = object == null ? undefined : baseGet(object, path);
+  return result === undefined ? defaultValue : result;
+}
+
+module.exports = get;
+
+/***/ }),
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseHasIn = __webpack_require__(177),
+    hasPath = __webpack_require__(203);
+
+/**
+ * Checks if `path` is a direct or inherited property of `object`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Object
+ * @param {Object} object The object to query.
+ * @param {Array|string} path The path to check.
+ * @returns {boolean} Returns `true` if `path` exists, else `false`.
+ * @example
+ *
+ * var object = _.create({ 'a': _.create({ 'b': 2 }) });
+ *
+ * _.hasIn(object, 'a');
+ * // => true
+ *
+ * _.hasIn(object, 'a.b');
+ * // => true
+ *
+ * _.hasIn(object, ['a', 'b']);
+ * // => true
+ *
+ * _.hasIn(object, 'b');
+ * // => false
+ */
+function hasIn(object, path) {
+  return object != null && hasPath(object, path, baseHasIn);
+}
+
+module.exports = hasIn;
+
+/***/ }),
+/* 248 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isArrayLike = __webpack_require__(29),
+    isObjectLike = __webpack_require__(21);
+
+/**
+ * This method is like `_.isArrayLike` except that it also checks if `value`
+ * is an object.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to check.
+ * @returns {boolean} Returns `true` if `value` is an array-like object,
+ *  else `false`.
+ * @example
+ *
+ * _.isArrayLikeObject([1, 2, 3]);
+ * // => true
+ *
+ * _.isArrayLikeObject(document.body.children);
+ * // => true
+ *
+ * _.isArrayLikeObject('abc');
+ * // => false
+ *
+ * _.isArrayLikeObject(_.noop);
+ * // => false
+ */
+function isArrayLikeObject(value) {
+  return isObjectLike(value) && isArrayLike(value);
+}
+
+module.exports = isArrayLikeObject;
+
+/***/ }),
+/* 249 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var MapCache = __webpack_require__(56);
+
+/** Error message constants. */
+var FUNC_ERROR_TEXT = 'Expected a function';
+
+/**
+ * Creates a function that memoizes the result of `func`. If `resolver` is
+ * provided, it determines the cache key for storing the result based on the
+ * arguments provided to the memoized function. By default, the first argument
+ * provided to the memoized function is used as the map cache key. The `func`
+ * is invoked with the `this` binding of the memoized function.
+ *
+ * **Note:** The cache is exposed as the `cache` property on the memoized
+ * function. Its creation may be customized by replacing the `_.memoize.Cache`
+ * constructor with one whose instances implement the
+ * [`Map`](http://ecma-international.org/ecma-262/7.0/#sec-properties-of-the-map-prototype-object)
+ * method interface of `clear`, `delete`, `get`, `has`, and `set`.
+ *
+ * @static
+ * @memberOf _
+ * @since 0.1.0
+ * @category Function
+ * @param {Function} func The function to have its output memoized.
+ * @param {Function} [resolver] The function to resolve the cache key.
+ * @returns {Function} Returns the new memoized function.
+ * @example
+ *
+ * var object = { 'a': 1, 'b': 2 };
+ * var other = { 'c': 3, 'd': 4 };
+ *
+ * var values = _.memoize(_.values);
+ * values(object);
+ * // => [1, 2]
+ *
+ * values(other);
+ * // => [3, 4]
+ *
+ * object.a = 2;
+ * values(object);
+ * // => [1, 2]
+ *
+ * // Modify the result cache.
+ * values.cache.set(object, ['a', 'b']);
+ * values(object);
+ * // => ['a', 'b']
+ *
+ * // Replace `_.memoize.Cache`.
+ * _.memoize.Cache = WeakMap;
+ */
+function memoize(func, resolver) {
+  if (typeof func != 'function' || resolver != null && typeof resolver != 'function') {
+    throw new TypeError(FUNC_ERROR_TEXT);
+  }
+  var memoized = function memoized() {
+    var args = arguments,
+        key = resolver ? resolver.apply(this, args) : args[0],
+        cache = memoized.cache;
+
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+    var result = func.apply(this, args);
+    memoized.cache = cache.set(key, result) || cache;
+    return result;
+  };
+  memoized.cache = new (memoize.Cache || MapCache)();
+  return memoized;
+}
+
+// Expose `MapCache`.
+memoize.Cache = MapCache;
+
+module.exports = memoize;
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseProperty = __webpack_require__(188),
+    basePropertyDeep = __webpack_require__(189),
+    isKey = __webpack_require__(41),
+    toKey = __webpack_require__(43);
+
+/**
+ * Creates a function that returns the value at `path` of a given object.
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Util
+ * @param {Array|string} path The path of the property to get.
+ * @returns {Function} Returns the new accessor function.
+ * @example
+ *
+ * var objects = [
+ *   { 'a': { 'b': 2 } },
+ *   { 'a': { 'b': 1 } }
+ * ];
+ *
+ * _.map(objects, _.property('a.b'));
+ * // => [2, 1]
+ *
+ * _.map(_.sortBy(objects, _.property(['a', 'b'])), 'a.b');
+ * // => [1, 2]
+ */
+function property(path) {
+  return isKey(path) ? baseProperty(toKey(path)) : basePropertyDeep(path);
+}
+
+module.exports = property;
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * This method returns `false`.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.13.0
+ * @category Util
+ * @returns {boolean} Returns `false`.
+ * @example
+ *
+ * _.times(2, _.stubFalse);
+ * // => [false, false]
+ */
+function stubFalse() {
+  return false;
+}
+
+module.exports = stubFalse;
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var toNumber = __webpack_require__(254);
+
+/** Used as references for various `Number` constants. */
+var INFINITY = 1 / 0,
+    MAX_INTEGER = 1.7976931348623157e+308;
+
+/**
+ * Converts `value` to a finite number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.12.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {number} Returns the converted number.
+ * @example
+ *
+ * _.toFinite(3.2);
+ * // => 3.2
+ *
+ * _.toFinite(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toFinite(Infinity);
+ * // => 1.7976931348623157e+308
+ *
+ * _.toFinite('3.2');
+ * // => 3.2
+ */
+function toFinite(value) {
+  if (!value) {
+    return value === 0 ? value : 0;
+  }
+  value = toNumber(value);
+  if (value === INFINITY || value === -INFINITY) {
+    var sign = value < 0 ? -1 : 1;
+    return sign * MAX_INTEGER;
+  }
+  return value === value ? value : 0;
+}
+
+module.exports = toFinite;
+
+/***/ }),
+/* 253 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var toFinite = __webpack_require__(252);
+
+/**
+ * Converts `value` to an integer.
+ *
+ * **Note:** This method is loosely based on
+ * [`ToInteger`](http://www.ecma-international.org/ecma-262/7.0/#sec-tointeger).
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {number} Returns the converted integer.
+ * @example
+ *
+ * _.toInteger(3.2);
+ * // => 3
+ *
+ * _.toInteger(Number.MIN_VALUE);
+ * // => 0
+ *
+ * _.toInteger(Infinity);
+ * // => 1.7976931348623157e+308
+ *
+ * _.toInteger('3.2');
+ * // => 3
+ */
+function toInteger(value) {
+  var result = toFinite(value),
+      remainder = result % 1;
+
+  return result === result ? remainder ? result - remainder : result : 0;
+}
+
+module.exports = toInteger;
+
+/***/ }),
+/* 254 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var isObject = __webpack_require__(22),
+    isSymbol = __webpack_require__(45);
+
+/** Used as references for various `Number` constants. */
+var NAN = 0 / 0;
+
+/** Used to match leading and trailing whitespace. */
+var reTrim = /^\s+|\s+$/g;
+
+/** Used to detect bad signed hexadecimal string values. */
+var reIsBadHex = /^[-+]0x[0-9a-f]+$/i;
+
+/** Used to detect binary string values. */
+var reIsBinary = /^0b[01]+$/i;
+
+/** Used to detect octal string values. */
+var reIsOctal = /^0o[0-7]+$/i;
+
+/** Built-in method references without a dependency on `root`. */
+var freeParseInt = parseInt;
+
+/**
+ * Converts `value` to a number.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to process.
+ * @returns {number} Returns the number.
+ * @example
+ *
+ * _.toNumber(3.2);
+ * // => 3.2
+ *
+ * _.toNumber(Number.MIN_VALUE);
+ * // => 5e-324
+ *
+ * _.toNumber(Infinity);
+ * // => Infinity
+ *
+ * _.toNumber('3.2');
+ * // => 3.2
+ */
+function toNumber(value) {
+  if (typeof value == 'number') {
+    return value;
+  }
+  if (isSymbol(value)) {
+    return NAN;
+  }
+  if (isObject(value)) {
+    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+    value = isObject(other) ? other + '' : other;
+  }
+  if (typeof value != 'string') {
+    return value === 0 ? value : +value;
+  }
+  value = value.replace(reTrim, '');
+  var isBinary = reIsBinary.test(value);
+  return isBinary || reIsOctal.test(value) ? freeParseInt(value.slice(2), isBinary ? 2 : 8) : reIsBadHex.test(value) ? NAN : +value;
+}
+
+module.exports = toNumber;
+
+/***/ }),
+/* 255 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var baseToString = __webpack_require__(192);
+
+/**
+ * Converts `value` to a string. An empty string is returned for `null`
+ * and `undefined` values. The sign of `-0` is preserved.
+ *
+ * @static
+ * @memberOf _
+ * @since 4.0.0
+ * @category Lang
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ * @example
+ *
+ * _.toString(null);
+ * // => ''
+ *
+ * _.toString(-0);
+ * // => '-0'
+ *
+ * _.toString([1, 2, 3]);
+ * // => '1,2,3'
+ */
+function toString(value) {
+  return value == null ? '' : baseToString(value);
+}
+
+module.exports = toString;
+
+/***/ }),
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12571,7 +19090,7 @@ module.exports = performanceNow;
 
 var ReactDOMComponentTree = __webpack_require__(5);
 
-var focusNode = __webpack_require__(59);
+var focusNode = __webpack_require__(86);
 
 var AutoFocusUtils = {
   focusDOMComponent: function focusDOMComponent() {
@@ -12582,7 +19101,7 @@ var AutoFocusUtils = {
 module.exports = AutoFocusUtils;
 
 /***/ }),
-/* 105 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12601,14 +19120,14 @@ module.exports = AutoFocusUtils;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var EventConstants = __webpack_require__(12);
-var EventPropagators = __webpack_require__(22);
+var EventConstants = __webpack_require__(13);
+var EventPropagators = __webpack_require__(31);
 var ExecutionEnvironment = __webpack_require__(6);
-var FallbackCompositionState = __webpack_require__(111);
-var SyntheticCompositionEvent = __webpack_require__(155);
-var SyntheticInputEvent = __webpack_require__(158);
+var FallbackCompositionState = __webpack_require__(263);
+var SyntheticCompositionEvent = __webpack_require__(307);
+var SyntheticInputEvent = __webpack_require__(310);
 
-var keyOf = __webpack_require__(15);
+var keyOf = __webpack_require__(16);
 
 var END_KEYCODES = [9, 13, 27, 32]; // Tab, Return, Esc, Space
 var START_KEYCODE = 229;
@@ -12980,7 +19499,7 @@ var BeforeInputEventPlugin = {
 module.exports = BeforeInputEventPlugin;
 
 /***/ }),
-/* 106 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12997,14 +19516,14 @@ module.exports = BeforeInputEventPlugin;
 
 
 
-var CSSProperty = __webpack_require__(61);
+var CSSProperty = __webpack_require__(111);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactInstrumentation = __webpack_require__(7);
 
-var camelizeStyleName = __webpack_require__(90);
-var dangerousStyleValue = __webpack_require__(164);
-var hyphenateStyleName = __webpack_require__(97);
-var memoizeStringOnly = __webpack_require__(100);
+var camelizeStyleName = __webpack_require__(149);
+var dangerousStyleValue = __webpack_require__(316);
+var hyphenateStyleName = __webpack_require__(156);
+var memoizeStringOnly = __webpack_require__(159);
 var warning = __webpack_require__(2);
 
 var processStyleName = memoizeStringOnly(function (styleName) {
@@ -13192,7 +19711,7 @@ module.exports = CSSPropertyOperations;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 107 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13209,18 +19728,18 @@ module.exports = CSSPropertyOperations;
 
 
 
-var EventConstants = __webpack_require__(12);
-var EventPluginHub = __webpack_require__(21);
-var EventPropagators = __webpack_require__(22);
+var EventConstants = __webpack_require__(13);
+var EventPluginHub = __webpack_require__(30);
+var EventPropagators = __webpack_require__(31);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
-var SyntheticEvent = __webpack_require__(14);
+var SyntheticEvent = __webpack_require__(15);
 
-var getEventTarget = __webpack_require__(51);
-var isEventSupported = __webpack_require__(53);
-var isTextInputElement = __webpack_require__(85);
-var keyOf = __webpack_require__(15);
+var getEventTarget = __webpack_require__(77);
+var isEventSupported = __webpack_require__(79);
+var isTextInputElement = __webpack_require__(135);
+var keyOf = __webpack_require__(16);
 
 var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -13523,7 +20042,7 @@ var ChangeEventPlugin = {
 module.exports = ChangeEventPlugin;
 
 /***/ }),
-/* 108 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13542,10 +20061,10 @@ module.exports = ChangeEventPlugin;
 
 var _prodInvariant = __webpack_require__(3);
 
-var DOMLazyTree = __webpack_require__(18);
+var DOMLazyTree = __webpack_require__(23);
 var ExecutionEnvironment = __webpack_require__(6);
 
-var createNodesFromMarkup = __webpack_require__(93);
+var createNodesFromMarkup = __webpack_require__(152);
 var emptyFunction = __webpack_require__(8);
 var invariant = __webpack_require__(1);
 
@@ -13578,7 +20097,7 @@ module.exports = Danger;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 109 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13595,7 +20114,7 @@ module.exports = Danger;
 
 
 
-var keyOf = __webpack_require__(15);
+var keyOf = __webpack_require__(16);
 
 /**
  * Module that is injectable into `EventPluginHub`, that specifies a
@@ -13611,7 +20130,7 @@ var DefaultEventPluginOrder = [keyOf({ ResponderEventPlugin: null }), keyOf({ Si
 module.exports = DefaultEventPluginOrder;
 
 /***/ }),
-/* 110 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13628,12 +20147,12 @@ module.exports = DefaultEventPluginOrder;
 
 
 
-var EventConstants = __webpack_require__(12);
-var EventPropagators = __webpack_require__(22);
+var EventConstants = __webpack_require__(13);
+var EventPropagators = __webpack_require__(31);
 var ReactDOMComponentTree = __webpack_require__(5);
-var SyntheticMouseEvent = __webpack_require__(31);
+var SyntheticMouseEvent = __webpack_require__(51);
 
-var keyOf = __webpack_require__(15);
+var keyOf = __webpack_require__(16);
 
 var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -13722,7 +20241,7 @@ var EnterLeaveEventPlugin = {
 module.exports = EnterLeaveEventPlugin;
 
 /***/ }),
-/* 111 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13741,9 +20260,9 @@ module.exports = EnterLeaveEventPlugin;
 
 var _assign = __webpack_require__(4);
 
-var PooledClass = __webpack_require__(16);
+var PooledClass = __webpack_require__(18);
 
-var getTextContentAccessor = __webpack_require__(83);
+var getTextContentAccessor = __webpack_require__(133);
 
 /**
  * This helper class stores information about text content of a target node,
@@ -13823,7 +20342,7 @@ PooledClass.addPoolingTo(FallbackCompositionState);
 module.exports = FallbackCompositionState;
 
 /***/ }),
-/* 112 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13840,7 +20359,7 @@ module.exports = FallbackCompositionState;
 
 
 
-var DOMProperty = __webpack_require__(17);
+var DOMProperty = __webpack_require__(20);
 
 var MUST_USE_PROPERTY = DOMProperty.injection.MUST_USE_PROPERTY;
 var HAS_BOOLEAN_VALUE = DOMProperty.injection.HAS_BOOLEAN_VALUE;
@@ -14041,7 +20560,7 @@ var HTMLDOMPropertyConfig = {
 module.exports = HTMLDOMPropertyConfig;
 
 /***/ }),
-/* 113 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14060,16 +20579,16 @@ module.exports = HTMLDOMPropertyConfig;
 
 var _assign = __webpack_require__(4);
 
-var ReactChildren = __webpack_require__(64);
-var ReactComponent = __webpack_require__(40);
-var ReactPureComponent = __webpack_require__(145);
-var ReactClass = __webpack_require__(65);
-var ReactDOMFactories = __webpack_require__(123);
+var ReactChildren = __webpack_require__(114);
+var ReactComponent = __webpack_require__(66);
+var ReactPureComponent = __webpack_require__(297);
+var ReactClass = __webpack_require__(115);
+var ReactDOMFactories = __webpack_require__(275);
 var ReactElement = __webpack_require__(10);
-var ReactPropTypes = __webpack_require__(76);
-var ReactVersion = __webpack_require__(77);
+var ReactPropTypes = __webpack_require__(126);
+var ReactVersion = __webpack_require__(127);
 
-var onlyChild = __webpack_require__(170);
+var onlyChild = __webpack_require__(322);
 var warning = __webpack_require__(2);
 
 var createElement = ReactElement.createElement;
@@ -14077,7 +20596,7 @@ var createFactory = ReactElement.createFactory;
 var cloneElement = ReactElement.cloneElement;
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(68);
+  var ReactElementValidator = __webpack_require__(118);
   createElement = ReactElementValidator.createElement;
   createFactory = ReactElementValidator.createFactory;
   cloneElement = ReactElementValidator.cloneElement;
@@ -14137,7 +20656,7 @@ module.exports = React;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 114 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14154,12 +20673,12 @@ module.exports = React;
 
 
 
-var ReactReconciler = __webpack_require__(19);
+var ReactReconciler = __webpack_require__(24);
 
-var instantiateReactComponent = __webpack_require__(84);
-var KeyEscapeUtils = __webpack_require__(38);
-var shouldUpdateReactComponent = __webpack_require__(54);
-var traverseAllChildren = __webpack_require__(55);
+var instantiateReactComponent = __webpack_require__(134);
+var KeyEscapeUtils = __webpack_require__(64);
+var shouldUpdateReactComponent = __webpack_require__(80);
+var traverseAllChildren = __webpack_require__(81);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -14298,7 +20817,7 @@ module.exports = ReactChildReconciler;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 115 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14359,7 +20878,7 @@ module.exports = ReactChildrenMutationWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 116 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14376,8 +20895,8 @@ module.exports = ReactChildrenMutationWarningHook;
 
 
 
-var DOMChildrenOperations = __webpack_require__(35);
-var ReactDOMIDOperations = __webpack_require__(125);
+var DOMChildrenOperations = __webpack_require__(61);
+var ReactDOMIDOperations = __webpack_require__(277);
 
 /**
  * Abstracts away all functionality of the reconciler that requires knowledge of
@@ -14395,7 +20914,7 @@ var ReactComponentBrowserEnvironment = {
 module.exports = ReactComponentBrowserEnvironment;
 
 /***/ }),
-/* 117 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14417,21 +20936,21 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var ReactComponentEnvironment = __webpack_require__(41);
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactComponentEnvironment = __webpack_require__(67);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactElement = __webpack_require__(10);
-var ReactErrorUtils = __webpack_require__(42);
-var ReactInstanceMap = __webpack_require__(23);
+var ReactErrorUtils = __webpack_require__(68);
+var ReactInstanceMap = __webpack_require__(32);
 var ReactInstrumentation = __webpack_require__(7);
-var ReactNodeTypes = __webpack_require__(75);
-var ReactPropTypeLocations = __webpack_require__(30);
-var ReactReconciler = __webpack_require__(19);
+var ReactNodeTypes = __webpack_require__(125);
+var ReactPropTypeLocations = __webpack_require__(50);
+var ReactReconciler = __webpack_require__(24);
 
-var checkReactTypeSpec = __webpack_require__(80);
-var emptyObject = __webpack_require__(20);
+var checkReactTypeSpec = __webpack_require__(130);
+var emptyObject = __webpack_require__(27);
 var invariant = __webpack_require__(1);
-var shallowEqual = __webpack_require__(34);
-var shouldUpdateReactComponent = __webpack_require__(54);
+var shallowEqual = __webpack_require__(54);
+var shouldUpdateReactComponent = __webpack_require__(80);
 var warning = __webpack_require__(2);
 
 var CompositeTypes = {
@@ -15308,7 +21827,7 @@ module.exports = ReactCompositeComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 118 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15328,15 +21847,15 @@ module.exports = ReactCompositeComponent;
 
 
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDefaultInjection = __webpack_require__(136);
-var ReactMount = __webpack_require__(73);
-var ReactReconciler = __webpack_require__(19);
+var ReactDefaultInjection = __webpack_require__(288);
+var ReactMount = __webpack_require__(123);
+var ReactReconciler = __webpack_require__(24);
 var ReactUpdates = __webpack_require__(11);
-var ReactVersion = __webpack_require__(77);
+var ReactVersion = __webpack_require__(127);
 
-var findDOMNode = __webpack_require__(165);
-var getHostComponentFromComposite = __webpack_require__(82);
-var renderSubtreeIntoContainer = __webpack_require__(172);
+var findDOMNode = __webpack_require__(317);
+var getHostComponentFromComposite = __webpack_require__(132);
+var renderSubtreeIntoContainer = __webpack_require__(324);
 var warning = __webpack_require__(2);
 
 ReactDefaultInjection.inject();
@@ -15414,8 +21933,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 if (process.env.NODE_ENV !== 'production') {
   var ReactInstrumentation = __webpack_require__(7);
-  var ReactDOMUnknownPropertyHook = __webpack_require__(133);
-  var ReactDOMNullInputValuePropHook = __webpack_require__(127);
+  var ReactDOMUnknownPropertyHook = __webpack_require__(285);
+  var ReactDOMNullInputValuePropHook = __webpack_require__(279);
 
   ReactInstrumentation.debugTool.addHook(ReactDOMUnknownPropertyHook);
   ReactInstrumentation.debugTool.addHook(ReactDOMNullInputValuePropHook);
@@ -15425,7 +21944,7 @@ module.exports = ReactDOM;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 119 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15442,7 +21961,7 @@ module.exports = ReactDOM;
 
 
 
-var DisabledInputUtils = __webpack_require__(27);
+var DisabledInputUtils = __webpack_require__(47);
 
 /**
  * Implements a <button> host component that does not receive mouse events
@@ -15455,7 +21974,7 @@ var ReactDOMButton = {
 module.exports = ReactDOMButton;
 
 /***/ }),
-/* 120 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15479,34 +21998,34 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var AutoFocusUtils = __webpack_require__(104);
-var CSSPropertyOperations = __webpack_require__(106);
-var DOMLazyTree = __webpack_require__(18);
-var DOMNamespaces = __webpack_require__(36);
-var DOMProperty = __webpack_require__(17);
-var DOMPropertyOperations = __webpack_require__(63);
-var EventConstants = __webpack_require__(12);
-var EventPluginHub = __webpack_require__(21);
-var EventPluginRegistry = __webpack_require__(28);
-var ReactBrowserEventEmitter = __webpack_require__(29);
-var ReactDOMButton = __webpack_require__(119);
-var ReactDOMComponentFlags = __webpack_require__(66);
+var AutoFocusUtils = __webpack_require__(256);
+var CSSPropertyOperations = __webpack_require__(258);
+var DOMLazyTree = __webpack_require__(23);
+var DOMNamespaces = __webpack_require__(62);
+var DOMProperty = __webpack_require__(20);
+var DOMPropertyOperations = __webpack_require__(113);
+var EventConstants = __webpack_require__(13);
+var EventPluginHub = __webpack_require__(30);
+var EventPluginRegistry = __webpack_require__(48);
+var ReactBrowserEventEmitter = __webpack_require__(49);
+var ReactDOMButton = __webpack_require__(271);
+var ReactDOMComponentFlags = __webpack_require__(116);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMInput = __webpack_require__(126);
-var ReactDOMOption = __webpack_require__(128);
-var ReactDOMSelect = __webpack_require__(67);
-var ReactDOMTextarea = __webpack_require__(131);
+var ReactDOMInput = __webpack_require__(278);
+var ReactDOMOption = __webpack_require__(280);
+var ReactDOMSelect = __webpack_require__(117);
+var ReactDOMTextarea = __webpack_require__(283);
 var ReactInstrumentation = __webpack_require__(7);
-var ReactMultiChild = __webpack_require__(143);
-var ReactServerRenderingTransaction = __webpack_require__(148);
+var ReactMultiChild = __webpack_require__(295);
+var ReactServerRenderingTransaction = __webpack_require__(300);
 
 var emptyFunction = __webpack_require__(8);
-var escapeTextContentForBrowser = __webpack_require__(32);
+var escapeTextContentForBrowser = __webpack_require__(52);
 var invariant = __webpack_require__(1);
-var isEventSupported = __webpack_require__(53);
-var keyOf = __webpack_require__(15);
-var shallowEqual = __webpack_require__(34);
-var validateDOMNesting = __webpack_require__(56);
+var isEventSupported = __webpack_require__(79);
+var keyOf = __webpack_require__(16);
+var shallowEqual = __webpack_require__(54);
+var validateDOMNesting = __webpack_require__(82);
 var warning = __webpack_require__(2);
 
 var Flags = ReactDOMComponentFlags;
@@ -16470,7 +22989,7 @@ module.exports = ReactDOMComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 121 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16487,7 +23006,7 @@ module.exports = ReactDOMComponent;
 
 
 
-var validateDOMNesting = __webpack_require__(56);
+var validateDOMNesting = __webpack_require__(82);
 
 var DOC_NODE_TYPE = 9;
 
@@ -16510,7 +23029,7 @@ module.exports = ReactDOMContainerInfo;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 122 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16529,7 +23048,7 @@ module.exports = ReactDOMContainerInfo;
 
 var _assign = __webpack_require__(4);
 
-var DOMLazyTree = __webpack_require__(18);
+var DOMLazyTree = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 var ReactDOMEmptyComponent = function ReactDOMEmptyComponent(instantiate) {
@@ -16576,7 +23095,7 @@ _assign(ReactDOMEmptyComponent.prototype, {
 module.exports = ReactDOMEmptyComponent;
 
 /***/ }),
-/* 123 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16602,7 +23121,7 @@ var ReactElement = __webpack_require__(10);
  */
 var createDOMFactory = ReactElement.createFactory;
 if (process.env.NODE_ENV !== 'production') {
-  var ReactElementValidator = __webpack_require__(68);
+  var ReactElementValidator = __webpack_require__(118);
   createDOMFactory = ReactElementValidator.createFactory;
 }
 
@@ -16753,7 +23272,7 @@ module.exports = ReactDOMFactories;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 124 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16777,7 +23296,7 @@ var ReactDOMFeatureFlags = {
 module.exports = ReactDOMFeatureFlags;
 
 /***/ }),
-/* 125 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16794,7 +23313,7 @@ module.exports = ReactDOMFeatureFlags;
 
 
 
-var DOMChildrenOperations = __webpack_require__(35);
+var DOMChildrenOperations = __webpack_require__(61);
 var ReactDOMComponentTree = __webpack_require__(5);
 
 /**
@@ -16817,7 +23336,7 @@ var ReactDOMIDOperations = {
 module.exports = ReactDOMIDOperations;
 
 /***/ }),
-/* 126 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16837,9 +23356,9 @@ module.exports = ReactDOMIDOperations;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var DisabledInputUtils = __webpack_require__(27);
-var DOMPropertyOperations = __webpack_require__(63);
-var LinkedValueUtils = __webpack_require__(39);
+var DisabledInputUtils = __webpack_require__(47);
+var DOMPropertyOperations = __webpack_require__(113);
+var LinkedValueUtils = __webpack_require__(65);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
@@ -17093,7 +23612,7 @@ module.exports = ReactDOMInput;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 127 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17143,7 +23662,7 @@ module.exports = ReactDOMNullInputValuePropHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 128 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17162,9 +23681,9 @@ module.exports = ReactDOMNullInputValuePropHook;
 
 var _assign = __webpack_require__(4);
 
-var ReactChildren = __webpack_require__(64);
+var ReactChildren = __webpack_require__(114);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMSelect = __webpack_require__(67);
+var ReactDOMSelect = __webpack_require__(117);
 
 var warning = __webpack_require__(2);
 var didWarnInvalidOptionChildren = false;
@@ -17273,7 +23792,7 @@ module.exports = ReactDOMOption;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 129 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17292,8 +23811,8 @@ module.exports = ReactDOMOption;
 
 var ExecutionEnvironment = __webpack_require__(6);
 
-var getNodeForCharacterOffset = __webpack_require__(168);
-var getTextContentAccessor = __webpack_require__(83);
+var getNodeForCharacterOffset = __webpack_require__(320);
+var getTextContentAccessor = __webpack_require__(133);
 
 /**
  * While `isCollapsed` is available on the Selection object and `collapsed`
@@ -17491,7 +24010,7 @@ var ReactDOMSelection = {
 module.exports = ReactDOMSelection;
 
 /***/ }),
-/* 130 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17511,13 +24030,13 @@ module.exports = ReactDOMSelection;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var DOMChildrenOperations = __webpack_require__(35);
-var DOMLazyTree = __webpack_require__(18);
+var DOMChildrenOperations = __webpack_require__(61);
+var DOMLazyTree = __webpack_require__(23);
 var ReactDOMComponentTree = __webpack_require__(5);
 
-var escapeTextContentForBrowser = __webpack_require__(32);
+var escapeTextContentForBrowser = __webpack_require__(52);
 var invariant = __webpack_require__(1);
-var validateDOMNesting = __webpack_require__(56);
+var validateDOMNesting = __webpack_require__(82);
 
 /**
  * Text nodes violate a couple assumptions that React makes about components:
@@ -17662,7 +24181,7 @@ module.exports = ReactDOMTextComponent;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 131 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17682,8 +24201,8 @@ module.exports = ReactDOMTextComponent;
 var _prodInvariant = __webpack_require__(3),
     _assign = __webpack_require__(4);
 
-var DisabledInputUtils = __webpack_require__(27);
-var LinkedValueUtils = __webpack_require__(39);
+var DisabledInputUtils = __webpack_require__(47);
+var LinkedValueUtils = __webpack_require__(65);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
@@ -17824,7 +24343,7 @@ module.exports = ReactDOMTextarea;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 132 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17967,7 +24486,7 @@ module.exports = {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 133 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17984,8 +24503,8 @@ module.exports = {
 
 
 
-var DOMProperty = __webpack_require__(17);
-var EventPluginRegistry = __webpack_require__(28);
+var DOMProperty = __webpack_require__(20);
+var EventPluginRegistry = __webpack_require__(48);
 var ReactComponentTreeHook = __webpack_require__(9);
 
 var warning = __webpack_require__(2);
@@ -18086,7 +24605,7 @@ module.exports = ReactDOMUnknownPropertyHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 134 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18103,13 +24622,13 @@ module.exports = ReactDOMUnknownPropertyHook;
 
 
 
-var ReactInvalidSetStateWarningHook = __webpack_require__(141);
-var ReactHostOperationHistoryHook = __webpack_require__(139);
+var ReactInvalidSetStateWarningHook = __webpack_require__(293);
+var ReactHostOperationHistoryHook = __webpack_require__(291);
 var ReactComponentTreeHook = __webpack_require__(9);
-var ReactChildrenMutationWarningHook = __webpack_require__(115);
+var ReactChildrenMutationWarningHook = __webpack_require__(267);
 var ExecutionEnvironment = __webpack_require__(6);
 
-var performanceNow = __webpack_require__(102);
+var performanceNow = __webpack_require__(161);
 var warning = __webpack_require__(2);
 
 var hooks = [];
@@ -18394,7 +24913,7 @@ module.exports = ReactDebugTool;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 135 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18414,7 +24933,7 @@ module.exports = ReactDebugTool;
 var _assign = __webpack_require__(4);
 
 var ReactUpdates = __webpack_require__(11);
-var Transaction = __webpack_require__(25);
+var Transaction = __webpack_require__(34);
 
 var emptyFunction = __webpack_require__(8);
 
@@ -18468,7 +24987,7 @@ var ReactDefaultBatchingStrategy = {
 module.exports = ReactDefaultBatchingStrategy;
 
 /***/ }),
-/* 136 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18485,24 +25004,24 @@ module.exports = ReactDefaultBatchingStrategy;
 
 
 
-var BeforeInputEventPlugin = __webpack_require__(105);
-var ChangeEventPlugin = __webpack_require__(107);
-var DefaultEventPluginOrder = __webpack_require__(109);
-var EnterLeaveEventPlugin = __webpack_require__(110);
-var HTMLDOMPropertyConfig = __webpack_require__(112);
-var ReactComponentBrowserEnvironment = __webpack_require__(116);
-var ReactDOMComponent = __webpack_require__(120);
+var BeforeInputEventPlugin = __webpack_require__(257);
+var ChangeEventPlugin = __webpack_require__(259);
+var DefaultEventPluginOrder = __webpack_require__(261);
+var EnterLeaveEventPlugin = __webpack_require__(262);
+var HTMLDOMPropertyConfig = __webpack_require__(264);
+var ReactComponentBrowserEnvironment = __webpack_require__(268);
+var ReactDOMComponent = __webpack_require__(272);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactDOMEmptyComponent = __webpack_require__(122);
-var ReactDOMTreeTraversal = __webpack_require__(132);
-var ReactDOMTextComponent = __webpack_require__(130);
-var ReactDefaultBatchingStrategy = __webpack_require__(135);
-var ReactEventListener = __webpack_require__(138);
-var ReactInjection = __webpack_require__(140);
-var ReactReconcileTransaction = __webpack_require__(146);
-var SVGDOMPropertyConfig = __webpack_require__(150);
-var SelectEventPlugin = __webpack_require__(151);
-var SimpleEventPlugin = __webpack_require__(152);
+var ReactDOMEmptyComponent = __webpack_require__(274);
+var ReactDOMTreeTraversal = __webpack_require__(284);
+var ReactDOMTextComponent = __webpack_require__(282);
+var ReactDefaultBatchingStrategy = __webpack_require__(287);
+var ReactEventListener = __webpack_require__(290);
+var ReactInjection = __webpack_require__(292);
+var ReactReconcileTransaction = __webpack_require__(298);
+var SVGDOMPropertyConfig = __webpack_require__(302);
+var SelectEventPlugin = __webpack_require__(303);
+var SimpleEventPlugin = __webpack_require__(304);
 
 var alreadyInjected = false;
 
@@ -18558,7 +25077,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 137 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18575,7 +25094,7 @@ module.exports = {
 
 
 
-var EventPluginHub = __webpack_require__(21);
+var EventPluginHub = __webpack_require__(30);
 
 function runEventQueueInBatch(events) {
   EventPluginHub.enqueueEvents(events);
@@ -18597,7 +25116,7 @@ var ReactEventEmitterMixin = {
 module.exports = ReactEventEmitterMixin;
 
 /***/ }),
-/* 138 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18616,14 +25135,14 @@ module.exports = ReactEventEmitterMixin;
 
 var _assign = __webpack_require__(4);
 
-var EventListener = __webpack_require__(58);
+var EventListener = __webpack_require__(85);
 var ExecutionEnvironment = __webpack_require__(6);
-var PooledClass = __webpack_require__(16);
+var PooledClass = __webpack_require__(18);
 var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(11);
 
-var getEventTarget = __webpack_require__(51);
-var getUnboundedScrollPosition = __webpack_require__(95);
+var getEventTarget = __webpack_require__(77);
+var getUnboundedScrollPosition = __webpack_require__(154);
 
 /**
  * Find the deepest React component completely containing the root of the
@@ -18760,7 +25279,7 @@ var ReactEventListener = {
 module.exports = ReactEventListener;
 
 /***/ }),
-/* 139 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18803,7 +25322,7 @@ var ReactHostOperationHistoryHook = {
 module.exports = ReactHostOperationHistoryHook;
 
 /***/ }),
-/* 140 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18820,14 +25339,14 @@ module.exports = ReactHostOperationHistoryHook;
 
 
 
-var DOMProperty = __webpack_require__(17);
-var EventPluginHub = __webpack_require__(21);
-var EventPluginUtils = __webpack_require__(37);
-var ReactComponentEnvironment = __webpack_require__(41);
-var ReactClass = __webpack_require__(65);
-var ReactEmptyComponent = __webpack_require__(69);
-var ReactBrowserEventEmitter = __webpack_require__(29);
-var ReactHostComponent = __webpack_require__(71);
+var DOMProperty = __webpack_require__(20);
+var EventPluginHub = __webpack_require__(30);
+var EventPluginUtils = __webpack_require__(63);
+var ReactComponentEnvironment = __webpack_require__(67);
+var ReactClass = __webpack_require__(115);
+var ReactEmptyComponent = __webpack_require__(119);
+var ReactBrowserEventEmitter = __webpack_require__(49);
+var ReactHostComponent = __webpack_require__(121);
 var ReactUpdates = __webpack_require__(11);
 
 var ReactInjection = {
@@ -18845,7 +25364,7 @@ var ReactInjection = {
 module.exports = ReactInjection;
 
 /***/ }),
-/* 141 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18888,7 +25407,7 @@ module.exports = ReactInvalidSetStateWarningHook;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 142 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18905,7 +25424,7 @@ module.exports = ReactInvalidSetStateWarningHook;
 
 
 
-var adler32 = __webpack_require__(163);
+var adler32 = __webpack_require__(315);
 
 var TAG_END = /\/?>/;
 var COMMENT_START = /^<\!\-\-/;
@@ -18944,7 +25463,7 @@ var ReactMarkupChecksum = {
 module.exports = ReactMarkupChecksum;
 
 /***/ }),
-/* 143 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18963,17 +25482,17 @@ module.exports = ReactMarkupChecksum;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactComponentEnvironment = __webpack_require__(41);
-var ReactInstanceMap = __webpack_require__(23);
+var ReactComponentEnvironment = __webpack_require__(67);
+var ReactInstanceMap = __webpack_require__(32);
 var ReactInstrumentation = __webpack_require__(7);
-var ReactMultiChildUpdateTypes = __webpack_require__(74);
+var ReactMultiChildUpdateTypes = __webpack_require__(124);
 
-var ReactCurrentOwner = __webpack_require__(13);
-var ReactReconciler = __webpack_require__(19);
-var ReactChildReconciler = __webpack_require__(114);
+var ReactCurrentOwner = __webpack_require__(14);
+var ReactReconciler = __webpack_require__(24);
+var ReactChildReconciler = __webpack_require__(266);
 
 var emptyFunction = __webpack_require__(8);
-var flattenChildren = __webpack_require__(166);
+var flattenChildren = __webpack_require__(318);
 var invariant = __webpack_require__(1);
 
 /**
@@ -19402,7 +25921,7 @@ module.exports = ReactMultiChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 144 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19503,7 +26022,7 @@ module.exports = ReactOwner;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 145 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19522,10 +26041,10 @@ module.exports = ReactOwner;
 
 var _assign = __webpack_require__(4);
 
-var ReactComponent = __webpack_require__(40);
-var ReactNoopUpdateQueue = __webpack_require__(43);
+var ReactComponent = __webpack_require__(66);
+var ReactNoopUpdateQueue = __webpack_require__(69);
 
-var emptyObject = __webpack_require__(20);
+var emptyObject = __webpack_require__(27);
 
 /**
  * Base class helpers for the updating state of a component.
@@ -19551,7 +26070,7 @@ ReactPureComponent.prototype.isPureReactComponent = true;
 module.exports = ReactPureComponent;
 
 /***/ }),
-/* 146 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19570,13 +26089,13 @@ module.exports = ReactPureComponent;
 
 var _assign = __webpack_require__(4);
 
-var CallbackQueue = __webpack_require__(62);
-var PooledClass = __webpack_require__(16);
-var ReactBrowserEventEmitter = __webpack_require__(29);
-var ReactInputSelection = __webpack_require__(72);
+var CallbackQueue = __webpack_require__(112);
+var PooledClass = __webpack_require__(18);
+var ReactBrowserEventEmitter = __webpack_require__(49);
+var ReactInputSelection = __webpack_require__(122);
 var ReactInstrumentation = __webpack_require__(7);
-var Transaction = __webpack_require__(25);
-var ReactUpdateQueue = __webpack_require__(46);
+var Transaction = __webpack_require__(34);
+var ReactUpdateQueue = __webpack_require__(72);
 
 /**
  * Ensures that, when possible, the selection range (currently selected text
@@ -19736,7 +26255,7 @@ module.exports = ReactReconcileTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 147 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19753,7 +26272,7 @@ module.exports = ReactReconcileTransaction;
 
 
 
-var ReactOwner = __webpack_require__(144);
+var ReactOwner = __webpack_require__(296);
 
 var ReactRef = {};
 
@@ -19822,7 +26341,7 @@ ReactRef.detachRefs = function (instance, element) {
 module.exports = ReactRef;
 
 /***/ }),
-/* 148 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19841,10 +26360,10 @@ module.exports = ReactRef;
 
 var _assign = __webpack_require__(4);
 
-var PooledClass = __webpack_require__(16);
-var Transaction = __webpack_require__(25);
+var PooledClass = __webpack_require__(18);
+var Transaction = __webpack_require__(34);
 var ReactInstrumentation = __webpack_require__(7);
-var ReactServerUpdateQueue = __webpack_require__(149);
+var ReactServerUpdateQueue = __webpack_require__(301);
 
 /**
  * Executed within the scope of the `Transaction` instance. Consider these as
@@ -19919,7 +26438,7 @@ module.exports = ReactServerRenderingTransaction;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 149 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19943,8 +26462,8 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
-var ReactUpdateQueue = __webpack_require__(46);
-var Transaction = __webpack_require__(25);
+var ReactUpdateQueue = __webpack_require__(72);
+var Transaction = __webpack_require__(34);
 var warning = __webpack_require__(2);
 
 function warnNoop(publicInstance, callerName) {
@@ -20066,7 +26585,7 @@ module.exports = ReactServerUpdateQueue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 150 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20374,7 +26893,7 @@ Object.keys(ATTRS).forEach(function (key) {
 module.exports = SVGDOMPropertyConfig;
 
 /***/ }),
-/* 151 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20391,17 +26910,17 @@ module.exports = SVGDOMPropertyConfig;
 
 
 
-var EventConstants = __webpack_require__(12);
-var EventPropagators = __webpack_require__(22);
+var EventConstants = __webpack_require__(13);
+var EventPropagators = __webpack_require__(31);
 var ExecutionEnvironment = __webpack_require__(6);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInputSelection = __webpack_require__(72);
-var SyntheticEvent = __webpack_require__(14);
+var ReactInputSelection = __webpack_require__(122);
+var SyntheticEvent = __webpack_require__(15);
 
-var getActiveElement = __webpack_require__(60);
-var isTextInputElement = __webpack_require__(85);
-var keyOf = __webpack_require__(15);
-var shallowEqual = __webpack_require__(34);
+var getActiveElement = __webpack_require__(87);
+var isTextInputElement = __webpack_require__(135);
+var keyOf = __webpack_require__(16);
+var shallowEqual = __webpack_require__(54);
 
 var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -20576,7 +27095,7 @@ var SelectEventPlugin = {
 module.exports = SelectEventPlugin;
 
 /***/ }),
-/* 152 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20595,26 +27114,26 @@ module.exports = SelectEventPlugin;
 
 var _prodInvariant = __webpack_require__(3);
 
-var EventConstants = __webpack_require__(12);
-var EventListener = __webpack_require__(58);
-var EventPropagators = __webpack_require__(22);
+var EventConstants = __webpack_require__(13);
+var EventListener = __webpack_require__(85);
+var EventPropagators = __webpack_require__(31);
 var ReactDOMComponentTree = __webpack_require__(5);
-var SyntheticAnimationEvent = __webpack_require__(153);
-var SyntheticClipboardEvent = __webpack_require__(154);
-var SyntheticEvent = __webpack_require__(14);
-var SyntheticFocusEvent = __webpack_require__(157);
-var SyntheticKeyboardEvent = __webpack_require__(159);
-var SyntheticMouseEvent = __webpack_require__(31);
-var SyntheticDragEvent = __webpack_require__(156);
-var SyntheticTouchEvent = __webpack_require__(160);
-var SyntheticTransitionEvent = __webpack_require__(161);
-var SyntheticUIEvent = __webpack_require__(24);
-var SyntheticWheelEvent = __webpack_require__(162);
+var SyntheticAnimationEvent = __webpack_require__(305);
+var SyntheticClipboardEvent = __webpack_require__(306);
+var SyntheticEvent = __webpack_require__(15);
+var SyntheticFocusEvent = __webpack_require__(309);
+var SyntheticKeyboardEvent = __webpack_require__(311);
+var SyntheticMouseEvent = __webpack_require__(51);
+var SyntheticDragEvent = __webpack_require__(308);
+var SyntheticTouchEvent = __webpack_require__(312);
+var SyntheticTransitionEvent = __webpack_require__(313);
+var SyntheticUIEvent = __webpack_require__(33);
+var SyntheticWheelEvent = __webpack_require__(314);
 
 var emptyFunction = __webpack_require__(8);
-var getEventCharCode = __webpack_require__(49);
+var getEventCharCode = __webpack_require__(75);
 var invariant = __webpack_require__(1);
-var keyOf = __webpack_require__(15);
+var keyOf = __webpack_require__(16);
 
 var topLevelTypes = EventConstants.topLevelTypes;
 
@@ -21218,7 +27737,7 @@ module.exports = SimpleEventPlugin;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 153 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21235,7 +27754,7 @@ module.exports = SimpleEventPlugin;
 
 
 
-var SyntheticEvent = __webpack_require__(14);
+var SyntheticEvent = __webpack_require__(15);
 
 /**
  * @interface Event
@@ -21263,7 +27782,7 @@ SyntheticEvent.augmentClass(SyntheticAnimationEvent, AnimationEventInterface);
 module.exports = SyntheticAnimationEvent;
 
 /***/ }),
-/* 154 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21280,7 +27799,7 @@ module.exports = SyntheticAnimationEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(14);
+var SyntheticEvent = __webpack_require__(15);
 
 /**
  * @interface Event
@@ -21307,7 +27826,7 @@ SyntheticEvent.augmentClass(SyntheticClipboardEvent, ClipboardEventInterface);
 module.exports = SyntheticClipboardEvent;
 
 /***/ }),
-/* 155 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21324,7 +27843,7 @@ module.exports = SyntheticClipboardEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(14);
+var SyntheticEvent = __webpack_require__(15);
 
 /**
  * @interface Event
@@ -21349,7 +27868,7 @@ SyntheticEvent.augmentClass(SyntheticCompositionEvent, CompositionEventInterface
 module.exports = SyntheticCompositionEvent;
 
 /***/ }),
-/* 156 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21366,7 +27885,7 @@ module.exports = SyntheticCompositionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(31);
+var SyntheticMouseEvent = __webpack_require__(51);
 
 /**
  * @interface DragEvent
@@ -21391,7 +27910,7 @@ SyntheticMouseEvent.augmentClass(SyntheticDragEvent, DragEventInterface);
 module.exports = SyntheticDragEvent;
 
 /***/ }),
-/* 157 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21408,7 +27927,7 @@ module.exports = SyntheticDragEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(24);
+var SyntheticUIEvent = __webpack_require__(33);
 
 /**
  * @interface FocusEvent
@@ -21433,7 +27952,7 @@ SyntheticUIEvent.augmentClass(SyntheticFocusEvent, FocusEventInterface);
 module.exports = SyntheticFocusEvent;
 
 /***/ }),
-/* 158 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21450,7 +27969,7 @@ module.exports = SyntheticFocusEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(14);
+var SyntheticEvent = __webpack_require__(15);
 
 /**
  * @interface Event
@@ -21476,7 +27995,7 @@ SyntheticEvent.augmentClass(SyntheticInputEvent, InputEventInterface);
 module.exports = SyntheticInputEvent;
 
 /***/ }),
-/* 159 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21493,11 +28012,11 @@ module.exports = SyntheticInputEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(24);
+var SyntheticUIEvent = __webpack_require__(33);
 
-var getEventCharCode = __webpack_require__(49);
-var getEventKey = __webpack_require__(167);
-var getEventModifierState = __webpack_require__(50);
+var getEventCharCode = __webpack_require__(75);
+var getEventKey = __webpack_require__(319);
+var getEventModifierState = __webpack_require__(76);
 
 /**
  * @interface KeyboardEvent
@@ -21566,7 +28085,7 @@ SyntheticUIEvent.augmentClass(SyntheticKeyboardEvent, KeyboardEventInterface);
 module.exports = SyntheticKeyboardEvent;
 
 /***/ }),
-/* 160 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21583,9 +28102,9 @@ module.exports = SyntheticKeyboardEvent;
 
 
 
-var SyntheticUIEvent = __webpack_require__(24);
+var SyntheticUIEvent = __webpack_require__(33);
 
-var getEventModifierState = __webpack_require__(50);
+var getEventModifierState = __webpack_require__(76);
 
 /**
  * @interface TouchEvent
@@ -21617,7 +28136,7 @@ SyntheticUIEvent.augmentClass(SyntheticTouchEvent, TouchEventInterface);
 module.exports = SyntheticTouchEvent;
 
 /***/ }),
-/* 161 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21634,7 +28153,7 @@ module.exports = SyntheticTouchEvent;
 
 
 
-var SyntheticEvent = __webpack_require__(14);
+var SyntheticEvent = __webpack_require__(15);
 
 /**
  * @interface Event
@@ -21662,7 +28181,7 @@ SyntheticEvent.augmentClass(SyntheticTransitionEvent, TransitionEventInterface);
 module.exports = SyntheticTransitionEvent;
 
 /***/ }),
-/* 162 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21679,7 +28198,7 @@ module.exports = SyntheticTransitionEvent;
 
 
 
-var SyntheticMouseEvent = __webpack_require__(31);
+var SyntheticMouseEvent = __webpack_require__(51);
 
 /**
  * @interface WheelEvent
@@ -21722,7 +28241,7 @@ SyntheticMouseEvent.augmentClass(SyntheticWheelEvent, WheelEventInterface);
 module.exports = SyntheticWheelEvent;
 
 /***/ }),
-/* 163 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21772,7 +28291,7 @@ function adler32(data) {
 module.exports = adler32;
 
 /***/ }),
-/* 164 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21789,7 +28308,7 @@ module.exports = adler32;
 
 
 
-var CSSProperty = __webpack_require__(61);
+var CSSProperty = __webpack_require__(111);
 var warning = __webpack_require__(2);
 
 var isUnitlessNumber = CSSProperty.isUnitlessNumber;
@@ -21858,7 +28377,7 @@ module.exports = dangerousStyleValue;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 165 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21877,11 +28396,11 @@ module.exports = dangerousStyleValue;
 
 var _prodInvariant = __webpack_require__(3);
 
-var ReactCurrentOwner = __webpack_require__(13);
+var ReactCurrentOwner = __webpack_require__(14);
 var ReactDOMComponentTree = __webpack_require__(5);
-var ReactInstanceMap = __webpack_require__(23);
+var ReactInstanceMap = __webpack_require__(32);
 
-var getHostComponentFromComposite = __webpack_require__(82);
+var getHostComponentFromComposite = __webpack_require__(132);
 var invariant = __webpack_require__(1);
 var warning = __webpack_require__(2);
 
@@ -21925,7 +28444,7 @@ module.exports = findDOMNode;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 166 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21945,8 +28464,8 @@ module.exports = findDOMNode;
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var KeyEscapeUtils = __webpack_require__(38);
-var traverseAllChildren = __webpack_require__(55);
+var KeyEscapeUtils = __webpack_require__(64);
+var traverseAllChildren = __webpack_require__(81);
 var warning = __webpack_require__(2);
 
 var ReactComponentTreeHook;
@@ -22010,7 +28529,7 @@ module.exports = flattenChildren;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 167 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22027,7 +28546,7 @@ module.exports = flattenChildren;
 
 
 
-var getEventCharCode = __webpack_require__(49);
+var getEventCharCode = __webpack_require__(75);
 
 /**
  * Normalization of deprecated HTML5 `key` values
@@ -22118,7 +28637,7 @@ function getEventKey(nativeEvent) {
 module.exports = getEventKey;
 
 /***/ }),
-/* 168 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22198,7 +28717,7 @@ function getNodeForCharacterOffset(root, offset) {
 module.exports = getNodeForCharacterOffset;
 
 /***/ }),
-/* 169 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22305,7 +28824,7 @@ function getVendorPrefixedEventName(eventName) {
 module.exports = getVendorPrefixedEventName;
 
 /***/ }),
-/* 170 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22350,7 +28869,7 @@ module.exports = onlyChild;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 171 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22367,7 +28886,7 @@ module.exports = onlyChild;
 
 
 
-var escapeTextContentForBrowser = __webpack_require__(32);
+var escapeTextContentForBrowser = __webpack_require__(52);
 
 /**
  * Escapes attribute value to prevent scripting attacks.
@@ -22382,7 +28901,7 @@ function quoteAttributeValueForBrowser(value) {
 module.exports = quoteAttributeValueForBrowser;
 
 /***/ }),
-/* 172 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22399,58 +28918,738 @@ module.exports = quoteAttributeValueForBrowser;
 
 
 
-var ReactMount = __webpack_require__(73);
+var ReactMount = __webpack_require__(123);
 
 module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ }),
-/* 173 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-module.exports = function (module) {
-	if (!module.webpackPolyfill) {
-		module.deprecate = function () {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if (!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function get() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function get() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+  return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
+
+var filenameWithoutLoaders = exports.filenameWithoutLoaders = function filenameWithoutLoaders() {
+  var filename = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+  var index = filename.lastIndexOf('!');
+
+  return index < 0 ? filename : filename.substr(index + 1);
+};
+
+var filenameHasLoaders = exports.filenameHasLoaders = function filenameHasLoaders(filename) {
+  var actualFilename = _get__('filenameWithoutLoaders')(filename);
+
+  return actualFilename !== filename;
+};
+
+var filenameHasSchema = exports.filenameHasSchema = function filenameHasSchema(filename) {
+  return (/^[\w]+\:/.test(filename)
+  );
+};
+
+var isFilenameAbsolute = exports.isFilenameAbsolute = function isFilenameAbsolute(filename) {
+  var actualFilename = _get__('filenameWithoutLoaders')(filename);
+
+  if (actualFilename.indexOf('/') === 0) {
+    return true;
+  }
+
+  return false;
+};
+
+var makeUrl = exports.makeUrl = function makeUrl(filename, scheme, line, column) {
+  var actualFilename = _get__('filenameWithoutLoaders')(filename);
+
+  if (_get__('filenameHasSchema')(filename)) {
+    return actualFilename;
+  }
+
+  var url = 'file://' + actualFilename;
+
+  if (scheme) {
+    url = scheme + '://open?url=' + url;
+
+    if (line && actualFilename === filename) {
+      url = url + '&line=' + line;
+
+      if (column) {
+        url = url + '&column=' + column;
+      }
+    }
+  }
+
+  return url;
+};
+
+var makeLinkText = exports.makeLinkText = function makeLinkText(filename, line, column) {
+  var text = _get__('filenameWithoutLoaders')(filename);
+
+  if (line && text === filename) {
+    text = text + ':' + line;
+
+    if (column) {
+      text = text + ':' + column;
+    }
+  }
+
+  return text;
+};
+
+var _RewiredData__ = Object.create(null);
+
+var INTENTIONAL_UNDEFINED = '__INTENTIONAL_UNDEFINED__';
+var _RewireAPI__ = {};
+
+(function () {
+  function addPropertyToAPIObject(name, value) {
+    Object.defineProperty(_RewireAPI__, name, {
+      value: value,
+      enumerable: false,
+      configurable: true
+    });
+  }
+
+  addPropertyToAPIObject('__get__', _get__);
+  addPropertyToAPIObject('__GetDependency__', _get__);
+  addPropertyToAPIObject('__Rewire__', _set__);
+  addPropertyToAPIObject('__set__', _set__);
+  addPropertyToAPIObject('__reset__', _reset__);
+  addPropertyToAPIObject('__ResetDependency__', _reset__);
+  addPropertyToAPIObject('__with__', _with__);
+})();
+
+function _get__(variableName) {
+  if (_RewiredData__ === undefined || _RewiredData__[variableName] === undefined) {
+    return _get_original__(variableName);
+  } else {
+    var value = _RewiredData__[variableName];
+
+    if (value === INTENTIONAL_UNDEFINED) {
+      return undefined;
+    } else {
+      return value;
+    }
+  }
+}
+
+function _get_original__(variableName) {
+  switch (variableName) {
+    case 'filenameWithoutLoaders':
+      return filenameWithoutLoaders;
+
+    case 'filenameHasSchema':
+      return filenameHasSchema;
+  }
+
+  return undefined;
+}
+
+function _assign__(variableName, value) {
+  if (_RewiredData__ === undefined || _RewiredData__[variableName] === undefined) {
+    return _set_original__(variableName, value);
+  } else {
+    return _RewiredData__[variableName] = value;
+  }
+}
+
+function _set_original__(variableName, _value) {
+  switch (variableName) {}
+
+  return undefined;
+}
+
+function _update_operation__(operation, variableName, prefix) {
+  var oldValue = _get__(variableName);
+
+  var newValue = operation === '++' ? oldValue + 1 : oldValue - 1;
+
+  _assign__(variableName, newValue);
+
+  return prefix ? newValue : oldValue;
+}
+
+function _set__(variableName, value) {
+  if ((typeof variableName === 'undefined' ? 'undefined' : _typeof(variableName)) === 'object') {
+    Object.keys(variableName).forEach(function (name) {
+      _RewiredData__[name] = variableName[name];
+    });
+  } else {
+    if (value === undefined) {
+      _RewiredData__[variableName] = INTENTIONAL_UNDEFINED;
+    } else {
+      _RewiredData__[variableName] = value;
+    }
+
+    return function () {
+      _reset__(variableName);
+    };
+  }
+}
+
+function _reset__(variableName) {
+  delete _RewiredData__[variableName];
+}
+
+function _with__(object) {
+  var rewiredVariableNames = Object.keys(object);
+  var previousValues = {};
+
+  function reset() {
+    rewiredVariableNames.forEach(function (variableName) {
+      _RewiredData__[variableName] = previousValues[variableName];
+    });
+  }
+
+  return function (callback) {
+    rewiredVariableNames.forEach(function (variableName) {
+      previousValues[variableName] = _RewiredData__[variableName];
+      _RewiredData__[variableName] = object[variableName];
+    });
+    var result = callback();
+
+    if (!!result && typeof result.then == 'function') {
+      result.then(reset).catch(reset);
+    } else {
+      reset();
+    }
+
+    return result;
+  };
+}
+
+exports.__get__ = _get__;
+exports.__GetDependency__ = _get__;
+exports.__Rewire__ = _set__;
+exports.__set__ = _set__;
+exports.__ResetDependency__ = _reset__;
+exports.__RewireAPI__ = _RewireAPI__;
+exports.default = _RewireAPI__;
+
+/***/ }),
+/* 326 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var _DefaultExportValue = {
+  redbox: {
+    boxSizing: 'border-box',
+    fontFamily: 'sans-serif',
+    position: 'fixed',
+    padding: 10,
+    top: '0px',
+    left: '0px',
+    bottom: '0px',
+    right: '0px',
+    width: '100%',
+    background: 'rgb(204, 0, 0)',
+    color: 'white',
+    zIndex: 2147483647,
+    textAlign: 'left',
+    fontSize: '16px',
+    lineHeight: 1.2,
+    overflow: 'scroll'
+  },
+  message: {
+    fontWeight: 'bold'
+  },
+  stack: {
+    fontFamily: 'monospace',
+    marginTop: '2em'
+  },
+  frame: {
+    marginTop: '1em'
+  },
+  file: {
+    fontSize: '0.8em',
+    color: 'rgba(255, 255, 255, 0.7)'
+  },
+  linkToFile: {
+    textDecoration: 'none',
+    color: 'rgba(255, 255, 255, 0.7)'
+  }
+};
+exports.default = _DefaultExportValue;
+
+/***/ }),
+/* 327 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/* eslint-disable no-unused-vars */
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
 	}
-	return module;
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc'); // eslint-disable-line
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !== 'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (e) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (Object.getOwnPropertySymbols) {
+			symbols = Object.getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
 };
 
 /***/ }),
-/* 174 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+(function (root, factory) {
+    'use strict';
+    // Universal Module Definition (UMD) to support AMD, CommonJS/Node.js, Rhino, and browsers.
+
+    /* istanbul ignore next */
+
+    if (true) {
+        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+    } else if ((typeof exports === 'undefined' ? 'undefined' : _typeof(exports)) === 'object') {
+        module.exports = factory();
+    } else {
+        root.StackFrame = factory();
+    }
+})(undefined, function () {
+    'use strict';
+
+    function _isNumber(n) {
+        return !isNaN(parseFloat(n)) && isFinite(n);
+    }
+
+    function StackFrame(functionName, args, fileName, lineNumber, columnNumber, source) {
+        if (functionName !== undefined) {
+            this.setFunctionName(functionName);
+        }
+        if (args !== undefined) {
+            this.setArgs(args);
+        }
+        if (fileName !== undefined) {
+            this.setFileName(fileName);
+        }
+        if (lineNumber !== undefined) {
+            this.setLineNumber(lineNumber);
+        }
+        if (columnNumber !== undefined) {
+            this.setColumnNumber(columnNumber);
+        }
+        if (source !== undefined) {
+            this.setSource(source);
+        }
+    }
+
+    StackFrame.prototype = {
+        getFunctionName: function getFunctionName() {
+            return this.functionName;
+        },
+        setFunctionName: function setFunctionName(v) {
+            this.functionName = String(v);
+        },
+
+        getArgs: function getArgs() {
+            return this.args;
+        },
+        setArgs: function setArgs(v) {
+            if (Object.prototype.toString.call(v) !== '[object Array]') {
+                throw new TypeError('Args must be an Array');
+            }
+            this.args = v;
+        },
+
+        // NOTE: Property name may be misleading as it includes the path,
+        // but it somewhat mirrors V8's JavaScriptStackTraceApi
+        // https://code.google.com/p/v8/wiki/JavaScriptStackTraceApi and Gecko's
+        // http://mxr.mozilla.org/mozilla-central/source/xpcom/base/nsIException.idl#14
+        getFileName: function getFileName() {
+            return this.fileName;
+        },
+        setFileName: function setFileName(v) {
+            this.fileName = String(v);
+        },
+
+        getLineNumber: function getLineNumber() {
+            return this.lineNumber;
+        },
+        setLineNumber: function setLineNumber(v) {
+            if (!_isNumber(v)) {
+                throw new TypeError('Line Number must be a Number');
+            }
+            this.lineNumber = Number(v);
+        },
+
+        getColumnNumber: function getColumnNumber() {
+            return this.columnNumber;
+        },
+        setColumnNumber: function setColumnNumber(v) {
+            if (!_isNumber(v)) {
+                throw new TypeError('Column Number must be a Number');
+            }
+            this.columnNumber = Number(v);
+        },
+
+        getSource: function getSource() {
+            return this.source;
+        },
+        setSource: function setSource(v) {
+            this.source = String(v);
+        },
+
+        toString: function toString() {
+            var functionName = this.getFunctionName() || '{anonymous}';
+            var args = '(' + (this.getArgs() || []).join(',') + ')';
+            var fileName = this.getFileName() ? '@' + this.getFileName() : '';
+            var lineNumber = _isNumber(this.getLineNumber()) ? ':' + this.getLineNumber() : '';
+            var columnNumber = _isNumber(this.getColumnNumber()) ? ':' + this.getColumnNumber() : '';
+            return functionName + args + fileName + lineNumber + columnNumber;
+        }
+    };
+
+    return StackFrame;
+});
+
+/***/ }),
+/* 329 */,
+/* 330 */,
+/* 331 */,
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */,
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _index = __webpack_require__(139);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = __webpack_require__(137);
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _react2 = __webpack_require__(35);
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index5 = __webpack_require__(138);
+
+var _index6 = _interopRequireDefault(_index5);
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(57);
+var _highcharts = __webpack_require__(360);
 
-var _react2 = _interopRequireDefault(_react);
+var _highcharts2 = _interopRequireDefault(_highcharts);
 
-var _reactDom = __webpack_require__(88);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+	HighCharts: {
+		displayName: 'HighCharts'
+	}
+};
+
+var _UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+	filename: '/Users/liushuxin/liushuxin_own_file/lanxin_technology/dist/components/HighCharts/index.js',
+	components: _components,
+	locals: [module],
+	imports: [_react3.default]
+});
+
+var _UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+	filename: '/Users/liushuxin/liushuxin_own_file/lanxin_technology/dist/components/HighCharts/index.js',
+	components: _components,
+	locals: [],
+	imports: [_react3.default, _index2.default]
+});
+
+function _wrapComponent(id) {
+	return function (Component) {
+		return _UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2(_UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+	};
+}
+
+var HighCharts = _wrapComponent('HighCharts')(function (_Component) {
+	_inherits(HighCharts, _Component);
+
+	function HighCharts(props) {
+		_classCallCheck(this, HighCharts);
+
+		var _this = _possibleConstructorReturn(this, (HighCharts.__proto__ || Object.getPrototypeOf(HighCharts)).call(this, props));
+
+		_this.state = {};
+		return _this;
+	}
+
+	_createClass(HighCharts, [{
+		key: 'componentDidMount',
+		value: function componentDidMount() {
+			var self = this;
+			_highcharts2.default.chart(self.refs.highchartDom, {
+				chart: {
+					//alignTicks: false,
+					type: 'line'
+				},
+				xAxis: {
+					categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+				},
+				yAxis: [{
+					title: {
+						text: 'Primary Axis'
+					},
+					gridLineWidth: 0
+				}, {
+					title: {
+						text: 'Secondary Axis'
+					},
+					opposite: true
+				}],
+				legend: {
+					layout: 'vertical',
+					backgroundColor: '#FFFFFF',
+					floating: true,
+					align: 'left',
+					x: 100,
+					verticalAlign: 'top',
+					y: 70
+				},
+				tooltip: {
+					formatter: function formatter() {
+						return '<b>' + this.series.name + '</b><br/>' + this.x + ': ' + this.y;
+					}
+				},
+				plotOptions: {},
+				series: [{
+					data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+				}, {
+					data: [129.9, 271.5, 306.4, 29.2, 544.0, 376.0, 435.6, 348.5, 216.4, 294.1, 35.6, 354.4],
+					yAxis: 1
+
+				}]
+			});
+		}
+	}, {
+		key: 'render',
+		value: function render() {
+			var self = this;
+			return _react3.default.createElement(
+				'div',
+				{ ref: 'hc' },
+				'HighChart\u7EC4\u4EF6,haha',
+				_react3.default.createElement('div', { ref: 'highchartDom' })
+			);
+		}
+	}]);
+
+	return HighCharts;
+}(_react2.Component));
+
+exports.default = HighCharts;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)(module)))
+
+/***/ }),
+/* 346 */,
+/* 347 */,
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */,
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};/*
+ Highcharts JS v5.0.9 (2017-03-08)
+
+ (c) 2009-2016 Torstein Honsi
+
+ License: www.highcharts.com/license
+*/(function(I,a){"object"===( false?"undefined":_typeof(module))&&module.exports?module.exports=I.document?a(I):a:I.Highcharts=a(I);})("undefined"!==typeof window?window:undefined,function(I){I=function(){var a=window,B=a.document,z=a.navigator&&a.navigator.userAgent||"",C=B&&B.createElementNS&&!!B.createElementNS("http://www.w3.org/2000/svg","svg").createSVGRect,E=/(edge|msie|trident)/i.test(z)&&!window.opera,u=!C,h=/Firefox/.test(z),n=h&&4>parseInt(z.split("Firefox/")[1],10);return a.Highcharts?a.Highcharts.error(16,!0):{product:"Highcharts",version:"5.0.9",deg2rad:2*Math.PI/360,doc:B,hasBidiBug:n,hasTouch:B&&void 0!==B.documentElement.ontouchstart,isMS:E,isWebKit:/AppleWebKit/.test(z),isFirefox:h,isTouchDevice:/(Mobile|Android|Windows Phone)/.test(z),SVG_NS:"http://www.w3.org/2000/svg",chartCount:0,seriesTypes:{},symbolSizes:{},svg:C,vml:u,win:a,charts:[],marginNames:["plotTop","marginRight","marginBottom","plotLeft"],noop:function noop(){}};}();(function(a){var B=[],z=a.charts,C=a.doc,E=a.win;a.error=function(u,h){u=a.isNumber(u)?"Highcharts error #"+u+": www.highcharts.com/errors/"+u:u;if(h)throw Error(u);E.console&&console.log(u);};a.Fx=function(a,h,n){this.options=h;this.elem=a;this.prop=n;};a.Fx.prototype={dSetter:function dSetter(){var a=this.paths[0],h=this.paths[1],n=[],t=this.now,l=a.length,k;if(1===t)n=this.toD;else if(l===h.length&&1>t)for(;l--;){k=parseFloat(a[l]),n[l]=isNaN(k)?a[l]:t*parseFloat(h[l]-k)+k;}else n=h;this.elem.attr("d",n,null,!0);},update:function update(){var a=this.elem,h=this.prop,n=this.now,t=this.options.step;if(this[h+"Setter"])this[h+"Setter"]();else a.attr?a.element&&a.attr(h,n,null,!0):a.style[h]=n+this.unit;t&&t.call(a,n,this);},run:function run(a,h,n){var u=this,l=function l(a){return l.stopped?!1:u.step(a);},k;this.startTime=+new Date();this.start=a;this.end=h;this.unit=n;this.now=this.start;this.pos=0;l.elem=this.elem;l.prop=this.prop;l()&&1===B.push(l)&&(l.timerId=setInterval(function(){for(k=0;k<B.length;k++){B[k]()||B.splice(k--,1);}B.length||clearInterval(l.timerId);},13));},step:function step(a){var h=+new Date(),u,t=this.options;u=this.elem;var l=t.complete,k=t.duration,e=t.curAnim,c;if(u.attr&&!u.element)u=!1;else if(a||h>=k+this.startTime){this.now=this.end;this.pos=1;this.update();a=e[this.prop]=!0;for(c in e){!0!==e[c]&&(a=!1);}a&&l&&l.call(u);u=!1;}else this.pos=t.easing((h-this.startTime)/k),this.now=this.start+(this.end-this.start)*this.pos,this.update(),u=!0;return u;},initPath:function initPath(u,h,n){function t(a){var b,f;for(r=a.length;r--;){b="M"===a[r]||"L"===a[r],f=/[a-zA-Z]/.test(a[r+3]),b&&f&&a.splice(r+1,0,a[r+1],a[r+2],a[r+1],a[r+2]);}}function l(a,f){for(;a.length<m;){a[0]=f[m-a.length];var d=a.slice(0,b);[].splice.apply(a,[0,0].concat(d));A&&(d=a.slice(a.length-b),[].splice.apply(a,[a.length,0].concat(d)),r--);}a[0]="M";}function k(a,f){for(var c=(m-a.length)/b;0<c&&c--;){d=a.slice().splice(a.length/v-b,b*v),d[0]=f[m-b-c*b],H&&(d[b-6]=d[b-2],d[b-5]=d[b-1]),[].splice.apply(a,[a.length/v,0].concat(d)),A&&c--;}}h=h||"";var e,c=u.startX,p=u.endX,H=-1<h.indexOf("C"),b=H?7:3,m,d,r;h=h.split(" ");n=n.slice();var A=u.isArea,v=A?2:1,f;H&&(t(h),t(n));if(c&&p){for(r=0;r<c.length;r++){if(c[r]===p[0]){e=r;break;}else if(c[0]===p[p.length-c.length+r]){e=r;f=!0;break;}}void 0===e&&(h=[]);}h.length&&a.isNumber(e)&&(m=n.length+e*v*b,f?(l(h,n),k(n,h)):(l(n,h),k(h,n)));return[h,n];}};a.extend=function(a,h){var u;a||(a={});for(u in h){a[u]=h[u];}return a;};a.merge=function(){var u,h=arguments,n,t={},l=function l(k,e){var c,p;"object"!==(typeof k==="undefined"?"undefined":_typeof(k))&&(k={});for(p in e){e.hasOwnProperty(p)&&(c=e[p],a.isObject(c,!0)&&"renderTo"!==p&&"number"!==typeof c.nodeType?k[p]=l(k[p]||{},c):k[p]=e[p]);}return k;};!0===h[0]&&(t=h[1],h=Array.prototype.slice.call(h,2));n=h.length;for(u=0;u<n;u++){t=l(t,h[u]);}return t;};a.pInt=function(a,h){return parseInt(a,h||10);};a.isString=function(a){return"string"===typeof a;};a.isArray=function(a){a=Object.prototype.toString.call(a);return"[object Array]"===a||"[object Array Iterator]"===a;};a.isObject=function(u,h){return u&&"object"===(typeof u==="undefined"?"undefined":_typeof(u))&&(!h||!a.isArray(u));};a.isNumber=function(a){return"number"===typeof a&&!isNaN(a);};a.erase=function(a,h){for(var u=a.length;u--;){if(a[u]===h){a.splice(u,1);break;}}};a.defined=function(a){return void 0!==a&&null!==a;};a.attr=function(u,h,n){var t,l;if(a.isString(h))a.defined(n)?u.setAttribute(h,n):u&&u.getAttribute&&(l=u.getAttribute(h));else if(a.defined(h)&&a.isObject(h))for(t in h){u.setAttribute(t,h[t]);}return l;};a.splat=function(u){return a.isArray(u)?u:[u];};a.syncTimeout=function(a,h,n){if(h)return setTimeout(a,h,n);a.call(0,n);};a.pick=function(){var a=arguments,h,n,t=a.length;for(h=0;h<t;h++){if(n=a[h],void 0!==n&&null!==n)return n;}};a.css=function(u,h){a.isMS&&!a.svg&&h&&void 0!==h.opacity&&(h.filter="alpha(opacity\x3d"+100*h.opacity+")");a.extend(u.style,h);};a.createElement=function(u,h,n,t,l){u=C.createElement(u);var k=a.css;h&&a.extend(u,h);l&&k(u,{padding:0,border:"none",margin:0});n&&k(u,n);t&&t.appendChild(u);return u;};a.extendClass=function(u,h){var n=function n(){};n.prototype=new u();a.extend(n.prototype,h);return n;};a.pad=function(a,h,n){return Array((h||2)+1-String(a).length).join(n||0)+a;};a.relativeLength=function(a,h){return /%$/.test(a)?h*parseFloat(a)/100:parseFloat(a);};a.wrap=function(a,h,n){var t=a[h];a[h]=function(){var a=Array.prototype.slice.call(arguments),k=arguments,e=this;e.proceed=function(){t.apply(e,arguments.length?arguments:k);};a.unshift(t);a=n.apply(this,a);e.proceed=null;return a;};};a.getTZOffset=function(u){var h=a.Date;return 6E4*(h.hcGetTimezoneOffset&&h.hcGetTimezoneOffset(u)||h.hcTimezoneOffset||0);};a.dateFormat=function(u,h,n){if(!a.defined(h)||isNaN(h))return a.defaultOptions.lang.invalidDate||"";u=a.pick(u,"%Y-%m-%d %H:%M:%S");var t=a.Date,l=new t(h-a.getTZOffset(h)),k,e=l[t.hcGetHours](),c=l[t.hcGetDay](),p=l[t.hcGetDate](),H=l[t.hcGetMonth](),b=l[t.hcGetFullYear](),m=a.defaultOptions.lang,d=m.weekdays,r=m.shortWeekdays,A=a.pad,t=a.extend({a:r?r[c]:d[c].substr(0,3),A:d[c],d:A(p),e:A(p,2," "),w:c,b:m.shortMonths[H],B:m.months[H],m:A(H+1),y:b.toString().substr(2,2),Y:b,H:A(e),k:e,I:A(e%12||12),l:e%12||12,M:A(l[t.hcGetMinutes]()),p:12>e?"AM":"PM",P:12>e?"am":"pm",S:A(l.getSeconds()),L:A(Math.round(h%1E3),3)},a.dateFormats);for(k in t){for(;-1!==u.indexOf("%"+k);){u=u.replace("%"+k,"function"===typeof t[k]?t[k](h):t[k]);}}return n?u.substr(0,1).toUpperCase()+u.substr(1):u;};a.formatSingle=function(u,h){var n=/\.([0-9])/,t=a.defaultOptions.lang;/f$/.test(u)?(n=(n=u.match(n))?n[1]:-1,null!==h&&(h=a.numberFormat(h,n,t.decimalPoint,-1<u.indexOf(",")?t.thousandsSep:""))):h=a.dateFormat(u,h);return h;};a.format=function(u,h){for(var n="{",t=!1,l,k,e,c,p=[],H;u;){n=u.indexOf(n);if(-1===n)break;l=u.slice(0,n);if(t){l=l.split(":");k=l.shift().split(".");c=k.length;H=h;for(e=0;e<c;e++){H=H[k[e]];}l.length&&(H=a.formatSingle(l.join(":"),H));p.push(H);}else p.push(l);u=u.slice(n+1);n=(t=!t)?"}":"{";}p.push(u);return p.join("");};a.getMagnitude=function(a){return Math.pow(10,Math.floor(Math.log(a)/Math.LN10));};a.normalizeTickInterval=function(u,h,n,t,l){var k,e=u;n=a.pick(n,1);k=u/n;h||(h=l?[1,1.2,1.5,2,2.5,3,4,5,6,8,10]:[1,2,2.5,5,10],!1===t&&(1===n?h=a.grep(h,function(a){return 0===a%1;}):.1>=n&&(h=[1/n])));for(t=0;t<h.length&&!(e=h[t],l&&e*n>=u||!l&&k<=(h[t]+(h[t+1]||h[t]))/2);t++){}return e=a.correctFloat(e*n,-Math.round(Math.log(.001)/Math.LN10));};a.stableSort=function(a,h){var n=a.length,t,l;for(l=0;l<n;l++){a[l].safeI=l;}a.sort(function(a,e){t=h(a,e);return 0===t?a.safeI-e.safeI:t;});for(l=0;l<n;l++){delete a[l].safeI;}};a.arrayMin=function(a){for(var h=a.length,n=a[0];h--;){a[h]<n&&(n=a[h]);}return n;};a.arrayMax=function(a){for(var h=a.length,n=a[0];h--;){a[h]>n&&(n=a[h]);}return n;};a.destroyObjectProperties=function(a,h){for(var n in a){a[n]&&a[n]!==h&&a[n].destroy&&a[n].destroy(),delete a[n];}};a.discardElement=function(u){var h=a.garbageBin;h||(h=a.createElement("div"));u&&h.appendChild(u);h.innerHTML="";};a.correctFloat=function(a,h){return parseFloat(a.toPrecision(h||14));};a.setAnimation=function(u,h){h.renderer.globalAnimation=a.pick(u,h.options.chart.animation,!0);};a.animObject=function(u){return a.isObject(u)?a.merge(u):{duration:u?500:0};};a.timeUnits={millisecond:1,second:1E3,minute:6E4,hour:36E5,day:864E5,week:6048E5,month:24192E5,year:314496E5};a.numberFormat=function(u,h,n,t){u=+u||0;h=+h;var l=a.defaultOptions.lang,k=(u.toString().split(".")[1]||"").length,e,c;-1===h?h=Math.min(k,20):a.isNumber(h)||(h=2);c=(Math.abs(u)+Math.pow(10,-Math.max(h,k)-1)).toFixed(h);k=String(a.pInt(c));e=3<k.length?k.length%3:0;n=a.pick(n,l.decimalPoint);t=a.pick(t,l.thousandsSep);u=(0>u?"-":"")+(e?k.substr(0,e)+t:"");u+=k.substr(e).replace(/(\d{3})(?=\d)/g,"$1"+t);h&&(u+=n+c.slice(-h));return u;};Math.easeInOutSine=function(a){return-.5*(Math.cos(Math.PI*a)-1);};a.getStyle=function(u,h){return"width"===h?Math.min(u.offsetWidth,u.scrollWidth)-a.getStyle(u,"padding-left")-a.getStyle(u,"padding-right"):"height"===h?Math.min(u.offsetHeight,u.scrollHeight)-a.getStyle(u,"padding-top")-a.getStyle(u,"padding-bottom"):(u=E.getComputedStyle(u,void 0))&&a.pInt(u.getPropertyValue(h));};a.inArray=function(a,h){return h.indexOf?h.indexOf(a):[].indexOf.call(h,a);};a.grep=function(a,h){return[].filter.call(a,h);};a.find=function(a,h){return[].find.call(a,h);};a.map=function(a,h){for(var n=[],t=0,l=a.length;t<l;t++){n[t]=h.call(a[t],a[t],t,a);}return n;};a.offset=function(a){var h=C.documentElement;a=a.getBoundingClientRect();return{top:a.top+(E.pageYOffset||h.scrollTop)-(h.clientTop||0),left:a.left+(E.pageXOffset||h.scrollLeft)-(h.clientLeft||0)};};a.stop=function(a,h){for(var n=B.length;n--;){B[n].elem!==a||h&&h!==B[n].prop||(B[n].stopped=!0);}};a.each=function(a,h,n){return Array.prototype.forEach.call(a,h,n);};a.addEvent=function(u,h,n){function t(a){a.target=a.srcElement||E;n.call(u,a);}var l=u.hcEvents=u.hcEvents||{};u.addEventListener?u.addEventListener(h,n,!1):u.attachEvent&&(u.hcEventsIE||(u.hcEventsIE={}),u.hcEventsIE[n.toString()]=t,u.attachEvent("on"+h,t));l[h]||(l[h]=[]);l[h].push(n);return function(){a.removeEvent(u,h,n);};};a.removeEvent=function(u,h,n){function t(a,c){u.removeEventListener?u.removeEventListener(a,c,!1):u.attachEvent&&(c=u.hcEventsIE[c.toString()],u.detachEvent("on"+a,c));}function l(){var a,c;if(u.nodeName)for(c in h?(a={},a[h]=!0):a=e,a){if(e[c])for(a=e[c].length;a--;){t(c,e[c][a]);}}}var k,e=u.hcEvents,c;e&&(h?(k=e[h]||[],n?(c=a.inArray(n,k),-1<c&&(k.splice(c,1),e[h]=k),t(h,n)):(l(),e[h]=[])):(l(),u.hcEvents={}));};a.fireEvent=function(u,h,n,t){var l;l=u.hcEvents;var k,e;n=n||{};if(C.createEvent&&(u.dispatchEvent||u.fireEvent))l=C.createEvent("Events"),l.initEvent(h,!0,!0),a.extend(l,n),u.dispatchEvent?u.dispatchEvent(l):u.fireEvent(h,l);else if(l)for(l=l[h]||[],k=l.length,n.target||a.extend(n,{preventDefault:function preventDefault(){n.defaultPrevented=!0;},target:u,type:h}),h=0;h<k;h++){(e=l[h])&&!1===e.call(u,n)&&n.preventDefault();}t&&!n.defaultPrevented&&t(n);};a.animate=function(u,h,n){var t,l="",k,e,c;a.isObject(n)||(t=arguments,n={duration:t[2],easing:t[3],complete:t[4]});a.isNumber(n.duration)||(n.duration=400);n.easing="function"===typeof n.easing?n.easing:Math[n.easing]||Math.easeInOutSine;n.curAnim=a.merge(h);for(c in h){a.stop(u,c),e=new a.Fx(u,n,c),k=null,"d"===c?(e.paths=e.initPath(u,u.d,h.d),e.toD=h.d,t=0,k=1):u.attr?t=u.attr(c):(t=parseFloat(a.getStyle(u,c))||0,"opacity"!==c&&(l="px")),k||(k=h[c]),k&&k.match&&k.match("px")&&(k=k.replace(/px/g,"")),e.run(t,k,l);}};a.seriesType=function(u,h,n,t,l){var k=a.getOptions(),e=a.seriesTypes;k.plotOptions[u]=a.merge(k.plotOptions[h],n);e[u]=a.extendClass(e[h]||function(){},t);e[u].prototype.type=u;l&&(e[u].prototype.pointClass=a.extendClass(a.Point,l));return e[u];};a.uniqueKey=function(){var a=Math.random().toString(36).substring(2,9),h=0;return function(){return"highcharts-"+a+"-"+h++;};}();E.jQuery&&(E.jQuery.fn.highcharts=function(){var u=[].slice.call(arguments);if(this[0])return u[0]?(new a[a.isString(u[0])?u.shift():"Chart"](this[0],u[0],u[1]),this):z[a.attr(this[0],"data-highcharts-chart")];});C&&!C.defaultView&&(a.getStyle=function(u,h){var n={width:"clientWidth",height:"clientHeight"}[h];if(u.style[h])return a.pInt(u.style[h]);"opacity"===h&&(h="filter");if(n)return u.style.zoom=1,Math.max(u[n]-2*a.getStyle(u,"padding"),0);u=u.currentStyle[h.replace(/\-(\w)/g,function(a,l){return l.toUpperCase();})];"filter"===h&&(u=u.replace(/alpha\(opacity=([0-9]+)\)/,function(a,l){return l/100;}));return""===u?1:a.pInt(u);});Array.prototype.forEach||(a.each=function(a,h,n){for(var t=0,l=a.length;t<l;t++){if(!1===h.call(n,a[t],t,a))return t;}});Array.prototype.indexOf||(a.inArray=function(a,h){var n,t=0;if(h)for(n=h.length;t<n;t++){if(h[t]===a)return t;}return-1;});Array.prototype.filter||(a.grep=function(a,h){for(var n=[],t=0,l=a.length;t<l;t++){h(a[t],t)&&n.push(a[t]);}return n;});Array.prototype.find||(a.find=function(a,h){var n,t=a.length;for(n=0;n<t;n++){if(h(a[n],n))return a[n];}});})(I);(function(a){var B=a.each,z=a.isNumber,C=a.map,E=a.merge,u=a.pInt;a.Color=function(h){if(!(this instanceof a.Color))return new a.Color(h);this.init(h);};a.Color.prototype={parsers:[{regex:/rgba\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]?(?:\.[0-9]+)?)\s*\)/,parse:function parse(a){return[u(a[1]),u(a[2]),u(a[3]),parseFloat(a[4],10)];}},{regex:/rgb\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*\)/,parse:function parse(a){return[u(a[1]),u(a[2]),u(a[3]),1];}}],names:{white:"#ffffff",black:"#000000"},init:function init(h){var n,t,l,k;if((this.input=h=this.names[h]||h)&&h.stops)this.stops=C(h.stops,function(e){return new a.Color(e[1]);});else if(h&&"#"===h[0]&&(n=h.length,h=parseInt(h.substr(1),16),7===n?t=[(h&16711680)>>16,(h&65280)>>8,h&255,1]:4===n&&(t=[(h&3840)>>4|(h&3840)>>8,(h&240)>>4|h&240,(h&15)<<4|h&15,1])),!t)for(l=this.parsers.length;l--&&!t;){k=this.parsers[l],(n=k.regex.exec(h))&&(t=k.parse(n));}this.rgba=t||[];},get:function get(a){var h=this.input,t=this.rgba,l;this.stops?(l=E(h),l.stops=[].concat(l.stops),B(this.stops,function(k,e){l.stops[e]=[l.stops[e][0],k.get(a)];})):l=t&&z(t[0])?"rgb"===a||!a&&1===t[3]?"rgb("+t[0]+","+t[1]+","+t[2]+")":"a"===a?t[3]:"rgba("+t.join(",")+")":h;return l;},brighten:function brighten(a){var h,t=this.rgba;if(this.stops)B(this.stops,function(l){l.brighten(a);});else if(z(a)&&0!==a)for(h=0;3>h;h++){t[h]+=u(255*a),0>t[h]&&(t[h]=0),255<t[h]&&(t[h]=255);}return this;},setOpacity:function setOpacity(a){this.rgba[3]=a;return this;}};a.color=function(h){return new a.Color(h);};})(I);(function(a){var B,z,C=a.addEvent,E=a.animate,u=a.attr,h=a.charts,n=a.color,t=a.css,l=a.createElement,k=a.defined,e=a.deg2rad,c=a.destroyObjectProperties,p=a.doc,H=a.each,b=a.extend,m=a.erase,d=a.grep,r=a.hasTouch,A=a.inArray,v=a.isArray,f=a.isFirefox,y=a.isMS,G=a.isObject,F=a.isString,q=a.isWebKit,x=a.merge,J=a.noop,K=a.pick,L=a.pInt,g=a.removeEvent,D=a.stop,S=a.svg,M=a.SVG_NS,R=a.symbolSizes,N=a.win;B=a.SVGElement=function(){return this;};B.prototype={opacity:1,SVG_NS:M,textProps:"direction fontSize fontWeight fontFamily fontStyle color lineHeight width textAlign textDecoration textOverflow textOutline".split(" "),init:function init(a,g){this.element="span"===g?l(g):p.createElementNS(this.SVG_NS,g);this.renderer=a;},animate:function animate(w,g,b){g=a.animObject(K(g,this.renderer.globalAnimation,!0));0!==g.duration?(b&&(g.complete=b),E(this,w,g)):(this.attr(w,null,b),g.step&&g.step.call(this));return this;},colorGradient:function colorGradient(w,g,b){var f=this.renderer,d,c,q,D,O,y,r,G,e,m,p,l=[],Q;w.linearGradient?c="linearGradient":w.radialGradient&&(c="radialGradient");if(c){q=w[c];O=f.gradients;r=w.stops;m=b.radialReference;v(q)&&(w[c]=q={x1:q[0],y1:q[1],x2:q[2],y2:q[3],gradientUnits:"userSpaceOnUse"});"radialGradient"===c&&m&&!k(q.gradientUnits)&&(D=q,q=x(q,f.getRadialAttr(m,D),{gradientUnits:"userSpaceOnUse"}));for(p in q){"id"!==p&&l.push(p,q[p]);}for(p in r){l.push(r[p]);}l=l.join(",");O[l]?m=O[l].attr("id"):(q.id=m=a.uniqueKey(),O[l]=y=f.createElement(c).attr(q).add(f.defs),y.radAttr=D,y.stops=[],H(r,function(w){0===w[1].indexOf("rgba")?(d=a.color(w[1]),G=d.get("rgb"),e=d.get("a")):(G=w[1],e=1);w=f.createElement("stop").attr({offset:w[0],"stop-color":G,"stop-opacity":e}).add(y);y.stops.push(w);}));Q="url("+f.url+"#"+m+")";b.setAttribute(g,Q);b.gradient=l;w.toString=function(){return Q;};}},applyTextOutline:function applyTextOutline(a){var w=this.element,g,b,f,d;-1!==a.indexOf("contrast")&&(a=a.replace(/contrast/g,this.renderer.getContrast(w.style.fill)));this.fakeTS=!0;this.ySetter=this.xSetter;g=[].slice.call(w.getElementsByTagName("tspan"));a=a.split(" ");b=a[a.length-1];(f=a[0])&&"none"!==f&&(f=f.replace(/(^[\d\.]+)(.*?)$/g,function(a,w,g){return 2*w+g;}),H(g,function(a){"highcharts-text-outline"===a.getAttribute("class")&&m(g,w.removeChild(a));}),d=w.firstChild,H(g,function(a,g){0===g&&(a.setAttribute("x",w.getAttribute("x")),g=w.getAttribute("y"),a.setAttribute("y",g||0),null===g&&w.setAttribute("y",0));a=a.cloneNode(1);u(a,{"class":"highcharts-text-outline",fill:b,stroke:b,"stroke-width":f,"stroke-linejoin":"round"});w.insertBefore(a,d);}));},attr:function attr(a,g,b,f){var w,d=this.element,q,c=this,y;"string"===typeof a&&void 0!==g&&(w=a,a={},a[w]=g);if("string"===typeof a)c=(this[a+"Getter"]||this._defaultGetter).call(this,a,d);else{for(w in a){g=a[w],y=!1,f||D(this,w),this.symbolName&&/^(x|y|width|height|r|start|end|innerR|anchorX|anchorY)/.test(w)&&(q||(this.symbolAttr(a),q=!0),y=!0),!this.rotation||"x"!==w&&"y"!==w||(this.doTransform=!0),y||(y=this[w+"Setter"]||this._defaultSetter,y.call(this,g,w,d),this.shadows&&/^(width|height|visibility|x|y|d|transform|cx|cy|r)$/.test(w)&&this.updateShadows(w,g,y));}this.doTransform&&(this.updateTransform(),this.doTransform=!1);}b&&b();return c;},updateShadows:function updateShadows(a,g,b){for(var w=this.shadows,f=w.length;f--;){b.call(w[f],"height"===a?Math.max(g-(w[f].cutHeight||0),0):"d"===a?this.d:g,a,w[f]);}},addClass:function addClass(a,g){var w=this.attr("class")||"";-1===w.indexOf(a)&&(g||(a=(w+(w?" ":"")+a).replace("  "," ")),this.attr("class",a));return this;},hasClass:function hasClass(a){return-1!==u(this.element,"class").indexOf(a);},removeClass:function removeClass(a){u(this.element,"class",(u(this.element,"class")||"").replace(a,""));return this;},symbolAttr:function symbolAttr(a){var w=this;H("x y r start end width height innerR anchorX anchorY".split(" "),function(g){w[g]=K(a[g],w[g]);});w.attr({d:w.renderer.symbols[w.symbolName](w.x,w.y,w.width,w.height,w)});},clip:function clip(a){return this.attr("clip-path",a?"url("+this.renderer.url+"#"+a.id+")":"none");},crisp:function crisp(a,g){var w,f={},b;g=g||a.strokeWidth||0;b=Math.round(g)%2/2;a.x=Math.floor(a.x||this.x||0)+b;a.y=Math.floor(a.y||this.y||0)+b;a.width=Math.floor((a.width||this.width||0)-2*b);a.height=Math.floor((a.height||this.height||0)-2*b);k(a.strokeWidth)&&(a.strokeWidth=g);for(w in a){this[w]!==a[w]&&(this[w]=f[w]=a[w]);}return f;},css:function css(a){var w=this.styles,g={},f=this.element,d,q="",c=!w,D=["textOverflow","width"];a&&a.color&&(a.fill=a.color);if(w)for(d in a){a[d]!==w[d]&&(g[d]=a[d],c=!0);}if(c){w&&(a=b(w,g));w=this.textWidth=a&&a.width&&"auto"!==a.width&&"text"===f.nodeName.toLowerCase()&&L(a.width);this.styles=a;w&&!S&&this.renderer.forExport&&delete a.width;if(y&&!S)t(this.element,a);else{w=function w(a,_w){return"-"+_w.toLowerCase();};for(d in a){-1===A(d,D)&&(q+=d.replace(/([A-Z])/g,w)+":"+a[d]+";");}q&&u(f,"style",q);}this.added&&("text"===this.element.nodeName&&this.renderer.buildText(this),a&&a.textOutline&&this.applyTextOutline(a.textOutline));}return this;},strokeWidth:function strokeWidth(){return this["stroke-width"]||0;},on:function on(a,g){var w=this,f=w.element;r&&"click"===a?(f.ontouchstart=function(a){w.touchEventFired=Date.now();a.preventDefault();g.call(f,a);},f.onclick=function(a){(-1===N.navigator.userAgent.indexOf("Android")||1100<Date.now()-(w.touchEventFired||0))&&g.call(f,a);}):f["on"+a]=g;return this;},setRadialReference:function setRadialReference(a){var w=this.renderer.gradients[this.element.gradient];this.element.radialReference=a;w&&w.radAttr&&w.animate(this.renderer.getRadialAttr(a,w.radAttr));return this;},translate:function translate(a,g){return this.attr({translateX:a,translateY:g});},invert:function invert(a){this.inverted=a;this.updateTransform();return this;},updateTransform:function updateTransform(){var a=this.translateX||0,g=this.translateY||0,f=this.scaleX,b=this.scaleY,d=this.inverted,q=this.rotation,c=this.element;d&&(a+=this.width,g+=this.height);a=["translate("+a+","+g+")"];d?a.push("rotate(90) scale(-1,1)"):q&&a.push("rotate("+q+" "+(c.getAttribute("x")||0)+" "+(c.getAttribute("y")||0)+")");(k(f)||k(b))&&a.push("scale("+K(f,1)+" "+K(b,1)+")");a.length&&c.setAttribute("transform",a.join(" "));},toFront:function toFront(){var a=this.element;a.parentNode.appendChild(a);return this;},align:function align(a,g,f){var w,b,d,q,c={};b=this.renderer;d=b.alignedObjects;var D,y;if(a){if(this.alignOptions=a,this.alignByTranslate=g,!f||F(f))this.alignTo=w=f||"renderer",m(d,this),d.push(this),f=null;}else a=this.alignOptions,g=this.alignByTranslate,w=this.alignTo;f=K(f,b[w],b);w=a.align;b=a.verticalAlign;d=(f.x||0)+(a.x||0);q=(f.y||0)+(a.y||0);"right"===w?D=1:"center"===w&&(D=2);D&&(d+=(f.width-(a.width||0))/D);c[g?"translateX":"x"]=Math.round(d);"bottom"===b?y=1:"middle"===b&&(y=2);y&&(q+=(f.height-(a.height||0))/y);c[g?"translateY":"y"]=Math.round(q);this[this.placed?"animate":"attr"](c);this.placed=!0;this.alignAttr=c;return this;},getBBox:function getBBox(a,g){var w,f=this.renderer,d,q=this.element,c=this.styles,D,y=this.textStr,x,r=f.cache,G=f.cacheKeys,m;g=K(g,this.rotation);d=g*e;D=c&&c.fontSize;void 0!==y&&(m=y.toString(),-1===m.indexOf("\x3c")&&(m=m.replace(/[0-9]/g,"0")),m+=["",g||0,D,c&&c.width,c&&c.textOverflow].join());m&&!a&&(w=r[m]);if(!w){if(q.namespaceURI===this.SVG_NS||f.forExport){try{(x=this.fakeTS&&function(a){H(q.querySelectorAll(".highcharts-text-outline"),function(w){w.style.display=a;});})&&x("none"),w=q.getBBox?b({},q.getBBox()):{width:q.offsetWidth,height:q.offsetHeight},x&&x("");}catch(X){}if(!w||0>w.width)w={width:0,height:0};}else w=this.htmlGetBBox();f.isSVG&&(a=w.width,f=w.height,c&&"11px"===c.fontSize&&17===Math.round(f)&&(w.height=f=14),g&&(w.width=Math.abs(f*Math.sin(d))+Math.abs(a*Math.cos(d)),w.height=Math.abs(f*Math.cos(d))+Math.abs(a*Math.sin(d))));if(m&&0<w.height){for(;250<G.length;){delete r[G.shift()];}r[m]||G.push(m);r[m]=w;}}return w;},show:function show(a){return this.attr({visibility:a?"inherit":"visible"});},hide:function hide(){return this.attr({visibility:"hidden"});},fadeOut:function fadeOut(a){var w=this;w.animate({opacity:0},{duration:a||150,complete:function complete(){w.attr({y:-9999});}});},add:function add(a){var w=this.renderer,g=this.element,f;a&&(this.parentGroup=a);this.parentInverted=a&&a.inverted;void 0!==this.textStr&&w.buildText(this);this.added=!0;if(!a||a.handleZ||this.zIndex)f=this.zIndexSetter();f||(a?a.element:w.box).appendChild(g);if(this.onAdd)this.onAdd();return this;},safeRemoveChild:function safeRemoveChild(a){var w=a.parentNode;w&&w.removeChild(a);},destroy:function destroy(){var a=this.element||{},g=this.renderer.isSVG&&"SPAN"===a.nodeName&&this.parentGroup,f,b;a.onclick=a.onmouseout=a.onmouseover=a.onmousemove=a.point=null;D(this);this.clipPath&&(this.clipPath=this.clipPath.destroy());if(this.stops){for(b=0;b<this.stops.length;b++){this.stops[b]=this.stops[b].destroy();}this.stops=null;}this.safeRemoveChild(a);for(this.destroyShadows();g&&g.div&&0===g.div.childNodes.length;){a=g.parentGroup,this.safeRemoveChild(g.div),delete g.div,g=a;}this.alignTo&&m(this.renderer.alignedObjects,this);for(f in this){delete this[f];}return null;},shadow:function shadow(a,g,f){var w=[],b,d,c=this.element,q,D,y,x;if(!a)this.destroyShadows();else if(!this.shadows){D=K(a.width,3);y=(a.opacity||.15)/D;x=this.parentInverted?"(-1,-1)":"("+K(a.offsetX,1)+", "+K(a.offsetY,1)+")";for(b=1;b<=D;b++){d=c.cloneNode(0),q=2*D+1-2*b,u(d,{isShadow:"true",stroke:a.color||"#000000","stroke-opacity":y*b,"stroke-width":q,transform:"translate"+x,fill:"none"}),f&&(u(d,"height",Math.max(u(d,"height")-q,0)),d.cutHeight=q),g?g.element.appendChild(d):c.parentNode.insertBefore(d,c),w.push(d);}this.shadows=w;}return this;},destroyShadows:function destroyShadows(){H(this.shadows||[],function(a){this.safeRemoveChild(a);},this);this.shadows=void 0;},xGetter:function xGetter(a){"circle"===this.element.nodeName&&("x"===a?a="cx":"y"===a&&(a="cy"));return this._defaultGetter(a);},_defaultGetter:function _defaultGetter(a){a=K(this[a],this.element?this.element.getAttribute(a):null,0);/^[\-0-9\.]+$/.test(a)&&(a=parseFloat(a));return a;},dSetter:function dSetter(a,g,f){a&&a.join&&(a=a.join(" "));/(NaN| {2}|^$)/.test(a)&&(a="M 0 0");f.setAttribute(g,a);this[g]=a;},dashstyleSetter:function dashstyleSetter(a){var w,g=this["stroke-width"];"inherit"===g&&(g=1);if(a=a&&a.toLowerCase()){a=a.replace("shortdashdotdot","3,1,1,1,1,1,").replace("shortdashdot","3,1,1,1").replace("shortdot","1,1,").replace("shortdash","3,1,").replace("longdash","8,3,").replace(/dot/g,"1,3,").replace("dash","4,3,").replace(/,$/,"").split(",");for(w=a.length;w--;){a[w]=L(a[w])*g;}a=a.join(",").replace(/NaN/g,"none");this.element.setAttribute("stroke-dasharray",a);}},alignSetter:function alignSetter(a){this.element.setAttribute("text-anchor",{left:"start",center:"middle",right:"end"}[a]);},opacitySetter:function opacitySetter(a,g,f){this[g]=a;f.setAttribute(g,a);},titleSetter:function titleSetter(a){var w=this.element.getElementsByTagName("title")[0];w||(w=p.createElementNS(this.SVG_NS,"title"),this.element.appendChild(w));w.firstChild&&w.removeChild(w.firstChild);w.appendChild(p.createTextNode(String(K(a),"").replace(/<[^>]*>/g,"")));},textSetter:function textSetter(a){a!==this.textStr&&(delete this.bBox,this.textStr=a,this.added&&this.renderer.buildText(this));},fillSetter:function fillSetter(a,g,f){"string"===typeof a?f.setAttribute(g,a):a&&this.colorGradient(a,g,f);},visibilitySetter:function visibilitySetter(a,g,f){"inherit"===a?f.removeAttribute(g):f.setAttribute(g,a);},zIndexSetter:function zIndexSetter(a,g){var w=this.renderer,f=this.parentGroup,b=(f||w).element||w.box,d,c=this.element,q;d=this.added;var D;k(a)&&(c.zIndex=a,a=+a,this[g]===a&&(d=!1),this[g]=a);if(d){(a=this.zIndex)&&f&&(f.handleZ=!0);g=b.childNodes;for(D=0;D<g.length&&!q;D++){f=g[D],d=f.zIndex,f!==c&&(L(d)>a||!k(a)&&k(d)||0>a&&!k(d)&&b!==w.box)&&(b.insertBefore(c,f),q=!0);}q||b.appendChild(c);}return q;},_defaultSetter:function _defaultSetter(a,g,f){f.setAttribute(g,a);}};B.prototype.yGetter=B.prototype.xGetter;B.prototype.translateXSetter=B.prototype.translateYSetter=B.prototype.rotationSetter=B.prototype.verticalAlignSetter=B.prototype.scaleXSetter=B.prototype.scaleYSetter=function(a,g){this[g]=a;this.doTransform=!0;};B.prototype["stroke-widthSetter"]=B.prototype.strokeSetter=function(a,g,f){this[g]=a;this.stroke&&this["stroke-width"]?(B.prototype.fillSetter.call(this,this.stroke,"stroke",f),f.setAttribute("stroke-width",this["stroke-width"]),this.hasStroke=!0):"stroke-width"===g&&0===a&&this.hasStroke&&(f.removeAttribute("stroke"),this.hasStroke=!1);};z=a.SVGRenderer=function(){this.init.apply(this,arguments);};z.prototype={Element:B,SVG_NS:M,init:function init(a,g,b,d,c,D){var w;d=this.createElement("svg").attr({version:"1.1","class":"highcharts-root"}).css(this.getStyle(d));w=d.element;a.appendChild(w);-1===a.innerHTML.indexOf("xmlns")&&u(w,"xmlns",this.SVG_NS);this.isSVG=!0;this.box=w;this.boxWrapper=d;this.alignedObjects=[];this.url=(f||q)&&p.getElementsByTagName("base").length?N.location.href.replace(/#.*?$/,"").replace(/<[^>]*>/g,"").replace(/([\('\)])/g,"\\$1").replace(/ /g,"%20"):"";this.createElement("desc").add().element.appendChild(p.createTextNode("Created with Highcharts 5.0.9"));this.defs=this.createElement("defs").add();this.allowHTML=D;this.forExport=c;this.gradients={};this.cache={};this.cacheKeys=[];this.imgCount=0;this.setSize(g,b,!1);var y;f&&a.getBoundingClientRect&&(g=function g(){t(a,{left:0,top:0});y=a.getBoundingClientRect();t(a,{left:Math.ceil(y.left)-y.left+"px",top:Math.ceil(y.top)-y.top+"px"});},g(),this.unSubPixelFix=C(N,"resize",g));},getStyle:function getStyle(a){return this.style=b({fontFamily:'"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',fontSize:"12px"},a);},setStyle:function setStyle(a){this.boxWrapper.css(this.getStyle(a));},isHidden:function isHidden(){return!this.boxWrapper.getBBox().width;},destroy:function destroy(){var a=this.defs;this.box=null;this.boxWrapper=this.boxWrapper.destroy();c(this.gradients||{});this.gradients=null;a&&(this.defs=a.destroy());this.unSubPixelFix&&this.unSubPixelFix();return this.alignedObjects=null;},createElement:function createElement(a){var g=new this.Element();g.init(this,a);return g;},draw:J,getRadialAttr:function getRadialAttr(a,g){return{cx:a[0]-a[2]/2+g.cx*a[2],cy:a[1]-a[2]/2+g.cy*a[2],r:g.r*a[2]};},buildText:function buildText(a){var g=a.element,f=this,w=f.forExport,b=K(a.textStr,"").toString(),c=-1!==b.indexOf("\x3c"),q=g.childNodes,D,y,x,r,G=u(g,"x"),m=a.styles,e=a.textWidth,l=m&&m.lineHeight,v=m&&m.textOutline,k=m&&"ellipsis"===m.textOverflow,h=m&&"nowrap"===m.whiteSpace,F=m&&m.fontSize,A,J=q.length,m=e&&!a.added&&this.box,n=function n(a){var w;w=/(px|em)$/.test(a&&a.style.fontSize)?a.style.fontSize:F||f.style.fontSize||12;return l?L(l):f.fontMetrics(w,a.getAttribute("style")?a:g).h;};A=[b,k,h,l,v,F,e].join();if(A!==a.textCache){for(a.textCache=A;J--;){g.removeChild(q[J]);}c||v||k||e||-1!==b.indexOf(" ")?(D=/<.*class="([^"]+)".*>/,y=/<.*style="([^"]+)".*>/,x=/<.*href="(http[^"]+)".*>/,m&&m.appendChild(g),b=c?b.replace(/<(b|strong)>/g,'\x3cspan style\x3d"font-weight:bold"\x3e').replace(/<(i|em)>/g,'\x3cspan style\x3d"font-style:italic"\x3e').replace(/<a/g,"\x3cspan").replace(/<\/(b|strong|i|em|a)>/g,"\x3c/span\x3e").split(/<br.*?>/g):[b],b=d(b,function(a){return""!==a;}),H(b,function(b,d){var c,q=0;b=b.replace(/^\s+|\s+$/g,"").replace(/<span/g,"|||\x3cspan").replace(/<\/span>/g,"\x3c/span\x3e|||");c=b.split("|||");H(c,function(b){if(""!==b||1===c.length){var m={},v=p.createElementNS(f.SVG_NS,"tspan"),l,F;D.test(b)&&(l=b.match(D)[1],u(v,"class",l));y.test(b)&&(F=b.match(y)[1].replace(/(;| |^)color([ :])/,"$1fill$2"),u(v,"style",F));x.test(b)&&!w&&(u(v,"onclick",'location.href\x3d"'+b.match(x)[1]+'"'),t(v,{cursor:"pointer"}));b=(b.replace(/<(.|\n)*?>/g,"")||" ").replace(/&lt;/g,"\x3c").replace(/&gt;/g,"\x3e");if(" "!==b){v.appendChild(p.createTextNode(b));q?m.dx=0:d&&null!==G&&(m.x=G);u(v,m);g.appendChild(v);!q&&d&&(!S&&w&&t(v,{display:"block"}),u(v,"dy",n(v)));if(e){m=b.replace(/([^\^])-/g,"$1- ").split(" ");l=1<c.length||d||1<m.length&&!h;for(var A,H,O=[],J=n(v),K=a.rotation,L=b,P=L.length;(l||k)&&(m.length||O.length);){a.rotation=0,A=a.getBBox(!0),H=A.width,!S&&f.forExport&&(H=f.measureSpanWidth(v.firstChild.data,a.styles)),A=H>e,void 0===r&&(r=A),k&&r?(P/=2,""===L||!A&&.5>P?m=[]:(L=b.substring(0,L.length+(A?-1:1)*Math.ceil(P)),m=[L+(3<e?"\u2026":"")],v.removeChild(v.firstChild))):A&&1!==m.length?(v.removeChild(v.firstChild),O.unshift(m.pop())):(m=O,O=[],m.length&&!h&&(v=p.createElementNS(M,"tspan"),u(v,{dy:J,x:G}),F&&u(v,"style",F),g.appendChild(v)),H>e&&(e=H)),m.length&&v.appendChild(p.createTextNode(m.join(" ").replace(/- /g,"-")));}a.rotation=K;}q++;}}});}),r&&a.attr("title",a.textStr),m&&m.removeChild(g),v&&a.applyTextOutline&&a.applyTextOutline(v)):g.appendChild(p.createTextNode(b.replace(/&lt;/g,"\x3c").replace(/&gt;/g,"\x3e")));}},getContrast:function getContrast(a){a=n(a).rgba;return 510<a[0]+a[1]+a[2]?"#000000":"#FFFFFF";},button:function button(a,g,f,d,c,q,D,m,r){var w=this.label(a,g,f,r,null,null,null,null,"button"),G=0;w.attr(x({padding:8,r:2},c));var e,v,p,l;c=x({fill:"#f7f7f7",stroke:"#cccccc","stroke-width":1,style:{color:"#333333",cursor:"pointer",fontWeight:"normal"}},c);e=c.style;delete c.style;q=x(c,{fill:"#e6e6e6"},q);v=q.style;delete q.style;D=x(c,{fill:"#e6ebf5",style:{color:"#000000",fontWeight:"bold"}},D);p=D.style;delete D.style;m=x(c,{style:{color:"#cccccc"}},m);l=m.style;delete m.style;C(w.element,y?"mouseover":"mouseenter",function(){3!==G&&w.setState(1);});C(w.element,y?"mouseout":"mouseleave",function(){3!==G&&w.setState(G);});w.setState=function(a){1!==a&&(w.state=G=a);w.removeClass(/highcharts-button-(normal|hover|pressed|disabled)/).addClass("highcharts-button-"+["normal","hover","pressed","disabled"][a||0]);w.attr([c,q,D,m][a||0]).css([e,v,p,l][a||0]);};w.attr(c).css(b({cursor:"default"},e));return w.on("click",function(a){3!==G&&d.call(w,a);});},crispLine:function crispLine(a,g){a[1]===a[4]&&(a[1]=a[4]=Math.round(a[1])-g%2/2);a[2]===a[5]&&(a[2]=a[5]=Math.round(a[2])+g%2/2);return a;},path:function path(a){var g={fill:"none"};v(a)?g.d=a:G(a)&&b(g,a);return this.createElement("path").attr(g);},circle:function circle(a,g,f){a=G(a)?a:{x:a,y:g,r:f};g=this.createElement("circle");g.xSetter=g.ySetter=function(a,g,f){f.setAttribute("c"+g,a);};return g.attr(a);},arc:function arc(a,g,f,b,d,c){G(a)?(b=a,g=b.y,f=b.r,a=b.x):b={innerR:b,start:d,end:c};a=this.symbol("arc",a,g,f,f,b);a.r=f;return a;},rect:function rect(a,g,f,b,d,c){d=G(a)?a.r:d;var w=this.createElement("rect");a=G(a)?a:void 0===a?{}:{x:a,y:g,width:Math.max(f,0),height:Math.max(b,0)};void 0!==c&&(a.strokeWidth=c,a=w.crisp(a));a.fill="none";d&&(a.r=d);w.rSetter=function(a,g,f){u(f,{rx:a,ry:a});};return w.attr(a);},setSize:function setSize(a,g,f){var b=this.alignedObjects,d=b.length;this.width=a;this.height=g;for(this.boxWrapper.animate({width:a,height:g},{step:function step(){this.attr({viewBox:"0 0 "+this.attr("width")+" "+this.attr("height")});},duration:K(f,!0)?void 0:0});d--;){b[d].align();}},g:function g(a){var g=this.createElement("g");return a?g.attr({"class":"highcharts-"+a}):g;},image:function image(a,g,f,d,c){var w={preserveAspectRatio:"none"};1<arguments.length&&b(w,{x:g,y:f,width:d,height:c});w=this.createElement("image").attr(w);w.element.setAttributeNS?w.element.setAttributeNS("http://www.w3.org/1999/xlink","href",a):w.element.setAttribute("hc-svg-href",a);return w;},symbol:function symbol(a,g,f,d,c,q){var w=this,D,y=this.symbols[a],m=k(g)&&y&&this.symbols[a](Math.round(g),Math.round(f),d,c,q),x=/^url\((.*?)\)$/,G,r;y?(D=this.path(m),D.attr("fill","none"),b(D,{symbolName:a,x:g,y:f,width:d,height:c}),q&&b(D,q)):x.test(a)&&(G=a.match(x)[1],D=this.image(G),D.imgwidth=K(R[G]&&R[G].width,q&&q.width),D.imgheight=K(R[G]&&R[G].height,q&&q.height),r=function r(){D.attr({width:D.width,height:D.height});},H(["width","height"],function(a){D[a+"Setter"]=function(a,g){var f={},b=this["img"+g],d="width"===g?"translateX":"translateY";this[g]=a;k(b)&&(this.element&&this.element.setAttribute(g,b),this.alignByTranslate||(f[d]=((this[g]||0)-b)/2,this.attr(f)));};}),k(g)&&D.attr({x:g,y:f}),D.isImg=!0,k(D.imgwidth)&&k(D.imgheight)?r():(D.attr({width:0,height:0}),l("img",{onload:function onload(){var a=h[w.chartIndex];0===this.width&&(t(this,{position:"absolute",top:"-999em"}),p.body.appendChild(this));R[G]={width:this.width,height:this.height};D.imgwidth=this.width;D.imgheight=this.height;D.element&&r();this.parentNode&&this.parentNode.removeChild(this);w.imgCount--;if(!w.imgCount&&a&&a.onload)a.onload();},src:G}),this.imgCount++));return D;},symbols:{circle:function circle(a,g,f,b){return this.arc(a+f/2,g+b/2,f/2,b/2,{start:0,end:2*Math.PI,open:!1});},square:function square(a,g,f,b){return["M",a,g,"L",a+f,g,a+f,g+b,a,g+b,"Z"];},triangle:function triangle(a,g,f,b){return["M",a+f/2,g,"L",a+f,g+b,a,g+b,"Z"];},"triangle-down":function triangleDown(a,g,f,b){return["M",a,g,"L",a+f,g,a+f/2,g+b,"Z"];},diamond:function diamond(a,g,f,b){return["M",a+f/2,g,"L",a+f,g+b/2,a+f/2,g+b,a,g+b/2,"Z"];},arc:function arc(a,g,f,b,d){var c=d.start,w=d.r||f,q=d.r||b||f,D=d.end-.001;f=d.innerR;b=d.open;var y=Math.cos(c),m=Math.sin(c),x=Math.cos(D),D=Math.sin(D);d=d.end-c<Math.PI?0:1;w=["M",a+w*y,g+q*m,"A",w,q,0,d,1,a+w*x,g+q*D];k(f)&&w.push(b?"M":"L",a+f*x,g+f*D,"A",f,f,0,d,0,a+f*y,g+f*m);w.push(b?"":"Z");return w;},callout:function callout(a,g,f,b,d){var c=Math.min(d&&d.r||0,f,b),q=c+6,D=d&&d.anchorX;d=d&&d.anchorY;var w;w=["M",a+c,g,"L",a+f-c,g,"C",a+f,g,a+f,g,a+f,g+c,"L",a+f,g+b-c,"C",a+f,g+b,a+f,g+b,a+f-c,g+b,"L",a+c,g+b,"C",a,g+b,a,g+b,a,g+b-c,"L",a,g+c,"C",a,g,a,g,a+c,g];D&&D>f?d>g+q&&d<g+b-q?w.splice(13,3,"L",a+f,d-6,a+f+6,d,a+f,d+6,a+f,g+b-c):w.splice(13,3,"L",a+f,b/2,D,d,a+f,b/2,a+f,g+b-c):D&&0>D?d>g+q&&d<g+b-q?w.splice(33,3,"L",a,d+6,a-6,d,a,d-6,a,g+c):w.splice(33,3,"L",a,b/2,D,d,a,b/2,a,g+c):d&&d>b&&D>a+q&&D<a+f-q?w.splice(23,3,"L",D+6,g+b,D,g+b+6,D-6,g+b,a+c,g+b):d&&0>d&&D>a+q&&D<a+f-q&&w.splice(3,3,"L",D-6,g,D,g-6,D+6,g,f-c,g);return w;}},clipRect:function clipRect(g,f,b,d){var c=a.uniqueKey(),q=this.createElement("clipPath").attr({id:c}).add(this.defs);g=this.rect(g,f,b,d,0).add(q);g.id=c;g.clipPath=q;g.count=0;return g;},text:function text(a,g,f,b){var d=!S&&this.forExport,c={};if(b&&(this.allowHTML||!this.forExport))return this.html(a,g,f);c.x=Math.round(g||0);f&&(c.y=Math.round(f));if(a||0===a)c.text=a;a=this.createElement("text").attr(c);d&&a.css({position:"absolute"});b||(a.xSetter=function(a,g,f){var b=f.getElementsByTagName("tspan"),d,c=f.getAttribute(g),q;for(q=0;q<b.length;q++){d=b[q],d.getAttribute(g)===c&&d.setAttribute(g,a);}f.setAttribute(g,a);});return a;},fontMetrics:function fontMetrics(a,g){a=a||g&&g.style&&g.style.fontSize||this.style&&this.style.fontSize;a=/px/.test(a)?L(a):/em/.test(a)?parseFloat(a)*(g?this.fontMetrics(null,g.parentNode).f:16):12;g=24>a?a+3:Math.round(1.2*a);return{h:g,b:Math.round(.8*g),f:a};},rotCorr:function rotCorr(a,g,f){var b=a;g&&f&&(b=Math.max(b*Math.cos(g*e),4));return{x:-a/3*Math.sin(g*e),y:b};},label:function label(f,d,c,q,D,y,m,G,r){var w=this,e=w.g("button"!==r&&"label"),v=e.text=w.text("",0,0,m).attr({zIndex:1}),p,l,F=0,A=3,h=0,J,t,S,n,M,K={},L,u,O=/^url\((.*?)\)$/.test(q),R=O,P,Q,N,U;r&&e.addClass("highcharts-"+r);R=O;P=function P(){return(L||0)%2/2;};Q=function Q(){var a=v.element.style,g={};l=(void 0===J||void 0===t||M)&&k(v.textStr)&&v.getBBox();e.width=(J||l.width||0)+2*A+h;e.height=(t||l.height||0)+2*A;u=A+w.fontMetrics(a&&a.fontSize,v).b;R&&(p||(e.box=p=w.symbols[q]||O?w.symbol(q):w.rect(),p.addClass(("button"===r?"":"highcharts-label-box")+(r?" highcharts-"+r+"-box":"")),p.add(e),a=P(),g.x=a,g.y=(G?-u:0)+a),g.width=Math.round(e.width),g.height=Math.round(e.height),p.attr(b(g,K)),K={});};N=function N(){var a=h+A,g;g=G?0:u;k(J)&&l&&("center"===M||"right"===M)&&(a+={center:.5,right:1}[M]*(J-l.width));if(a!==v.x||g!==v.y)v.attr("x",a),void 0!==g&&v.attr("y",g);v.x=a;v.y=g;};U=function U(a,g){p?p.attr(a,g):K[a]=g;};e.onAdd=function(){v.add(e);e.attr({text:f||0===f?f:"",x:d,y:c});p&&k(D)&&e.attr({anchorX:D,anchorY:y});};e.widthSetter=function(g){J=a.isNumber(g)?g:null;};e.heightSetter=function(a){t=a;};e["text-alignSetter"]=function(a){M=a;};e.paddingSetter=function(a){k(a)&&a!==A&&(A=e.padding=a,N());};e.paddingLeftSetter=function(a){k(a)&&a!==h&&(h=a,N());};e.alignSetter=function(a){a={left:0,center:.5,right:1}[a];a!==F&&(F=a,l&&e.attr({x:S}));};e.textSetter=function(a){void 0!==a&&v.textSetter(a);Q();N();};e["stroke-widthSetter"]=function(a,g){a&&(R=!0);L=this["stroke-width"]=a;U(g,a);};e.strokeSetter=e.fillSetter=e.rSetter=function(a,g){"fill"===g&&a&&(R=!0);U(g,a);};e.anchorXSetter=function(a,g){D=a;U(g,Math.round(a)-P()-S);};e.anchorYSetter=function(a,g){y=a;U(g,a-n);};e.xSetter=function(a){e.x=a;F&&(a-=F*((J||l.width)+2*A));S=Math.round(a);e.attr("translateX",S);};e.ySetter=function(a){n=e.y=Math.round(a);e.attr("translateY",n);};var W=e.css;return b(e,{css:function css(a){if(a){var g={};a=x(a);H(e.textProps,function(f){void 0!==a[f]&&(g[f]=a[f],delete a[f]);});v.css(g);}return W.call(e,a);},getBBox:function getBBox(){return{width:l.width+2*A,height:l.height+2*A,x:l.x-A,y:l.y-A};},shadow:function shadow(a){a&&(Q(),p&&p.shadow(a));return e;},destroy:function destroy(){g(e.element,"mouseenter");g(e.element,"mouseleave");v&&(v=v.destroy());p&&(p=p.destroy());B.prototype.destroy.call(e);e=w=Q=N=U=null;}});}};a.Renderer=z;})(I);(function(a){var B=a.attr,z=a.createElement,C=a.css,E=a.defined,u=a.each,h=a.extend,n=a.isFirefox,t=a.isMS,l=a.isWebKit,k=a.pInt,e=a.SVGRenderer,c=a.win,p=a.wrap;h(a.SVGElement.prototype,{htmlCss:function htmlCss(a){var b=this.element;if(b=a&&"SPAN"===b.tagName&&a.width)delete a.width,this.textWidth=b,this.updateTransform();a&&"ellipsis"===a.textOverflow&&(a.whiteSpace="nowrap",a.overflow="hidden");this.styles=h(this.styles,a);C(this.element,a);return this;},htmlGetBBox:function htmlGetBBox(){var a=this.element;"text"===a.nodeName&&(a.style.position="absolute");return{x:a.offsetLeft,y:a.offsetTop,width:a.offsetWidth,height:a.offsetHeight};},htmlUpdateTransform:function htmlUpdateTransform(){if(this.added){var a=this.renderer,b=this.element,c=this.translateX||0,d=this.translateY||0,e=this.x||0,p=this.y||0,v=this.textAlign||"left",f={left:0,center:.5,right:1}[v],y=this.styles;C(b,{marginLeft:c,marginTop:d});this.shadows&&u(this.shadows,function(a){C(a,{marginLeft:c+1,marginTop:d+1});});this.inverted&&u(b.childNodes,function(f){a.invertChild(f,b);});if("SPAN"===b.tagName){var G=this.rotation,F=k(this.textWidth),q=y&&y.whiteSpace,x=[G,v,b.innerHTML,this.textWidth,this.textAlign].join();x!==this.cTT&&(y=a.fontMetrics(b.style.fontSize).b,E(G)&&this.setSpanRotation(G,f,y),C(b,{width:"",whiteSpace:q||"nowrap"}),b.offsetWidth>F&&/[ \-]/.test(b.textContent||b.innerText)&&C(b,{width:F+"px",display:"block",whiteSpace:q||"normal"}),this.getSpanCorrection(b.offsetWidth,y,f,G,v));C(b,{left:e+(this.xCorr||0)+"px",top:p+(this.yCorr||0)+"px"});l&&(y=b.offsetHeight);this.cTT=x;}}else this.alignOnAdd=!0;},setSpanRotation:function setSpanRotation(a,b,e){var d={},m=t?"-ms-transform":l?"-webkit-transform":n?"MozTransform":c.opera?"-o-transform":"";d[m]=d.transform="rotate("+a+"deg)";d[m+(n?"Origin":"-origin")]=d.transformOrigin=100*b+"% "+e+"px";C(this.element,d);},getSpanCorrection:function getSpanCorrection(a,b,c){this.xCorr=-a*c;this.yCorr=-b;}});h(e.prototype,{html:function html(a,b,c){var d=this.createElement("span"),e=d.element,m=d.renderer,v=m.isSVG,f=function f(a,_f){u(["opacity","visibility"],function(b){p(a,b+"Setter",function(a,b,d,c){a.call(this,b,d,c);_f[d]=b;});});};d.textSetter=function(a){a!==e.innerHTML&&delete this.bBox;e.innerHTML=this.textStr=a;d.htmlUpdateTransform();};v&&f(d,d.element.style);d.xSetter=d.ySetter=d.alignSetter=d.rotationSetter=function(a,f){"align"===f&&(f="textAlign");d[f]=a;d.htmlUpdateTransform();};d.attr({text:a,x:Math.round(b),y:Math.round(c)}).css({fontFamily:this.style.fontFamily,fontSize:this.style.fontSize,position:"absolute"});e.style.whiteSpace="nowrap";d.css=d.htmlCss;v&&(d.add=function(a){var b,c=m.box.parentNode,q=[];if(this.parentGroup=a){if(b=a.div,!b){for(;a;){q.push(a),a=a.parentGroup;}u(q.reverse(),function(a){var y,e=B(a.element,"class");e&&(e={className:e});b=a.div=a.div||z("div",e,{position:"absolute",left:(a.translateX||0)+"px",top:(a.translateY||0)+"px",display:a.display,opacity:a.opacity,pointerEvents:a.styles&&a.styles.pointerEvents},b||c);y=b.style;h(a,{on:function on(){d.on.apply({element:q[0].div},arguments);return a;},translateXSetter:function translateXSetter(f,g){y.left=f+"px";a[g]=f;a.doTransform=!0;},translateYSetter:function translateYSetter(f,g){y.top=f+"px";a[g]=f;a.doTransform=!0;}});f(a,y);});}}else b=c;b.appendChild(e);d.added=!0;d.alignOnAdd&&d.htmlUpdateTransform();return d;});return d;}});})(I);(function(a){var B,z,C=a.createElement,E=a.css,u=a.defined,h=a.deg2rad,n=a.discardElement,t=a.doc,l=a.each,k=a.erase,e=a.extend;B=a.extendClass;var c=a.isArray,p=a.isNumber,H=a.isObject,b=a.merge;z=a.noop;var m=a.pick,d=a.pInt,r=a.SVGElement,A=a.SVGRenderer,v=a.win;a.svg||(z={docMode8:t&&8===t.documentMode,init:function init(a,b){var f=["\x3c",b,' filled\x3d"f" stroked\x3d"f"'],d=["position: ","absolute",";"],c="div"===b;("shape"===b||c)&&d.push("left:0;top:0;width:1px;height:1px;");d.push("visibility: ",c?"hidden":"visible");f.push(' style\x3d"',d.join(""),'"/\x3e');b&&(f=c||"span"===b||"img"===b?f.join(""):a.prepVML(f),this.element=C(f));this.renderer=a;},add:function add(a){var f=this.renderer,b=this.element,d=f.box,c=a&&a.inverted,d=a?a.element||a:d;a&&(this.parentGroup=a);c&&f.invertChild(b,d);d.appendChild(b);this.added=!0;this.alignOnAdd&&!this.deferUpdateTransform&&this.updateTransform();if(this.onAdd)this.onAdd();this.className&&this.attr("class",this.className);return this;},updateTransform:r.prototype.htmlUpdateTransform,setSpanRotation:function setSpanRotation(){var a=this.rotation,b=Math.cos(a*h),d=Math.sin(a*h);E(this.element,{filter:a?["progid:DXImageTransform.Microsoft.Matrix(M11\x3d",b,", M12\x3d",-d,", M21\x3d",d,", M22\x3d",b,", sizingMethod\x3d'auto expand')"].join(""):"none"});},getSpanCorrection:function getSpanCorrection(a,b,d,c,q){var f=c?Math.cos(c*h):1,e=c?Math.sin(c*h):0,y=m(this.elemHeight,this.element.offsetHeight),r;this.xCorr=0>f&&-a;this.yCorr=0>e&&-y;r=0>f*e;this.xCorr+=e*b*(r?1-d:d);this.yCorr-=f*b*(c?r?d:1-d:1);q&&"left"!==q&&(this.xCorr-=a*d*(0>f?-1:1),c&&(this.yCorr-=y*d*(0>e?-1:1)),E(this.element,{textAlign:q}));},pathToVML:function pathToVML(a){for(var f=a.length,b=[];f--;){p(a[f])?b[f]=Math.round(10*a[f])-5:"Z"===a[f]?b[f]="x":(b[f]=a[f],!a.isArc||"wa"!==a[f]&&"at"!==a[f]||(b[f+5]===b[f+7]&&(b[f+7]+=a[f+7]>a[f+5]?1:-1),b[f+6]===b[f+8]&&(b[f+8]+=a[f+8]>a[f+6]?1:-1)));}return b.join(" ")||"x";},clip:function clip(a){var f=this,b;a?(b=a.members,k(b,f),b.push(f),f.destroyClip=function(){k(b,f);},a=a.getCSS(f)):(f.destroyClip&&f.destroyClip(),a={clip:f.docMode8?"inherit":"rect(auto)"});return f.css(a);},css:r.prototype.htmlCss,safeRemoveChild:function safeRemoveChild(a){a.parentNode&&n(a);},destroy:function destroy(){this.destroyClip&&this.destroyClip();return r.prototype.destroy.apply(this);},on:function on(a,b){this.element["on"+a]=function(){var a=v.event;a.target=a.srcElement;b(a);};return this;},cutOffPath:function cutOffPath(a,b){var f;a=a.split(/[ ,]/);f=a.length;if(9===f||11===f)a[f-4]=a[f-2]=d(a[f-2])-10*b;return a.join(" ");},shadow:function shadow(a,b,c){var f=[],q,e=this.element,y=this.renderer,r,v=e.style,g,D=e.path,p,l,G,k;D&&"string"!==typeof D.value&&(D="x");l=D;if(a){G=m(a.width,3);k=(a.opacity||.15)/G;for(q=1;3>=q;q++){p=2*G+1-2*q,c&&(l=this.cutOffPath(D.value,p+.5)),g=['\x3cshape isShadow\x3d"true" strokeweight\x3d"',p,'" filled\x3d"false" path\x3d"',l,'" coordsize\x3d"10 10" style\x3d"',e.style.cssText,'" /\x3e'],r=C(y.prepVML(g),null,{left:d(v.left)+m(a.offsetX,1),top:d(v.top)+m(a.offsetY,1)}),c&&(r.cutOff=p+1),g=['\x3cstroke color\x3d"',a.color||"#000000",'" opacity\x3d"',k*q,'"/\x3e'],C(y.prepVML(g),null,null,r),b?b.element.appendChild(r):e.parentNode.insertBefore(r,e),f.push(r);}this.shadows=f;}return this;},updateShadows:z,setAttr:function setAttr(a,b){this.docMode8?this.element[a]=b:this.element.setAttribute(a,b);},classSetter:function classSetter(a){(this.added?this.element:this).className=a;},dashstyleSetter:function dashstyleSetter(a,b,d){(d.getElementsByTagName("stroke")[0]||C(this.renderer.prepVML(["\x3cstroke/\x3e"]),null,null,d))[b]=a||"solid";this[b]=a;},dSetter:function dSetter(a,b,d){var f=this.shadows;a=a||[];this.d=a.join&&a.join(" ");d.path=a=this.pathToVML(a);if(f)for(d=f.length;d--;){f[d].path=f[d].cutOff?this.cutOffPath(a,f[d].cutOff):a;}this.setAttr(b,a);},fillSetter:function fillSetter(a,b,d){var f=d.nodeName;"SPAN"===f?d.style.color=a:"IMG"!==f&&(d.filled="none"!==a,this.setAttr("fillcolor",this.renderer.color(a,d,b,this)));},"fill-opacitySetter":function fillOpacitySetter(a,b,d){C(this.renderer.prepVML(["\x3c",b.split("-")[0],' opacity\x3d"',a,'"/\x3e']),null,null,d);},opacitySetter:z,rotationSetter:function rotationSetter(a,b,d){d=d.style;this[b]=d[b]=a;d.left=-Math.round(Math.sin(a*h)+1)+"px";d.top=Math.round(Math.cos(a*h))+"px";},strokeSetter:function strokeSetter(a,b,d){this.setAttr("strokecolor",this.renderer.color(a,d,b,this));},"stroke-widthSetter":function strokeWidthSetter(a,b,d){d.stroked=!!a;this[b]=a;p(a)&&(a+="px");this.setAttr("strokeweight",a);},titleSetter:function titleSetter(a,b){this.setAttr(b,a);},visibilitySetter:function visibilitySetter(a,b,d){"inherit"===a&&(a="visible");this.shadows&&l(this.shadows,function(f){f.style[b]=a;});"DIV"===d.nodeName&&(a="hidden"===a?"-999em":0,this.docMode8||(d.style[b]=a?"visible":"hidden"),b="top");d.style[b]=a;},xSetter:function xSetter(a,b,d){this[b]=a;"x"===b?b="left":"y"===b&&(b="top");this.updateClipping?(this[b]=a,this.updateClipping()):d.style[b]=a;},zIndexSetter:function zIndexSetter(a,b,d){d.style[b]=a;}},z["stroke-opacitySetter"]=z["fill-opacitySetter"],a.VMLElement=z=B(r,z),z.prototype.ySetter=z.prototype.widthSetter=z.prototype.heightSetter=z.prototype.xSetter,z={Element:z,isIE8:-1<v.navigator.userAgent.indexOf("MSIE 8.0"),init:function init(a,b,d){var f,c;this.alignedObjects=[];f=this.createElement("div").css({position:"relative"});c=f.element;a.appendChild(f.element);this.isVML=!0;this.box=c;this.boxWrapper=f;this.gradients={};this.cache={};this.cacheKeys=[];this.imgCount=0;this.setSize(b,d,!1);if(!t.namespaces.hcv){t.namespaces.add("hcv","urn:schemas-microsoft-com:vml");try{t.createStyleSheet().cssText="hcv\\:fill, hcv\\:path, hcv\\:shape, hcv\\:stroke{ behavior:url(#default#VML); display: inline-block; } ";}catch(x){t.styleSheets[0].cssText+="hcv\\:fill, hcv\\:path, hcv\\:shape, hcv\\:stroke{ behavior:url(#default#VML); display: inline-block; } ";}}},isHidden:function isHidden(){return!this.box.offsetWidth;},clipRect:function clipRect(a,b,d,c){var f=this.createElement(),m=H(a);return e(f,{members:[],count:0,left:(m?a.x:a)+1,top:(m?a.y:b)+1,width:(m?a.width:d)-1,height:(m?a.height:c)-1,getCSS:function getCSS(a){var b=a.element,d=b.nodeName,g=a.inverted,f=this.top-("shape"===d?b.offsetTop:0),c=this.left,b=c+this.width,q=f+this.height,f={clip:"rect("+Math.round(g?c:f)+"px,"+Math.round(g?q:b)+"px,"+Math.round(g?b:q)+"px,"+Math.round(g?f:c)+"px)"};!g&&a.docMode8&&"DIV"===d&&e(f,{width:b+"px",height:q+"px"});return f;},updateClipping:function updateClipping(){l(f.members,function(a){a.element&&a.css(f.getCSS(a));});}});},color:function color(b,d,c,e){var f=this,m,r=/^rgba/,v,p,g="none";b&&b.linearGradient?p="gradient":b&&b.radialGradient&&(p="pattern");if(p){var D,y,k=b.linearGradient||b.radialGradient,A,h,w,G,t,F="";b=b.stops;var n,H=[],u=function u(){v=['\x3cfill colors\x3d"'+H.join(",")+'" opacity\x3d"',w,'" o:opacity2\x3d"',h,'" type\x3d"',p,'" ',F,'focus\x3d"100%" method\x3d"any" /\x3e'];C(f.prepVML(v),null,null,d);};A=b[0];n=b[b.length-1];0<A[0]&&b.unshift([0,A[1]]);1>n[0]&&b.push([1,n[1]]);l(b,function(g,b){r.test(g[1])?(m=a.color(g[1]),D=m.get("rgb"),y=m.get("a")):(D=g[1],y=1);H.push(100*g[0]+"% "+D);b?(w=y,G=D):(h=y,t=D);});if("fill"===c){if("gradient"===p)c=k.x1||k[0]||0,b=k.y1||k[1]||0,A=k.x2||k[2]||0,k=k.y2||k[3]||0,F='angle\x3d"'+(90-180*Math.atan((k-b)/(A-c))/Math.PI)+'"',u();else{var g=k.r,z=2*g,B=2*g,E=k.cx,V=k.cy,I=d.radialReference,T,g=function g(){I&&(T=e.getBBox(),E+=(I[0]-T.x)/T.width-.5,V+=(I[1]-T.y)/T.height-.5,z*=I[2]/T.width,B*=I[2]/T.height);F='src\x3d"'+a.getOptions().global.VMLRadialGradientURL+'" size\x3d"'+z+","+B+'" origin\x3d"0.5,0.5" position\x3d"'+E+","+V+'" color2\x3d"'+t+'" ';u();};e.added?g():e.onAdd=g;g=G;}}else g=D;}else r.test(b)&&"IMG"!==d.tagName?(m=a.color(b),e[c+"-opacitySetter"](m.get("a"),c,d),g=m.get("rgb")):(g=d.getElementsByTagName(c),g.length&&(g[0].opacity=1,g[0].type="solid"),g=b);return g;},prepVML:function prepVML(a){var b=this.isIE8;a=a.join("");b?(a=a.replace("/\x3e",' xmlns\x3d"urn:schemas-microsoft-com:vml" /\x3e'),a=-1===a.indexOf('style\x3d"')?a.replace("/\x3e",' style\x3d"display:inline-block;behavior:url(#default#VML);" /\x3e'):a.replace('style\x3d"','style\x3d"display:inline-block;behavior:url(#default#VML);')):a=a.replace("\x3c","\x3chcv:");return a;},text:A.prototype.html,path:function path(a){var b={coordsize:"10 10"};c(a)?b.d=a:H(a)&&e(b,a);return this.createElement("shape").attr(b);},circle:function circle(a,b,d){var f=this.symbol("circle");H(a)&&(d=a.r,b=a.y,a=a.x);f.isCircle=!0;f.r=d;return f.attr({x:a,y:b});},g:function g(a){var b;a&&(b={className:"highcharts-"+a,"class":"highcharts-"+a});return this.createElement("div").attr(b);},image:function image(a,b,d,c,q){var f=this.createElement("img").attr({src:a});1<arguments.length&&f.attr({x:b,y:d,width:c,height:q});return f;},createElement:function createElement(a){return"rect"===a?this.symbol(a):A.prototype.createElement.call(this,a);},invertChild:function invertChild(a,b){var f=this;b=b.style;var c="IMG"===a.tagName&&a.style;E(a,{flip:"x",left:d(b.width)-(c?d(c.top):1),top:d(b.height)-(c?d(c.left):1),rotation:-90});l(a.childNodes,function(b){f.invertChild(b,a);});},symbols:{arc:function arc(a,b,d,c,q){var f=q.start,e=q.end,m=q.r||d||c;d=q.innerR;c=Math.cos(f);var r=Math.sin(f),g=Math.cos(e),D=Math.sin(e);if(0===e-f)return["x"];f=["wa",a-m,b-m,a+m,b+m,a+m*c,b+m*r,a+m*g,b+m*D];q.open&&!d&&f.push("e","M",a,b);f.push("at",a-d,b-d,a+d,b+d,a+d*g,b+d*D,a+d*c,b+d*r,"x","e");f.isArc=!0;return f;},circle:function circle(a,b,d,c,q){q&&u(q.r)&&(d=c=2*q.r);q&&q.isCircle&&(a-=d/2,b-=c/2);return["wa",a,b,a+d,b+c,a+d,b+c/2,a+d,b+c/2,"e"];},rect:function rect(a,b,d,c,q){return A.prototype.symbols[u(q)&&q.r?"callout":"square"].call(0,a,b,d,c,q);}}},a.VMLRenderer=B=function B(){this.init.apply(this,arguments);},B.prototype=b(A.prototype,z),a.Renderer=B);A.prototype.measureSpanWidth=function(a,b){var d=t.createElement("span");a=t.createTextNode(a);d.appendChild(a);E(d,b);this.box.appendChild(d);b=d.offsetWidth;n(d);return b;};})(I);(function(a){function B(){var l=a.defaultOptions.global,k=t.moment;if(l.timezone){if(k)return function(a){return-k.tz(a,l.timezone).utcOffset();};a.error(25);}return l.useUTC&&l.getTimezoneOffset;}function z(){var l=a.defaultOptions.global,k,e=l.useUTC,c=e?"getUTC":"get",p=e?"setUTC":"set";a.Date=k=l.Date||t.Date;k.hcTimezoneOffset=e&&l.timezoneOffset;k.hcGetTimezoneOffset=B();k.hcMakeTime=function(a,b,c,d,r,p){var m;e?(m=k.UTC.apply(0,arguments),m+=u(m)):m=new k(a,b,n(c,1),n(d,0),n(r,0),n(p,0)).getTime();return m;};E("Minutes Hours Day Date Month FullYear".split(" "),function(a){k["hcGet"+a]=c+a;});E("Milliseconds Seconds Minutes Hours Date Month FullYear".split(" "),function(a){k["hcSet"+a]=p+a;});}var C=a.color,E=a.each,u=a.getTZOffset,h=a.merge,n=a.pick,t=a.win;a.defaultOptions={colors:"#7cb5ec #434348 #90ed7d #f7a35c #8085e9 #f15c80 #e4d354 #2b908f #f45b5b #91e8e1".split(" "),symbols:["circle","diamond","square","triangle","triangle-down"],lang:{loading:"Loading...",months:"January February March April May June July August September October November December".split(" "),shortMonths:"Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),weekdays:"Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),decimalPoint:".",numericSymbols:"kMGTPE".split(""),resetZoom:"Reset zoom",resetZoomTitle:"Reset zoom level 1:1",thousandsSep:" "},global:{useUTC:!0,VMLRadialGradientURL:"http://code.highcharts.com/5.0.9/gfx/vml-radial-gradient.png"},chart:{borderRadius:0,defaultSeriesType:"line",ignoreHiddenSeries:!0,spacing:[10,10,15,10],resetZoomButton:{theme:{zIndex:20},position:{align:"right",x:-10,y:10}},width:null,height:null,borderColor:"#335cad",backgroundColor:"#ffffff",plotBorderColor:"#cccccc"},title:{text:"Chart title",align:"center",margin:15,widthAdjust:-44},subtitle:{text:"",align:"center",widthAdjust:-44},plotOptions:{},labels:{style:{position:"absolute",color:"#333333"}},legend:{enabled:!0,align:"center",layout:"horizontal",labelFormatter:function labelFormatter(){return this.name;},borderColor:"#999999",borderRadius:0,navigation:{activeColor:"#003399",inactiveColor:"#cccccc"},itemStyle:{color:"#333333",fontSize:"12px",fontWeight:"bold"},itemHoverStyle:{color:"#000000"},itemHiddenStyle:{color:"#cccccc"},shadow:!1,itemCheckboxStyle:{position:"absolute",width:"13px",height:"13px"},squareSymbol:!0,symbolPadding:5,verticalAlign:"bottom",x:0,y:0,title:{style:{fontWeight:"bold"}}},loading:{labelStyle:{fontWeight:"bold",position:"relative",top:"45%"},style:{position:"absolute",backgroundColor:"#ffffff",opacity:.5,textAlign:"center"}},tooltip:{enabled:!0,animation:a.svg,borderRadius:3,dateTimeLabelFormats:{millisecond:"%A, %b %e, %H:%M:%S.%L",second:"%A, %b %e, %H:%M:%S",minute:"%A, %b %e, %H:%M",hour:"%A, %b %e, %H:%M",day:"%A, %b %e, %Y",week:"Week from %A, %b %e, %Y",month:"%B %Y",year:"%Y"},footerFormat:"",padding:8,snap:a.isTouchDevice?25:10,backgroundColor:C("#f7f7f7").setOpacity(.85).get(),borderWidth:1,headerFormat:'\x3cspan style\x3d"font-size: 10px"\x3e{point.key}\x3c/span\x3e\x3cbr/\x3e',pointFormat:"<span style=\"color:{point.color}\">\u25CF</span> {series.name}: <b>{point.y}</b><br/>",shadow:!0,style:{color:"#333333",cursor:"default",fontSize:"12px",pointerEvents:"none",whiteSpace:"nowrap"}},credits:{enabled:!0,href:"http://www.highcharts.com",position:{align:"right",x:-10,verticalAlign:"bottom",y:-5},style:{cursor:"pointer",color:"#999999",fontSize:"9px"},text:"Highcharts.com"}};a.setOptions=function(l){a.defaultOptions=h(!0,a.defaultOptions,l);z();return a.defaultOptions;};a.getOptions=function(){return a.defaultOptions;};a.defaultPlotOptions=a.defaultOptions.plotOptions;z();})(I);(function(a){var B=a.arrayMax,z=a.arrayMin,C=a.defined,E=a.destroyObjectProperties,u=a.each,h=a.erase,n=a.merge,t=a.pick;a.PlotLineOrBand=function(a,k){this.axis=a;k&&(this.options=k,this.id=k.id);};a.PlotLineOrBand.prototype={render:function render(){var a=this,k=a.axis,e=k.horiz,c=a.options,p=c.label,h=a.label,b=c.to,m=c.from,d=c.value,r=C(m)&&C(b),A=C(d),v=a.svgElem,f=!v,y=[],G,F=c.color,q=t(c.zIndex,0),x=c.events,y={"class":"highcharts-plot-"+(r?"band ":"line ")+(c.className||"")},J={},u=k.chart.renderer,L=r?"bands":"lines",g=k.log2lin;k.isLog&&(m=g(m),b=g(b),d=g(d));A?(y={stroke:F,"stroke-width":c.width},c.dashStyle&&(y.dashstyle=c.dashStyle)):r&&(F&&(y.fill=F),c.borderWidth&&(y.stroke=c.borderColor,y["stroke-width"]=c.borderWidth));J.zIndex=q;L+="-"+q;(F=k[L])||(k[L]=F=u.g("plot-"+L).attr(J).add());f&&(a.svgElem=v=u.path().attr(y).add(F));if(A)y=k.getPlotLinePath(d,v.strokeWidth());else if(r)y=k.getPlotBandPath(m,b,c);else return;if(f&&y&&y.length){if(v.attr({d:y}),x)for(G in c=function c(b){v.on(b,function(g){x[b].apply(a,[g]);});},x){c(G);}}else v&&(y?(v.show(),v.animate({d:y})):(v.hide(),h&&(a.label=h=h.destroy())));p&&C(p.text)&&y&&y.length&&0<k.width&&0<k.height&&!y.flat?(p=n({align:e&&r&&"center",x:e?!r&&4:10,verticalAlign:!e&&r&&"middle",y:e?r?16:10:r?6:-4,rotation:e&&!r&&90},p),this.renderLabel(p,y,r,q)):h&&h.hide();return a;},renderLabel:function renderLabel(a,k,e,c){var p=this.label,l=this.axis.chart.renderer;p||(p={align:a.textAlign||a.align,rotation:a.rotation,"class":"highcharts-plot-"+(e?"band":"line")+"-label "+(a.className||"")},p.zIndex=c,this.label=p=l.text(a.text,0,0,a.useHTML).attr(p).add(),p.css(a.style));c=[k[1],k[4],e?k[6]:k[1]];k=[k[2],k[5],e?k[7]:k[2]];e=z(c);l=z(k);p.align(a,!1,{x:e,y:l,width:B(c)-e,height:B(k)-l});p.show();},destroy:function destroy(){h(this.axis.plotLinesAndBands,this);delete this.axis;E(this);}};a.AxisPlotLineOrBandExtension={getPlotBandPath:function getPlotBandPath(a,k){k=this.getPlotLinePath(k,null,null,!0);(a=this.getPlotLinePath(a,null,null,!0))&&k?(a.flat=a.toString()===k.toString(),a.push(k[4],k[5],k[1],k[2],"z")):a=null;return a;},addPlotBand:function addPlotBand(a){return this.addPlotBandOrLine(a,"plotBands");},addPlotLine:function addPlotLine(a){return this.addPlotBandOrLine(a,"plotLines");},addPlotBandOrLine:function addPlotBandOrLine(l,k){var e=new a.PlotLineOrBand(this,l).render(),c=this.userOptions;e&&(k&&(c[k]=c[k]||[],c[k].push(l)),this.plotLinesAndBands.push(e));return e;},removePlotBandOrLine:function removePlotBandOrLine(a){for(var k=this.plotLinesAndBands,e=this.options,c=this.userOptions,p=k.length;p--;){k[p].id===a&&k[p].destroy();}u([e.plotLines||[],c.plotLines||[],e.plotBands||[],c.plotBands||[]],function(c){for(p=c.length;p--;){c[p].id===a&&h(c,c[p]);}});}};})(I);(function(a){var B=a.correctFloat,z=a.defined,C=a.destroyObjectProperties,E=a.isNumber,u=a.merge,h=a.pick,n=a.deg2rad;a.Tick=function(a,l,k,e){this.axis=a;this.pos=l;this.type=k||"";this.isNew=!0;k||e||this.addLabel();};a.Tick.prototype={addLabel:function addLabel(){var a=this.axis,l=a.options,k=a.chart,e=a.categories,c=a.names,p=this.pos,n=l.labels,b=a.tickPositions,m=p===b[0],d=p===b[b.length-1],c=e?h(e[p],c[p],p):p,e=this.label,b=b.info,r;a.isDatetimeAxis&&b&&(r=l.dateTimeLabelFormats[b.higherRanks[p]||b.unitName]);this.isFirst=m;this.isLast=d;l=a.labelFormatter.call({axis:a,chart:k,isFirst:m,isLast:d,dateTimeLabelFormat:r,value:a.isLog?B(a.lin2log(c)):c});z(e)?e&&e.attr({text:l}):(this.labelLength=(this.label=e=z(l)&&n.enabled?k.renderer.text(l,0,0,n.useHTML).css(u(n.style)).add(a.labelGroup):null)&&e.getBBox().width,this.rotation=0);},getLabelSize:function getLabelSize(){return this.label?this.label.getBBox()[this.axis.horiz?"height":"width"]:0;},handleOverflow:function handleOverflow(a){var l=this.axis,k=a.x,e=l.chart.chartWidth,c=l.chart.spacing,p=h(l.labelLeft,Math.min(l.pos,c[3])),c=h(l.labelRight,Math.max(l.pos+l.len,e-c[1])),t=this.label,b=this.rotation,m={left:0,center:.5,right:1}[l.labelAlign],d=t.getBBox().width,r=l.getSlotWidth(),A=r,v=1,f,y={};if(b)0>b&&k-m*d<p?f=Math.round(k/Math.cos(b*n)-p):0<b&&k+m*d>c&&(f=Math.round((e-k)/Math.cos(b*n)));else if(e=k+(1-m)*d,k-m*d<p?A=a.x+A*(1-m)-p:e>c&&(A=c-a.x+A*m,v=-1),A=Math.min(r,A),A<r&&"center"===l.labelAlign&&(a.x+=v*(r-A-m*(r-Math.min(d,A)))),d>A||l.autoRotation&&(t.styles||{}).width)f=A;f&&(y.width=f,(l.options.labels.style||{}).textOverflow||(y.textOverflow="ellipsis"),t.css(y));},getPosition:function getPosition(a,l,k,e){var c=this.axis,p=c.chart,h=e&&p.oldChartHeight||p.chartHeight;return{x:a?c.translate(l+k,null,null,e)+c.transB:c.left+c.offset+(c.opposite?(e&&p.oldChartWidth||p.chartWidth)-c.right-c.left:0),y:a?h-c.bottom+c.offset-(c.opposite?c.height:0):h-c.translate(l+k,null,null,e)-c.transB};},getLabelPosition:function getLabelPosition(a,h,k,e,c,p,H,b){var m=this.axis,d=m.transA,r=m.reversed,l=m.staggerLines,v=m.tickRotCorr||{x:0,y:0},f=c.y;z(f)||(f=0===m.side?k.rotation?-8:-k.getBBox().height:2===m.side?v.y+8:Math.cos(k.rotation*n)*(v.y-k.getBBox(!1,0).height/2));a=a+c.x+v.x-(p&&e?p*d*(r?-1:1):0);h=h+f-(p&&!e?p*d*(r?1:-1):0);l&&(k=H/(b||1)%l,m.opposite&&(k=l-k-1),h+=m.labelOffset/l*k);return{x:a,y:Math.round(h)};},getMarkPath:function getMarkPath(a,h,k,e,c,p){return p.crispLine(["M",a,h,"L",a+(c?0:-k),h+(c?k:0)],e);},renderGridLine:function renderGridLine(a,h,k){var e=this.axis,c=e.options,p=this.gridLine,l={},b=this.pos,m=this.type,d=e.tickmarkOffset,r=e.chart.renderer,A=m?m+"Grid":"grid",v=c[A+"LineWidth"],f=c[A+"LineColor"],c=c[A+"LineDashStyle"];p||(l.stroke=f,l["stroke-width"]=v,c&&(l.dashstyle=c),m||(l.zIndex=1),a&&(l.opacity=0),this.gridLine=p=r.path().attr(l).addClass("highcharts-"+(m?m+"-":"")+"grid-line").add(e.gridGroup));if(!a&&p&&(a=e.getPlotLinePath(b+d,p.strokeWidth()*k,a,!0)))p[this.isNew?"attr":"animate"]({d:a,opacity:h});},renderMark:function renderMark(a,l,k){var e=this.axis,c=e.options,p=e.chart.renderer,n=this.type,b=n?n+"Tick":"tick",m=e.tickSize(b),d=this.mark,r=!d,A=a.x;a=a.y;var v=h(c[b+"Width"],!n&&e.isXAxis?1:0),c=c[b+"Color"];m&&(e.opposite&&(m[0]=-m[0]),r&&(this.mark=d=p.path().addClass("highcharts-"+(n?n+"-":"")+"tick").add(e.axisGroup),d.attr({stroke:c,"stroke-width":v})),d[r?"attr":"animate"]({d:this.getMarkPath(A,a,m[0],d.strokeWidth()*k,e.horiz,p),opacity:l}));},renderLabel:function renderLabel(a,l,k,e){var c=this.axis,p=c.horiz,n=c.options,b=this.label,m=n.labels,d=m.step,r=c.tickmarkOffset,A=!0,v=a.x;a=a.y;b&&E(v)&&(b.xy=a=this.getLabelPosition(v,a,b,p,m,r,e,d),this.isFirst&&!this.isLast&&!h(n.showFirstLabel,1)||this.isLast&&!this.isFirst&&!h(n.showLastLabel,1)?A=!1:!p||c.isRadial||m.step||m.rotation||l||0===k||this.handleOverflow(a),d&&e%d&&(A=!1),A&&E(a.y)?(a.opacity=k,b[this.isNew?"attr":"animate"](a)):b.attr("y",-9999),this.isNew=!1);},render:function render(a,l,k){var e=this.axis,c=e.horiz,p=this.getPosition(c,this.pos,e.tickmarkOffset,l),n=p.x,b=p.y,e=c&&n===e.pos+e.len||!c&&b===e.pos?-1:1;k=h(k,1);this.isActive=!0;this.renderGridLine(l,k,e);this.renderMark(p,k,e);this.renderLabel(p,l,k,a);},destroy:function destroy(){C(this,this.axis);}};})(I);(function(a){var B=a.addEvent,z=a.animObject,C=a.arrayMax,E=a.arrayMin,u=a.AxisPlotLineOrBandExtension,h=a.color,n=a.correctFloat,t=a.defaultOptions,l=a.defined,k=a.deg2rad,e=a.destroyObjectProperties,c=a.each,p=a.extend,H=a.fireEvent,b=a.format,m=a.getMagnitude,d=a.grep,r=a.inArray,A=a.isArray,v=a.isNumber,f=a.isString,y=a.merge,G=a.normalizeTickInterval,F=a.pick,q=a.PlotLineOrBand,x=a.removeEvent,J=a.splat,K=a.syncTimeout,L=a.Tick;a.Axis=function(){this.init.apply(this,arguments);};a.Axis.prototype={defaultOptions:{dateTimeLabelFormats:{millisecond:"%H:%M:%S.%L",second:"%H:%M:%S",minute:"%H:%M",hour:"%H:%M",day:"%e. %b",week:"%e. %b",month:"%b '%y",year:"%Y"},endOnTick:!1,labels:{enabled:!0,style:{color:"#666666",cursor:"default",fontSize:"11px"},x:0},minPadding:.01,maxPadding:.01,minorTickLength:2,minorTickPosition:"outside",startOfWeek:1,startOnTick:!1,tickLength:10,tickmarkPlacement:"between",tickPixelInterval:100,tickPosition:"outside",title:{align:"middle",style:{color:"#666666"}},type:"linear",minorGridLineColor:"#f2f2f2",minorGridLineWidth:1,minorTickColor:"#999999",lineColor:"#ccd6eb",lineWidth:1,gridLineColor:"#e6e6e6",tickColor:"#ccd6eb"},defaultYAxisOptions:{endOnTick:!0,tickPixelInterval:72,showLastLabel:!0,labels:{x:-8},maxPadding:.05,minPadding:.05,startOnTick:!0,title:{rotation:270,text:"Values"},stackLabels:{enabled:!1,formatter:function formatter(){return a.numberFormat(this.total,-1);},style:{fontSize:"11px",fontWeight:"bold",color:"#000000",textOutline:"1px contrast"}},gridLineWidth:1,lineWidth:0},defaultLeftAxisOptions:{labels:{x:-15},title:{rotation:270}},defaultRightAxisOptions:{labels:{x:15},title:{rotation:90}},defaultBottomAxisOptions:{labels:{autoRotation:[-45],x:0},title:{rotation:0}},defaultTopAxisOptions:{labels:{autoRotation:[-45],x:0},title:{rotation:0}},init:function init(a,b){var g=b.isX;this.chart=a;this.horiz=a.inverted?!g:g;this.isXAxis=g;this.coll=this.coll||(g?"xAxis":"yAxis");this.opposite=b.opposite;this.side=b.side||(this.horiz?this.opposite?0:2:this.opposite?1:3);this.setOptions(b);var d=this.options,c=d.type;this.labelFormatter=d.labels.formatter||this.defaultLabelFormatter;this.userOptions=b;this.minPixelPadding=0;this.reversed=d.reversed;this.visible=!1!==d.visible;this.zoomEnabled=!1!==d.zoomEnabled;this.hasNames="category"===c||!0===d.categories;this.categories=d.categories||this.hasNames;this.names=this.names||[];this.isLog="logarithmic"===c;this.isDatetimeAxis="datetime"===c;this.positiveValuesOnly=this.isLog&&!this.allowNegativeLog;this.isLinked=l(d.linkedTo);this.ticks={};this.labelEdge=[];this.minorTicks={};this.plotLinesAndBands=[];this.alternateBands={};this.len=0;this.minRange=this.userMinRange=d.minRange||d.maxZoom;this.range=d.range;this.offset=d.offset||0;this.stacks={};this.oldStacks={};this.stacksTouched=0;this.min=this.max=null;this.crosshair=F(d.crosshair,J(a.options.tooltip.crosshairs)[g?0:1],!1);var f;b=this.options.events;-1===r(this,a.axes)&&(g?a.axes.splice(a.xAxis.length,0,this):a.axes.push(this),a[this.coll].push(this));this.series=this.series||[];a.inverted&&g&&void 0===this.reversed&&(this.reversed=!0);this.removePlotLine=this.removePlotBand=this.removePlotBandOrLine;for(f in b){B(this,f,b[f]);}this.lin2log=d.linearToLogConverter||this.lin2log;this.isLog&&(this.val2lin=this.log2lin,this.lin2val=this.lin2log);},setOptions:function setOptions(a){this.options=y(this.defaultOptions,"yAxis"===this.coll&&this.defaultYAxisOptions,[this.defaultTopAxisOptions,this.defaultRightAxisOptions,this.defaultBottomAxisOptions,this.defaultLeftAxisOptions][this.side],y(t[this.coll],a));},defaultLabelFormatter:function defaultLabelFormatter(){var g=this.axis,d=this.value,c=g.categories,f=this.dateTimeLabelFormat,q=t.lang,e=q.numericSymbols,q=q.numericSymbolMagnitude||1E3,w=e&&e.length,m,r=g.options.labels.format,g=g.isLog?Math.abs(d):g.tickInterval;if(r)m=b(r,this);else if(c)m=d;else if(f)m=a.dateFormat(f,d);else if(w&&1E3<=g)for(;w--&&void 0===m;){c=Math.pow(q,w+1),g>=c&&0===10*d%c&&null!==e[w]&&0!==d&&(m=a.numberFormat(d/c,-1)+e[w]);}void 0===m&&(m=1E4<=Math.abs(d)?a.numberFormat(d,-1):a.numberFormat(d,-1,void 0,""));return m;},getSeriesExtremes:function getSeriesExtremes(){var a=this,b=a.chart;a.hasVisibleSeries=!1;a.dataMin=a.dataMax=a.threshold=null;a.softThreshold=!a.isXAxis;a.buildStacks&&a.buildStacks();c(a.series,function(g){if(g.visible||!b.options.chart.ignoreHiddenSeries){var c=g.options,f=c.threshold,q;a.hasVisibleSeries=!0;a.positiveValuesOnly&&0>=f&&(f=null);if(a.isXAxis)c=g.xData,c.length&&(g=E(c),v(g)||g instanceof Date||(c=d(c,function(a){return v(a);}),g=E(c)),a.dataMin=Math.min(F(a.dataMin,c[0]),g),a.dataMax=Math.max(F(a.dataMax,c[0]),C(c)));else if(g.getExtremes(),q=g.dataMax,g=g.dataMin,l(g)&&l(q)&&(a.dataMin=Math.min(F(a.dataMin,g),g),a.dataMax=Math.max(F(a.dataMax,q),q)),l(f)&&(a.threshold=f),!c.softThreshold||a.positiveValuesOnly)a.softThreshold=!1;}});},translate:function translate(a,b,d,c,f,q){var g=this.linkedParent||this,D=1,e=0,m=c?g.oldTransA:g.transA;c=c?g.oldMin:g.min;var r=g.minPixelPadding;f=(g.isOrdinal||g.isBroken||g.isLog&&f)&&g.lin2val;m||(m=g.transA);d&&(D*=-1,e=g.len);g.reversed&&(D*=-1,e-=D*(g.sector||g.len));b?(a=(a*D+e-r)/m+c,f&&(a=g.lin2val(a))):(f&&(a=g.val2lin(a)),a=D*(a-c)*m+e+D*r+(v(q)?m*q:0));return a;},toPixels:function toPixels(a,b){return this.translate(a,!1,!this.horiz,null,!0)+(b?0:this.pos);},toValue:function toValue(a,b){return this.translate(a-(b?0:this.pos),!0,!this.horiz,null,!0);},getPlotLinePath:function getPlotLinePath(a,b,d,c,f){var g=this.chart,q=this.left,D=this.top,e,m,r=d&&g.oldChartHeight||g.chartHeight,p=d&&g.oldChartWidth||g.chartWidth,x;e=this.transB;var k=function k(a,b,g){if(a<b||a>g)c?a=Math.min(Math.max(b,a),g):x=!0;return a;};f=F(f,this.translate(a,null,null,d));a=d=Math.round(f+e);e=m=Math.round(r-f-e);v(f)?this.horiz?(e=D,m=r-this.bottom,a=d=k(a,q,q+this.width)):(a=q,d=p-this.right,e=m=k(e,D,D+this.height)):x=!0;return x&&!c?null:g.renderer.crispLine(["M",a,e,"L",d,m],b||1);},getLinearTickPositions:function getLinearTickPositions(a,b,d){var g,c=n(Math.floor(b/a)*a);d=n(Math.ceil(d/a)*a);var f=[];if(this.single)return[b];for(b=c;b<=d;){f.push(b);b=n(b+a);if(b===g)break;g=b;}return f;},getMinorTickPositions:function getMinorTickPositions(){var a=this,b=a.options,d=a.tickPositions,f=a.minorTickInterval,q=[],e=a.pointRangePadding||0,m=a.min-e,e=a.max+e,r=e-m;if(r&&r/f<a.len/3)if(a.isLog)c(this.paddedTicks,function(b,g,d){g&&q.push.apply(q,a.getLogTickPositions(f,d[g-1],d[g],!0));});else if(a.isDatetimeAxis&&"auto"===b.minorTickInterval)q=q.concat(a.getTimeTicks(a.normalizeTimeTickInterval(f),m,e,b.startOfWeek));else for(b=m+(d[0]-m)%f;b<=e&&b!==q[0];b+=f){q.push(b);}0!==q.length&&a.trimTicks(q);return q;},adjustForMinRange:function adjustForMinRange(){var a=this.options,b=this.min,d=this.max,f,q=this.dataMax-this.dataMin>=this.minRange,e,m,r,p,v,x;this.isXAxis&&void 0===this.minRange&&!this.isLog&&(l(a.min)||l(a.max)?this.minRange=null:(c(this.series,function(a){p=a.xData;for(m=v=a.xIncrement?1:p.length-1;0<m;m--){if(r=p[m]-p[m-1],void 0===e||r<e)e=r;}}),this.minRange=Math.min(5*e,this.dataMax-this.dataMin)));d-b<this.minRange&&(x=this.minRange,f=(x-d+b)/2,f=[b-f,F(a.min,b-f)],q&&(f[2]=this.isLog?this.log2lin(this.dataMin):this.dataMin),b=C(f),d=[b+x,F(a.max,b+x)],q&&(d[2]=this.isLog?this.log2lin(this.dataMax):this.dataMax),d=E(d),d-b<x&&(f[0]=d-x,f[1]=F(a.min,d-x),b=C(f)));this.min=b;this.max=d;},getClosest:function getClosest(){var a;this.categories?a=1:c(this.series,function(b){var g=b.closestPointRange,d=b.visible||!b.chart.options.chart.ignoreHiddenSeries;!b.noSharedTooltip&&l(g)&&d&&(a=l(a)?Math.min(a,g):g);});return a;},nameToX:function nameToX(a){var b=A(this.categories),g=b?this.categories:this.names,d=a.options.x,c;a.series.requireSorting=!1;l(d)||(d=!1===this.options.uniqueNames?a.series.autoIncrement():r(a.name,g));-1===d?b||(c=g.length):c=d;this.names[c]=a.name;return c;},updateNames:function updateNames(){var a=this;0<this.names.length&&(this.names.length=0,this.minRange=void 0,c(this.series||[],function(b){b.xIncrement=null;if(!b.points||b.isDirtyData)b.processData(),b.generatePoints();c(b.points,function(g,d){var c;g.options&&(c=a.nameToX(g),c!==g.x&&(g.x=c,b.xData[d]=c));});}));},setAxisTranslation:function setAxisTranslation(a){var b=this,g=b.max-b.min,d=b.axisPointRange||0,q,e=0,m=0,r=b.linkedParent,p=!!b.categories,v=b.transA,x=b.isXAxis;if(x||p||d)q=b.getClosest(),r?(e=r.minPointOffset,m=r.pointRangePadding):c(b.series,function(a){var g=p?1:x?F(a.options.pointRange,q,0):b.axisPointRange||0;a=a.options.pointPlacement;d=Math.max(d,g);b.single||(e=Math.max(e,f(a)?0:g/2),m=Math.max(m,"on"===a?0:g));}),r=b.ordinalSlope&&q?b.ordinalSlope/q:1,b.minPointOffset=e*=r,b.pointRangePadding=m*=r,b.pointRange=Math.min(d,g),x&&(b.closestPointRange=q);a&&(b.oldTransA=v);b.translationSlope=b.transA=v=b.options.staticScale||b.len/(g+m||1);b.transB=b.horiz?b.left:b.bottom;b.minPixelPadding=v*e;},minFromRange:function minFromRange(){return this.max-this.range;},setTickInterval:function setTickInterval(b){var g=this,d=g.chart,f=g.options,q=g.isLog,e=g.log2lin,r=g.isDatetimeAxis,p=g.isXAxis,x=g.isLinked,k=f.maxPadding,h=f.minPadding,y=f.tickInterval,A=f.tickPixelInterval,J=g.categories,t=g.threshold,u=g.softThreshold,L,K,z,B;r||J||x||this.getTickAmount();z=F(g.userMin,f.min);B=F(g.userMax,f.max);x?(g.linkedParent=d[g.coll][f.linkedTo],d=g.linkedParent.getExtremes(),g.min=F(d.min,d.dataMin),g.max=F(d.max,d.dataMax),f.type!==g.linkedParent.options.type&&a.error(11,1)):(!u&&l(t)&&(g.dataMin>=t?(L=t,h=0):g.dataMax<=t&&(K=t,k=0)),g.min=F(z,L,g.dataMin),g.max=F(B,K,g.dataMax));q&&(g.positiveValuesOnly&&!b&&0>=Math.min(g.min,F(g.dataMin,g.min))&&a.error(10,1),g.min=n(e(g.min),15),g.max=n(e(g.max),15));g.range&&l(g.max)&&(g.userMin=g.min=z=Math.max(g.min,g.minFromRange()),g.userMax=B=g.max,g.range=null);H(g,"foundExtremes");g.beforePadding&&g.beforePadding();g.adjustForMinRange();!(J||g.axisPointRange||g.usePercentage||x)&&l(g.min)&&l(g.max)&&(e=g.max-g.min)&&(!l(z)&&h&&(g.min-=e*h),!l(B)&&k&&(g.max+=e*k));v(f.floor)?g.min=Math.max(g.min,f.floor):v(f.softMin)&&(g.min=Math.min(g.min,f.softMin));v(f.ceiling)?g.max=Math.min(g.max,f.ceiling):v(f.softMax)&&(g.max=Math.max(g.max,f.softMax));u&&l(g.dataMin)&&(t=t||0,!l(z)&&g.min<t&&g.dataMin>=t?g.min=t:!l(B)&&g.max>t&&g.dataMax<=t&&(g.max=t));g.tickInterval=g.min===g.max||void 0===g.min||void 0===g.max?1:x&&!y&&A===g.linkedParent.options.tickPixelInterval?y=g.linkedParent.tickInterval:F(y,this.tickAmount?(g.max-g.min)/Math.max(this.tickAmount-1,1):void 0,J?1:(g.max-g.min)*A/Math.max(g.len,A));p&&!b&&c(g.series,function(a){a.processData(g.min!==g.oldMin||g.max!==g.oldMax);});g.setAxisTranslation(!0);g.beforeSetTickPositions&&g.beforeSetTickPositions();g.postProcessTickInterval&&(g.tickInterval=g.postProcessTickInterval(g.tickInterval));g.pointRange&&!y&&(g.tickInterval=Math.max(g.pointRange,g.tickInterval));b=F(f.minTickInterval,g.isDatetimeAxis&&g.closestPointRange);!y&&g.tickInterval<b&&(g.tickInterval=b);r||q||y||(g.tickInterval=G(g.tickInterval,null,m(g.tickInterval),F(f.allowDecimals,!(.5<g.tickInterval&&5>g.tickInterval&&1E3<g.max&&9999>g.max)),!!this.tickAmount));this.tickAmount||(g.tickInterval=g.unsquish());this.setTickPositions();},setTickPositions:function setTickPositions(){var a=this.options,b,d=a.tickPositions,c=a.tickPositioner,f=a.startOnTick,q=a.endOnTick;this.tickmarkOffset=this.categories&&"between"===a.tickmarkPlacement&&1===this.tickInterval?.5:0;this.minorTickInterval="auto"===a.minorTickInterval&&this.tickInterval?this.tickInterval/5:a.minorTickInterval;this.single=this.min===this.max&&l(this.min)&&!this.tickAmount&&!1!==a.allowDecimals;this.tickPositions=b=d&&d.slice();!b&&(b=this.isDatetimeAxis?this.getTimeTicks(this.normalizeTimeTickInterval(this.tickInterval,a.units),this.min,this.max,a.startOfWeek,this.ordinalPositions,this.closestPointRange,!0):this.isLog?this.getLogTickPositions(this.tickInterval,this.min,this.max):this.getLinearTickPositions(this.tickInterval,this.min,this.max),b.length>this.len&&(b=[b[0],b.pop()]),this.tickPositions=b,c&&(c=c.apply(this,[this.min,this.max])))&&(this.tickPositions=b=c);this.paddedTicks=b.slice(0);this.trimTicks(b,f,q);this.isLinked||(this.single&&(this.min-=.5,this.max+=.5),d||c||this.adjustTickAmount());},trimTicks:function trimTicks(a,b,d){var g=a[0],c=a[a.length-1],f=this.minPointOffset||0;if(!this.isLinked){if(b)this.min=g;else for(;this.min-f>a[0];){a.shift();}if(d)this.max=c;else for(;this.max+f<a[a.length-1];){a.pop();}0===a.length&&l(g)&&a.push((c+g)/2);}},alignToOthers:function alignToOthers(){var a={},b,d=this.options;!1===this.chart.options.chart.alignTicks||!1===d.alignTicks||this.isLog||c(this.chart[this.coll],function(g){var d=g.options,d=[g.horiz?d.left:d.top,d.width,d.height,d.pane].join();g.series.length&&(a[d]?b=!0:a[d]=1);});return b;},getTickAmount:function getTickAmount(){var a=this.options,b=a.tickAmount,d=a.tickPixelInterval;!l(a.tickInterval)&&this.len<d&&!this.isRadial&&!this.isLog&&a.startOnTick&&a.endOnTick&&(b=2);!b&&this.alignToOthers()&&(b=Math.ceil(this.len/d)+1);4>b&&(this.finalTickAmt=b,b=5);this.tickAmount=b;},adjustTickAmount:function adjustTickAmount(){var a=this.tickInterval,b=this.tickPositions,d=this.tickAmount,c=this.finalTickAmt,f=b&&b.length;if(f<d){for(;b.length<d;){b.push(n(b[b.length-1]+a));}this.transA*=(f-1)/(d-1);this.max=b[b.length-1];}else f>d&&(this.tickInterval*=2,this.setTickPositions());if(l(c)){for(a=d=b.length;a--;){(3===c&&1===a%2||2>=c&&0<a&&a<d-1)&&b.splice(a,1);}this.finalTickAmt=void 0;}},setScale:function setScale(){var a,b;this.oldMin=this.min;this.oldMax=this.max;this.oldAxisLength=this.len;this.setAxisSize();b=this.len!==this.oldAxisLength;c(this.series,function(b){if(b.isDirtyData||b.isDirty||b.xAxis.isDirty)a=!0;});b||a||this.isLinked||this.forceRedraw||this.userMin!==this.oldUserMin||this.userMax!==this.oldUserMax||this.alignToOthers()?(this.resetStacks&&this.resetStacks(),this.forceRedraw=!1,this.getSeriesExtremes(),this.setTickInterval(),this.oldUserMin=this.userMin,this.oldUserMax=this.userMax,this.isDirty||(this.isDirty=b||this.min!==this.oldMin||this.max!==this.oldMax)):this.cleanStacks&&this.cleanStacks();},setExtremes:function setExtremes(a,b,d,f,q){var g=this,e=g.chart;d=F(d,!0);c(g.series,function(a){delete a.kdTree;});q=p(q,{min:a,max:b});H(g,"setExtremes",q,function(){g.userMin=a;g.userMax=b;g.eventArgs=q;d&&e.redraw(f);});},zoom:function zoom(a,b){var g=this.dataMin,d=this.dataMax,c=this.options,f=Math.min(g,F(c.min,g)),c=Math.max(d,F(c.max,d));if(a!==this.min||b!==this.max)this.allowZoomOutside||(l(g)&&(a<f&&(a=f),a>c&&(a=c)),l(d)&&(b<f&&(b=f),b>c&&(b=c))),this.displayBtn=void 0!==a||void 0!==b,this.setExtremes(a,b,!1,void 0,{trigger:"zoom"});return!0;},setAxisSize:function setAxisSize(){var a=this.chart,b=this.options,d=b.offsets||[0,0,0,0],c=this.horiz,f=F(b.width,a.plotWidth-d[3]+d[1]),q=F(b.height,a.plotHeight-d[0]+d[2]),e=F(b.top,a.plotTop+d[0]),b=F(b.left,a.plotLeft+d[3]),d=/%$/;d.test(q)&&(q=Math.round(parseFloat(q)/100*a.plotHeight));d.test(e)&&(e=Math.round(parseFloat(e)/100*a.plotHeight+a.plotTop));this.left=b;this.top=e;this.width=f;this.height=q;this.bottom=a.chartHeight-q-e;this.right=a.chartWidth-f-b;this.len=Math.max(c?f:q,0);this.pos=c?b:e;},getExtremes:function getExtremes(){var a=this.isLog,b=this.lin2log;return{min:a?n(b(this.min)):this.min,max:a?n(b(this.max)):this.max,dataMin:this.dataMin,dataMax:this.dataMax,userMin:this.userMin,userMax:this.userMax};},getThreshold:function getThreshold(a){var b=this.isLog,g=this.lin2log,d=b?g(this.min):this.min,b=b?g(this.max):this.max;null===a?a=d:d>a?a=d:b<a&&(a=b);return this.translate(a,0,1,0,1);},autoLabelAlign:function autoLabelAlign(a){a=(F(a,0)-90*this.side+720)%360;return 15<a&&165>a?"right":195<a&&345>a?"left":"center";},tickSize:function tickSize(a){var b=this.options,g=b[a+"Length"],d=F(b[a+"Width"],"tick"===a&&this.isXAxis?1:0);if(d&&g)return"inside"===b[a+"Position"]&&(g=-g),[g,d];},labelMetrics:function labelMetrics(){return this.chart.renderer.fontMetrics(this.options.labels.style&&this.options.labels.style.fontSize,this.ticks[0]&&this.ticks[0].label);},unsquish:function unsquish(){var a=this.options.labels,b=this.horiz,d=this.tickInterval,f=d,q=this.len/(((this.categories?1:0)+this.max-this.min)/d),e,m=a.rotation,r=this.labelMetrics(),p,x=Number.MAX_VALUE,v,h=function h(a){a/=q||1;a=1<a?Math.ceil(a):1;return a*d;};b?(v=!a.staggerLines&&!a.step&&(l(m)?[m]:q<F(a.autoRotationLimit,80)&&a.autoRotation))&&c(v,function(a){var b;if(a===m||a&&-90<=a&&90>=a)p=h(Math.abs(r.h/Math.sin(k*a))),b=p+Math.abs(a/360),b<x&&(x=b,e=a,f=p);}):a.step||(f=h(r.h));this.autoRotation=v;this.labelRotation=F(e,m);return f;},getSlotWidth:function getSlotWidth(){var a=this.chart,b=this.horiz,d=this.options.labels,c=Math.max(this.tickPositions.length-(this.categories?0:1),1),f=a.margin[3];return b&&2>(d.step||0)&&!d.rotation&&(this.staggerLines||1)*this.len/c||!b&&(f&&f-a.spacing[3]||.33*a.chartWidth);},renderUnsquish:function renderUnsquish(){var a=this.chart,b=a.renderer,d=this.tickPositions,q=this.ticks,e=this.options.labels,m=this.horiz,r=this.getSlotWidth(),p=Math.max(1,Math.round(r-2*(e.padding||5))),x={},v=this.labelMetrics(),k=e.style&&e.style.textOverflow,h,l=0,A,n;f(e.rotation)||(x.rotation=e.rotation||0);c(d,function(a){(a=q[a])&&a.labelLength>l&&(l=a.labelLength);});this.maxLabelLength=l;if(this.autoRotation)l>p&&l>v.h?x.rotation=this.labelRotation:this.labelRotation=0;else if(r&&(h={width:p+"px"},!k))for(h.textOverflow="clip",A=d.length;!m&&A--;){if(n=d[A],p=q[n].label)p.styles&&"ellipsis"===p.styles.textOverflow?p.css({textOverflow:"clip"}):q[n].labelLength>r&&p.css({width:r+"px"}),p.getBBox().height>this.len/d.length-(v.h-v.f)&&(p.specCss={textOverflow:"ellipsis"});}x.rotation&&(h={width:(l>.5*a.chartHeight?.33*a.chartHeight:a.chartHeight)+"px"},k||(h.textOverflow="ellipsis"));if(this.labelAlign=e.align||this.autoLabelAlign(this.labelRotation))x.align=this.labelAlign;c(d,function(a){var b=(a=q[a])&&a.label;b&&(b.attr(x),h&&b.css(y(h,b.specCss)),delete b.specCss,a.rotation=x.rotation);});this.tickRotCorr=b.rotCorr(v.b,this.labelRotation||0,0!==this.side);},hasData:function hasData(){return this.hasVisibleSeries||l(this.min)&&l(this.max)&&!!this.tickPositions;},addTitle:function addTitle(a){var b=this.chart.renderer,d=this.horiz,g=this.opposite,c=this.options.title,f;this.axisTitle||((f=c.textAlign)||(f=(d?{low:"left",middle:"center",high:"right"}:{low:g?"right":"left",middle:"center",high:g?"left":"right"})[c.align]),this.axisTitle=b.text(c.text,0,0,c.useHTML).attr({zIndex:7,rotation:c.rotation||0,align:f}).addClass("highcharts-axis-title").css(c.style).add(this.axisGroup),this.axisTitle.isNew=!0);this.axisTitle[a?"show":"hide"](!0);},generateTick:function generateTick(a){var b=this.ticks;b[a]?b[a].addLabel():b[a]=new L(this,a);},getOffset:function getOffset(){var a=this,b=a.chart,d=b.renderer,f=a.options,q=a.tickPositions,e=a.ticks,m=a.horiz,r=a.side,p=b.inverted?[1,0,3,2][r]:r,x,v,h=0,k,y=0,A=f.title,n=f.labels,G=0,J=b.axisOffset,b=b.clipOffset,t=[-1,1,1,-1][r],u,H=f.className,L=a.axisParent,K=this.tickSize("tick");x=a.hasData();a.showAxis=v=x||F(f.showEmpty,!0);a.staggerLines=a.horiz&&n.staggerLines;a.axisGroup||(a.gridGroup=d.g("grid").attr({zIndex:f.gridZIndex||1}).addClass("highcharts-"+this.coll.toLowerCase()+"-grid "+(H||"")).add(L),a.axisGroup=d.g("axis").attr({zIndex:f.zIndex||2}).addClass("highcharts-"+this.coll.toLowerCase()+" "+(H||"")).add(L),a.labelGroup=d.g("axis-labels").attr({zIndex:n.zIndex||7}).addClass("highcharts-"+a.coll.toLowerCase()+"-labels "+(H||"")).add(L));if(x||a.isLinked)c(q,function(b,d){a.generateTick(b,d);}),a.renderUnsquish(),!1===n.reserveSpace||0!==r&&2!==r&&{1:"left",3:"right"}[r]!==a.labelAlign&&"center"!==a.labelAlign||c(q,function(a){G=Math.max(e[a].getLabelSize(),G);}),a.staggerLines&&(G*=a.staggerLines,a.labelOffset=G*(a.opposite?-1:1));else for(u in e){e[u].destroy(),delete e[u];}A&&A.text&&!1!==A.enabled&&(a.addTitle(v),v&&(h=a.axisTitle.getBBox()[m?"height":"width"],k=A.offset,y=l(k)?0:F(A.margin,m?5:10)));a.renderLine();a.offset=t*F(f.offset,J[r]);a.tickRotCorr=a.tickRotCorr||{x:0,y:0};d=0===r?-a.labelMetrics().h:2===r?a.tickRotCorr.y:0;y=Math.abs(G)+y;G&&(y=y-d+t*(m?F(n.y,a.tickRotCorr.y+8*t):n.x));a.axisTitleMargin=F(k,y);J[r]=Math.max(J[r],a.axisTitleMargin+h+t*a.offset,y,x&&q.length&&K?K[0]+t*a.offset:0);f=f.offset?0:2*Math.floor(a.axisLine.strokeWidth()/2);b[p]=Math.max(b[p],f);},getLinePath:function getLinePath(a){var b=this.chart,d=this.opposite,g=this.offset,f=this.horiz,c=this.left+(d?this.width:0)+g,g=b.chartHeight-this.bottom-(d?this.height:0)+g;d&&(a*=-1);return b.renderer.crispLine(["M",f?this.left:c,f?g:this.top,"L",f?b.chartWidth-this.right:c,f?g:b.chartHeight-this.bottom],a);},renderLine:function renderLine(){this.axisLine||(this.axisLine=this.chart.renderer.path().addClass("highcharts-axis-line").add(this.axisGroup),this.axisLine.attr({stroke:this.options.lineColor,"stroke-width":this.options.lineWidth,zIndex:7}));},getTitlePosition:function getTitlePosition(){var a=this.horiz,b=this.left,d=this.top,f=this.len,c=this.options.title,q=a?b:d,e=this.opposite,m=this.offset,r=c.x||0,p=c.y||0,x=this.chart.renderer.fontMetrics(c.style&&c.style.fontSize,this.axisTitle).f,f={low:q+(a?0:f),middle:q+f/2,high:q+(a?f:0)}[c.align],b=(a?d+this.height:b)+(a?1:-1)*(e?-1:1)*this.axisTitleMargin+(2===this.side?x:0);return{x:a?f+r:b+(e?this.width:0)+m+r,y:a?b+p-(e?this.height:0)+m:f+p};},renderMinorTick:function renderMinorTick(a){var b=this.chart.hasRendered&&v(this.oldMin),d=this.minorTicks;d[a]||(d[a]=new L(this,a,"minor"));b&&d[a].isNew&&d[a].render(null,!0);d[a].render(null,!1,1);},renderTick:function renderTick(a,b){var d=this.isLinked,g=this.ticks,f=this.chart.hasRendered&&v(this.oldMin);if(!d||a>=this.min&&a<=this.max)g[a]||(g[a]=new L(this,a)),f&&g[a].isNew&&g[a].render(b,!0,.1),g[a].render(b);},render:function render(){var a=this,b=a.chart,d=a.options,f=a.isLog,e=a.lin2log,m=a.isLinked,r=a.tickPositions,p=a.axisTitle,x=a.ticks,v=a.minorTicks,h=a.alternateBands,k=d.stackLabels,y=d.alternateGridColor,l=a.tickmarkOffset,A=a.axisLine,n=a.showAxis,G=z(b.renderer.globalAnimation),J,t;a.labelEdge.length=0;a.overlap=!1;c([x,v,h],function(a){for(var b in a){a[b].isActive=!1;}});if(a.hasData()||m)a.minorTickInterval&&!a.categories&&c(a.getMinorTickPositions(),function(b){a.renderMinorTick(b);}),r.length&&(c(r,function(b,d){a.renderTick(b,d);}),l&&(0===a.min||a.single)&&(x[-1]||(x[-1]=new L(a,-1,null,!0)),x[-1].render(-1))),y&&c(r,function(d,g){t=void 0!==r[g+1]?r[g+1]+l:a.max-l;0===g%2&&d<a.max&&t<=a.max+(b.polar?-l:l)&&(h[d]||(h[d]=new q(a)),J=d+l,h[d].options={from:f?e(J):J,to:f?e(t):t,color:y},h[d].render(),h[d].isActive=!0);}),a._addedPlotLB||(c((d.plotLines||[]).concat(d.plotBands||[]),function(b){a.addPlotBandOrLine(b);}),a._addedPlotLB=!0);c([x,v,h],function(a){var d,g,f=[],c=G.duration;for(d in a){a[d].isActive||(a[d].render(d,!1,0),a[d].isActive=!1,f.push(d));}K(function(){for(g=f.length;g--;){a[f[g]]&&!a[f[g]].isActive&&(a[f[g]].destroy(),delete a[f[g]]);}},a!==h&&b.hasRendered&&c?c:0);});A&&(A[A.isPlaced?"animate":"attr"]({d:this.getLinePath(A.strokeWidth())}),A.isPlaced=!0,A[n?"show":"hide"](!0));p&&n&&(p[p.isNew?"attr":"animate"](a.getTitlePosition()),p.isNew=!1);k&&k.enabled&&a.renderStackTotals();a.isDirty=!1;},redraw:function redraw(){this.visible&&(this.render(),c(this.plotLinesAndBands,function(a){a.render();}));c(this.series,function(a){a.isDirty=!0;});},keepProps:"extKey hcEvents names series userMax userMin".split(" "),destroy:function destroy(a){var b=this,d=b.stacks,g,f=b.plotLinesAndBands,q;a||x(b);for(g in d){e(d[g]),d[g]=null;}c([b.ticks,b.minorTicks,b.alternateBands],function(a){e(a);});if(f)for(a=f.length;a--;){f[a].destroy();}c("stackTotalGroup axisLine axisTitle axisGroup gridGroup labelGroup cross".split(" "),function(a){b[a]&&(b[a]=b[a].destroy());});for(q in b){b.hasOwnProperty(q)&&-1===r(q,b.keepProps)&&delete b[q];}},drawCrosshair:function drawCrosshair(a,b){var d,f=this.crosshair,g=F(f.snap,!0),c,q=this.cross;a||(a=this.cross&&this.cross.e);this.crosshair&&!1!==(l(b)||!g)?(g?l(b)&&(c=this.isXAxis?b.plotX:this.len-b.plotY):c=a&&(this.horiz?a.chartX-this.pos:this.len-a.chartY+this.pos),l(c)&&(d=this.getPlotLinePath(b&&(this.isXAxis?b.x:F(b.stackY,b.y)),null,null,null,c)||null),l(d)?(b=this.categories&&!this.isRadial,q||(this.cross=q=this.chart.renderer.path().addClass("highcharts-crosshair highcharts-crosshair-"+(b?"category ":"thin ")+f.className).attr({zIndex:F(f.zIndex,2)}).add(),q.attr({stroke:f.color||(b?h("#ccd6eb").setOpacity(.25).get():"#cccccc"),"stroke-width":F(f.width,1)}),f.dashStyle&&q.attr({dashstyle:f.dashStyle})),q.show().attr({d:d}),b&&!f.width&&q.attr({"stroke-width":this.transA}),this.cross.e=a):this.hideCrosshair()):this.hideCrosshair();},hideCrosshair:function hideCrosshair(){this.cross&&this.cross.hide();}};p(a.Axis.prototype,u);})(I);(function(a){var B=a.Axis,z=a.Date,C=a.dateFormat,E=a.defaultOptions,u=a.defined,h=a.each,n=a.extend,t=a.getMagnitude,l=a.getTZOffset,k=a.normalizeTickInterval,e=a.pick,c=a.timeUnits;B.prototype.getTimeTicks=function(a,k,b,m){var d=[],r={},p=E.global.useUTC,v,f=new z(k-Math.abs(l(k))),y=z.hcMakeTime,G=a.unitRange,t=a.count,q;if(u(k)){f[z.hcSetMilliseconds](G>=c.second?0:t*Math.floor(f.getMilliseconds()/t));if(G>=c.second)f[z.hcSetSeconds](G>=c.minute?0:t*Math.floor(f.getSeconds()/t));if(G>=c.minute)f[z.hcSetMinutes](G>=c.hour?0:t*Math.floor(f[z.hcGetMinutes]()/t));if(G>=c.hour)f[z.hcSetHours](G>=c.day?0:t*Math.floor(f[z.hcGetHours]()/t));if(G>=c.day)f[z.hcSetDate](G>=c.month?1:t*Math.floor(f[z.hcGetDate]()/t));G>=c.month&&(f[z.hcSetMonth](G>=c.year?0:t*Math.floor(f[z.hcGetMonth]()/t)),v=f[z.hcGetFullYear]());if(G>=c.year)f[z.hcSetFullYear](v-v%t);if(G===c.week)f[z.hcSetDate](f[z.hcGetDate]()-f[z.hcGetDay]()+e(m,1));v=f[z.hcGetFullYear]();m=f[z.hcGetMonth]();var x=f[z.hcGetDate](),J=f[z.hcGetHours]();if(z.hcTimezoneOffset||z.hcGetTimezoneOffset)q=(!p||!!z.hcGetTimezoneOffset)&&(b-k>4*c.month||l(k)!==l(b)),f=f.getTime(),f=new z(f+l(f));p=f.getTime();for(k=1;p<b;){d.push(p),p=G===c.year?y(v+k*t,0):G===c.month?y(v,m+k*t):!q||G!==c.day&&G!==c.week?q&&G===c.hour?y(v,m,x,J+k*t):p+G*t:y(v,m,x+k*t*(G===c.day?1:7)),k++;}d.push(p);G<=c.hour&&1E4>d.length&&h(d,function(a){0===a%18E5&&"000000000"===C("%H%M%S%L",a)&&(r[a]="day");});}d.info=n(a,{higherRanks:r,totalRange:G*t});return d;};B.prototype.normalizeTimeTickInterval=function(a,e){var b=e||[["millisecond",[1,2,5,10,20,25,50,100,200,500]],["second",[1,2,5,10,15,30]],["minute",[1,2,5,10,15,30]],["hour",[1,2,3,4,6,8,12]],["day",[1,2]],["week",[1,2]],["month",[1,2,3,4,6]],["year",null]];e=b[b.length-1];var m=c[e[0]],d=e[1],r;for(r=0;r<b.length&&!(e=b[r],m=c[e[0]],d=e[1],b[r+1]&&a<=(m*d[d.length-1]+c[b[r+1][0]])/2);r++){}m===c.year&&a<5*m&&(d=[1,2,5]);a=k(a/m,d,"year"===e[0]?Math.max(t(a/m),1):1);return{unitRange:m,count:a,unitName:e[0]};};})(I);(function(a){var B=a.Axis,z=a.getMagnitude,C=a.map,E=a.normalizeTickInterval,u=a.pick;B.prototype.getLogTickPositions=function(a,n,t,l){var k=this.options,e=this.len,c=this.lin2log,p=this.log2lin,h=[];l||(this._minorAutoInterval=null);if(.5<=a)a=Math.round(a),h=this.getLinearTickPositions(a,n,t);else if(.08<=a)for(var e=Math.floor(n),b,m,d,r,A,k=.3<a?[1,2,4]:.15<a?[1,2,4,6,8]:[1,2,3,4,5,6,7,8,9];e<t+1&&!A;e++){for(m=k.length,b=0;b<m&&!A;b++){d=p(c(e)*k[b]),d>n&&(!l||r<=t)&&void 0!==r&&h.push(r),r>t&&(A=!0),r=d;}}else n=c(n),t=c(t),a=k[l?"minorTickInterval":"tickInterval"],a=u("auto"===a?null:a,this._minorAutoInterval,k.tickPixelInterval/(l?5:1)*(t-n)/((l?e/this.tickPositions.length:e)||1)),a=E(a,null,z(a)),h=C(this.getLinearTickPositions(a,n,t),p),l||(this._minorAutoInterval=a/5);l||(this.tickInterval=a);return h;};B.prototype.log2lin=function(a){return Math.log(a)/Math.LN10;};B.prototype.lin2log=function(a){return Math.pow(10,a);};})(I);(function(a){var B=a.dateFormat,z=a.each,C=a.extend,E=a.format,u=a.isNumber,h=a.map,n=a.merge,t=a.pick,l=a.splat,k=a.syncTimeout,e=a.timeUnits;a.Tooltip=function(){this.init.apply(this,arguments);};a.Tooltip.prototype={init:function init(a,e){this.chart=a;this.options=e;this.crosshairs=[];this.now={x:0,y:0};this.isHidden=!0;this.split=e.split&&!a.inverted;this.shared=e.shared||this.split;},cleanSplit:function cleanSplit(a){z(this.chart.series,function(c){var e=c&&c.tt;e&&(!e.isActive||a?c.tt=e.destroy():e.isActive=!1);});},getLabel:function getLabel(){var a=this.chart.renderer,e=this.options;this.label||(this.split?this.label=a.g("tooltip"):(this.label=a.label("",0,0,e.shape||"callout",null,null,e.useHTML,null,"tooltip").attr({padding:e.padding,r:e.borderRadius}),this.label.attr({fill:e.backgroundColor,"stroke-width":e.borderWidth}).css(e.style).shadow(e.shadow)),this.label.attr({zIndex:8}).add());return this.label;},update:function update(a){this.destroy();this.init(this.chart,n(!0,this.options,a));},destroy:function destroy(){this.label&&(this.label=this.label.destroy());this.split&&this.tt&&(this.cleanSplit(this.chart,!0),this.tt=this.tt.destroy());clearTimeout(this.hideTimer);clearTimeout(this.tooltipTimeout);},move:function move(a,e,k,b){var c=this,d=c.now,r=!1!==c.options.animation&&!c.isHidden&&(1<Math.abs(a-d.x)||1<Math.abs(e-d.y)),p=c.followPointer||1<c.len;C(d,{x:r?(2*d.x+a)/3:a,y:r?(d.y+e)/2:e,anchorX:p?void 0:r?(2*d.anchorX+k)/3:k,anchorY:p?void 0:r?(d.anchorY+b)/2:b});c.getLabel().attr(d);r&&(clearTimeout(this.tooltipTimeout),this.tooltipTimeout=setTimeout(function(){c&&c.move(a,e,k,b);},32));},hide:function hide(a){var c=this;clearTimeout(this.hideTimer);a=t(a,this.options.hideDelay,500);this.isHidden||(this.hideTimer=k(function(){c.getLabel()[a?"fadeOut":"hide"]();c.isHidden=!0;},a));},getAnchor:function getAnchor(a,e){var c,b=this.chart,m=b.inverted,d=b.plotTop,r=b.plotLeft,p=0,v=0,f,k;a=l(a);c=a[0].tooltipPos;this.followPointer&&e&&(void 0===e.chartX&&(e=b.pointer.normalize(e)),c=[e.chartX-b.plotLeft,e.chartY-d]);c||(z(a,function(a){f=a.series.yAxis;k=a.series.xAxis;p+=a.plotX+(!m&&k?k.left-r:0);v+=(a.plotLow?(a.plotLow+a.plotHigh)/2:a.plotY)+(!m&&f?f.top-d:0);}),p/=a.length,v/=a.length,c=[m?b.plotWidth-v:p,this.shared&&!m&&1<a.length&&e?e.chartY-d:m?b.plotHeight-p:v]);return h(c,Math.round);},getPosition:function getPosition(a,e,k){var b=this.chart,c=this.distance,d={},r=k.h||0,p,v=["y",b.chartHeight,e,k.plotY+b.plotTop,b.plotTop,b.plotTop+b.plotHeight],f=["x",b.chartWidth,a,k.plotX+b.plotLeft,b.plotLeft,b.plotLeft+b.plotWidth],h=!this.followPointer&&t(k.ttBelow,!b.inverted===!!k.negative),l=function l(a,b,f,g,q,e){var m=f<g-c,x=g+c+f<b,v=g-c-f;g+=c;if(h&&x)d[a]=g;else if(!h&&m)d[a]=v;else if(m)d[a]=Math.min(e-f,0>v-r?v:v-r);else if(x)d[a]=Math.max(q,g+r+f>b?g:g+r);else return!1;},n=function n(a,b,f,g){var q;g<c||g>b-c?q=!1:d[a]=g<f/2?1:g>b-f/2?b-f-2:g-f/2;return q;},q=function q(a){var b=v;v=f;f=b;p=a;},x=function x(){!1!==l.apply(0,v)?!1!==n.apply(0,f)||p||(q(!0),x()):p?d.x=d.y=0:(q(!0),x());};(b.inverted||1<this.len)&&q();x();return d;},defaultFormatter:function defaultFormatter(a){var c=this.points||l(this),e;e=[a.tooltipFooterHeaderFormatter(c[0])];e=e.concat(a.bodyFormatter(c));e.push(a.tooltipFooterHeaderFormatter(c[0],!0));return e;},refresh:function refresh(a,e){var c,b=this.options,m,d=a,r,p={},v=[];c=b.formatter||this.defaultFormatter;var p=this.shared,f;clearTimeout(this.hideTimer);this.followPointer=l(d)[0].series.tooltipOptions.followPointer;r=this.getAnchor(d,e);e=r[0];m=r[1];!p||d.series&&d.series.noSharedTooltip?p=d.getLabelConfig():(z(d,function(a){a.setState("hover");v.push(a.getLabelConfig());}),p={x:d[0].category,y:d[0].y},p.points=v,d=d[0]);this.len=v.length;p=c.call(p,this);f=d.series;this.distance=t(f.tooltipOptions.distance,16);!1===p?this.hide():(c=this.getLabel(),this.isHidden&&c.attr({opacity:1}).show(),this.split?this.renderSplit(p,a):(c.attr({text:p&&p.join?p.join(""):p}),c.removeClass(/highcharts-color-[\d]+/g).addClass("highcharts-color-"+t(d.colorIndex,f.colorIndex)),c.attr({stroke:b.borderColor||d.color||f.color||"#666666"}),this.updatePosition({plotX:e,plotY:m,negative:d.negative,ttBelow:d.ttBelow,h:r[2]||0})),this.isHidden=!1);},renderSplit:function renderSplit(c,e){var p=this,b=[],m=this.chart,d=m.renderer,r=!0,k=this.options,v,f=this.getLabel();z(c.slice(0,e.length+1),function(a,c){c=e[c-1]||{isHeader:!0,plotX:e[0].plotX};var h=c.series||p,q=h.tt,x=c.series||{},l="highcharts-color-"+t(c.colorIndex,x.colorIndex,"none");q||(h.tt=q=d.label(null,null,null,"callout").addClass("highcharts-tooltip-box "+l).attr({padding:k.padding,r:k.borderRadius,fill:k.backgroundColor,stroke:c.color||x.color||"#333333","stroke-width":k.borderWidth}).add(f));q.isActive=!0;q.attr({text:a});q.css(k.style);a=q.getBBox();x=a.width+q.strokeWidth();c.isHeader?(v=a.height,x=Math.max(0,Math.min(c.plotX+m.plotLeft-x/2,m.chartWidth-x))):x=c.plotX+m.plotLeft-t(k.distance,16)-x;0>x&&(r=!1);a=(c.series&&c.series.yAxis&&c.series.yAxis.pos)+(c.plotY||0);a-=m.plotTop;b.push({target:c.isHeader?m.plotHeight+v:a,rank:c.isHeader?1:0,size:h.tt.getBBox().height+1,point:c,x:x,tt:q});});this.cleanSplit();a.distribute(b,m.plotHeight+v);z(b,function(a){var b=a.point,d=b.series;a.tt.attr({visibility:void 0===a.pos?"hidden":"inherit",x:r||b.isHeader?a.x:b.plotX+m.plotLeft+t(k.distance,16),y:a.pos+m.plotTop,anchorX:b.isHeader?b.plotX+m.plotLeft:b.plotX+d.xAxis.pos,anchorY:b.isHeader?a.pos+m.plotTop-15:b.plotY+d.yAxis.pos});});},updatePosition:function updatePosition(a){var c=this.chart,e=this.getLabel(),e=(this.options.positioner||this.getPosition).call(this,e.width,e.height,a);this.move(Math.round(e.x),Math.round(e.y||0),a.plotX+c.plotLeft,a.plotY+c.plotTop);},getDateFormat:function getDateFormat(a,p,k,b){var c=B("%m-%d %H:%M:%S.%L",p),d,r,h={millisecond:15,second:12,minute:9,hour:6,day:3},v="millisecond";for(r in e){if(a===e.week&&+B("%w",p)===k&&"00:00:00.000"===c.substr(6)){r="week";break;}if(e[r]>a){r=v;break;}if(h[r]&&c.substr(h[r])!=="01-01 00:00:00.000".substr(h[r]))break;"week"!==r&&(v=r);}r&&(d=b[r]);return d;},getXDateFormat:function getXDateFormat(a,e,k){e=e.dateTimeLabelFormats;var b=k&&k.closestPointRange;return(b?this.getDateFormat(b,a.x,k.options.startOfWeek,e):e.day)||e.year;},tooltipFooterHeaderFormatter:function tooltipFooterHeaderFormatter(a,e){var c=e?"footer":"header";e=a.series;var b=e.tooltipOptions,m=b.xDateFormat,d=e.xAxis,r=d&&"datetime"===d.options.type&&u(a.key),c=b[c+"Format"];r&&!m&&(m=this.getXDateFormat(a,b,d));r&&m&&(c=c.replace("{point.key}","{point.key:"+m+"}"));return E(c,{point:a,series:e});},bodyFormatter:function bodyFormatter(a){return h(a,function(a){var c=a.series.tooltipOptions;return(c.pointFormatter||a.point.tooltipFormatter).call(a.point,c.pointFormat);});}};})(I);(function(a){var B=a.addEvent,z=a.attr,C=a.charts,E=a.color,u=a.css,h=a.defined,n=a.doc,t=a.each,l=a.extend,k=a.fireEvent,e=a.offset,c=a.pick,p=a.removeEvent,H=a.splat,b=a.Tooltip,m=a.win;a.Pointer=function(a,b){this.init(a,b);};a.Pointer.prototype={init:function init(a,e){this.options=e;this.chart=a;this.runChartClick=e.chart.events&&!!e.chart.events.click;this.pinchDown=[];this.lastValidTouch={};b&&e.tooltip.enabled&&(a.tooltip=new b(a,e.tooltip),this.followTouchMove=c(e.tooltip.followTouchMove,!0));this.setDOMEvents();},zoomOption:function zoomOption(a){var b=this.chart,d=b.options.chart,e=d.zoomType||"",b=b.inverted;/touch/.test(a.type)&&(e=c(d.pinchType,e));this.zoomX=a=/x/.test(e);this.zoomY=e=/y/.test(e);this.zoomHor=a&&!b||e&&b;this.zoomVert=e&&!b||a&&b;this.hasZoom=a||e;},normalize:function normalize(a,b){var d,c;a=a||m.event;a.target||(a.target=a.srcElement);c=a.touches?a.touches.length?a.touches.item(0):a.changedTouches[0]:a;b||(this.chartPosition=b=e(this.chart.container));void 0===c.pageX?(d=Math.max(a.x,a.clientX-b.left),b=a.y):(d=c.pageX-b.left,b=c.pageY-b.top);return l(a,{chartX:Math.round(d),chartY:Math.round(b)});},getCoordinates:function getCoordinates(a){var b={xAxis:[],yAxis:[]};t(this.chart.axes,function(d){b[d.isXAxis?"xAxis":"yAxis"].push({axis:d,value:d.toValue(a[d.horiz?"chartX":"chartY"])});});return b;},getKDPoints:function getKDPoints(a,b,e){var d=[],f,m,r;t(a,function(a){f=a.noSharedTooltip&&b;m=!b&&a.directTouch;a.visible&&!f&&!m&&c(a.options.enableMouseTracking,!0)&&(r=a.searchPoint(e,!f&&1===a.kdDimensions))&&r.series&&d.push(r);});d.sort(function(a,d){var f=a.distX-d.distX,c=a.dist-d.dist,e=(d.series.group&&d.series.group.zIndex)-(a.series.group&&a.series.group.zIndex);return 0!==f&&b?f:0!==c?c:0!==e?e:a.series.index>d.series.index?-1:1;});if(b)for(a=d.length;a--;){(d[a].x!==d[0].x||d[a].series.noSharedTooltip)&&d.splice(a,1);}return d;},getPointFromEvent:function getPointFromEvent(a){a=a.target;for(var b;a&&!b;){b=a.point,a=a.parentNode;}return b;},getHoverData:function getHoverData(a,b,e,m,f,k){var d=a;a=b;var r;if(m)f?(r=[],t(e,function(a){var b=a.noSharedTooltip&&f,e=!f&&a.directTouch;a.visible&&!b&&!e&&c(a.options.enableMouseTracking,!0)&&(a=a.searchKDTree({clientX:d.clientX,plotY:d.plotY},!b&&1===a.kdDimensions))&&a.series&&r.push(a);}),0===r.length&&(r=[d])):r=[d];else{if(a&&!a.options.stickyTracking)r=this.getKDPoints([a],f,k);else{if(!f)if(a)a.options.stickyTracking||(e=[a]);else for(m=0;m<e.length;m++){if(e[m].directTouch||!e[m].options.stickyTracking)e=[];}r=this.getKDPoints(e,f,k);}a=(d=r[0])&&d.series;}r.sort(function(a,b){return a.series.index-b.series.index;});return{hoverPoint:d,hoverSeries:a,hoverPoints:r};},runPointActions:function runPointActions(b,c){var d=this.chart,e=d.tooltip,f=e?e.shared:!1,m=c||d.hoverPoint,r=m&&m.series||d.hoverSeries;c=this.getHoverData(m,r,d.series,!!c||r&&r.directTouch,f,b);var k,q,m=c.hoverPoint;k=(r=c.hoverSeries)&&r.tooltipOptions.followPointer;q=(f=f&&m&&!m.series.noSharedTooltip)?c.hoverPoints:[m];if(m&&(m!==d.hoverPoint||e&&e.isHidden)){t(d.hoverPoints||[],function(b){-1===a.inArray(b,q)&&b.setState();});t(q||[],function(a){a.setState("hover");});if(d.hoverSeries!==r)r.onMouseOver();r&&!r.directTouch&&(d.hoverPoint&&d.hoverPoint.firePointEvent("mouseOut"),m.firePointEvent("mouseOver"));d.hoverPoints=q;d.hoverPoint=m;e&&e.refresh(f?q:m,b);}else k&&e&&!e.isHidden&&(m=e.getAnchor([{}],b),e.updatePosition({plotX:m[0],plotY:m[1]}));this.unDocMouseMove||(this.unDocMouseMove=B(n,"mousemove",function(b){var d=C[a.hoverChartIndex];if(d)d.pointer.onDocumentMouseMove(b);}));t(q,function(a){t(d.axes,function(d){(!a||a.series&&a.series[d.coll]===d)&&d.drawCrosshair(b,a);});});},reset:function reset(a,b){var d=this.chart,c=d.hoverSeries,f=d.hoverPoint,e=d.hoverPoints,m=d.tooltip,r=m&&m.shared?e:f;a&&r&&t(H(r),function(b){b.series.isCartesian&&void 0===b.plotX&&(a=!1);});if(a)m&&r&&(m.refresh(r),f&&(f.setState(f.state,!0),t(d.axes,function(a){a.crosshair&&a.drawCrosshair(null,f);})));else{if(f)f.onMouseOut();e&&t(e,function(a){a.setState();});if(c)c.onMouseOut();m&&m.hide(b);this.unDocMouseMove&&(this.unDocMouseMove=this.unDocMouseMove());t(d.axes,function(a){a.hideCrosshair();});this.hoverX=d.hoverPoints=d.hoverPoint=null;}},scaleGroups:function scaleGroups(a,b){var d=this.chart,c;t(d.series,function(f){c=a||f.getPlotBox();f.xAxis&&f.xAxis.zoomEnabled&&f.group&&(f.group.attr(c),f.markerGroup&&(f.markerGroup.attr(c),f.markerGroup.clip(b?d.clipRect:null)),f.dataLabelsGroup&&f.dataLabelsGroup.attr(c));});d.clipRect.attr(b||d.clipBox);},dragStart:function dragStart(a){var b=this.chart;b.mouseIsDown=a.type;b.cancelClick=!1;b.mouseDownX=this.mouseDownX=a.chartX;b.mouseDownY=this.mouseDownY=a.chartY;},drag:function drag(a){var b=this.chart,d=b.options.chart,c=a.chartX,f=a.chartY,e=this.zoomHor,m=this.zoomVert,k=b.plotLeft,q=b.plotTop,x=b.plotWidth,p=b.plotHeight,h,l=this.selectionMarker,g=this.mouseDownX,n=this.mouseDownY,t=d.panKey&&a[d.panKey+"Key"];l&&l.touch||(c<k?c=k:c>k+x&&(c=k+x),f<q?f=q:f>q+p&&(f=q+p),this.hasDragged=Math.sqrt(Math.pow(g-c,2)+Math.pow(n-f,2)),10<this.hasDragged&&(h=b.isInsidePlot(g-k,n-q),b.hasCartesianSeries&&(this.zoomX||this.zoomY)&&h&&!t&&!l&&(this.selectionMarker=l=b.renderer.rect(k,q,e?1:x,m?1:p,0).attr({fill:d.selectionMarkerFill||E("#335cad").setOpacity(.25).get(),"class":"highcharts-selection-marker",zIndex:7}).add()),l&&e&&(c-=g,l.attr({width:Math.abs(c),x:(0<c?0:c)+g})),l&&m&&(c=f-n,l.attr({height:Math.abs(c),y:(0<c?0:c)+n})),h&&!l&&d.panning&&b.pan(a,d.panning)));},drop:function drop(a){var b=this,d=this.chart,c=this.hasPinched;if(this.selectionMarker){var f={originalEvent:a,xAxis:[],yAxis:[]},e=this.selectionMarker,m=e.attr?e.attr("x"):e.x,p=e.attr?e.attr("y"):e.y,q=e.attr?e.attr("width"):e.width,x=e.attr?e.attr("height"):e.height,n;if(this.hasDragged||c)t(d.axes,function(d){if(d.zoomEnabled&&h(d.min)&&(c||b[{xAxis:"zoomX",yAxis:"zoomY"}[d.coll]])){var e=d.horiz,g="touchend"===a.type?d.minPixelPadding:0,r=d.toValue((e?m:p)+g),e=d.toValue((e?m+q:p+x)-g);f[d.coll].push({axis:d,min:Math.min(r,e),max:Math.max(r,e)});n=!0;}}),n&&k(d,"selection",f,function(a){d.zoom(l(a,c?{animation:!1}:null));});this.selectionMarker=this.selectionMarker.destroy();c&&this.scaleGroups();}d&&(u(d.container,{cursor:d._cursor}),d.cancelClick=10<this.hasDragged,d.mouseIsDown=this.hasDragged=this.hasPinched=!1,this.pinchDown=[]);},onContainerMouseDown:function onContainerMouseDown(a){a=this.normalize(a);this.zoomOption(a);a.preventDefault&&a.preventDefault();this.dragStart(a);},onDocumentMouseUp:function onDocumentMouseUp(b){C[a.hoverChartIndex]&&C[a.hoverChartIndex].pointer.drop(b);},onDocumentMouseMove:function onDocumentMouseMove(a){var b=this.chart,d=this.chartPosition;a=this.normalize(a,d);!d||this.inClass(a.target,"highcharts-tracker")||b.isInsidePlot(a.chartX-b.plotLeft,a.chartY-b.plotTop)||this.reset();},onContainerMouseLeave:function onContainerMouseLeave(b){var d=C[a.hoverChartIndex];d&&(b.relatedTarget||b.toElement)&&(d.pointer.reset(),d.pointer.chartPosition=null);},onContainerMouseMove:function onContainerMouseMove(b){var d=this.chart;h(a.hoverChartIndex)&&C[a.hoverChartIndex]&&C[a.hoverChartIndex].mouseIsDown||(a.hoverChartIndex=d.index);b=this.normalize(b);b.returnValue=!1;"mousedown"===d.mouseIsDown&&this.drag(b);!this.inClass(b.target,"highcharts-tracker")&&!d.isInsidePlot(b.chartX-d.plotLeft,b.chartY-d.plotTop)||d.openMenu||this.runPointActions(b);},inClass:function inClass(a,b){for(var d;a;){if(d=z(a,"class")){if(-1!==d.indexOf(b))return!0;if(-1!==d.indexOf("highcharts-container"))return!1;}a=a.parentNode;}},onTrackerMouseOut:function onTrackerMouseOut(a){var b=this.chart.hoverSeries;a=a.relatedTarget||a.toElement;if(!(!b||!a||b.options.stickyTracking||this.inClass(a,"highcharts-tooltip")||this.inClass(a,"highcharts-series-"+b.index)&&this.inClass(a,"highcharts-tracker")))b.onMouseOut();},onContainerClick:function onContainerClick(a){var b=this.chart,d=b.hoverPoint,c=b.plotLeft,f=b.plotTop;a=this.normalize(a);b.cancelClick||(d&&this.inClass(a.target,"highcharts-tracker")?(k(d.series,"click",l(a,{point:d})),b.hoverPoint&&d.firePointEvent("click",a)):(l(a,this.getCoordinates(a)),b.isInsidePlot(a.chartX-c,a.chartY-f)&&k(b,"click",a)));},setDOMEvents:function setDOMEvents(){var b=this,c=b.chart.container;c.onmousedown=function(a){b.onContainerMouseDown(a);};c.onmousemove=function(a){b.onContainerMouseMove(a);};c.onclick=function(a){b.onContainerClick(a);};B(c,"mouseleave",b.onContainerMouseLeave);1===a.chartCount&&B(n,"mouseup",b.onDocumentMouseUp);a.hasTouch&&(c.ontouchstart=function(a){b.onContainerTouchStart(a);},c.ontouchmove=function(a){b.onContainerTouchMove(a);},1===a.chartCount&&B(n,"touchend",b.onDocumentTouchEnd));},destroy:function destroy(){var b;p(this.chart.container,"mouseleave",this.onContainerMouseLeave);a.chartCount||(p(n,"mouseup",this.onDocumentMouseUp),p(n,"touchend",this.onDocumentTouchEnd));clearInterval(this.tooltipTimeout);for(b in this){this[b]=null;}}};})(I);(function(a){var B=a.charts,z=a.each,C=a.extend,E=a.map,u=a.noop,h=a.pick;C(a.Pointer.prototype,{pinchTranslate:function pinchTranslate(a,h,l,k,e,c){this.zoomHor&&this.pinchTranslateDirection(!0,a,h,l,k,e,c);this.zoomVert&&this.pinchTranslateDirection(!1,a,h,l,k,e,c);},pinchTranslateDirection:function pinchTranslateDirection(a,h,l,k,e,c,p,u){var b=this.chart,m=a?"x":"y",d=a?"X":"Y",r="chart"+d,n=a?"width":"height",v=b["plot"+(a?"Left":"Top")],f,y,t=u||1,F=b.inverted,q=b.bounds[a?"h":"v"],x=1===h.length,J=h[0][r],K=l[0][r],L=!x&&h[1][r],g=!x&&l[1][r],D;l=function l(){!x&&20<Math.abs(J-L)&&(t=u||Math.abs(K-g)/Math.abs(J-L));y=(v-K)/t+J;f=b["plot"+(a?"Width":"Height")]/t;};l();h=y;h<q.min?(h=q.min,D=!0):h+f>q.max&&(h=q.max-f,D=!0);D?(K-=.8*(K-p[m][0]),x||(g-=.8*(g-p[m][1])),l()):p[m]=[K,g];F||(c[m]=y-v,c[n]=f);c=F?1/t:t;e[n]=f;e[m]=h;k[F?a?"scaleY":"scaleX":"scale"+d]=t;k["translate"+d]=c*v+(K-c*J);},pinch:function pinch(a){var n=this,l=n.chart,k=n.pinchDown,e=a.touches,c=e.length,p=n.lastValidTouch,H=n.hasZoom,b=n.selectionMarker,m={},d=1===c&&(n.inClass(a.target,"highcharts-tracker")&&l.runTrackerClick||n.runChartClick),r={};1<c&&(n.initiated=!0);H&&n.initiated&&!d&&a.preventDefault();E(e,function(a){return n.normalize(a);});"touchstart"===a.type?(z(e,function(a,b){k[b]={chartX:a.chartX,chartY:a.chartY};}),p.x=[k[0].chartX,k[1]&&k[1].chartX],p.y=[k[0].chartY,k[1]&&k[1].chartY],z(l.axes,function(a){if(a.zoomEnabled){var b=l.bounds[a.horiz?"h":"v"],d=a.minPixelPadding,c=a.toPixels(h(a.options.min,a.dataMin)),e=a.toPixels(h(a.options.max,a.dataMax)),m=Math.max(c,e);b.min=Math.min(a.pos,Math.min(c,e)-d);b.max=Math.max(a.pos+a.len,m+d);}}),n.res=!0):n.followTouchMove&&1===c?this.runPointActions(n.normalize(a)):k.length&&(b||(n.selectionMarker=b=C({destroy:u,touch:!0},l.plotBox)),n.pinchTranslate(k,e,m,b,r,p),n.hasPinched=H,n.scaleGroups(m,r),n.res&&(n.res=!1,this.reset(!1,0)));},touch:function touch(n,t){var l=this.chart,k,e;if(l.index!==a.hoverChartIndex)this.onContainerMouseLeave({relatedTarget:!0});a.hoverChartIndex=l.index;1===n.touches.length?(n=this.normalize(n),(e=l.isInsidePlot(n.chartX-l.plotLeft,n.chartY-l.plotTop))&&!l.openMenu?(t&&this.runPointActions(n),"touchmove"===n.type&&(t=this.pinchDown,k=t[0]?4<=Math.sqrt(Math.pow(t[0].chartX-n.chartX,2)+Math.pow(t[0].chartY-n.chartY,2)):!1),h(k,!0)&&this.pinch(n)):t&&this.reset()):2===n.touches.length&&this.pinch(n);},onContainerTouchStart:function onContainerTouchStart(a){this.zoomOption(a);this.touch(a,!0);},onContainerTouchMove:function onContainerTouchMove(a){this.touch(a);},onDocumentTouchEnd:function onDocumentTouchEnd(h){B[a.hoverChartIndex]&&B[a.hoverChartIndex].pointer.drop(h);}});})(I);(function(a){var B=a.addEvent,z=a.charts,C=a.css,E=a.doc,u=a.extend,h=a.noop,n=a.Pointer,t=a.removeEvent,l=a.win,k=a.wrap;if(l.PointerEvent||l.MSPointerEvent){var e={},c=!!l.PointerEvent,p=function p(){var a,c=[];c.item=function(a){return this[a];};for(a in e){e.hasOwnProperty(a)&&c.push({pageX:e[a].pageX,pageY:e[a].pageY,target:e[a].target});}return c;},H=function H(b,c,d,e){"touch"!==b.pointerType&&b.pointerType!==b.MSPOINTER_TYPE_TOUCH||!z[a.hoverChartIndex]||(e(b),e=z[a.hoverChartIndex].pointer,e[c]({type:d,target:b.currentTarget,preventDefault:h,touches:p()}));};u(n.prototype,{onContainerPointerDown:function onContainerPointerDown(a){H(a,"onContainerTouchStart","touchstart",function(a){e[a.pointerId]={pageX:a.pageX,pageY:a.pageY,target:a.currentTarget};});},onContainerPointerMove:function onContainerPointerMove(a){H(a,"onContainerTouchMove","touchmove",function(a){e[a.pointerId]={pageX:a.pageX,pageY:a.pageY};e[a.pointerId].target||(e[a.pointerId].target=a.currentTarget);});},onDocumentPointerUp:function onDocumentPointerUp(a){H(a,"onDocumentTouchEnd","touchend",function(a){delete e[a.pointerId];});},batchMSEvents:function batchMSEvents(a){a(this.chart.container,c?"pointerdown":"MSPointerDown",this.onContainerPointerDown);a(this.chart.container,c?"pointermove":"MSPointerMove",this.onContainerPointerMove);a(E,c?"pointerup":"MSPointerUp",this.onDocumentPointerUp);}});k(n.prototype,"init",function(a,c,d){a.call(this,c,d);this.hasZoom&&C(c.container,{"-ms-touch-action":"none","touch-action":"none"});});k(n.prototype,"setDOMEvents",function(a){a.apply(this);(this.hasZoom||this.followTouchMove)&&this.batchMSEvents(B);});k(n.prototype,"destroy",function(a){this.batchMSEvents(t);a.call(this);});}})(I);(function(a){var B,z=a.addEvent,C=a.css,E=a.discardElement,u=a.defined,h=a.each,n=a.isFirefox,t=a.marginNames,l=a.merge,k=a.pick,e=a.setAnimation,c=a.stableSort,p=a.win,H=a.wrap;B=a.Legend=function(a,c){this.init(a,c);};B.prototype={init:function init(a,c){this.chart=a;this.setOptions(c);c.enabled&&(this.render(),z(this.chart,"endResize",function(){this.legend.positionCheckboxes();}));},setOptions:function setOptions(a){var b=k(a.padding,8);this.options=a;this.itemStyle=a.itemStyle;this.itemHiddenStyle=l(this.itemStyle,a.itemHiddenStyle);this.itemMarginTop=a.itemMarginTop||0;this.initialItemX=this.padding=b;this.initialItemY=b-5;this.itemHeight=this.maxItemWidth=0;this.symbolWidth=k(a.symbolWidth,16);this.pages=[];},update:function update(a,c){var b=this.chart;this.setOptions(l(!0,this.options,a));this.destroy();b.isDirtyLegend=b.isDirtyBox=!0;k(c,!0)&&b.redraw();},colorizeItem:function colorizeItem(a,c){a.legendGroup[c?"removeClass":"addClass"]("highcharts-legend-item-hidden");var b=this.options,e=a.legendItem,m=a.legendLine,k=a.legendSymbol,f=this.itemHiddenStyle.color,b=c?b.itemStyle.color:f,p=c?a.color||f:f,h=a.options&&a.options.marker,l={fill:p},q;e&&e.css({fill:b,color:b});m&&m.attr({stroke:p});if(k){if(h&&k.isMarker&&(l=a.pointAttribs(),!c))for(q in l){l[q]=f;}k.attr(l);}},positionItem:function positionItem(a){var b=this.options,d=b.symbolPadding,b=!b.rtl,c=a._legendItemPos,e=c[0],c=c[1],k=a.checkbox;(a=a.legendGroup)&&a.element&&a.translate(b?e:this.legendWidth-e-2*d-4,c);k&&(k.x=e,k.y=c);},destroyItem:function destroyItem(a){var b=a.checkbox;h(["legendItem","legendLine","legendSymbol","legendGroup"],function(b){a[b]&&(a[b]=a[b].destroy());});b&&E(a.checkbox);},destroy:function destroy(){function a(a){this[a]&&(this[a]=this[a].destroy());}h(this.getAllItems(),function(b){h(["legendItem","legendGroup"],a,b);});h("clipRect up down pager nav box title group".split(" "),a,this);this.display=null;},positionCheckboxes:function positionCheckboxes(a){var b=this.group&&this.group.alignAttr,d,c=this.clipHeight||this.legendHeight,e=this.titleHeight;b&&(d=b.translateY,h(this.allItems,function(m){var f=m.checkbox,k;f&&(k=d+e+f.y+(a||0)+3,C(f,{left:b.translateX+m.checkboxOffset+f.x-20+"px",top:k+"px",display:k>d-6&&k<d+c-6?"":"none"}));}));},renderTitle:function renderTitle(){var a=this.padding,c=this.options.title,d=0;c.text&&(this.title||(this.title=this.chart.renderer.label(c.text,a-3,a-4,null,null,null,null,null,"legend-title").attr({zIndex:1}).css(c.style).add(this.group)),a=this.title.getBBox(),d=a.height,this.offsetWidth=a.width,this.contentGroup.attr({translateY:d}));this.titleHeight=d;},setText:function setText(b){var c=this.options;b.legendItem.attr({text:c.labelFormat?a.format(c.labelFormat,b):c.labelFormatter.call(b)});},renderItem:function renderItem(a){var b=this.chart,d=b.renderer,c=this.options,e="horizontal"===c.layout,p=this.symbolWidth,f=c.symbolPadding,h=this.itemStyle,n=this.itemHiddenStyle,t=this.padding,q=e?k(c.itemDistance,20):0,x=!c.rtl,J=c.width,u=c.itemMarginBottom||0,L=this.itemMarginTop,g=this.initialItemX,D=a.legendItem,H=!a.series,z=!H&&a.series.drawLegendSymbol?a.series:a,B=z.options,B=this.createCheckboxForItem&&B&&B.showCheckbox,C=c.useHTML;D||(a.legendGroup=d.g("legend-item").addClass("highcharts-"+z.type+"-series highcharts-color-"+a.colorIndex+(a.options.className?" "+a.options.className:"")+(H?" highcharts-series-"+a.index:"")).attr({zIndex:1}).add(this.scrollGroup),a.legendItem=D=d.text("",x?p+f:-f,this.baseline||0,C).css(l(a.visible?h:n)).attr({align:x?"left":"right",zIndex:2}).add(a.legendGroup),this.baseline||(h=h.fontSize,this.fontMetrics=d.fontMetrics(h,D),this.baseline=this.fontMetrics.f+3+L,D.attr("y",this.baseline)),this.symbolHeight=c.symbolHeight||this.fontMetrics.f,z.drawLegendSymbol(this,a),this.setItemEvents&&this.setItemEvents(a,D,C),B&&this.createCheckboxForItem(a));this.colorizeItem(a,a.visible);this.setText(a);d=D.getBBox();p=a.checkboxOffset=c.itemWidth||a.legendItemWidth||p+f+d.width+q+(B?20:0);this.itemHeight=f=Math.round(a.legendItemHeight||d.height);e&&this.itemX-g+p>(J||b.chartWidth-2*t-g-c.x)&&(this.itemX=g,this.itemY+=L+this.lastLineHeight+u,this.lastLineHeight=0);this.maxItemWidth=Math.max(this.maxItemWidth,p);this.lastItemY=L+this.itemY+u;this.lastLineHeight=Math.max(f,this.lastLineHeight);a._legendItemPos=[this.itemX,this.itemY];e?this.itemX+=p:(this.itemY+=L+f+u,this.lastLineHeight=f);this.offsetWidth=J||Math.max((e?this.itemX-g-q:p)+t,this.offsetWidth);},getAllItems:function getAllItems(){var a=[];h(this.chart.series,function(b){var d=b&&b.options;b&&k(d.showInLegend,u(d.linkedTo)?!1:void 0,!0)&&(a=a.concat(b.legendItems||("point"===d.legendType?b.data:b)));});return a;},adjustMargins:function adjustMargins(a,c){var b=this.chart,e=this.options,m=e.align.charAt(0)+e.verticalAlign.charAt(0)+e.layout.charAt(0);e.floating||h([/(lth|ct|rth)/,/(rtv|rm|rbv)/,/(rbh|cb|lbh)/,/(lbv|lm|ltv)/],function(d,f){d.test(m)&&!u(a[f])&&(b[t[f]]=Math.max(b[t[f]],b.legend[(f+1)%2?"legendHeight":"legendWidth"]+[1,-1,-1,1][f]*e[f%2?"x":"y"]+k(e.margin,12)+c[f]));});},render:function render(){var a=this,e=a.chart,d=e.renderer,k=a.group,p,n,f,y,t=a.box,u=a.options,q=a.padding;a.itemX=a.initialItemX;a.itemY=a.initialItemY;a.offsetWidth=0;a.lastItemY=0;k||(a.group=k=d.g("legend").attr({zIndex:7}).add(),a.contentGroup=d.g().attr({zIndex:1}).add(k),a.scrollGroup=d.g().add(a.contentGroup));a.renderTitle();p=a.getAllItems();c(p,function(a,b){return(a.options&&a.options.legendIndex||0)-(b.options&&b.options.legendIndex||0);});u.reversed&&p.reverse();a.allItems=p;a.display=n=!!p.length;a.lastLineHeight=0;h(p,function(b){a.renderItem(b);});f=(u.width||a.offsetWidth)+q;y=a.lastItemY+a.lastLineHeight+a.titleHeight;y=a.handleOverflow(y);y+=q;t||(a.box=t=d.rect().addClass("highcharts-legend-box").attr({r:u.borderRadius}).add(k),t.isNew=!0);t.attr({stroke:u.borderColor,"stroke-width":u.borderWidth||0,fill:u.backgroundColor||"none"}).shadow(u.shadow);0<f&&0<y&&(t[t.isNew?"attr":"animate"](t.crisp({x:0,y:0,width:f,height:y},t.strokeWidth())),t.isNew=!1);t[n?"show":"hide"]();a.legendWidth=f;a.legendHeight=y;h(p,function(b){a.positionItem(b);});n&&k.align(l(u,{width:f,height:y}),!0,"spacingBox");e.isResizing||this.positionCheckboxes();},handleOverflow:function handleOverflow(a){var b=this,d=this.chart,c=d.renderer,e=this.options,p=e.y,d=d.spacingBox.height+("top"===e.verticalAlign?-p:p)-this.padding,p=e.maxHeight,f,l=this.clipRect,n=e.navigation,t=k(n.animation,!0),q=n.arrowSize||12,x=this.nav,u=this.pages,K=this.padding,L,g=this.allItems,D=function D(a){a?l.attr({height:a}):l&&(b.clipRect=l.destroy(),b.contentGroup.clip());b.contentGroup.div&&(b.contentGroup.div.style.clip=a?"rect("+K+"px,9999px,"+(K+a)+"px,0)":"auto");};"horizontal"!==e.layout||"middle"===e.verticalAlign||e.floating||(d/=2);p&&(d=Math.min(d,p));u.length=0;a>d&&!1!==n.enabled?(this.clipHeight=f=Math.max(d-20-this.titleHeight-K,0),this.currentPage=k(this.currentPage,1),this.fullHeight=a,h(g,function(a,b){var d=a._legendItemPos[1];a=Math.round(a.legendItem.getBBox().height);var c=u.length;if(!c||d-u[c-1]>f&&(L||d)!==u[c-1])u.push(L||d),c++;b===g.length-1&&d+a-u[c-1]>f&&u.push(d);d!==L&&(L=d);}),l||(l=b.clipRect=c.clipRect(0,K,9999,0),b.contentGroup.clip(l)),D(f),x||(this.nav=x=c.g().attr({zIndex:1}).add(this.group),this.up=c.symbol("triangle",0,0,q,q).on("click",function(){b.scroll(-1,t);}).add(x),this.pager=c.text("",15,10).addClass("highcharts-legend-navigation").css(n.style).add(x),this.down=c.symbol("triangle-down",0,0,q,q).on("click",function(){b.scroll(1,t);}).add(x)),b.scroll(0),a=d):x&&(D(),this.nav=x.destroy(),this.scrollGroup.attr({translateY:1}),this.clipHeight=0);return a;},scroll:function scroll(a,c){var b=this.pages,m=b.length;a=this.currentPage+a;var k=this.clipHeight,p=this.options.navigation,f=this.pager,h=this.padding;a>m&&(a=m);0<a&&(void 0!==c&&e(c,this.chart),this.nav.attr({translateX:h,translateY:k+this.padding+7+this.titleHeight,visibility:"visible"}),this.up.attr({"class":1===a?"highcharts-legend-nav-inactive":"highcharts-legend-nav-active"}),f.attr({text:a+"/"+m}),this.down.attr({x:18+this.pager.getBBox().width,"class":a===m?"highcharts-legend-nav-inactive":"highcharts-legend-nav-active"}),this.up.attr({fill:1===a?p.inactiveColor:p.activeColor}).css({cursor:1===a?"default":"pointer"}),this.down.attr({fill:a===m?p.inactiveColor:p.activeColor}).css({cursor:a===m?"default":"pointer"}),c=-b[a-1]+this.initialItemY,this.scrollGroup.animate({translateY:c}),this.currentPage=a,this.positionCheckboxes(c));}};a.LegendSymbolMixin={drawRectangle:function drawRectangle(a,c){var b=a.symbolHeight,e=a.options.squareSymbol;c.legendSymbol=this.chart.renderer.rect(e?(a.symbolWidth-b)/2:0,a.baseline-b+1,e?b:a.symbolWidth,b,k(a.options.symbolRadius,b/2)).addClass("highcharts-point").attr({zIndex:3}).add(c.legendGroup);},drawLineMarker:function drawLineMarker(a){var b=this.options,c=b.marker,e=a.symbolWidth,p=a.symbolHeight,h=p/2,f=this.chart.renderer,n=this.legendGroup;a=a.baseline-Math.round(.3*a.fontMetrics.b);var t;t={"stroke-width":b.lineWidth||0};b.dashStyle&&(t.dashstyle=b.dashStyle);this.legendLine=f.path(["M",0,a,"L",e,a]).addClass("highcharts-graph").attr(t).add(n);c&&!1!==c.enabled&&(b=Math.min(k(c.radius,h),h),0===this.symbol.indexOf("url")&&(c=l(c,{width:p,height:p}),b=0),this.legendSymbol=c=f.symbol(this.symbol,e/2-b,a-b,2*b,2*b,c).addClass("highcharts-point").add(n),c.isMarker=!0);}};(/Trident\/7\.0/.test(p.navigator.userAgent)||n)&&H(B.prototype,"positionItem",function(a,c){var b=this,e=function e(){c._legendItemPos&&a.call(b,c);};e();setTimeout(e);});})(I);(function(a){var B=a.addEvent,z=a.animate,C=a.animObject,E=a.attr,u=a.doc,h=a.Axis,n=a.createElement,t=a.defaultOptions,l=a.discardElement,k=a.charts,e=a.css,c=a.defined,p=a.each,H=a.extend,b=a.find,m=a.fireEvent,d=a.getStyle,r=a.grep,A=a.isNumber,v=a.isObject,f=a.isString,y=a.Legend,G=a.marginNames,F=a.merge,q=a.Pointer,x=a.pick,J=a.pInt,K=a.removeEvent,L=a.seriesTypes,g=a.splat,D=a.svg,S=a.syncTimeout,M=a.win,R=a.Renderer,N=a.Chart=function(){this.getArgs.apply(this,arguments);};a.chart=function(a,b,c){return new N(a,b,c);};N.prototype={callbacks:[],getArgs:function getArgs(){var a=[].slice.call(arguments);if(f(a[0])||a[0].nodeName)this.renderTo=a.shift();this.init(a[0],a[1]);},init:function init(b,c){var d,f=b.series;b.series=null;d=F(t,b);d.series=b.series=f;this.userOptions=b;b=d.chart;f=b.events;this.margin=[];this.spacing=[];this.bounds={h:{},v:{}};this.callback=c;this.isResizing=0;this.options=d;this.axes=[];this.series=[];this.hasCartesianSeries=b.showAxes;var g;this.index=k.length;k.push(this);a.chartCount++;if(f)for(g in f){B(this,g,f[g]);}this.xAxis=[];this.yAxis=[];this.pointCount=this.colorCounter=this.symbolCounter=0;this.firstRender();},initSeries:function initSeries(b){var c=this.options.chart;(c=L[b.type||c.type||c.defaultSeriesType])||a.error(17,!0);c=new c();c.init(this,b);return c;},orderSeries:function orderSeries(a){var b=this.series;for(a=a||0;a<b.length;a++){b[a]&&(b[a].index=a,b[a].name=b[a].name||"Series "+(b[a].index+1));}},isInsidePlot:function isInsidePlot(a,b,c){var d=c?b:a;a=c?a:b;return 0<=d&&d<=this.plotWidth&&0<=a&&a<=this.plotHeight;},redraw:function redraw(b){var c=this.axes,d=this.series,f=this.pointer,g=this.legend,e=this.isDirtyLegend,q,k,h=this.hasCartesianSeries,x=this.isDirtyBox,l,w=this.renderer,r=w.isHidden(),n=[];this.setResponsive&&this.setResponsive(!1);a.setAnimation(b,this);r&&this.cloneRenderTo();this.layOutTitles();for(b=d.length;b--;){if(l=d[b],l.options.stacking&&(q=!0,l.isDirty)){k=!0;break;}}if(k)for(b=d.length;b--;){l=d[b],l.options.stacking&&(l.isDirty=!0);}p(d,function(a){a.isDirty&&"point"===a.options.legendType&&(a.updateTotals&&a.updateTotals(),e=!0);a.isDirtyData&&m(a,"updatedData");});e&&g.options.enabled&&(g.render(),this.isDirtyLegend=!1);q&&this.getStacks();h&&p(c,function(a){a.updateNames();a.setScale();});this.getMargins();h&&(p(c,function(a){a.isDirty&&(x=!0);}),p(c,function(a){var b=a.min+","+a.max;a.extKey!==b&&(a.extKey=b,n.push(function(){m(a,"afterSetExtremes",H(a.eventArgs,a.getExtremes()));delete a.eventArgs;}));(x||q)&&a.redraw();}));x&&this.drawChartBox();m(this,"predraw");p(d,function(a){(x||a.isDirty)&&a.visible&&a.redraw();a.isDirtyData=!1;});f&&f.reset(!0);w.draw();m(this,"redraw");m(this,"render");r&&this.cloneRenderTo(!0);p(n,function(a){a.call();});},get:function get(a){function c(b){return b.id===a||b.options&&b.options.id===a;}var d,f=this.series,g;d=b(this.axes,c)||b(this.series,c);for(g=0;!d&&g<f.length;g++){d=b(f[g].points||[],c);}return d;},getAxes:function getAxes(){var a=this,b=this.options,c=b.xAxis=g(b.xAxis||{}),b=b.yAxis=g(b.yAxis||{});p(c,function(a,b){a.index=b;a.isX=!0;});p(b,function(a,b){a.index=b;});c=c.concat(b);p(c,function(b){new h(a,b);});},getSelectedPoints:function getSelectedPoints(){var a=[];p(this.series,function(b){a=a.concat(r(b.points||[],function(a){return a.selected;}));});return a;},getSelectedSeries:function getSelectedSeries(){return r(this.series,function(a){return a.selected;});},setTitle:function setTitle(a,b,c){var d=this,f=d.options,g;g=f.title=F({style:{color:"#333333",fontSize:f.isStock?"16px":"18px"}},f.title,a);f=f.subtitle=F({style:{color:"#666666"}},f.subtitle,b);p([["title",a,g],["subtitle",b,f]],function(a,b){var c=a[0],f=d[c],g=a[1];a=a[2];f&&g&&(d[c]=f=f.destroy());a&&a.text&&!f&&(d[c]=d.renderer.text(a.text,0,0,a.useHTML).attr({align:a.align,"class":"highcharts-"+c,zIndex:a.zIndex||4}).add(),d[c].update=function(a){d.setTitle(!b&&a,b&&a);},d[c].css(a.style));});d.layOutTitles(c);},layOutTitles:function layOutTitles(a){var b=0,c,d=this.renderer,f=this.spacingBox;p(["title","subtitle"],function(a){var c=this[a],g=this.options[a],e;c&&(e=g.style.fontSize,e=d.fontMetrics(e,c).b,c.css({width:(g.width||f.width+g.widthAdjust)+"px"}).align(H({y:b+e+("title"===a?-3:2)},g),!1,"spacingBox"),g.floating||g.verticalAlign||(b=Math.ceil(b+c.getBBox().height)));},this);c=this.titleOffset!==b;this.titleOffset=b;!this.isDirtyBox&&c&&(this.isDirtyBox=c,this.hasRendered&&x(a,!0)&&this.isDirtyBox&&this.redraw());},getChartSize:function getChartSize(){var b=this.options.chart,f=b.width,b=b.height,g=this.renderToClone||this.renderTo;c(f)||(this.containerWidth=d(g,"width"));c(b)||(this.containerHeight=d(g,"height"));this.chartWidth=Math.max(0,f||this.containerWidth||600);this.chartHeight=Math.max(0,a.relativeLength(b,this.chartWidth)||this.containerHeight||400);},cloneRenderTo:function cloneRenderTo(a){var b=this.renderToClone,c=this.container;if(a){if(b){for(;b.childNodes.length;){this.renderTo.appendChild(b.firstChild);}l(b);delete this.renderToClone;}}else c&&c.parentNode===this.renderTo&&this.renderTo.removeChild(c),this.renderToClone=b=this.renderTo.cloneNode(0),e(b,{position:"absolute",top:"-9999px",display:"block"}),b.style.setProperty&&b.style.setProperty("display","block","important"),u.body.appendChild(b),c&&b.appendChild(c);},setClassName:function setClassName(a){this.container.className="highcharts-container "+(a||"");},getContainer:function getContainer(){var b,c=this.options,d=c.chart,g,e;b=this.renderTo;var q=a.uniqueKey(),m;b||(this.renderTo=b=d.renderTo);f(b)&&(this.renderTo=b=u.getElementById(b));b||a.error(13,!0);g=J(E(b,"data-highcharts-chart"));A(g)&&k[g]&&k[g].hasRendered&&k[g].destroy();E(b,"data-highcharts-chart",this.index);b.innerHTML="";d.skipClone||b.offsetWidth||this.cloneRenderTo();this.getChartSize();g=this.chartWidth;e=this.chartHeight;m=H({position:"relative",overflow:"hidden",width:g+"px",height:e+"px",textAlign:"left",lineHeight:"normal",zIndex:0,"-webkit-tap-highlight-color":"rgba(0,0,0,0)"},d.style);this.container=b=n("div",{id:q},m,this.renderToClone||b);this._cursor=b.style.cursor;this.renderer=new(a[d.renderer]||R)(b,g,e,null,d.forExport,c.exporting&&c.exporting.allowHTML);this.setClassName(d.className);this.renderer.setStyle(d.style);this.renderer.chartIndex=this.index;},getMargins:function getMargins(a){var b=this.spacing,d=this.margin,f=this.titleOffset;this.resetMargins();f&&!c(d[0])&&(this.plotTop=Math.max(this.plotTop,f+this.options.title.margin+b[0]));this.legend.display&&this.legend.adjustMargins(d,b);this.extraMargin&&(this[this.extraMargin.type]=(this[this.extraMargin.type]||0)+this.extraMargin.value);this.extraTopMargin&&(this.plotTop+=this.extraTopMargin);a||this.getAxisMargins();},getAxisMargins:function getAxisMargins(){var a=this,b=a.axisOffset=[0,0,0,0],d=a.margin;a.hasCartesianSeries&&p(a.axes,function(a){a.visible&&a.getOffset();});p(G,function(f,g){c(d[g])||(a[f]+=b[g]);});a.setChartSize();},reflow:function reflow(a){var b=this,f=b.options.chart,g=b.renderTo,e=c(f.width),q=f.width||d(g,"width"),f=f.height||d(g,"height"),g=a?a.target:M;if(!e&&!b.isPrinting&&q&&f&&(g===M||g===u)){if(q!==b.containerWidth||f!==b.containerHeight)clearTimeout(b.reflowTimeout),b.reflowTimeout=S(function(){b.container&&b.setSize(void 0,void 0,!1);},a?100:0);b.containerWidth=q;b.containerHeight=f;}},initReflow:function initReflow(){var a=this,b;b=B(M,"resize",function(b){a.reflow(b);});B(a,"destroy",b);},setSize:function setSize(b,c,d){var f=this,g=f.renderer;f.isResizing+=1;a.setAnimation(d,f);f.oldChartHeight=f.chartHeight;f.oldChartWidth=f.chartWidth;void 0!==b&&(f.options.chart.width=b);void 0!==c&&(f.options.chart.height=c);f.getChartSize();b=g.globalAnimation;(b?z:e)(f.container,{width:f.chartWidth+"px",height:f.chartHeight+"px"},b);f.setChartSize(!0);g.setSize(f.chartWidth,f.chartHeight,d);p(f.axes,function(a){a.isDirty=!0;a.setScale();});f.isDirtyLegend=!0;f.isDirtyBox=!0;f.layOutTitles();f.getMargins();f.redraw(d);f.oldChartHeight=null;m(f,"resize");S(function(){f&&m(f,"endResize",null,function(){--f.isResizing;});},C(b).duration);},setChartSize:function setChartSize(a){var b=this.inverted,c=this.renderer,d=this.chartWidth,f=this.chartHeight,g=this.options.chart,e=this.spacing,q=this.clipOffset,k,m,h,x;this.plotLeft=k=Math.round(this.plotLeft);this.plotTop=m=Math.round(this.plotTop);this.plotWidth=h=Math.max(0,Math.round(d-k-this.marginRight));this.plotHeight=x=Math.max(0,Math.round(f-m-this.marginBottom));this.plotSizeX=b?x:h;this.plotSizeY=b?h:x;this.plotBorderWidth=g.plotBorderWidth||0;this.spacingBox=c.spacingBox={x:e[3],y:e[0],width:d-e[3]-e[1],height:f-e[0]-e[2]};this.plotBox=c.plotBox={x:k,y:m,width:h,height:x};d=2*Math.floor(this.plotBorderWidth/2);b=Math.ceil(Math.max(d,q[3])/2);c=Math.ceil(Math.max(d,q[0])/2);this.clipBox={x:b,y:c,width:Math.floor(this.plotSizeX-Math.max(d,q[1])/2-b),height:Math.max(0,Math.floor(this.plotSizeY-Math.max(d,q[2])/2-c))};a||p(this.axes,function(a){a.setAxisSize();a.setAxisTranslation();});},resetMargins:function resetMargins(){var a=this,b=a.options.chart;p(["margin","spacing"],function(c){var d=b[c],f=v(d)?d:[d,d,d,d];p(["Top","Right","Bottom","Left"],function(d,g){a[c][g]=x(b[c+d],f[g]);});});p(G,function(b,c){a[b]=x(a.margin[c],a.spacing[c]);});a.axisOffset=[0,0,0,0];a.clipOffset=[0,0,0,0];},drawChartBox:function drawChartBox(){var a=this.options.chart,b=this.renderer,c=this.chartWidth,d=this.chartHeight,f=this.chartBackground,g=this.plotBackground,e=this.plotBorder,q,k=this.plotBGImage,m=a.backgroundColor,p=a.plotBackgroundColor,h=a.plotBackgroundImage,x,l=this.plotLeft,r=this.plotTop,n=this.plotWidth,v=this.plotHeight,t=this.plotBox,y=this.clipRect,u=this.clipBox,J="animate";f||(this.chartBackground=f=b.rect().addClass("highcharts-background").add(),J="attr");q=a.borderWidth||0;x=q+(a.shadow?8:0);m={fill:m||"none"};if(q||f["stroke-width"])m.stroke=a.borderColor,m["stroke-width"]=q;f.attr(m).shadow(a.shadow);f[J]({x:x/2,y:x/2,width:c-x-q%2,height:d-x-q%2,r:a.borderRadius});J="animate";g||(J="attr",this.plotBackground=g=b.rect().addClass("highcharts-plot-background").add());g[J](t);g.attr({fill:p||"none"}).shadow(a.plotShadow);h&&(k?k.animate(t):this.plotBGImage=b.image(h,l,r,n,v).add());y?y.animate({width:u.width,height:u.height}):this.clipRect=b.clipRect(u);J="animate";e||(J="attr",this.plotBorder=e=b.rect().addClass("highcharts-plot-border").attr({zIndex:1}).add());e.attr({stroke:a.plotBorderColor,"stroke-width":a.plotBorderWidth||0,fill:"none"});e[J](e.crisp({x:l,y:r,width:n,height:v},-e.strokeWidth()));this.isDirtyBox=!1;},propFromSeries:function propFromSeries(){var a=this,b=a.options.chart,c,d=a.options.series,f,g;p(["inverted","angular","polar"],function(e){c=L[b.type||b.defaultSeriesType];g=b[e]||c&&c.prototype[e];for(f=d&&d.length;!g&&f--;){(c=L[d[f].type])&&c.prototype[e]&&(g=!0);}a[e]=g;});},linkSeries:function linkSeries(){var a=this,b=a.series;p(b,function(a){a.linkedSeries.length=0;});p(b,function(b){var c=b.options.linkedTo;f(c)&&(c=":previous"===c?a.series[b.index-1]:a.get(c))&&c.linkedParent!==b&&(c.linkedSeries.push(b),b.linkedParent=c,b.visible=x(b.options.visible,c.options.visible,b.visible));});},renderSeries:function renderSeries(){p(this.series,function(a){a.translate();a.render();});},renderLabels:function renderLabels(){var a=this,b=a.options.labels;b.items&&p(b.items,function(c){var d=H(b.style,c.style),f=J(d.left)+a.plotLeft,g=J(d.top)+a.plotTop+12;delete d.left;delete d.top;a.renderer.text(c.html,f,g).attr({zIndex:2}).css(d).add();});},render:function render(){var a=this.axes,b=this.renderer,c=this.options,d,f,g;this.setTitle();this.legend=new y(this,c.legend);this.getStacks&&this.getStacks();this.getMargins(!0);this.setChartSize();c=this.plotWidth;d=this.plotHeight-=21;p(a,function(a){a.setScale();});this.getAxisMargins();f=1.1<c/this.plotWidth;g=1.05<d/this.plotHeight;if(f||g)p(a,function(a){(a.horiz&&f||!a.horiz&&g)&&a.setTickInterval(!0);}),this.getMargins();this.drawChartBox();this.hasCartesianSeries&&p(a,function(a){a.visible&&a.render();});this.seriesGroup||(this.seriesGroup=b.g("series-group").attr({zIndex:3}).add());this.renderSeries();this.renderLabels();this.addCredits();this.setResponsive&&this.setResponsive();this.hasRendered=!0;},addCredits:function addCredits(a){var b=this;a=F(!0,this.options.credits,a);a.enabled&&!this.credits&&(this.credits=this.renderer.text(a.text+(this.mapCredits||""),0,0).addClass("highcharts-credits").on("click",function(){a.href&&(M.location.href=a.href);}).attr({align:a.position.align,zIndex:8}).css(a.style).add().align(a.position),this.credits.update=function(a){b.credits=b.credits.destroy();b.addCredits(a);});},destroy:function destroy(){var b=this,c=b.axes,d=b.series,f=b.container,g,e=f&&f.parentNode;m(b,"destroy");k[b.index]=void 0;a.chartCount--;b.renderTo.removeAttribute("data-highcharts-chart");K(b);for(g=c.length;g--;){c[g]=c[g].destroy();}this.scroller&&this.scroller.destroy&&this.scroller.destroy();for(g=d.length;g--;){d[g]=d[g].destroy();}p("title subtitle chartBackground plotBackground plotBGImage plotBorder seriesGroup clipRect credits pointer rangeSelector legend resetZoomButton tooltip renderer".split(" "),function(a){var c=b[a];c&&c.destroy&&(b[a]=c.destroy());});f&&(f.innerHTML="",K(f),e&&l(f));for(g in b){delete b[g];}},isReadyToRender:function isReadyToRender(){var a=this;return D||M!=M.top||"complete"===u.readyState?!0:(u.attachEvent("onreadystatechange",function(){u.detachEvent("onreadystatechange",a.firstRender);"complete"===u.readyState&&a.firstRender();}),!1);},firstRender:function firstRender(){var a=this,b=a.options;if(a.isReadyToRender()){a.getContainer();m(a,"init");a.resetMargins();a.setChartSize();a.propFromSeries();a.getAxes();p(b.series||[],function(b){a.initSeries(b);});a.linkSeries();m(a,"beforeRender");q&&(a.pointer=new q(a,b));a.render();if(!a.renderer.imgCount&&a.onload)a.onload();a.cloneRenderTo(!0);}},onload:function onload(){p([this.callback].concat(this.callbacks),function(a){a&&void 0!==this.index&&a.apply(this,[this]);},this);m(this,"load");m(this,"render");c(this.index)&&!1!==this.options.chart.reflow&&this.initReflow();this.onload=null;}};})(I);(function(a){var B,z=a.each,C=a.extend,E=a.erase,u=a.fireEvent,h=a.format,n=a.isArray,t=a.isNumber,l=a.pick,k=a.removeEvent;B=a.Point=function(){};B.prototype={init:function init(a,c,k){this.series=a;this.color=a.color;this.applyOptions(c,k);a.options.colorByPoint?(c=a.options.colors||a.chart.options.colors,this.color=this.color||c[a.colorCounter],c=c.length,k=a.colorCounter,a.colorCounter++,a.colorCounter===c&&(a.colorCounter=0)):k=a.colorIndex;this.colorIndex=l(this.colorIndex,k);a.chart.pointCount++;return this;},applyOptions:function applyOptions(a,c){var e=this.series,k=e.options.pointValKey||e.pointValKey;a=B.prototype.optionsToObject.call(this,a);C(this,a);this.options=this.options?C(this.options,a):a;a.group&&delete this.group;k&&(this.y=this[k]);this.isNull=l(this.isValid&&!this.isValid(),null===this.x||!t(this.y,!0));this.selected&&(this.state="select");"name"in this&&void 0===c&&e.xAxis&&e.xAxis.hasNames&&(this.x=e.xAxis.nameToX(this));void 0===this.x&&e&&(this.x=void 0===c?e.autoIncrement(this):c);return this;},optionsToObject:function optionsToObject(a){var c={},e=this.series,k=e.options.keys,b=k||e.pointArrayMap||["y"],m=b.length,d=0,h=0;if(t(a)||null===a)c[b[0]]=a;else if(n(a))for(!k&&a.length>m&&(e=_typeof(a[0]),"string"===e?c.name=a[0]:"number"===e&&(c.x=a[0]),d++);h<m;){k&&void 0===a[d]||(c[b[h]]=a[d]),d++,h++;}else"object"===(typeof a==="undefined"?"undefined":_typeof(a))&&(c=a,a.dataLabels&&(e._hasPointLabels=!0),a.marker&&(e._hasPointMarkers=!0));return c;},getClassName:function getClassName(){return"highcharts-point"+(this.selected?" highcharts-point-select":"")+(this.negative?" highcharts-negative":"")+(this.isNull?" highcharts-null-point":"")+(void 0!==this.colorIndex?" highcharts-color-"+this.colorIndex:"")+(this.options.className?" "+this.options.className:"")+(this.zone&&this.zone.className?" "+this.zone.className.replace("highcharts-negative",""):"");},getZone:function getZone(){var a=this.series,c=a.zones,a=a.zoneAxis||"y",k=0,h;for(h=c[k];this[a]>=h.value;){h=c[++k];}h&&h.color&&!this.options.color&&(this.color=h.color);return h;},destroy:function destroy(){var a=this.series.chart,c=a.hoverPoints,h;a.pointCount--;c&&(this.setState(),E(c,this),c.length||(a.hoverPoints=null));if(this===a.hoverPoint)this.onMouseOut();if(this.graphic||this.dataLabel)k(this),this.destroyElements();this.legendItem&&a.legend.destroyItem(this);for(h in this){this[h]=null;}},destroyElements:function destroyElements(){for(var a=["graphic","dataLabel","dataLabelUpper","connector","shadowGroup"],c,k=6;k--;){c=a[k],this[c]&&(this[c]=this[c].destroy());}},getLabelConfig:function getLabelConfig(){return{x:this.category,y:this.y,color:this.color,colorIndex:this.colorIndex,key:this.name||this.category,series:this.series,point:this,percentage:this.percentage,total:this.total||this.stackTotal};},tooltipFormatter:function tooltipFormatter(a){var c=this.series,e=c.tooltipOptions,k=l(e.valueDecimals,""),b=e.valuePrefix||"",m=e.valueSuffix||"";z(c.pointArrayMap||["y"],function(c){c="{point."+c;if(b||m)a=a.replace(c+"}",b+c+"}"+m);a=a.replace(c+"}",c+":,."+k+"f}");});return h(a,{point:this,series:this.series});},firePointEvent:function firePointEvent(a,c,k){var e=this,b=this.series.options;(b.point.events[a]||e.options&&e.options.events&&e.options.events[a])&&this.importEvents();"click"===a&&b.allowPointSelect&&(k=function k(a){e.select&&e.select(null,a.ctrlKey||a.metaKey||a.shiftKey);});u(this,a,c,k);},visible:!0};})(I);(function(a){var B=a.addEvent,z=a.animObject,C=a.arrayMax,E=a.arrayMin,u=a.correctFloat,h=a.Date,n=a.defaultOptions,t=a.defaultPlotOptions,l=a.defined,k=a.each,e=a.erase,c=a.extend,p=a.fireEvent,H=a.grep,b=a.isArray,m=a.isNumber,d=a.isString,r=a.merge,A=a.pick,v=a.removeEvent,f=a.splat,y=a.SVGElement,G=a.syncTimeout,F=a.win;a.Series=a.seriesType("line",null,{lineWidth:2,allowPointSelect:!1,showCheckbox:!1,animation:{duration:1E3},events:{},marker:{lineWidth:0,lineColor:"#ffffff",radius:4,states:{hover:{animation:{duration:50},enabled:!0,radiusPlus:2,lineWidthPlus:1},select:{fillColor:"#cccccc",lineColor:"#000000",lineWidth:2}}},point:{events:{}},dataLabels:{align:"center",formatter:function formatter(){return null===this.y?"":a.numberFormat(this.y,-1);},style:{fontSize:"11px",fontWeight:"bold",color:"contrast",textOutline:"1px contrast"},verticalAlign:"bottom",x:0,y:0,padding:5},cropThreshold:300,pointRange:0,softThreshold:!0,states:{hover:{animation:{duration:50},lineWidthPlus:1,marker:{},halo:{size:10,opacity:.25}},select:{marker:{}}},stickyTracking:!0,turboThreshold:1E3},{isCartesian:!0,pointClass:a.Point,sorted:!0,requireSorting:!0,directTouch:!1,axisTypes:["xAxis","yAxis"],colorCounter:0,parallelArrays:["x","y"],coll:"series",init:function init(a,b){var d=this,f,e,g=a.series,q;d.chart=a;d.options=b=d.setOptions(b);d.linkedSeries=[];d.bindAxes();c(d,{name:b.name,state:"",visible:!1!==b.visible,selected:!0===b.selected});e=b.events;for(f in e){B(d,f,e[f]);}if(e&&e.click||b.point&&b.point.events&&b.point.events.click||b.allowPointSelect)a.runTrackerClick=!0;d.getColor();d.getSymbol();k(d.parallelArrays,function(a){d[a+"Data"]=[];});d.setData(b.data,!1);d.isCartesian&&(a.hasCartesianSeries=!0);g.length&&(q=g[g.length-1]);d._i=A(q&&q._i,-1)+1;a.orderSeries(this.insert(g));},insert:function insert(a){var b=this.options.index,c;if(m(b)){for(c=a.length;c--;){if(b>=A(a[c].options.index,a[c]._i)){a.splice(c+1,0,this);break;}}-1===c&&a.unshift(this);c+=1;}else a.push(this);return A(c,a.length-1);},bindAxes:function bindAxes(){var b=this,c=b.options,d=b.chart,f;k(b.axisTypes||[],function(e){k(d[e],function(a){f=a.options;if(c[e]===f.index||void 0!==c[e]&&c[e]===f.id||void 0===c[e]&&0===f.index)b.insert(a.series),b[e]=a,a.isDirty=!0;});b[e]||b.optionalAxis===e||a.error(18,!0);});},updateParallelArrays:function updateParallelArrays(a,b){var c=a.series,d=arguments,f=m(b)?function(d){var f="y"===d&&c.toYData?c.toYData(a):a[d];c[d+"Data"][b]=f;}:function(a){Array.prototype[b].apply(c[a+"Data"],Array.prototype.slice.call(d,2));};k(c.parallelArrays,f);},autoIncrement:function autoIncrement(){var a=this.options,b=this.xIncrement,c,d=a.pointIntervalUnit,b=A(b,a.pointStart,0);this.pointInterval=c=A(this.pointInterval,a.pointInterval,1);d&&(a=new h(b),"day"===d?a=+a[h.hcSetDate](a[h.hcGetDate]()+c):"month"===d?a=+a[h.hcSetMonth](a[h.hcGetMonth]()+c):"year"===d&&(a=+a[h.hcSetFullYear](a[h.hcGetFullYear]()+c)),c=a-b);this.xIncrement=b+c;return b;},setOptions:function setOptions(a){var b=this.chart,c=b.options.plotOptions,b=b.userOptions||{},d=b.plotOptions||{},f=c[this.type];this.userOptions=a;c=r(f,c.series,a);this.tooltipOptions=r(n.tooltip,n.plotOptions[this.type].tooltip,b.tooltip,d.series&&d.series.tooltip,d[this.type]&&d[this.type].tooltip,a.tooltip);null===f.marker&&delete c.marker;this.zoneAxis=c.zoneAxis;a=this.zones=(c.zones||[]).slice();!c.negativeColor&&!c.negativeFillColor||c.zones||a.push({value:c[this.zoneAxis+"Threshold"]||c.threshold||0,className:"highcharts-negative",color:c.negativeColor,fillColor:c.negativeFillColor});a.length&&l(a[a.length-1].value)&&a.push({color:this.color,fillColor:this.fillColor});return c;},getCyclic:function getCyclic(a,b,c){var d,f=this.chart,g=this.userOptions,e=a+"Index",q=a+"Counter",k=c?c.length:A(f.options.chart[a+"Count"],f[a+"Count"]);b||(d=A(g[e],g["_"+e]),l(d)||(f.series.length||(f[q]=0),g["_"+e]=d=f[q]%k,f[q]+=1),c&&(b=c[d]));void 0!==d&&(this[e]=d);this[a]=b;},getColor:function getColor(){this.options.colorByPoint?this.options.color=null:this.getCyclic("color",this.options.color||t[this.type].color,this.chart.options.colors);},getSymbol:function getSymbol(){this.getCyclic("symbol",this.options.marker.symbol,this.chart.options.symbols);},drawLegendSymbol:a.LegendSymbolMixin.drawLineMarker,setData:function setData(c,f,e,h){var q=this,g=q.points,p=g&&g.length||0,l,x=q.options,r=q.chart,n=null,v=q.xAxis,t=x.turboThreshold,y=this.xData,u=this.yData,G=(l=q.pointArrayMap)&&l.length;c=c||[];l=c.length;f=A(f,!0);if(!1!==h&&l&&p===l&&!q.cropped&&!q.hasGroupedData&&q.visible)k(c,function(a,b){g[b].update&&a!==x.data[b]&&g[b].update(a,!1,null,!1);});else{q.xIncrement=null;q.colorCounter=0;k(this.parallelArrays,function(a){q[a+"Data"].length=0;});if(t&&l>t){for(e=0;null===n&&e<l;){n=c[e],e++;}if(m(n))for(e=0;e<l;e++){y[e]=this.autoIncrement(),u[e]=c[e];}else if(b(n)){if(G)for(e=0;e<l;e++){n=c[e],y[e]=n[0],u[e]=n.slice(1,G+1);}else for(e=0;e<l;e++){n=c[e],y[e]=n[0],u[e]=n[1];}}else a.error(12);}else for(e=0;e<l;e++){void 0!==c[e]&&(n={series:q},q.pointClass.prototype.applyOptions.apply(n,[c[e]]),q.updateParallelArrays(n,e));}d(u[0])&&a.error(14,!0);q.data=[];q.options.data=q.userOptions.data=c;for(e=p;e--;){g[e]&&g[e].destroy&&g[e].destroy();}v&&(v.minRange=v.userMinRange);q.isDirty=r.isDirtyBox=!0;q.isDirtyData=!!g;e=!1;}"point"===x.legendType&&(this.processData(),this.generatePoints());f&&r.redraw(e);},processData:function processData(b){var c=this.xData,d=this.yData,f=c.length,e;e=0;var g,q,k=this.xAxis,m,h=this.options;m=h.cropThreshold;var l=this.getExtremesFromAll||h.getExtremesFromAll,p=this.isCartesian,h=k&&k.val2lin,n=k&&k.isLog,r,v;if(p&&!this.isDirty&&!k.isDirty&&!this.yAxis.isDirty&&!b)return!1;k&&(b=k.getExtremes(),r=b.min,v=b.max);if(p&&this.sorted&&!l&&(!m||f>m||this.forceCrop))if(c[f-1]<r||c[0]>v)c=[],d=[];else if(c[0]<r||c[f-1]>v)e=this.cropData(this.xData,this.yData,r,v),c=e.xData,d=e.yData,e=e.start,g=!0;for(m=c.length||1;--m;){f=n?h(c[m])-h(c[m-1]):c[m]-c[m-1],0<f&&(void 0===q||f<q)?q=f:0>f&&this.requireSorting&&a.error(15);}this.cropped=g;this.cropStart=e;this.processedXData=c;this.processedYData=d;this.closestPointRange=q;},cropData:function cropData(a,b,c,d){var f=a.length,g=0,e=f,q=A(this.cropShoulder,1),k;for(k=0;k<f;k++){if(a[k]>=c){g=Math.max(0,k-q);break;}}for(c=k;c<f;c++){if(a[c]>d){e=c+q;break;}}return{xData:a.slice(g,e),yData:b.slice(g,e),start:g,end:e};},generatePoints:function generatePoints(){var a=this.options.data,b=this.data,c,d=this.processedXData,e=this.processedYData,g=this.pointClass,k=d.length,m=this.cropStart||0,h,l=this.hasGroupedData,p,n=[],r;b||l||(b=[],b.length=a.length,b=this.data=b);for(r=0;r<k;r++){h=m+r,l?(p=new g().init(this,[d[r]].concat(f(e[r]))),p.dataGroup=this.groupMap[r]):(p=b[h])||void 0===a[h]||(b[h]=p=new g().init(this,a[h],d[r])),p.index=h,n[r]=p;}if(b&&(k!==(c=b.length)||l))for(r=0;r<c;r++){r!==m||l||(r+=k),b[r]&&(b[r].destroyElements(),b[r].plotX=void 0);}this.data=b;this.points=n;},getExtremes:function getExtremes(a){var c=this.yAxis,d=this.processedXData,f,e=[],g=0;f=this.xAxis.getExtremes();var q=f.min,k=f.max,h,l,p,r;a=a||this.stackedYData||this.processedYData||[];f=a.length;for(r=0;r<f;r++){if(l=d[r],p=a[r],h=(m(p,!0)||b(p))&&(!c.positiveValuesOnly||p.length||0<p),l=this.getExtremesFromAll||this.options.getExtremesFromAll||this.cropped||(d[r+1]||l)>=q&&(d[r-1]||l)<=k,h&&l)if(h=p.length)for(;h--;){null!==p[h]&&(e[g++]=p[h]);}else e[g++]=p;}this.dataMin=E(e);this.dataMax=C(e);},translate:function translate(){this.processedXData||this.processData();this.generatePoints();var a=this.options,b=a.stacking,c=this.xAxis,d=c.categories,f=this.yAxis,e=this.points,k=e.length,h=!!this.modifyValue,p=a.pointPlacement,r="between"===p||m(p),n=a.threshold,v=a.startFromThreshold?n:0,t,y,G,F,H=Number.MAX_VALUE;"between"===p&&(p=.5);m(p)&&(p*=A(a.pointRange||c.pointRange));for(a=0;a<k;a++){var z=e[a],B=z.x,C=z.y;y=z.low;var E=b&&f.stacks[(this.negStacks&&C<(v?0:n)?"-":"")+this.stackKey],I;f.positiveValuesOnly&&null!==C&&0>=C&&(z.isNull=!0);z.plotX=t=u(Math.min(Math.max(-1E5,c.translate(B,0,0,0,1,p,"flags"===this.type)),1E5));b&&this.visible&&!z.isNull&&E&&E[B]&&(F=this.getStackIndicator(F,B,this.index),I=E[B],C=I.points[F.key],y=C[0],C=C[1],y===v&&F.key===E[B].base&&(y=A(n,f.min)),f.positiveValuesOnly&&0>=y&&(y=null),z.total=z.stackTotal=I.total,z.percentage=I.total&&z.y/I.total*100,z.stackY=C,I.setOffset(this.pointXOffset||0,this.barW||0));z.yBottom=l(y)?f.translate(y,0,1,0,1):null;h&&(C=this.modifyValue(C,z));z.plotY=y="number"===typeof C&&Infinity!==C?Math.min(Math.max(-1E5,f.translate(C,0,1,0,1)),1E5):void 0;z.isInside=void 0!==y&&0<=y&&y<=f.len&&0<=t&&t<=c.len;z.clientX=r?u(c.translate(B,0,0,0,1,p)):t;z.negative=z.y<(n||0);z.category=d&&void 0!==d[z.x]?d[z.x]:z.x;z.isNull||(void 0!==G&&(H=Math.min(H,Math.abs(t-G))),G=t);z.zone=this.zones.length&&z.getZone();}this.closestPointRangePx=H;},getValidPoints:function getValidPoints(a,b){var c=this.chart;return H(a||this.points||[],function(a){return b&&!c.isInsidePlot(a.plotX,a.plotY,c.inverted)?!1:!a.isNull;});},setClip:function setClip(a){var b=this.chart,c=this.options,d=b.renderer,f=b.inverted,e=this.clipBox,q=e||b.clipBox,k=this.sharedClipKey||["_sharedClip",a&&a.duration,a&&a.easing,q.height,c.xAxis,c.yAxis].join(),m=b[k],h=b[k+"m"];m||(a&&(q.width=0,b[k+"m"]=h=d.clipRect(-99,f?-b.plotLeft:-b.plotTop,99,f?b.chartWidth:b.chartHeight)),b[k]=m=d.clipRect(q),m.count={length:0});a&&!m.count[this.index]&&(m.count[this.index]=!0,m.count.length+=1);!1!==c.clip&&(this.group.clip(a||e?m:b.clipRect),this.markerGroup.clip(h),this.sharedClipKey=k);a||(m.count[this.index]&&(delete m.count[this.index],--m.count.length),0===m.count.length&&k&&b[k]&&(e||(b[k]=b[k].destroy()),b[k+"m"]&&(this.markerGroup.clip(),b[k+"m"]=b[k+"m"].destroy())));},animate:function animate(a){var b=this.chart,c=z(this.options.animation),d;a?this.setClip(c):(d=this.sharedClipKey,(a=b[d])&&a.animate({width:b.plotSizeX},c),b[d+"m"]&&b[d+"m"].animate({width:b.plotSizeX+99},c),this.animate=null);},afterAnimate:function afterAnimate(){this.setClip();p(this,"afterAnimate");},drawPoints:function drawPoints(){var a=this.points,b=this.chart,c,d,f,e,k=this.options.marker,h,p,l,r,n=this.markerGroup,v=A(k.enabled,this.xAxis.isRadial?!0:null,this.closestPointRangePx>=2*k.radius);if(!1!==k.enabled||this._hasPointMarkers)for(d=0;d<a.length;d++){f=a[d],c=f.plotY,e=f.graphic,h=f.marker||{},p=!!f.marker,l=v&&void 0===h.enabled||h.enabled,r=f.isInside,l&&m(c)&&null!==f.y?(c=A(h.symbol,this.symbol),f.hasImage=0===c.indexOf("url"),l=this.markerAttribs(f,f.selected&&"select"),e?e[r?"show":"hide"](!0).animate(l):r&&(0<l.width||f.hasImage)&&(f.graphic=e=b.renderer.symbol(c,l.x,l.y,l.width,l.height,p?h:k).add(n)),e&&e.attr(this.pointAttribs(f,f.selected&&"select")),e&&e.addClass(f.getClassName(),!0)):e&&(f.graphic=e.destroy());}},markerAttribs:function markerAttribs(a,b){var c=this.options.marker,d=a.marker||{},f=A(d.radius,c.radius);b&&(c=c.states[b],b=d.states&&d.states[b],f=A(b&&b.radius,c&&c.radius,f+(c&&c.radiusPlus||0)));a.hasImage&&(f=0);a={x:Math.floor(a.plotX)-f,y:a.plotY-f};f&&(a.width=a.height=2*f);return a;},pointAttribs:function pointAttribs(a,b){var c=this.options.marker,d=a&&a.options,f=d&&d.marker||{},e=this.color,q=d&&d.color,k=a&&a.color,d=A(f.lineWidth,c.lineWidth);a=a&&a.zone&&a.zone.color;e=q||a||k||e;a=f.fillColor||c.fillColor||e;e=f.lineColor||c.lineColor||e;b&&(c=c.states[b],b=f.states&&f.states[b]||{},d=A(b.lineWidth,c.lineWidth,d+A(b.lineWidthPlus,c.lineWidthPlus,0)),a=b.fillColor||c.fillColor||a,e=b.lineColor||c.lineColor||e);return{stroke:e,"stroke-width":d,fill:a};},destroy:function destroy(){var a=this,b=a.chart,c=/AppleWebKit\/533/.test(F.navigator.userAgent),d,f=a.data||[],g,m,h;p(a,"destroy");v(a);k(a.axisTypes||[],function(b){(h=a[b])&&h.series&&(e(h.series,a),h.isDirty=h.forceRedraw=!0);});a.legendItem&&a.chart.legend.destroyItem(a);for(d=f.length;d--;){(g=f[d])&&g.destroy&&g.destroy();}a.points=null;clearTimeout(a.animationTimeout);for(m in a){a[m]instanceof y&&!a[m].survive&&(d=c&&"group"===m?"hide":"destroy",a[m][d]());}b.hoverSeries===a&&(b.hoverSeries=null);e(b.series,a);b.orderSeries();for(m in a){delete a[m];}},getGraphPath:function getGraphPath(a,b,c){var d=this,f=d.options,e=f.step,q,m=[],h=[],p;a=a||d.points;(q=a.reversed)&&a.reverse();(e={right:1,center:2}[e]||e&&3)&&q&&(e=4-e);!f.connectNulls||b||c||(a=this.getValidPoints(a));k(a,function(g,k){var q=g.plotX,r=g.plotY,n=a[k-1];(g.leftCliff||n&&n.rightCliff)&&!c&&(p=!0);g.isNull&&!l(b)&&0<k?p=!f.connectNulls:g.isNull&&!b?p=!0:(0===k||p?k=["M",g.plotX,g.plotY]:d.getPointSpline?k=d.getPointSpline(a,g,k):e?(k=1===e?["L",n.plotX,r]:2===e?["L",(n.plotX+q)/2,n.plotY,"L",(n.plotX+q)/2,r]:["L",q,n.plotY],k.push("L",q,r)):k=["L",q,r],h.push(g.x),e&&h.push(g.x),m.push.apply(m,k),p=!1);});m.xMap=h;return d.graphPath=m;},drawGraph:function drawGraph(){var a=this,b=this.options,c=(this.gappedPath||this.getGraphPath).call(this),d=[["graph","highcharts-graph",b.lineColor||this.color,b.dashStyle]];k(this.zones,function(c,f){d.push(["zone-graph-"+f,"highcharts-graph highcharts-zone-graph-"+f+" "+(c.className||""),c.color||a.color,c.dashStyle||b.dashStyle]);});k(d,function(d,f){var e=d[0],g=a[e];g?(g.endX=c.xMap,g.animate({d:c})):c.length&&(a[e]=a.chart.renderer.path(c).addClass(d[1]).attr({zIndex:1}).add(a.group),g={stroke:d[2],"stroke-width":b.lineWidth,fill:a.fillGraph&&a.color||"none"},d[3]?g.dashstyle=d[3]:"square"!==b.linecap&&(g["stroke-linecap"]=g["stroke-linejoin"]="round"),g=a[e].attr(g).shadow(2>f&&b.shadow));g&&(g.startX=c.xMap,g.isArea=c.isArea);});},applyZones:function applyZones(){var a=this,b=this.chart,c=b.renderer,d=this.zones,f,e,m=this.clips||[],h,p=this.graph,l=this.area,r=Math.max(b.chartWidth,b.chartHeight),n=this[(this.zoneAxis||"y")+"Axis"],v,t,y=b.inverted,u,G,F,H,z=!1;d.length&&(p||l)&&n&&void 0!==n.min&&(t=n.reversed,u=n.horiz,p&&p.hide(),l&&l.hide(),v=n.getExtremes(),k(d,function(d,g){f=t?u?b.plotWidth:0:u?0:n.toPixels(v.min);f=Math.min(Math.max(A(e,f),0),r);e=Math.min(Math.max(Math.round(n.toPixels(A(d.value,v.max),!0)),0),r);z&&(f=e=n.toPixels(v.max));G=Math.abs(f-e);F=Math.min(f,e);H=Math.max(f,e);n.isXAxis?(h={x:y?H:F,y:0,width:G,height:r},u||(h.x=b.plotHeight-h.x)):(h={x:0,y:y?H:F,width:r,height:G},u&&(h.y=b.plotWidth-h.y));y&&c.isVML&&(h=n.isXAxis?{x:0,y:t?F:H,height:h.width,width:b.chartWidth}:{x:h.y-b.plotLeft-b.spacingBox.x,y:0,width:h.height,height:b.chartHeight});m[g]?m[g].animate(h):(m[g]=c.clipRect(h),p&&a["zone-graph-"+g].clip(m[g]),l&&a["zone-area-"+g].clip(m[g]));z=d.value>v.max;}),this.clips=m);},invertGroups:function invertGroups(a){function b(){k(["group","markerGroup"],function(b){c[b]&&(d.renderer.isVML&&c[b].attr({width:c.yAxis.len,height:c.xAxis.len}),c[b].width=c.yAxis.len,c[b].height=c.xAxis.len,c[b].invert(a));});}var c=this,d=c.chart,f;c.xAxis&&(f=B(d,"resize",b),B(c,"destroy",f),b(a),c.invertGroups=b);},plotGroup:function plotGroup(a,b,c,d,f){var e=this[a],k=!e;k&&(this[a]=e=this.chart.renderer.g(b).attr({zIndex:d||.1}).add(f),e.addClass("highcharts-series-"+this.index+" highcharts-"+this.type+"-series highcharts-color-"+this.colorIndex+" "+(this.options.className||"")));e.attr({visibility:c})[k?"attr":"animate"](this.getPlotBox());return e;},getPlotBox:function getPlotBox(){var a=this.chart,b=this.xAxis,c=this.yAxis;a.inverted&&(b=c,c=this.xAxis);return{translateX:b?b.left:a.plotLeft,translateY:c?c.top:a.plotTop,scaleX:1,scaleY:1};},render:function render(){var a=this,b=a.chart,c,d=a.options,f=!!a.animate&&b.renderer.isSVG&&z(d.animation).duration,e=a.visible?"inherit":"hidden",k=d.zIndex,m=a.hasRendered,h=b.seriesGroup,p=b.inverted;c=a.plotGroup("group","series",e,k,h);a.markerGroup=a.plotGroup("markerGroup","markers",e,k,h);f&&a.animate(!0);c.inverted=a.isCartesian?p:!1;a.drawGraph&&(a.drawGraph(),a.applyZones());a.drawDataLabels&&a.drawDataLabels();a.visible&&a.drawPoints();a.drawTracker&&!1!==a.options.enableMouseTracking&&a.drawTracker();a.invertGroups(p);!1===d.clip||a.sharedClipKey||m||c.clip(b.clipRect);f&&a.animate();m||(a.animationTimeout=G(function(){a.afterAnimate();},f));a.isDirty=!1;a.hasRendered=!0;},redraw:function redraw(){var a=this.chart,b=this.isDirty||this.isDirtyData,c=this.group,d=this.xAxis,f=this.yAxis;c&&(a.inverted&&c.attr({width:a.plotWidth,height:a.plotHeight}),c.animate({translateX:A(d&&d.left,a.plotLeft),translateY:A(f&&f.top,a.plotTop)}));this.translate();this.render();b&&delete this.kdTree;},kdDimensions:1,kdAxisArray:["clientX","plotY"],searchPoint:function searchPoint(a,b){var c=this.xAxis,d=this.yAxis,f=this.chart.inverted;return this.searchKDTree({clientX:f?c.len-a.chartY+c.pos:a.chartX-c.pos,plotY:f?d.len-a.chartX+d.pos:a.chartY-d.pos},b);},buildKDTree:function buildKDTree(){function a(c,d,f){var e,g;if(g=c&&c.length)return e=b.kdAxisArray[d%f],c.sort(function(a,b){return a[e]-b[e];}),g=Math.floor(g/2),{point:c[g],left:a(c.slice(0,g),d+1,f),right:a(c.slice(g+1),d+1,f)};}this.buildingKdTree=!0;var b=this,c=b.kdDimensions;delete b.kdTree;G(function(){b.kdTree=a(b.getValidPoints(null,!b.directTouch),c,c);b.buildingKdTree=!1;},b.options.kdNow?0:1);},searchKDTree:function searchKDTree(a,b){function c(a,b,g,m){var h=b.point,p=d.kdAxisArray[g%m],q,r,n=h;r=l(a[f])&&l(h[f])?Math.pow(a[f]-h[f],2):null;q=l(a[e])&&l(h[e])?Math.pow(a[e]-h[e],2):null;q=(r||0)+(q||0);h.dist=l(q)?Math.sqrt(q):Number.MAX_VALUE;h.distX=l(r)?Math.sqrt(r):Number.MAX_VALUE;p=a[p]-h[p];q=0>p?"left":"right";r=0>p?"right":"left";b[q]&&(q=c(a,b[q],g+1,m),n=q[k]<n[k]?q:h);b[r]&&Math.sqrt(p*p)<n[k]&&(a=c(a,b[r],g+1,m),n=a[k]<n[k]?a:n);return n;}var d=this,f=this.kdAxisArray[0],e=this.kdAxisArray[1],k=b?"distX":"dist";this.kdTree||this.buildingKdTree||this.buildKDTree();if(this.kdTree)return c(a,this.kdTree,this.kdDimensions,this.kdDimensions);}});})(I);(function(a){function B(a,e,c,h,n){var b=a.chart.inverted;this.axis=a;this.isNegative=c;this.options=e;this.x=h;this.total=null;this.points={};this.stack=n;this.rightCliff=this.leftCliff=0;this.alignOptions={align:e.align||(b?c?"left":"right":"center"),verticalAlign:e.verticalAlign||(b?"middle":c?"bottom":"top"),y:l(e.y,b?4:c?14:-6),x:l(e.x,b?c?-6:6:0)};this.textAlign=e.textAlign||(b?c?"right":"left":"center");}var z=a.Axis,C=a.Chart,E=a.correctFloat,u=a.defined,h=a.destroyObjectProperties,n=a.each,t=a.format,l=a.pick;a=a.Series;B.prototype={destroy:function destroy(){h(this,this.axis);},render:function render(a){var e=this.options,c=e.format,c=c?t(c,this):e.formatter.call(this);this.label?this.label.attr({text:c,visibility:"hidden"}):this.label=this.axis.chart.renderer.text(c,null,null,e.useHTML).css(e.style).attr({align:this.textAlign,rotation:e.rotation,visibility:"hidden"}).add(a);},setOffset:function setOffset(a,e){var c=this.axis,k=c.chart,h=k.inverted,b=c.reversed,b=this.isNegative&&!b||!this.isNegative&&b,m=c.translate(c.usePercentage?100:this.total,0,0,0,1),c=c.translate(0),c=Math.abs(m-c);a=k.xAxis[0].translate(this.x)+a;var d=k.plotHeight,h={x:h?b?m:m-c:a,y:h?d-a-e:b?d-m-c:d-m,width:h?c:e,height:h?e:c};if(e=this.label)e.align(this.alignOptions,null,h),h=e.alignAttr,e[!1===this.options.crop||k.isInsidePlot(h.x,h.y)?"show":"hide"](!0);}};C.prototype.getStacks=function(){var a=this;n(a.yAxis,function(a){a.stacks&&a.hasVisibleSeries&&(a.oldStacks=a.stacks);});n(a.series,function(e){!e.options.stacking||!0!==e.visible&&!1!==a.options.chart.ignoreHiddenSeries||(e.stackKey=e.type+l(e.options.stack,""));});};z.prototype.buildStacks=function(){var a=this.series,e,c=l(this.options.reversedStacks,!0),h=a.length,n;if(!this.isXAxis){this.usePercentage=!1;for(n=h;n--;){a[c?n:h-n-1].setStackedPoints();}for(n=h;n--;){e=a[c?n:h-n-1],e.setStackCliffs&&e.setStackCliffs();}if(this.usePercentage)for(n=0;n<h;n++){a[n].setPercentStacks();}}};z.prototype.renderStackTotals=function(){var a=this.chart,e=a.renderer,c=this.stacks,h,l,b=this.stackTotalGroup;b||(this.stackTotalGroup=b=e.g("stack-labels").attr({visibility:"visible",zIndex:6}).add());b.translate(a.plotLeft,a.plotTop);for(h in c){for(l in a=c[h],a){a[l].render(b);}}};z.prototype.resetStacks=function(){var a=this.stacks,e,c;if(!this.isXAxis)for(e in a){for(c in a[e]){a[e][c].touched<this.stacksTouched?(a[e][c].destroy(),delete a[e][c]):(a[e][c].total=null,a[e][c].cum=null);}}};z.prototype.cleanStacks=function(){var a,e,c;if(!this.isXAxis)for(e in this.oldStacks&&(a=this.stacks=this.oldStacks),a){for(c in a[e]){a[e][c].cum=a[e][c].total;}}};a.prototype.setStackedPoints=function(){if(this.options.stacking&&(!0===this.visible||!1===this.chart.options.chart.ignoreHiddenSeries)){var a=this.processedXData,e=this.processedYData,c=[],h=e.length,n=this.options,b=n.threshold,m=n.startFromThreshold?b:0,d=n.stack,n=n.stacking,r=this.stackKey,t="-"+r,v=this.negStacks,f=this.yAxis,y=f.stacks,G=f.oldStacks,F,q,x,z,K,C,g;f.stacksTouched+=1;for(K=0;K<h;K++){C=a[K],g=e[K],F=this.getStackIndicator(F,C,this.index),z=F.key,x=(q=v&&g<(m?0:b))?t:r,y[x]||(y[x]={}),y[x][C]||(G[x]&&G[x][C]?(y[x][C]=G[x][C],y[x][C].total=null):y[x][C]=new B(f,f.options.stackLabels,q,C,d)),x=y[x][C],null!==g&&(x.points[z]=x.points[this.index]=[l(x.cum,m)],u(x.cum)||(x.base=z),x.touched=f.stacksTouched,0<F.index&&!1===this.singleStacks&&(x.points[z][0]=x.points[this.index+","+C+",0"][0])),"percent"===n?(q=q?r:t,v&&y[q]&&y[q][C]?(q=y[q][C],x.total=q.total=Math.max(q.total,x.total)+Math.abs(g)||0):x.total=E(x.total+(Math.abs(g)||0))):x.total=E(x.total+(g||0)),x.cum=l(x.cum,m)+(g||0),null!==g&&(x.points[z].push(x.cum),c[K]=x.cum);}"percent"===n&&(f.usePercentage=!0);this.stackedYData=c;f.oldStacks={};}};a.prototype.setPercentStacks=function(){var a=this,e=a.stackKey,c=a.yAxis.stacks,h=a.processedXData,l;n([e,"-"+e],function(b){for(var e=h.length,d,k;e--;){if(d=h[e],l=a.getStackIndicator(l,d,a.index,b),d=(k=c[b]&&c[b][d])&&k.points[l.key])k=k.total?100/k.total:0,d[0]=E(d[0]*k),d[1]=E(d[1]*k),a.stackedYData[e]=d[1];}});};a.prototype.getStackIndicator=function(a,e,c,h){!u(a)||a.x!==e||h&&a.key!==h?a={x:e,index:0,key:h}:a.index++;a.key=[c,e,a.index].join();return a;};})(I);(function(a){var B=a.addEvent,z=a.animate,C=a.Axis,E=a.createElement,u=a.css,h=a.defined,n=a.each,t=a.erase,l=a.extend,k=a.fireEvent,e=a.inArray,c=a.isNumber,p=a.isObject,H=a.merge,b=a.pick,m=a.Point,d=a.Series,r=a.seriesTypes,A=a.setAnimation,v=a.splat;l(a.Chart.prototype,{addSeries:function addSeries(a,c,d){var f,e=this;a&&(c=b(c,!0),k(e,"addSeries",{options:a},function(){f=e.initSeries(a);e.isDirtyLegend=!0;e.linkSeries();c&&e.redraw(d);}));return f;},addAxis:function addAxis(a,c,d,e){var f=c?"xAxis":"yAxis",h=this.options;a=H(a,{index:this[f].length,isX:c});new C(this,a);h[f]=v(h[f]||{});h[f].push(a);b(d,!0)&&this.redraw(e);},showLoading:function showLoading(a){var b=this,c=b.options,d=b.loadingDiv,f=c.loading,e=function e(){d&&u(d,{left:b.plotLeft+"px",top:b.plotTop+"px",width:b.plotWidth+"px",height:b.plotHeight+"px"});};d||(b.loadingDiv=d=E("div",{className:"highcharts-loading highcharts-loading-hidden"},null,b.container),b.loadingSpan=E("span",{className:"highcharts-loading-inner"},null,d),B(b,"redraw",e));d.className="highcharts-loading";b.loadingSpan.innerHTML=a||c.lang.loading;u(d,l(f.style,{zIndex:10}));u(b.loadingSpan,f.labelStyle);b.loadingShown||(u(d,{opacity:0,display:""}),z(d,{opacity:f.style.opacity||.5},{duration:f.showDuration||0}));b.loadingShown=!0;e();},hideLoading:function hideLoading(){var a=this.options,b=this.loadingDiv;b&&(b.className="highcharts-loading highcharts-loading-hidden",z(b,{opacity:0},{duration:a.loading.hideDuration||100,complete:function complete(){u(b,{display:"none"});}}));this.loadingShown=!1;},propsRequireDirtyBox:"backgroundColor borderColor borderWidth margin marginTop marginRight marginBottom marginLeft spacing spacingTop spacingRight spacingBottom spacingLeft borderRadius plotBackgroundColor plotBackgroundImage plotBorderColor plotBorderWidth plotShadow shadow".split(" "),propsRequireUpdateSeries:"chart.inverted chart.polar chart.ignoreHiddenSeries chart.type colors plotOptions".split(" "),update:function update(a,d){var f,k={credits:"addCredits",title:"setTitle",subtitle:"setSubtitle"},m=a.chart,l,p;if(m){H(!0,this.options.chart,m);"className"in m&&this.setClassName(m.className);if("inverted"in m||"polar"in m)this.propFromSeries(),l=!0;for(f in m){m.hasOwnProperty(f)&&(-1!==e("chart."+f,this.propsRequireUpdateSeries)&&(p=!0),-1!==e(f,this.propsRequireDirtyBox)&&(this.isDirtyBox=!0));}"style"in m&&this.renderer.setStyle(m.style);}for(f in a){if(this[f]&&"function"===typeof this[f].update)this[f].update(a[f],!1);else if("function"===typeof this[k[f]])this[k[f]](a[f]);"chart"!==f&&-1!==e(f,this.propsRequireUpdateSeries)&&(p=!0);}a.colors&&(this.options.colors=a.colors);a.plotOptions&&H(!0,this.options.plotOptions,a.plotOptions);n(["xAxis","yAxis","series"],function(b){a[b]&&n(v(a[b]),function(a,c){(c=h(a.id)&&this.get(a.id)||this[b][c])&&c.coll===b&&c.update(a,!1);},this);},this);l&&n(this.axes,function(a){a.update({},!1);});p&&n(this.series,function(a){a.update({},!1);});a.loading&&H(!0,this.options.loading,a.loading);f=m&&m.width;m=m&&m.height;c(f)&&f!==this.chartWidth||c(m)&&m!==this.chartHeight?this.setSize(f,m):b(d,!0)&&this.redraw();},setSubtitle:function setSubtitle(a){this.setTitle(void 0,a);}});l(m.prototype,{update:function update(a,c,d,e){function f(){h.applyOptions(a);null===h.y&&k&&(h.graphic=k.destroy());p(a,!0)&&(k&&k.element&&a&&a.marker&&a.marker.symbol&&(h.graphic=k.destroy()),a&&a.dataLabels&&h.dataLabel&&(h.dataLabel=h.dataLabel.destroy()));l=h.index;m.updateParallelArrays(h,l);n.data[l]=p(n.data[l],!0)||p(a,!0)?h.options:a;m.isDirty=m.isDirtyData=!0;!m.fixedBox&&m.hasCartesianSeries&&(g.isDirtyBox=!0);"point"===n.legendType&&(g.isDirtyLegend=!0);c&&g.redraw(d);}var h=this,m=h.series,k=h.graphic,l,g=m.chart,n=m.options;c=b(c,!0);!1===e?f():h.firePointEvent("update",{options:a},f);},remove:function remove(a,b){this.series.removePoint(e(this,this.series.data),a,b);}});l(d.prototype,{addPoint:function addPoint(a,c,d,e){var f=this.options,h=this.data,m=this.chart,k=this.xAxis,k=k&&k.hasNames&&k.names,l=f.data,g,p,n=this.xData,r,v;c=b(c,!0);g={series:this};this.pointClass.prototype.applyOptions.apply(g,[a]);v=g.x;r=n.length;if(this.requireSorting&&v<n[r-1])for(p=!0;r&&n[r-1]>v;){r--;}this.updateParallelArrays(g,"splice",r,0,0);this.updateParallelArrays(g,r);k&&g.name&&(k[v]=g.name);l.splice(r,0,a);p&&(this.data.splice(r,0,null),this.processData());"point"===f.legendType&&this.generatePoints();d&&(h[0]&&h[0].remove?h[0].remove(!1):(h.shift(),this.updateParallelArrays(g,"shift"),l.shift()));this.isDirtyData=this.isDirty=!0;c&&m.redraw(e);},removePoint:function removePoint(a,c,d){var f=this,e=f.data,h=e[a],m=f.points,k=f.chart,l=function l(){m&&m.length===e.length&&m.splice(a,1);e.splice(a,1);f.options.data.splice(a,1);f.updateParallelArrays(h||{series:f},"splice",a,1);h&&h.destroy();f.isDirty=!0;f.isDirtyData=!0;c&&k.redraw();};A(d,k);c=b(c,!0);h?h.firePointEvent("remove",null,l):l();},remove:function remove(a,c,d){function f(){e.destroy();h.isDirtyLegend=h.isDirtyBox=!0;h.linkSeries();b(a,!0)&&h.redraw(c);}var e=this,h=e.chart;!1!==d?k(e,"remove",null,f):f();},update:function update(a,c){var d=this,f=this.chart,e=this.userOptions,h=this.oldType||this.type,m=a.type||e.type||f.options.chart.type,k=r[h].prototype,p=["group","markerGroup","dataLabelsGroup"],g;if(m&&m!==h||void 0!==a.zIndex)p.length=0;n(p,function(a){p[a]=d[a];delete d[a];});a=H(e,{animation:!1,index:this.index,pointStart:this.xData[0]},{data:this.options.data},a);this.remove(!1,null,!1);for(g in k){this[g]=void 0;}l(this,r[m||h].prototype);n(p,function(a){d[a]=p[a];});this.init(f,a);this.oldType=h;f.linkSeries();b(c,!0)&&f.redraw(!1);}});l(C.prototype,{update:function update(a,c){var d=this.chart;a=d.options[this.coll][this.options.index]=H(this.userOptions,a);this.destroy(!0);this.init(d,l(a,{events:void 0}));d.isDirtyBox=!0;b(c,!0)&&d.redraw();},remove:function remove(a){for(var c=this.chart,d=this.coll,f=this.series,e=f.length;e--;){f[e]&&f[e].remove(!1);}t(c.axes,this);t(c[d],this);c.options[d].splice(this.options.index,1);n(c[d],function(a,b){a.options.index=b;});this.destroy();c.isDirtyBox=!0;b(a,!0)&&c.redraw();},setTitle:function setTitle(a,b){this.update({title:a},b);},setCategories:function setCategories(a,b){this.update({categories:a},b);}});})(I);(function(a){var B=a.color,z=a.each,C=a.map,E=a.pick,u=a.Series,h=a.seriesType;h("area","line",{softThreshold:!1,threshold:0},{singleStacks:!1,getStackPoints:function getStackPoints(){var a=[],h=[],l=this.xAxis,k=this.yAxis,e=k.stacks[this.stackKey],c={},p=this.points,u=this.index,b=k.series,m=b.length,d,r=E(k.options.reversedStacks,!0)?1:-1,A,v;if(this.options.stacking){for(A=0;A<p.length;A++){c[p[A].x]=p[A];}for(v in e){null!==e[v].total&&h.push(v);}h.sort(function(a,b){return a-b;});d=C(b,function(){return this.visible;});z(h,function(b,p){var f=0,n,q;if(c[b]&&!c[b].isNull)a.push(c[b]),z([-1,1],function(a){var f=1===a?"rightNull":"leftNull",k=0,l=e[h[p+a]];if(l)for(A=u;0<=A&&A<m;){n=l.points[A],n||(A===u?c[b][f]=!0:d[A]&&(q=e[b].points[A])&&(k-=q[1]-q[0])),A+=r;}c[b][1===a?"rightCliff":"leftCliff"]=k;});else{for(A=u;0<=A&&A<m;){if(n=e[b].points[A]){f=n[1];break;}A+=r;}f=k.translate(f,0,1,0,1);a.push({isNull:!0,plotX:l.translate(b,0,0,0,1),x:b,plotY:f,yBottom:f});}});}return a;},getGraphPath:function getGraphPath(a){var h=u.prototype.getGraphPath,l=this.options,k=l.stacking,e=this.yAxis,c,p,n=[],b=[],m=this.index,d,r=e.stacks[this.stackKey],A=l.threshold,v=e.getThreshold(l.threshold),f,l=l.connectNulls||"percent"===k,y=function y(c,f,h){var l=a[c];c=k&&r[l.x].points[m];var p=l[h+"Null"]||0;h=l[h+"Cliff"]||0;var q,t,l=!0;h||p?(q=(p?c[0]:c[1])+h,t=c[0]+h,l=!!p):!k&&a[f]&&a[f].isNull&&(q=t=A);void 0!==q&&(b.push({plotX:d,plotY:null===q?v:e.getThreshold(q),isNull:l,isCliff:!0}),n.push({plotX:d,plotY:null===t?v:e.getThreshold(t),doCurve:!1}));};a=a||this.points;k&&(a=this.getStackPoints());for(c=0;c<a.length;c++){if(p=a[c].isNull,d=E(a[c].rectPlotX,a[c].plotX),f=E(a[c].yBottom,v),!p||l)l||y(c,c-1,"left"),p&&!k&&l||(b.push(a[c]),n.push({x:c,plotX:d,plotY:f})),l||y(c,c+1,"right");}c=h.call(this,b,!0,!0);n.reversed=!0;p=h.call(this,n,!0,!0);p.length&&(p[0]="L");p=c.concat(p);h=h.call(this,b,!1,l);p.xMap=c.xMap;this.areaPath=p;return h;},drawGraph:function drawGraph(){this.areaPath=[];u.prototype.drawGraph.apply(this);var a=this,h=this.areaPath,l=this.options,k=[["area","highcharts-area",this.color,l.fillColor]];z(this.zones,function(e,c){k.push(["zone-area-"+c,"highcharts-area highcharts-zone-area-"+c+" "+e.className,e.color||a.color,e.fillColor||l.fillColor]);});z(k,function(e){var c=e[0],k=a[c];k?(k.endX=h.xMap,k.animate({d:h})):(k=a[c]=a.chart.renderer.path(h).addClass(e[1]).attr({fill:E(e[3],B(e[2]).setOpacity(E(l.fillOpacity,.75)).get()),zIndex:0}).add(a.group),k.isArea=!0);k.startX=h.xMap;k.shiftUnit=l.step?2:1;});},drawLegendSymbol:a.LegendSymbolMixin.drawRectangle});})(I);(function(a){var B=a.pick;a=a.seriesType;a("spline","line",{},{getPointSpline:function getPointSpline(a,C,E){var u=C.plotX,h=C.plotY,n=a[E-1];E=a[E+1];var t,l,k,e;if(n&&!n.isNull&&!1!==n.doCurve&&!C.isCliff&&E&&!E.isNull&&!1!==E.doCurve&&!C.isCliff){a=n.plotY;k=E.plotX;E=E.plotY;var c=0;t=(1.5*u+n.plotX)/2.5;l=(1.5*h+a)/2.5;k=(1.5*u+k)/2.5;e=(1.5*h+E)/2.5;k!==t&&(c=(e-l)*(k-u)/(k-t)+h-e);l+=c;e+=c;l>a&&l>h?(l=Math.max(a,h),e=2*h-l):l<a&&l<h&&(l=Math.min(a,h),e=2*h-l);e>E&&e>h?(e=Math.max(E,h),l=2*h-e):e<E&&e<h&&(e=Math.min(E,h),l=2*h-e);C.rightContX=k;C.rightContY=e;}C=["C",B(n.rightContX,n.plotX),B(n.rightContY,n.plotY),B(t,u),B(l,h),u,h];n.rightContX=n.rightContY=null;return C;}});})(I);(function(a){var B=a.seriesTypes.area.prototype,z=a.seriesType;z("areaspline","spline",a.defaultPlotOptions.area,{getStackPoints:B.getStackPoints,getGraphPath:B.getGraphPath,setStackCliffs:B.setStackCliffs,drawGraph:B.drawGraph,drawLegendSymbol:a.LegendSymbolMixin.drawRectangle});})(I);(function(a){var B=a.animObject,z=a.color,C=a.each,E=a.extend,u=a.isNumber,h=a.merge,n=a.pick,t=a.Series,l=a.seriesType,k=a.svg;l("column","line",{borderRadius:0,groupPadding:.2,marker:null,pointPadding:.1,minPointLength:0,cropThreshold:50,pointRange:null,states:{hover:{halo:!1,brightness:.1,shadow:!1},select:{color:"#cccccc",borderColor:"#000000",shadow:!1}},dataLabels:{align:null,verticalAlign:null,y:null},softThreshold:!1,startFromThreshold:!0,stickyTracking:!1,tooltip:{distance:6},threshold:0,borderColor:"#ffffff"},{cropShoulder:0,directTouch:!0,trackerGroups:["group","dataLabelsGroup"],negStacks:!0,init:function init(){t.prototype.init.apply(this,arguments);var a=this,c=a.chart;c.hasRendered&&C(c.series,function(c){c.type===a.type&&(c.isDirty=!0);});},getColumnMetrics:function getColumnMetrics(){var a=this,c=a.options,h=a.xAxis,k=a.yAxis,b=h.reversed,m,d={},l=0;!1===c.grouping?l=1:C(a.chart.series,function(b){var c=b.options,f=b.yAxis,e;b.type===a.type&&b.visible&&k.len===f.len&&k.pos===f.pos&&(c.stacking?(m=b.stackKey,void 0===d[m]&&(d[m]=l++),e=d[m]):!1!==c.grouping&&(e=l++),b.columnIndex=e);});var t=Math.min(Math.abs(h.transA)*(h.ordinalSlope||c.pointRange||h.closestPointRange||h.tickInterval||1),h.len),v=t*c.groupPadding,f=(t-2*v)/(l||1),c=Math.min(c.maxPointWidth||h.len,n(c.pointWidth,f*(1-2*c.pointPadding)));a.columnMetrics={width:c,offset:(f-c)/2+(v+((a.columnIndex||0)+(b?1:0))*f-t/2)*(b?-1:1)};return a.columnMetrics;},crispCol:function crispCol(a,c,h,k){var b=this.chart,e=this.borderWidth,d=-(e%2?.5:0),e=e%2?.5:1;b.inverted&&b.renderer.isVML&&(e+=1);h=Math.round(a+h)+d;a=Math.round(a)+d;k=Math.round(c+k)+e;d=.5>=Math.abs(c)&&.5<k;c=Math.round(c)+e;k-=c;d&&k&&(--c,k+=1);return{x:a,y:c,width:h-a,height:k};},translate:function translate(){var a=this,c=a.chart,h=a.options,k=a.dense=2>a.closestPointRange*a.xAxis.transA,k=a.borderWidth=n(h.borderWidth,k?0:1),b=a.yAxis,m=a.translatedThreshold=b.getThreshold(h.threshold),d=n(h.minPointLength,5),l=a.getColumnMetrics(),u=l.width,v=a.barW=Math.max(u,1+2*k),f=a.pointXOffset=l.offset;c.inverted&&(m-=.5);h.pointPadding&&(v=Math.ceil(v));t.prototype.translate.apply(a);C(a.points,function(e){var h=n(e.yBottom,m),k=999+Math.abs(h),k=Math.min(Math.max(-k,e.plotY),b.len+k),l=e.plotX+f,p=v,r=Math.min(k,h),t,y=Math.max(k,h)-r;Math.abs(y)<d&&d&&(y=d,t=!b.reversed&&!e.negative||b.reversed&&e.negative,r=Math.abs(r-m)>d?h-d:m-(t?d:0));e.barX=l;e.pointWidth=u;e.tooltipPos=c.inverted?[b.len+b.pos-c.plotLeft-k,a.xAxis.len-l-p/2,y]:[l+p/2,k+b.pos-c.plotTop,y];e.shapeType="rect";e.shapeArgs=a.crispCol.apply(a,e.isNull?[e.plotX,b.len/2,0,0]:[l,r,p,y]);});},getSymbol:a.noop,drawLegendSymbol:a.LegendSymbolMixin.drawRectangle,drawGraph:function drawGraph(){this.group[this.dense?"addClass":"removeClass"]("highcharts-dense-data");},pointAttribs:function pointAttribs(a,c){var e=this.options,k,b=this.pointAttrToOptions||{};k=b.stroke||"borderColor";var m=b["stroke-width"]||"borderWidth",d=a&&a.color||this.color,l=a[k]||e[k]||this.color||d,n=a[m]||e[m]||this[m]||0,b=e.dashStyle;a&&this.zones.length&&(d=(d=a.getZone())&&d.color||a.options.color||this.color);c&&(a=h(e.states[c],a.options.states&&a.options.states[c]||{}),c=a.brightness,d=a.color||void 0!==c&&z(d).brighten(a.brightness).get()||d,l=a[k]||l,n=a[m]||n,b=a.dashStyle||b);k={fill:d,stroke:l,"stroke-width":n};e.borderRadius&&(k.r=e.borderRadius);b&&(k.dashstyle=b);return k;},drawPoints:function drawPoints(){var a=this,c=this.chart,k=a.options,l=c.renderer,b=k.animationLimit||250,m;C(a.points,function(d){var e=d.graphic;if(u(d.plotY)&&null!==d.y){m=d.shapeArgs;if(e)e[c.pointCount<b?"animate":"attr"](h(m));else d.graphic=e=l[d.shapeType](m).add(d.group||a.group);e.attr(a.pointAttribs(d,d.selected&&"select")).shadow(k.shadow,null,k.stacking&&!k.borderRadius);e.addClass(d.getClassName(),!0);}else e&&(d.graphic=e.destroy());});},animate:function animate(a){var c=this,e=this.yAxis,h=c.options,b=this.chart.inverted,m={};k&&(a?(m.scaleY=.001,a=Math.min(e.pos+e.len,Math.max(e.pos,e.toPixels(h.threshold))),b?m.translateX=a-e.len:m.translateY=a,c.group.attr(m)):(m[b?"translateX":"translateY"]=e.pos,c.group.animate(m,E(B(c.options.animation),{step:function step(a,b){c.group.attr({scaleY:Math.max(.001,b.pos)});}})),c.animate=null));},remove:function remove(){var a=this,c=a.chart;c.hasRendered&&C(c.series,function(c){c.type===a.type&&(c.isDirty=!0);});t.prototype.remove.apply(a,arguments);}});})(I);(function(a){a=a.seriesType;a("bar","column",null,{inverted:!0});})(I);(function(a){var B=a.Series;a=a.seriesType;a("scatter","line",{lineWidth:0,marker:{enabled:!0},tooltip:{headerFormat:"<span style=\"color:{point.color}\">\u25CF</span> <span style=\"font-size: 0.85em\"> {series.name}</span><br/>",pointFormat:"x: \x3cb\x3e{point.x}\x3c/b\x3e\x3cbr/\x3ey: \x3cb\x3e{point.y}\x3c/b\x3e\x3cbr/\x3e"}},{sorted:!1,requireSorting:!1,noSharedTooltip:!0,trackerGroups:["group","markerGroup","dataLabelsGroup"],takeOrdinalPosition:!1,kdDimensions:2,drawGraph:function drawGraph(){this.options.lineWidth&&B.prototype.drawGraph.call(this);}});})(I);(function(a){var B=a.pick,z=a.relativeLength;a.CenteredSeriesMixin={getCenter:function getCenter(){var a=this.options,E=this.chart,u=2*(a.slicedOffset||0),h=E.plotWidth-2*u,E=E.plotHeight-2*u,n=a.center,n=[B(n[0],"50%"),B(n[1],"50%"),a.size||"100%",a.innerSize||0],t=Math.min(h,E),l,k;for(l=0;4>l;++l){k=n[l],a=2>l||2===l&&/%$/.test(k),n[l]=z(k,[h,E,t,n[2]][l])+(a?u:0);}n[3]>n[2]&&(n[3]=n[2]);return n;}};})(I);(function(a){var B=a.addEvent,z=a.defined,C=a.each,E=a.extend,u=a.inArray,h=a.noop,n=a.pick,t=a.Point,l=a.Series,k=a.seriesType,e=a.setAnimation;k("pie","line",{center:[null,null],clip:!1,colorByPoint:!0,dataLabels:{distance:30,enabled:!0,formatter:function formatter(){return null===this.y?void 0:this.point.name;},x:0},ignoreHiddenPoint:!0,legendType:"point",marker:null,size:null,showInLegend:!1,slicedOffset:10,stickyTracking:!1,tooltip:{followPointer:!0},borderColor:"#ffffff",borderWidth:1,states:{hover:{brightness:.1,shadow:!1}}},{isCartesian:!1,requireSorting:!1,directTouch:!0,noSharedTooltip:!0,trackerGroups:["group","dataLabelsGroup"],axisTypes:[],pointAttribs:a.seriesTypes.column.prototype.pointAttribs,animate:function animate(a){var c=this,e=c.points,b=c.startAngleRad;a||(C(e,function(a){var d=a.graphic,e=a.shapeArgs;d&&(d.attr({r:a.startR||c.center[3]/2,start:b,end:b}),d.animate({r:e.r,start:e.start,end:e.end},c.options.animation));}),c.animate=null);},updateTotals:function updateTotals(){var a,e=0,h=this.points,b=h.length,k,d=this.options.ignoreHiddenPoint;for(a=0;a<b;a++){k=h[a],0>k.y&&(k.y=null),e+=d&&!k.visible?0:k.y;}this.total=e;for(a=0;a<b;a++){k=h[a],k.percentage=0<e&&(k.visible||!d)?k.y/e*100:0,k.total=e;}},generatePoints:function generatePoints(){l.prototype.generatePoints.call(this);this.updateTotals();},translate:function translate(a){this.generatePoints();var c=0,e=this.options,b=e.slicedOffset,h=b+(e.borderWidth||0),d,k,l,v=e.startAngle||0,f=this.startAngleRad=Math.PI/180*(v-90),v=(this.endAngleRad=Math.PI/180*(n(e.endAngle,v+360)-90))-f,t=this.points,u=e.dataLabels.distance,e=e.ignoreHiddenPoint,F,q=t.length,x;a||(this.center=a=this.getCenter());this.getX=function(b,c){l=Math.asin(Math.min((b-a[1])/(a[2]/2+u),1));return a[0]+(c?-1:1)*Math.cos(l)*(a[2]/2+u);};for(F=0;F<q;F++){x=t[F];d=f+c*v;if(!e||x.visible)c+=x.percentage/100;k=f+c*v;x.shapeType="arc";x.shapeArgs={x:a[0],y:a[1],r:a[2]/2,innerR:a[3]/2,start:Math.round(1E3*d)/1E3,end:Math.round(1E3*k)/1E3};l=(k+d)/2;l>1.5*Math.PI?l-=2*Math.PI:l<-Math.PI/2&&(l+=2*Math.PI);x.slicedTranslation={translateX:Math.round(Math.cos(l)*b),translateY:Math.round(Math.sin(l)*b)};d=Math.cos(l)*a[2]/2;k=Math.sin(l)*a[2]/2;x.tooltipPos=[a[0]+.7*d,a[1]+.7*k];x.half=l<-Math.PI/2||l>Math.PI/2?1:0;x.angle=l;h=Math.min(h,u/5);x.labelPos=[a[0]+d+Math.cos(l)*u,a[1]+k+Math.sin(l)*u,a[0]+d+Math.cos(l)*h,a[1]+k+Math.sin(l)*h,a[0]+d,a[1]+k,0>u?"center":x.half?"right":"left",l];}},drawGraph:null,drawPoints:function drawPoints(){var a=this,e=a.chart.renderer,h,b,k,d,l=a.options.shadow;l&&!a.shadowGroup&&(a.shadowGroup=e.g("shadow").add(a.group));C(a.points,function(c){if(null!==c.y){b=c.graphic;d=c.shapeArgs;h=c.getTranslate();var m=c.shadowGroup;l&&!m&&(m=c.shadowGroup=e.g("shadow").add(a.shadowGroup));m&&m.attr(h);k=a.pointAttribs(c,c.selected&&"select");b?b.setRadialReference(a.center).attr(k).animate(E(d,h)):(c.graphic=b=e[c.shapeType](d).setRadialReference(a.center).attr(h).add(a.group),c.visible||b.attr({visibility:"hidden"}),b.attr(k).attr({"stroke-linejoin":"round"}).shadow(l,m));b.addClass(c.getClassName());}});},searchPoint:h,sortByAngle:function sortByAngle(a,e){a.sort(function(a,b){return void 0!==a.angle&&(b.angle-a.angle)*e;});},drawLegendSymbol:a.LegendSymbolMixin.drawRectangle,getCenter:a.CenteredSeriesMixin.getCenter,getSymbol:h},{init:function init(){t.prototype.init.apply(this,arguments);var a=this,e;a.name=n(a.name,"Slice");e=function e(c){a.slice("select"===c.type);};B(a,"select",e);B(a,"unselect",e);return a;},setVisible:function setVisible(a,e){var c=this,b=c.series,h=b.chart,d=b.options.ignoreHiddenPoint;e=n(e,d);a!==c.visible&&(c.visible=c.options.visible=a=void 0===a?!c.visible:a,b.options.data[u(c,b.data)]=c.options,C(["graphic","dataLabel","connector","shadowGroup"],function(b){if(c[b])c[b][a?"show":"hide"](!0);}),c.legendItem&&h.legend.colorizeItem(c,a),a||"hover"!==c.state||c.setState(""),d&&(b.isDirty=!0),e&&h.redraw());},slice:function slice(a,h,k){var b=this.series;e(k,b.chart);n(h,!0);this.sliced=this.options.sliced=z(a)?a:!this.sliced;b.options.data[u(this,b.data)]=this.options;this.graphic.animate(this.getTranslate());this.shadowGroup&&this.shadowGroup.animate(this.getTranslate());},getTranslate:function getTranslate(){return this.sliced?this.slicedTranslation:{translateX:0,translateY:0};},haloPath:function haloPath(a){var c=this.shapeArgs;return this.sliced||!this.visible?[]:this.series.chart.renderer.symbols.arc(c.x,c.y,c.r+a,c.r+a,{innerR:this.shapeArgs.r,start:c.start,end:c.end});}});})(I);(function(a){var B=a.addEvent,z=a.arrayMax,C=a.defined,E=a.each,u=a.extend,h=a.format,n=a.map,t=a.merge,l=a.noop,k=a.pick,e=a.relativeLength,c=a.Series,p=a.seriesTypes,H=a.stableSort;a.distribute=function(a,c){function b(a,b){return a.target-b.target;}var e,h=!0,k=a,f=[],l;l=0;for(e=a.length;e--;){l+=a[e].size;}if(l>c){H(a,function(a,b){return(b.rank||0)-(a.rank||0);});for(l=e=0;l<=c;){l+=a[e].size,e++;}f=a.splice(e-1,a.length);}H(a,b);for(a=n(a,function(a){return{size:a.size,targets:[a.target]};});h;){for(e=a.length;e--;){h=a[e],l=(Math.min.apply(0,h.targets)+Math.max.apply(0,h.targets))/2,h.pos=Math.min(Math.max(0,l-h.size/2),c-h.size);}e=a.length;for(h=!1;e--;){0<e&&a[e-1].pos+a[e-1].size>a[e].pos&&(a[e-1].size+=a[e].size,a[e-1].targets=a[e-1].targets.concat(a[e].targets),a[e-1].pos+a[e-1].size>c&&(a[e-1].pos=c-a[e-1].size),a.splice(e,1),h=!0);}}e=0;E(a,function(a){var b=0;E(a.targets,function(){k[e].pos=a.pos+b;b+=k[e].size;e++;});});k.push.apply(k,f);H(k,b);};c.prototype.drawDataLabels=function(){var a=this,c=a.options,d=c.dataLabels,e=a.points,l,n,f=a.hasRendered||0,p,u,F=k(d.defer,!0),q=a.chart.renderer;if(d.enabled||a._hasPointLabels)a.dlProcessOptions&&a.dlProcessOptions(d),u=a.plotGroup("dataLabelsGroup","data-labels",F&&!f?"hidden":"visible",d.zIndex||6),F&&(u.attr({opacity:+f}),f||B(a,"afterAnimate",function(){a.visible&&u.show(!0);u[c.animation?"animate":"attr"]({opacity:1},{duration:200});})),n=d,E(e,function(b){var f,e=b.dataLabel,m,g,r,v=b.connector,y=!e,x;l=b.dlOptions||b.options&&b.options.dataLabels;if(f=k(l&&l.enabled,n.enabled)&&null!==b.y)for(g in d=t(n,l),m=b.getLabelConfig(),p=d.format?h(d.format,m):d.formatter.call(m,d),x=d.style,r=d.rotation,x.color=k(d.color,x.color,a.color,"#000000"),"contrast"===x.color&&(x.color=d.inside||0>d.distance||c.stacking?q.getContrast(b.color||a.color):"#000000"),c.cursor&&(x.cursor=c.cursor),m={fill:d.backgroundColor,stroke:d.borderColor,"stroke-width":d.borderWidth,r:d.borderRadius||0,rotation:r,padding:d.padding,zIndex:1},m){void 0===m[g]&&delete m[g];}!e||f&&C(p)?f&&C(p)&&(e?m.text=p:(e=b.dataLabel=q[r?"text":"label"](p,0,-9999,d.shape,null,null,d.useHTML,null,"data-label"),e.addClass("highcharts-data-label-color-"+b.colorIndex+" "+(d.className||"")+(d.useHTML?"highcharts-tracker":""))),e.attr(m),e.css(x).shadow(d.shadow),e.added||e.add(u),a.alignDataLabel(b,e,d,null,y)):(b.dataLabel=e.destroy(),v&&(b.connector=v.destroy()));});};c.prototype.alignDataLabel=function(a,c,d,e,h){var b=this.chart,f=b.inverted,l=k(a.plotX,-9999),m=k(a.plotY,-9999),n=c.getBBox(),q,p=d.rotation,r=d.align,t=this.visible&&(a.series.forceDL||b.isInsidePlot(l,Math.round(m),f)||e&&b.isInsidePlot(l,f?e.x+1:e.y+e.height-1,f)),A="justify"===k(d.overflow,"justify");t&&(q=d.style.fontSize,q=b.renderer.fontMetrics(q,c).b,e=u({x:f?b.plotWidth-m:l,y:Math.round(f?b.plotHeight-l:m),width:0,height:0},e),u(d,{width:n.width,height:n.height}),p?(A=!1,f=b.renderer.rotCorr(q,p),f={x:e.x+d.x+e.width/2+f.x,y:e.y+d.y+{top:0,middle:.5,bottom:1}[d.verticalAlign]*e.height},c[h?"attr":"animate"](f).attr({align:r}),l=(p+720)%360,l=180<l&&360>l,"left"===r?f.y-=l?n.height:0:"center"===r?(f.x-=n.width/2,f.y-=n.height/2):"right"===r&&(f.x-=n.width,f.y-=l?0:n.height)):(c.align(d,null,e),f=c.alignAttr),A?this.justifyDataLabel(c,d,f,n,e,h):k(d.crop,!0)&&(t=b.isInsidePlot(f.x,f.y)&&b.isInsidePlot(f.x+n.width,f.y+n.height)),d.shape&&!p&&c.attr({anchorX:a.plotX,anchorY:a.plotY}));t||(c.attr({y:-9999}),c.placed=!1);};c.prototype.justifyDataLabel=function(a,c,d,e,h,k){var b=this.chart,l=c.align,m=c.verticalAlign,n,q,p=a.box?0:a.padding||0;n=d.x+p;0>n&&("right"===l?c.align="left":c.x=-n,q=!0);n=d.x+e.width-p;n>b.plotWidth&&("left"===l?c.align="right":c.x=b.plotWidth-n,q=!0);n=d.y+p;0>n&&("bottom"===m?c.verticalAlign="top":c.y=-n,q=!0);n=d.y+e.height-p;n>b.plotHeight&&("top"===m?c.verticalAlign="bottom":c.y=b.plotHeight-n,q=!0);q&&(a.placed=!k,a.align(c,null,h));};p.pie&&(p.pie.prototype.drawDataLabels=function(){var b=this,e=b.data,d,h=b.chart,l=b.options.dataLabels,p=k(l.connectorPadding,10),f=k(l.connectorWidth,1),t=h.plotWidth,u=h.plotHeight,F,q=l.distance,x=b.center,B=x[2]/2,C=x[1],H=0<q,g,D,I,M,R=[[],[]],N,w,O,Q,P=[0,0,0,0];b.visible&&(l.enabled||b._hasPointLabels)&&(E(e,function(a){a.dataLabel&&a.visible&&a.dataLabel.shortened&&(a.dataLabel.attr({width:"auto"}).css({width:"auto",textOverflow:"clip"}),a.dataLabel.shortened=!1);}),c.prototype.drawDataLabels.apply(b),E(e,function(a){a.dataLabel&&a.visible&&(R[a.half].push(a),a.dataLabel._pos=null);}),E(R,function(c,f){var e,k,m=c.length,r,v,y;if(m)for(b.sortByAngle(c,f-.5),0<q&&(e=Math.max(0,C-B-q),k=Math.min(C+B+q,h.plotHeight),r=n(c,function(a){if(a.dataLabel)return y=a.dataLabel.getBBox().height||21,{target:a.labelPos[1]-e+y/2,size:y,rank:a.y};}),a.distribute(r,k+y-e)),Q=0;Q<m;Q++){d=c[Q],I=d.labelPos,g=d.dataLabel,O=!1===d.visible?"hidden":"inherit",v=I[1],r?void 0===r[Q].pos?O="hidden":(M=r[Q].size,w=e+r[Q].pos):w=v,N=l.justify?x[0]+(f?-1:1)*(B+q):b.getX(w<e+2||w>k-2?v:w,f),g._attr={visibility:O,align:I[6]},g._pos={x:N+l.x+({left:p,right:-p}[I[6]]||0),y:w+l.y-10},I.x=N,I.y=w,null===b.options.size&&(D=g.getBBox().width,v=null,N-D<p?(v=Math.round(D-N+p),P[3]=Math.max(v,P[3])):N+D>t-p&&(v=Math.round(N+D-t+p),P[1]=Math.max(v,P[1])),0>w-M/2?P[0]=Math.max(Math.round(-w+M/2),P[0]):w+M/2>u&&(P[2]=Math.max(Math.round(w+M/2-u),P[2])),g.sideOverflow=v);}}),0===z(P)||this.verifyDataLabelOverflow(P))&&(this.placeDataLabels(),H&&f&&E(this.points,function(a){var c;F=a.connector;if((g=a.dataLabel)&&g._pos&&a.visible){O=g._attr.visibility;if(c=!F)a.connector=F=h.renderer.path().addClass("highcharts-data-label-connector highcharts-color-"+a.colorIndex).add(b.dataLabelsGroup),F.attr({"stroke-width":f,stroke:l.connectorColor||a.color||"#666666"});F[c?"attr":"animate"]({d:b.connectorPath(a.labelPos)});F.attr("visibility",O);}else F&&(a.connector=F.destroy());}));},p.pie.prototype.connectorPath=function(a){var b=a.x,c=a.y;return k(this.options.dataLabels.softConnector,!0)?["M",b+("left"===a[6]?5:-5),c,"C",b,c,2*a[2]-a[4],2*a[3]-a[5],a[2],a[3],"L",a[4],a[5]]:["M",b+("left"===a[6]?5:-5),c,"L",a[2],a[3],"L",a[4],a[5]];},p.pie.prototype.placeDataLabels=function(){E(this.points,function(a){var b=a.dataLabel;b&&a.visible&&((a=b._pos)?(b.sideOverflow&&(b._attr.width=b.getBBox().width-b.sideOverflow,b.css({width:b._attr.width+"px",textOverflow:"ellipsis"}),b.shortened=!0),b.attr(b._attr),b[b.moved?"animate":"attr"](a),b.moved=!0):b&&b.attr({y:-9999}));},this);},p.pie.prototype.alignDataLabel=l,p.pie.prototype.verifyDataLabelOverflow=function(a){var b=this.center,c=this.options,h=c.center,k=c.minSize||80,l,f;null!==h[0]?l=Math.max(b[2]-Math.max(a[1],a[3]),k):(l=Math.max(b[2]-a[1]-a[3],k),b[0]+=(a[3]-a[1])/2);null!==h[1]?l=Math.max(Math.min(l,b[2]-Math.max(a[0],a[2])),k):(l=Math.max(Math.min(l,b[2]-a[0]-a[2]),k),b[1]+=(a[0]-a[2])/2);l<b[2]?(b[2]=l,b[3]=Math.min(e(c.innerSize||0,l),l),this.translate(b),this.drawDataLabels&&this.drawDataLabels()):f=!0;return f;});p.column&&(p.column.prototype.alignDataLabel=function(a,e,d,h,l){var b=this.chart.inverted,f=a.series,m=a.dlBox||a.shapeArgs,n=k(a.below,a.plotY>k(this.translatedThreshold,f.yAxis.len)),p=k(d.inside,!!this.options.stacking);m&&(h=t(m),0>h.y&&(h.height+=h.y,h.y=0),m=h.y+h.height-f.yAxis.len,0<m&&(h.height-=m),b&&(h={x:f.yAxis.len-h.y-h.height,y:f.xAxis.len-h.x-h.width,width:h.height,height:h.width}),p||(b?(h.x+=n?0:h.width,h.width=0):(h.y+=n?h.height:0,h.height=0)));d.align=k(d.align,!b||p?"center":n?"right":"left");d.verticalAlign=k(d.verticalAlign,b||p?"middle":n?"top":"bottom");c.prototype.alignDataLabel.call(this,a,e,d,h,l);});})(I);(function(a){var B=a.Chart,z=a.each,C=a.pick,E=a.addEvent;B.prototype.callbacks.push(function(a){function h(){var h=[];z(a.series||[],function(a){var l=a.options.dataLabels,k=a.dataLabelCollections||["dataLabel"];(l.enabled||a._hasPointLabels)&&!l.allowOverlap&&a.visible&&z(k,function(e){z(a.points,function(a){a[e]&&(a[e].labelrank=C(a.labelrank,a.shapeArgs&&a.shapeArgs.height),h.push(a[e]));});});});a.hideOverlappingLabels(h);}h();E(a,"redraw",h);});B.prototype.hideOverlappingLabels=function(a){var h=a.length,n,t,l,k,e,c,p,u,b,m=function m(a,b,c,e,f,h,k,l){return!(f>a+c||f+k<a||h>b+e||h+l<b);};for(t=0;t<h;t++){if(n=a[t])n.oldOpacity=n.opacity,n.newOpacity=1;}a.sort(function(a,b){return(b.labelrank||0)-(a.labelrank||0);});for(t=0;t<h;t++){for(l=a[t],n=t+1;n<h;++n){if(k=a[n],l&&k&&l.placed&&k.placed&&0!==l.newOpacity&&0!==k.newOpacity&&(e=l.alignAttr,c=k.alignAttr,p=l.parentGroup,u=k.parentGroup,b=2*(l.box?0:l.padding),e=m(e.x+p.translateX,e.y+p.translateY,l.width-b,l.height-b,c.x+u.translateX,c.y+u.translateY,k.width-b,k.height-b)))(l.labelrank<k.labelrank?l:k).newOpacity=0;}}z(a,function(a){var b,c;a&&(c=a.newOpacity,a.oldOpacity!==c&&a.placed&&(c?a.show(!0):b=function b(){a.hide();},a.alignAttr.opacity=c,a[a.isOld?"animate":"attr"](a.alignAttr,null,b)),a.isOld=!0);});};})(I);(function(a){var B=a.addEvent,z=a.Chart,C=a.createElement,E=a.css,u=a.defaultOptions,h=a.defaultPlotOptions,n=a.each,t=a.extend,l=a.fireEvent,k=a.hasTouch,e=a.inArray,c=a.isObject,p=a.Legend,H=a.merge,b=a.pick,m=a.Point,d=a.Series,r=a.seriesTypes,A=a.svg;a=a.TrackerMixin={drawTrackerPoint:function drawTrackerPoint(){var a=this,b=a.chart.pointer,c=function c(a){var c=b.getPointFromEvent(a);if(void 0!==c)c.onMouseOver(a);};n(a.points,function(a){a.graphic&&(a.graphic.element.point=a);a.dataLabel&&(a.dataLabel.div?a.dataLabel.div.point=a:a.dataLabel.element.point=a);});a._hasTracking||(n(a.trackerGroups,function(d){if(a[d]){a[d].addClass("highcharts-tracker").on("mouseover",c).on("mouseout",function(a){b.onTrackerMouseOut(a);});if(k)a[d].on("touchstart",c);a.options.cursor&&a[d].css(E).css({cursor:a.options.cursor});}}),a._hasTracking=!0);},drawTrackerGraph:function drawTrackerGraph(){var a=this,b=a.options,c=b.trackByArea,d=[].concat(c?a.areaPath:a.graphPath),e=d.length,h=a.chart,l=h.pointer,m=h.renderer,p=h.options.tooltip.snap,t=a.tracker,g,r=function r(){if(h.hoverSeries!==a)a.onMouseOver();},u="rgba(192,192,192,"+(A?.0001:.002)+")";if(e&&!c)for(g=e+1;g--;){"M"===d[g]&&d.splice(g+1,0,d[g+1]-p,d[g+2],"L"),(g&&"M"===d[g]||g===e)&&d.splice(g,0,"L",d[g-2]+p,d[g-1]);}t?t.attr({d:d}):a.graph&&(a.tracker=m.path(d).attr({"stroke-linejoin":"round",visibility:a.visible?"visible":"hidden",stroke:u,fill:c?u:"none","stroke-width":a.graph.strokeWidth()+(c?0:2*p),zIndex:2}).add(a.group),n([a.tracker,a.markerGroup],function(a){a.addClass("highcharts-tracker").on("mouseover",r).on("mouseout",function(a){l.onTrackerMouseOut(a);});b.cursor&&a.css({cursor:b.cursor});if(k)a.on("touchstart",r);}));}};r.column&&(r.column.prototype.drawTracker=a.drawTrackerPoint);r.pie&&(r.pie.prototype.drawTracker=a.drawTrackerPoint);r.scatter&&(r.scatter.prototype.drawTracker=a.drawTrackerPoint);t(p.prototype,{setItemEvents:function setItemEvents(a,b,c){var d=this,e=d.chart.renderer.boxWrapper,f="highcharts-legend-"+(a.series?"point":"series")+"-active";(c?b:a.legendGroup).on("mouseover",function(){a.setState("hover");e.addClass(f);b.css(d.options.itemHoverStyle);}).on("mouseout",function(){b.css(a.visible?d.itemStyle:d.itemHiddenStyle);e.removeClass(f);a.setState();}).on("click",function(b){var c=function c(){a.setVisible&&a.setVisible();};b={browserEvent:b};a.firePointEvent?a.firePointEvent("legendItemClick",b,c):l(a,"legendItemClick",b,c);});},createCheckboxForItem:function createCheckboxForItem(a){a.checkbox=C("input",{type:"checkbox",checked:a.selected,defaultChecked:a.selected},this.options.itemCheckboxStyle,this.chart.container);B(a.checkbox,"click",function(b){l(a.series||a,"checkboxClick",{checked:b.target.checked,item:a},function(){a.select();});});}});u.legend.itemStyle.cursor="pointer";t(z.prototype,{showResetZoom:function showResetZoom(){var a=this,b=u.lang,c=a.options.chart.resetZoomButton,d=c.theme,e=d.states,h="chart"===c.relativeTo?null:"plotBox";this.resetZoomButton=a.renderer.button(b.resetZoom,null,null,function(){a.zoomOut();},d,e&&e.hover).attr({align:c.position.align,title:b.resetZoomTitle}).addClass("highcharts-reset-zoom").add().align(c.position,!1,h);},zoomOut:function zoomOut(){var a=this;l(a,"selection",{resetSelection:!0},function(){a.zoom();});},zoom:function zoom(a){var d,e=this.pointer,h=!1,k;!a||a.resetSelection?n(this.axes,function(a){d=a.zoom();}):n(a.xAxis.concat(a.yAxis),function(a){var b=a.axis;e[b.isXAxis?"zoomX":"zoomY"]&&(d=b.zoom(a.min,a.max),b.displayBtn&&(h=!0));});k=this.resetZoomButton;h&&!k?this.showResetZoom():!h&&c(k)&&(this.resetZoomButton=k.destroy());d&&this.redraw(b(this.options.chart.animation,a&&a.animation,100>this.pointCount));},pan:function pan(a,b){var c=this,d=c.hoverPoints,e;d&&n(d,function(a){a.setState();});n("xy"===b?[1,0]:[1],function(b){b=c[b?"xAxis":"yAxis"][0];var d=b.horiz,f=a[d?"chartX":"chartY"],d=d?"mouseDownX":"mouseDownY",h=c[d],k=(b.pointRange||0)/2,g=b.getExtremes(),l=b.toValue(h-f,!0)+k,k=b.toValue(h+b.len-f,!0)-k,m=k<l,h=m?k:l,l=m?l:k,m=b.toValue(b.toPixels(g.min)-b.minPixelPadding),k=b.toValue(b.toPixels(g.max)+b.minPixelPadding),m=Math.min(g.dataMin,m)-h,g=l-Math.max(g.dataMax,k);b.series.length&&0>m&&0>g&&(b.setExtremes(h,l,!1,!1,{trigger:"pan"}),e=!0);c[d]=f;});e&&c.redraw(!1);E(c.container,{cursor:"move"});}});t(m.prototype,{select:function select(a,c){var d=this,f=d.series,h=f.chart;a=b(a,!d.selected);d.firePointEvent(a?"select":"unselect",{accumulate:c},function(){d.selected=d.options.selected=a;f.options.data[e(d,f.data)]=d.options;d.setState(a&&"select");c||n(h.getSelectedPoints(),function(a){a.selected&&a!==d&&(a.selected=a.options.selected=!1,f.options.data[e(a,f.data)]=a.options,a.setState(""),a.firePointEvent("unselect"));});});},onMouseOver:function onMouseOver(a){var b=this.series.chart.pointer;this.firePointEvent("mouseOver");b.runPointActions(a,this);},onMouseOut:function onMouseOut(){var a=this.series.chart;this.firePointEvent("mouseOut");n(a.hoverPoints||[],function(a){a.setState();});a.hoverPoints=a.hoverPoint=null;},importEvents:function importEvents(){if(!this.hasImportedEvents){var a=H(this.series.options.point,this.options).events,b;this.events=a;for(b in a){B(this,b,a[b]);}this.hasImportedEvents=!0;}},setState:function setState(a,c){var d=Math.floor(this.plotX),e=this.plotY,f=this.series,k=f.options.states[a]||{},l=h[f.type].marker&&f.options.marker,m=l&&!1===l.enabled,n=l&&l.states&&l.states[a]||{},p=!1===n.enabled,g=f.stateMarkerGraphic,r=this.marker||{},u=f.chart,v=f.halo,z,A=l&&f.markerAttribs;a=a||"";if(!(a===this.state&&!c||this.selected&&"select"!==a||!1===k.enabled||a&&(p||m&&!1===n.enabled)||a&&r.states&&r.states[a]&&!1===r.states[a].enabled)){A&&(z=f.markerAttribs(this,a));if(this.graphic)this.state&&this.graphic.removeClass("highcharts-point-"+this.state),a&&this.graphic.addClass("highcharts-point-"+a),this.graphic.attr(f.pointAttribs(this,a)),z&&this.graphic.animate(z,b(u.options.chart.animation,n.animation,l.animation)),g&&g.hide();else{if(a&&n){l=r.symbol||f.symbol;g&&g.currentSymbol!==l&&(g=g.destroy());if(g)g[c?"animate":"attr"]({x:z.x,y:z.y});else l&&(f.stateMarkerGraphic=g=u.renderer.symbol(l,z.x,z.y,z.width,z.height).add(f.markerGroup),g.currentSymbol=l);g&&g.attr(f.pointAttribs(this,a));}g&&(g[a&&u.isInsidePlot(d,e,u.inverted)?"show":"hide"](),g.element.point=this);}(d=k.halo)&&d.size?(v||(f.halo=v=u.renderer.path().add(A?f.markerGroup:f.group)),v[c?"animate":"attr"]({d:this.haloPath(d.size)}),v.attr({"class":"highcharts-halo highcharts-color-"+b(this.colorIndex,f.colorIndex)}),v.point=this,v.attr(t({fill:this.color||f.color,"fill-opacity":d.opacity,zIndex:-1},d.attributes))):v&&v.point&&v.point.haloPath&&v.animate({d:v.point.haloPath(0)});this.state=a;}},haloPath:function haloPath(a){return this.series.chart.renderer.symbols.circle(Math.floor(this.plotX)-a,this.plotY-a,2*a,2*a);}});t(d.prototype,{onMouseOver:function onMouseOver(){var a=this.chart,b=a.hoverSeries;if(b&&b!==this)b.onMouseOut();this.options.events.mouseOver&&l(this,"mouseOver");this.setState("hover");a.hoverSeries=this;},onMouseOut:function onMouseOut(){var a=this.options,b=this.chart,c=b.tooltip,d=b.hoverPoint;b.hoverSeries=null;if(d)d.onMouseOut();this&&a.events.mouseOut&&l(this,"mouseOut");!c||a.stickyTracking||c.shared&&!this.noSharedTooltip||c.hide();this.setState();},setState:function setState(a){var c=this,d=c.options,e=c.graph,h=d.states,k=d.lineWidth,d=0;a=a||"";if(c.state!==a&&(n([c.group,c.markerGroup,c.dataLabelsGroup],function(b){b&&(c.state&&b.removeClass("highcharts-series-"+c.state),a&&b.addClass("highcharts-series-"+a));}),c.state=a,!h[a]||!1!==h[a].enabled)&&(a&&(k=h[a].lineWidth||k+(h[a].lineWidthPlus||0)),e&&!e.dashstyle))for(k={"stroke-width":k},e.animate(k,b(c.chart.options.chart.animation,h[a]&&h[a].animation));c["zone-graph-"+d];){c["zone-graph-"+d].attr(k),d+=1;}},setVisible:function setVisible(a,b){var c=this,d=c.chart,e=c.legendItem,f,h=d.options.chart.ignoreHiddenSeries,k=c.visible;f=(c.visible=a=c.options.visible=c.userOptions.visible=void 0===a?!k:a)?"show":"hide";n(["group","dataLabelsGroup","markerGroup","tracker","tt"],function(a){if(c[a])c[a][f]();});if(d.hoverSeries===c||(d.hoverPoint&&d.hoverPoint.series)===c)c.onMouseOut();e&&d.legend.colorizeItem(c,a);c.isDirty=!0;c.options.stacking&&n(d.series,function(a){a.options.stacking&&a.visible&&(a.isDirty=!0);});n(c.linkedSeries,function(b){b.setVisible(a,!1);});h&&(d.isDirtyBox=!0);!1!==b&&d.redraw();l(c,f);},show:function show(){this.setVisible(!0);},hide:function hide(){this.setVisible(!1);},select:function select(a){this.selected=a=void 0===a?!this.selected:a;this.checkbox&&(this.checkbox.checked=a);l(this,a?"select":"unselect");},drawTracker:a.drawTrackerGraph});})(I);(function(a){var B=a.Chart,z=a.each,C=a.inArray,E=a.isArray,u=a.isObject,h=a.pick,n=a.splat;B.prototype.setResponsive=function(h){var l=this.options.responsive,k=[],e=this.currentResponsive;l&&l.rules&&z(l.rules,function(c){void 0===c._id&&(c._id=a.uniqueKey());this.matchResponsiveRule(c,k,h);},this);var c=a.merge.apply(0,a.map(k,function(c){return a.find(l.rules,function(a){return a._id===c;}).chartOptions;})),k=k.toString()||void 0;k!==(e&&e.ruleIds)&&(e&&this.update(e.undoOptions,h),k?(this.currentResponsive={ruleIds:k,mergedOptions:c,undoOptions:this.currentOptions(c)},this.update(c,h)):this.currentResponsive=void 0);};B.prototype.matchResponsiveRule=function(a,l){var k=a.condition;(k.callback||function(){return this.chartWidth<=h(k.maxWidth,Number.MAX_VALUE)&&this.chartHeight<=h(k.maxHeight,Number.MAX_VALUE)&&this.chartWidth>=h(k.minWidth,0)&&this.chartHeight>=h(k.minHeight,0);}).call(this)&&l.push(a._id);};B.prototype.currentOptions=function(a){function h(a,c,k,l){var b,e;for(b in a){if(!l&&-1<C(b,["series","xAxis","yAxis"]))for(a[b]=n(a[b]),k[b]=[],e=0;e<a[b].length;e++){c[b][e]&&(k[b][e]={},h(a[b][e],c[b][e],k[b][e],l+1));}else u(a[b])?(k[b]=E(a[b])?[]:{},h(a[b],c[b]||{},k[b],l+1)):k[b]=c[b]||null;}}var k={};h(a,this.options,k,0);return k;};})(I);return I;});
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)(module)))
+
+/***/ }),
+/* 361 */,
+/* 362 */,
+/* 363 */,
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */,
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */,
+/* 380 */,
+/* 381 */,
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */,
+/* 390 */,
+/* 391 */,
+/* 392 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(module) {
+
+var _index = __webpack_require__(139);
+
+var _index2 = _interopRequireDefault(_index);
+
+var _index3 = __webpack_require__(137);
+
+var _index4 = _interopRequireDefault(_index3);
+
+var _react2 = __webpack_require__(35);
+
+var _react3 = _interopRequireDefault(_react2);
+
+var _index5 = __webpack_require__(138);
+
+var _index6 = _interopRequireDefault(_index5);
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _reactDom = __webpack_require__(83);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _HighCharts = __webpack_require__(87);
+var _HighCharts = __webpack_require__(345);
 
 var _HighCharts2 = _interopRequireDefault(_HighCharts);
 
@@ -22461,10 +29660,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _components = {
+	App: {
+		displayName: 'App'
+	}
+};
+
+var _UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2 = (0, _index6.default)({
+	filename: '/Users/liushuxin/liushuxin_own_file/lanxin_technology/dist/js/highcharts/index.js',
+	components: _components,
+	locals: [module],
+	imports: [_react3.default]
+});
+
+var _UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2 = (0, _index4.default)({
+	filename: '/Users/liushuxin/liushuxin_own_file/lanxin_technology/dist/js/highcharts/index.js',
+	components: _components,
+	locals: [],
+	imports: [_react3.default, _index2.default]
+});
+
+function _wrapComponent(id) {
+	return function (Component) {
+		return _UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformHmrLibIndexJs2(_UsersLiushuxinLiushuxin_own_fileLanxin_technologyNode_modulesBabelPresetReactHmreNode_modulesReactTransformCatchErrorsLibIndexJs2(Component, id), id);
+	};
+}
 //import $ from 'jquery';
 
 
-var App = function (_Component) {
+var App = _wrapComponent('App')(function (_Component) {
 	_inherits(App, _Component);
 
 	function App(props) {
@@ -22540,18 +29765,19 @@ var App = function (_Component) {
 		key: 'render',
 		value: function render() {
 			var self = this;
-			return _react2.default.createElement(
+			return _react3.default.createElement(
 				'div',
 				{ ref: 'hc' },
-				_react2.default.createElement(_HighCharts2.default, null)
+				_react3.default.createElement(_HighCharts2.default, null)
 			);
 		}
 	}]);
 
 	return App;
-}(_react.Component);
+}(_react2.Component));
 
-_reactDom2.default.render(_react2.default.createElement(App, null), document.querySelectorAll('#app')[0]);
+_reactDom2.default.render(_react3.default.createElement(App, null), document.querySelectorAll('#app')[0]);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(26)(module)))
 
 /***/ })
 /******/ ]);

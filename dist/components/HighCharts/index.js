@@ -59,7 +59,7 @@ export default class HighCharts extends Component{
 		let self =this;
 		return (
 			<div ref="hc">
-				HighChart组件
+				HighChart组件,测试用例
 				<div ref="highchartDom"></div>
 			</div>
 			);
