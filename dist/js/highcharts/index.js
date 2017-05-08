@@ -69,7 +69,6 @@ class App extends Component{
 		let self =this;
 		return (
 			<div ref="hc">
-				
 				<HighCharts />
 			</div>
 			);

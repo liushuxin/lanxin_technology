@@ -1,20 +1,26 @@
-import path from 'path';
-import fs from 'fs';
-import webpack from 'webpack';
-// 引用这个plugin
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import webpack-hot-middleware from 'webpack-hot-middleware';
-import openBrowserWebpackPlugin from 'open-browser-webpack-plugin';
-
+var path = require('path');
+var fs = require('fs');
+let basePath = 'dist/js';
+var webpack = require('webpack');
 let buildPath = path.resolve(__dirname,'public/javascripts');
 let nodeModulesPath = path.resolve(__dirname,'node_modules');
-
+let fileDirUrl ={};
+  //=======
+let pageDirs = fs.readdirSync(basePath);
+ pageDirs.forEach(function (fileDir) {
+     var pageInfo = fs.readdirSync(`${basePath}/${fileDir}`);
+     pageInfo.forEach(function(file){
+      fileDirUrl[fileDir] = [`${__dirname}/${basePath}/${fileDir}/${file}`];
+     });
+  });
+console.log("preCompileFileList:");
+console.log(fileDirUrl);
 let webpackConfig = {
-  entry:[
-  'webpack-hot-middleware/client',
-    './dist/js/highcharts/index.js'
-  ],
+  entry:fileDirUrl,
   resolve: {//如何解析模块
+    alias:{//路径别名，使其import时更加直观
+        component:path.resolve(__dirname,'dist/components')
+      },
       enforceModuleExtension: false,
       descriptionFiles:["package.json"],//指定描述报管理的json 文件。
       extensions: ['.js', '.jsx'],
@@ -43,39 +49,14 @@ let webpackConfig = {
         }
     ]
     },
-  devServer: { 
-    inline: true,
-    hot:true,
-    publicPath: '/assets/',
-    contentBase: path.join(__dirname, "/webpack-template/"),
-    //clientLogLevel:'none',//(eg: none, error, warning or info (default))
-    stats: { colors: true },
-    proxy: {
-      '/getData': {
-        target: 'http://localhost:3000/',
-        secure: false
-      },
-      '/components': {
-        target: 'http://localhost:3000/',
-        secure: false
-      }
-    } 
-  },
   output: {
     path: buildPath,
     publicPath: "/assets/",
-    filename: 'bundle.js'
+    filename: '[name]/index.js'
   },
   plugins: [
-   new webpack.HotModuleReplacementPlugin(),
    new webpack.optimize.OccurrenceOrderPlugin()
-    // new HtmlWebpackPlugin({
-    //     title: '开发模板页',
-    //     template: path.join(__dirname, './webpack-template/index.html'),
-    //     inject:'body'
-    //   }),
-    //new openBrowserWebpackPlugin({ url: 'http://localhost:8082' }),
   ]
 };
-export default webpackConfig;
+module.exports = webpackConfig;
 // module.exports = webpackConfig;

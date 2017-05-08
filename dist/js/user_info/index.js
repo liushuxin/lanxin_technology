@@ -1,5 +1,6 @@
 import React,{Component,propTypes} from 'react';
 import ReactDOM from 'react-dom';
+import Content from './content';
 import $ from 'jquery';
 import 'dragula/dist/dragula.css';
 import dragula from 'dragula';
@@ -81,6 +82,7 @@ class App extends Component{
       <div className="dragula-container">
 <div>
   根据类进行拖拽赋值
+  <Content></Content>
 </div>
       </div>
    

@@ -54,7 +54,7 @@ let webpackConfig = {
     ]
     },
   devServer: { 
-    inline: true,
+    inline: false,
     hot:true,
     publicPath: '/assets/',
     contentBase: path.join(__dirname, "/webpack-template/"),
@@ -73,7 +73,7 @@ let webpackConfig = {
   },
   output: {
     path: buildPath,
-    publicPath: "/asset/",
+    publicPath: "/assets/",
     filename: '[name]/index.js'
   },
   plugins: [
