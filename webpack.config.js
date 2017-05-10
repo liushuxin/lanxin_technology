@@ -55,7 +55,7 @@ let webpackConfig = {
     filename: '[name]/index.js'
   },
   plugins: [
-   new webpack.optimize.OccurrenceOrderPlugin()
+   
   ]
 };
 module.exports = webpackConfig;
