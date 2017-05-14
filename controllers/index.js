@@ -56,5 +56,18 @@ router.post("/getData",function(req,res){
   
 
 });
+//吃饭帮，
+router.get("/initFaceHelp",function(req,res){
+  res.render('common', { 
+    title: '吃饭帮',
+    js:"/javascripts/face_help/index.js" 
+  });
+
+
+
+  
+
+});
+
 
 };

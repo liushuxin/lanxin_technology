@@ -1,5 +1,6 @@
 import React,{Component,PropTypes} from 'react';
 import _ from 'lodash';
+ var CommonVar = "全局变量测试数据";
 export default class Content extends Component{
 constructor(props){
   super(props);
@@ -7,10 +8,22 @@ constructor(props){
   	value:0
   }
 }
+handle(){
+  console.log("handle this:");
+  console.log(this);
+  this.happy();
+}
+happy(){
+  console.log("happy this:");
+  console.log(this);
+}
 componentDidMount(){
   let testDom = <h1>主标题</h1>;
-  console.log("react element:");
-  console.log(testDom);
+  console.log("componentDidMount this:");
+  console.log(this);
+  this.handle();
+  // console.log("react element:");
+  // console.log(testDom);
 
 
 }
@@ -20,6 +33,7 @@ render(){
   return <div>
   <button className="btn btn-success" onClick={()=>{self.setState({value:self.state.value+1})}}>增加</button>
    <Contents value={self.state.value}></Contents>
+    <button className="btn btn-success" onClick={self.handle()}>handle</button>
   </div>
 }
 }
