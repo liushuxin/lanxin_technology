@@ -1,5 +1,8 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
+import counter from './reducer/index';
+import {createStore} from 'redux';
+const store = createStore(counter);
 class App extends Component{
 	constructor(props){
 		super(props);
@@ -55,6 +58,7 @@ class App extends Component{
 			);
 	}
 }
+
 
 ReactDOM.render(<App/>,
 	document.querySelectorAll('#app')[0]);
