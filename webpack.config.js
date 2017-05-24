@@ -10,7 +10,7 @@ let pageDirs = fs.readdirSync(basePath);
  pageDirs.forEach(function (fileDir) {
      var pageInfo = fs.readdirSync(`${basePath}/${fileDir}`);
      pageInfo.forEach(function(file){
-      fileDirUrl[fileDir] = [`${__dirname}/${basePath}/${fileDir}/${file}`];
+      fileDirUrl[fileDir] = [`${__dirname}/${basePath}/${fileDir}/index.js`];
      });
   });
 console.log("preCompileFileList:");
