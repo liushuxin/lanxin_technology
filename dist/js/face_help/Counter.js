@@ -37,6 +37,16 @@ class Counter extends Component{
 		console.log(fun.prototype);
 		console.log(fun.__proto__);
 		console.log(Function.prototype);
+		//汉诺塔问题
+		function hannuota(sum,source,help,dist){
+			if(sum>0){
+				hannuota(sum-1,source,dist,help);
+				console.log(sum +source+ "---->"+dist);
+				hannuota(sum-1,help,source,dist);
+			}
+			
+		}
+		hannuota(3,"A","B","C");
 
 
 	}
