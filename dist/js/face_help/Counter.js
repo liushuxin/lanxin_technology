@@ -16,35 +16,59 @@ class Counter extends Component{
 		this.incrementIfOdd = this.incrementIfOdd.bind(this);
 		this.incrementAsync = this.incrementAsync.bind(this);
 	}
+	componentDidMount(){
+		let self = this;
+		var a ={
+			first:"name",
+			second:"age"
+		};
+		for(var key in a){
+			console.log(key);
+		}
+		function fun(){
+			console.log("first fun");
+
+		}
+		var s = Object.create(a);
+		console.log(Object.getOwnPropertyDescriptor(s,'first'));
+		console.log(Object.getOwnPropertyDescriptor(a,'first'));
+		console.log(Function.prototype.__proto__ == Object.prototype);
+		console.log(Object.prototype.__proto__);
+		console.log(fun.prototype);
+		console.log(fun.__proto__);
+		console.log(Function.prototype);
+
+
+	}
 	incrementIfOdd(){
 		let self = this;
 		if(this.props.value % 2 !==0){
 			this.props.onIncrement();
 		}
 	}
-	componentDidMount(){
-		let self = this;
-		var obj1 ={
-			name:"lihua",
-			age:23
-		};
-		console.log(obj1);
-		function Person(name,age){
-			this.name = name;
-			this.age = age;
-		}
-		function Student(stuId){
-			this.stuId =stuId;
-		}
-		let person = new Person('name',23);
-		Student.prototype = person;
-		var student = new Student("0234");
-		//console.log(Person.prototype);
-		console.log(Student.prototype);
-		console.log(student.__proto__);
-		console.log(Object.prototype.constructor);
+	// componentDidMount(){
+	// 	let self = this;
+	// 	var obj1 ={
+	// 		name:"lihua",
+	// 		age:23
+	// 	};
+	// 	console.log(obj1);
+	// 	function Person(name,age){
+	// 		this.name = name;
+	// 		this.age = age;
+	// 	}
+	// 	function Student(stuId){
+	// 		this.stuId =stuId;
+	// 	}
+	// 	let person = new Person('name',23);
+	// 	Student.prototype = person;
+	// 	var student = new Student("0234");
+	// 	//console.log(Person.prototype);
+	// 	console.log(Student.prototype);
+	// 	console.log(student.__proto__);
+	// 	console.log(Object.prototype.constructor);
 
-	}
+	// }
 	handleMenu(){
     let self = this;
     let random =Math.floor((Math.random() *4));
