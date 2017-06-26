@@ -6,7 +6,7 @@ var ObjectId = require('mongodb').ObjectID;
 var assert = require('assert');
 /*===连接数据库 start==*/
 // Connection URL
-var url = 'mongodb://localhost:27017/lanxin';
+var url  = require('../../configs/database.js').mongodbSiteURL;
 
 /*===连接数据库 end==*/
 module.exports = function (router) {
@@ -105,6 +105,32 @@ router.get('/addData',function(req,resp){
           db.close();
       });
   });
+});
+router.get('/firstAjax',function(req,resp){
+  var data ={
+    code:0,
+    msg:"success",
+    data:[{
+      a:1,
+      b:2
+    }]
+  };
+  
+  resp.send(data)
+  
+});
+router.get('/secondAjax',function(req,resp){
+  var data ={
+    code:0,
+    msg:"success",
+    data:[{
+      a:3,
+      b:4
+    }]
+  };
+  
+  resp.send(data)
+  
 });
 
 

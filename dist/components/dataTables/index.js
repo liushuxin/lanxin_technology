@@ -15,15 +15,45 @@ class App extends Component{
 	componentDidMount(){
 		let self =this;
 		$.get(self.props.config.backend,function(data){
-			console.log(data);
+			//console.log(data);
 			self.props.onQuery(data);
 			self.paintTable();
 			
 		});
+		self.handlePromise();
+
+	}
+	handlePromise(){
+		let self = this;
+		var promise = new Promise((resolve,reject)=>{
+			$.get("/components/firstAjax",function(data){
+				console.log(data);
+				resolve(data);
+			});
+
+		});
+		promise.then((value)=>{
+			console.log(value);
+			var promise1 = new Promise((resolve,reject)=>{
+				$.get("/components/secondAjax",function(data){
+					console.log(data);
+					resolve(data);
+				});
+
+			});
+			return promise1
+			
+
+		},(error)=>{
+			console.log(error);
+		}).then(result => console.log(result));
+
+	
 	}
 	/**
 	 * 绘制表格
 	 */
+	
 	paintTable(){
 		let self = this;
 		self.$datatable =$(".main-tb").DataTable({
