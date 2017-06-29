@@ -1,4 +1,5 @@
 import {ADD_TODO,UPDATE_TODO,QUERY_TODO} from './Action';
+import {combineReducers} from 'redux';//合并reducers
 const initialState = {
   data:[],
 	searchContent:''

@@ -57,6 +57,7 @@ class App extends Component{
 	paintTable(){
 		let self = this;
 		self.$datatable =$(".main-tb").DataTable({
+			"autoWidth": false,
 		"data":self.props.data, //渲染数据
 		  "retrieve":true,//是否返回引用
 		   buttons: [
@@ -73,6 +74,15 @@ class App extends Component{
     "dom": 'Bfrtip',
 		 "columns": [ //列定义
         { "data": "_id" ,"title":"数据id"},
+        { "data": "name","title":"姓名"},
+        { "data": "age","title":"年龄" },
+		 { "data": "_id" ,"title":"数据id"},
+        { "data": "name","title":"姓名" },
+        { "data": "age","title":"年龄" },
+		 { "data": "_id" ,"title":"数据id"},
+        { "data": "name","title":"姓名" },
+        { "data": "age","title":"年龄" },
+		 { "data": "_id" ,"title":"数据id"},
         { "data": "name","title":"姓名" },
         { "data": "age","title":"年龄" }
     	],
