@@ -162,20 +162,24 @@ class App extends Component{
 	}
 }
 // 哪些 Redux 全局的 state 是我们组件想要通过 props 获取的？
-function mapStateToProps(state) {
-  return {
-    data: state.data,
-    searchContent:state.searchContent
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     data: state.data,
+//     searchContent:state.searchContent
+//   };
+// }
 // 哪些 action 创建函数是我们想要通过 props 获取的？
-function mapDispatchToProps(dispatch) {
-  return {
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     onQuery: (data) => dispatch(QueryData(data)),
+//     handleInput:(queryText) =>dispatch(setQueryParam(queryText))
+//   };
+// }
+export default connect(
+  state => ({ data: state.data,
+    searchContent:state.searchContent}),
+  dispatch => ({
     onQuery: (data) => dispatch(QueryData(data)),
     handleInput:(queryText) =>dispatch(setQueryParam(queryText))
-  };
-}
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
+  })
 )(App);
