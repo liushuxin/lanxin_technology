@@ -90,5 +90,5 @@ function onListening() {
   debug('Server Listening on ' + bind);
   debug('Visit URL:localhost:' +addr.port);
   console.log('Server Listening on ' + bind);
-  console.log('Visit_URL:localhost:' +addr.port);
+  console.log('Visit_URL: http://localhost:'+addr.port);
 }

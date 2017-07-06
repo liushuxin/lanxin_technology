@@ -1,6 +1,7 @@
 import React,{Component,propTypes} from 'react';
 import {connect} from 'react-redux';
 import * as ActionCreators from './actions';
+import PNG1 from '../../images/main/sm.png';
 class Counter extends Component{
 	constructor(props){
 		super(props);
@@ -110,6 +111,7 @@ class Counter extends Component{
 			<button onClick={this.incrementAsync}>Increment async</button>
 			<button onClick={self.props.onUNDO}>undo</button>
 			<button onClick={this.props.onREDO}>redo</button>
+			<img src={PNG1}/>
 		</p>
 
 	}

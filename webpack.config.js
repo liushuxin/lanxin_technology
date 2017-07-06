@@ -3,6 +3,7 @@ var fs = require('fs');
 let basePath = 'dist/js';
 var webpack = require('webpack');
 let buildPath = path.resolve(__dirname,'public/javascripts');
+let publicPath = path.resolve(__dirname,'/javascripts');
 let nodeModulesPath = path.resolve(__dirname,'node_modules');
 let fileDirUrl ={};
   //=======
@@ -42,7 +43,7 @@ let webpackConfig = {
          use : ["style-loader","css-loader"]
         },{
           test: /\.(png|jpg)$/,
-          use: ['url-loader?limit=40000']
+          use: ['url-loader?limit=40000&name=/images/[hash:8].[name].[ext]']
         },{
           test: /\.scss$/, 
           use: ["style-loader","css-loader","sass-loader"]
@@ -51,7 +52,7 @@ let webpackConfig = {
     },
   output: {
     path: buildPath,
-    publicPath: "/assets/",
+    publicPath: publicPath,
     filename: '[name]/index.js'
   },
   plugins: [

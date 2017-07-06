@@ -24,7 +24,10 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
+    "redux-amrc": "^1.0.6",
     "redux-undo": "^0.6.1",
     "serve-favicon": "~2.3.0",
     "x-root-path": "0.0.2"

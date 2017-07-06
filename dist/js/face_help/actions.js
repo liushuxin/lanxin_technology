@@ -1,3 +1,4 @@
+ import {ASYNC} from 'redux-amrc';
  export const INCREMENT = "INCREMENT";
  export const DECREMENT = "DECREMENT";
  export const UNDO = "UNDO";
@@ -14,4 +15,20 @@ export  function onUNDO(){
 }
 export  function onREDO(){
     return {type:REDO}
+}
+export function success(){
+	return {
+		[ASYNC]:{
+			key:"key",
+			promise () => Promise.resolve("success");
+		}
+	}
+}
+export function fail(){
+	return {
+		[ASYNC]:{
+			key:"key",
+			promise () => Promise.resolve("fail");
+		}
+	}
 }
