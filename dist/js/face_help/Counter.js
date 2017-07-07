@@ -109,8 +109,10 @@ class Counter extends Component{
 			<button onClick={self.props.onDecrement}>-</button>
 			<button onClick={self.incrementIfOdd}>Increment if Odd</button>
 			<button onClick={this.incrementAsync}>Increment async</button>
+			<button onClick={this.props.success}>ajax Request</button>
 			<button onClick={self.props.onUNDO}>undo</button>
 			<button onClick={this.props.onREDO}>redo</button>
+			{this.props.async? this.props.async.counter:""}
 			<img src={PNG1}/>
 		</p>
 
@@ -118,6 +120,7 @@ class Counter extends Component{
 }
 console.log(ActionCreators);
 export default connect(
-    state => ({value:state.counter.present}),
+    state => ({value:state.counter.present,
+	async:state.async}),
     ActionCreators
 )(Counter);

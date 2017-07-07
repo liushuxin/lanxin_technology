@@ -19,16 +19,23 @@ export  function onREDO(){
 export function success(){
 	return {
 		[ASYNC]:{
-			key:"key",
-			promise () => Promise.resolve("success");
+			key:"counter",
+			promise :() => fetch('/getData').then(res => {
+				console.log(res);
+				if(!res.ok){
+					throw new Error(res.statusText);
+				}
+				return res.json();
+
+			})
 		}
 	}
 }
 export function fail(){
 	return {
 		[ASYNC]:{
-			key:"key",
-			promise () => Promise.resolve("fail");
+			key:"key1",
+			promise :() => Promise.resolve("fail")
 		}
 	}
 }

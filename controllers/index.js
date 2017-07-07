@@ -43,7 +43,7 @@ router.get('/queryUser', function (req, resp) {
   connection.end();
   });
 
-router.post("/getData",function(req,res){
+router.get("/getData",function(req,res){
   console.log(req.body);
   var data = {
     liu:"1",
