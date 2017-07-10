@@ -11,7 +11,7 @@ let pageDirs = fs.readdirSync(basePath);
  pageDirs.forEach(function (fileDir) {
      var pageInfo = fs.readdirSync(`${basePath}/${fileDir}`);
      pageInfo.forEach(function(file){
-      fileDirUrl[fileDir] = [`${__dirname}/${basePath}/${fileDir}/index.js`];
+      fileDirUrl[fileDir] = ['bootstrap-loader',`${__dirname}/${basePath}/${fileDir}/index.js`];
      });
   });
 console.log("preCompileFileList:");
@@ -47,6 +47,12 @@ let webpackConfig = {
         },{
           test: /\.scss$/, 
           use: ["style-loader","css-loader","sass-loader"]
+        },{
+          test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/, 
+          use: ["url-loader?limit=10000"]
+        },{
+          test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/, 
+          use: ["file-loader"]
         }
     ]
     },
@@ -56,8 +62,11 @@ let webpackConfig = {
     filename: '[name]/index.js'
   },
   plugins: [
-   
-  ]
+        new webpack.ProvidePlugin({
+           $: "jquery",
+           jQuery: "jquery"
+       })
+    ]
 };
 module.exports = webpackConfig;
 // module.exports = webpackConfig;

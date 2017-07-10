@@ -1,5 +1,7 @@
 import React,{Component,propTypes} from 'react';
 import {connect} from 'react-redux';
+import jquery from 'jquery';
+import { Button ,ButtonToolbar} from 'react-bootstrap';
 import * as ActionCreators from './actions';
 import PNG1 from '../../images/main/sm.png';
 class Counter extends Component{
@@ -114,6 +116,10 @@ class Counter extends Component{
 			<button onClick={this.props.onREDO}>redo</button>
 			{this.props.async? this.props.async.counter:""}
 			<img src={PNG1}/>
+			<ButtonToolbar>
+				<Button>Defautl</Button>
+				<Button bsStyle="primary">Primary</Button>
+			</ButtonToolbar>
 		</p>
 
 	}
