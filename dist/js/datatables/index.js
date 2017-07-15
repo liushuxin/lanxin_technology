@@ -1,6 +1,7 @@
-import React,{Component,propTypes} from 'react';
+import React,{} from 'react';
 import ReactDOM from 'react-dom';
 import App from '../../components/dataTables/index';
+import 'sass/table.scss';
 //redux 相关包
 import {Provider} from 'react-redux';
 import {createStore,compose,applyMiddleware} from 'redux';

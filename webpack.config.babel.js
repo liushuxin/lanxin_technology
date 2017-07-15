@@ -6,7 +6,6 @@ var webpack = require('webpack');
 
 let buildPath = path.resolve(__dirname,'public/javascripts');
 console.log("buildpath:"+buildPath);
-let nodeModulesPath = path.resolve(__dirname,'node_modules');
 let fileDirUrl ={};
   //=======
 let pageDirs = fs.readdirSync(basePath);
@@ -23,7 +22,8 @@ let webpackConfig = {
   entry:fileDirUrl,
   resolve: {//如何解析模块
       alias:{//路径别名，使其import时更加直观
-        component:path.resolve(__dirname,'dist/components')
+        component:path.resolve(__dirname,'dist/components'),
+        sass:path.resolve(__dirname,'dist/sass')
       },
       enforceModuleExtension: false,
       descriptionFiles:["package.json"],//指定描述报管理的json 文件。
