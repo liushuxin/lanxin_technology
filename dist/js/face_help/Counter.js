@@ -51,13 +51,92 @@ class Counter extends Component{
 		}
 		hannuota(3,"A","B","C");
 
+		var obj = Object.create({a:1,b:2});
+		console.log("Object.create:");
+		console.log(obj);
+		console.log(obj.a);
+		console.log("Object.prototype");
+		console.log(Object.prototype);
 
+		console.log(Object);
+		console.log(Object.__proto__ );
+		//console.log();
+		// console.log()
+		console.log(Object.prototype.__proto__);
+		console.log(Function.prototype);
+		console.log((Function.prototype.__proto__ === Object.prototype));
+		console.log(Object.prototype.toString(Array.prototype));
+		var bArray = [1,2,43,4,5,6,6,78,65,9,900,666]
+		console.log(bArray);
+		bArray.length = 5;
+		bArray.length = 7;
+		bArray.splice(3,1);
+		console.log(bArray);
+		self.bjtest();
 	}
 	incrementIfOdd(){
 		let self = this;
 		if(this.props.value % 2 !==0){
 			this.props.onIncrement();
 		}
+	}
+	bjtest(){
+		var eventuality = function (that) {
+			var registry = {};
+			//触发事件
+			that.fire = function (event) {
+				var array,
+				func,
+				handler,
+				i,
+				type = typeof event === "string" ? event :event.type;
+				if(registry.hasOwnProperty(type)){
+					array = registry[type];
+					for(i = 0; i<array.length; i +=1){
+						handler = array[i];
+						func = handler.method;
+						if(typeof func === 'string'){
+							func = this[func];
+						}
+						func.apply(this,handler.parameters||[event]);
+					}
+				}
+				return this;
+			}
+			that.on = function(type,method,parameters){
+				var handler = {
+					method:method,
+					parameters:parameters
+				};
+				if(registry.hasOwnProperty(type)){
+					registry[type].push(handler);
+				}else{
+					registry[type] = [handler];
+				}
+				return this;
+
+			}
+			return that;
+		};
+		var objectEventTest = {
+			a:1,
+			b:2,
+			getA:function(){
+				console.log(this.a);
+			},
+			getB:function(){
+				console.log(this.b);
+			},
+			showC:function(c){
+				console.log(c);
+			}
+		}
+		eventuality(objectEventTest);
+		objectEventTest.on("show","getA");
+		objectEventTest.on("show","getB");
+		objectEventTest.on("show1","showC",["show C!!"]);
+		objectEventTest.fire("show");
+		
 	}
 	// componentDidMount(){
 	// 	let self = this;
@@ -120,6 +199,8 @@ class Counter extends Component{
 				<Button>Defautl</Button>
 				<Button bsStyle="primary">Primary</Button>
 			</ButtonToolbar>
+			Object.__proto__ 指向 Function.prototype 都等于一个匿名函数,
+			匿名函数算是一个对象，而不能看做一个函数，所以它没有函数特有的prototype 属性，只有__proto__ 属性，并且该属性指向Object.prototype
 		</p>
 
 	}
