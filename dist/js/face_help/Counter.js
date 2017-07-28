@@ -4,6 +4,7 @@ import jquery from 'jquery';
 import { Button ,ButtonToolbar} from 'react-bootstrap';
 import * as ActionCreators from './actions';
 import PNG1 from '../../images/main/sm.png';
+@testable
 class Counter extends Component{
 	constructor(props){
 		super(props);
@@ -72,6 +73,13 @@ class Counter extends Component{
 		bArray.length = 7;
 		bArray.splice(3,1);
 		console.log(bArray);
+		/////////////////
+		var a =[1,2,34];
+		var b = [4,5,6,7];
+		var c = a.concat(b);
+		c[2] = 33;
+		console.log(a);
+		console.log(c.join(''));
 		self.bjtest();
 	}
 	incrementIfOdd(){
@@ -201,10 +209,32 @@ class Counter extends Component{
 			</ButtonToolbar>
 			Object.__proto__ 指向 Function.prototype 都等于一个匿名函数,
 			匿名函数算是一个对象，而不能看做一个函数，所以它没有函数特有的prototype 属性，只有__proto__ 属性，并且该属性指向Object.prototype
+			<table className="table ">
+				<thead>
+					<tr>
+						<th>1</th>
+						<th>2</th>
+						<th>3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>4</td>
+						<td>5</td>
+						<td>6</td>
+					</tr>
+				</tbody>
+			</table>
 		</p>
 
 	}
 }
+function testable(target) {
+  target.isTestable = "装饰器";
+}
+console.log(Counter.isTestable);
+
+
 console.log(ActionCreators);
 export default connect(
     state => ({value:state.counter.present,
