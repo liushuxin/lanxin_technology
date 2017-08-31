@@ -1,6 +1,7 @@
 import React, { Component, propTypes } from 'react';
 import { connect } from 'react-redux';
 var $ = require('jquery');
+import axios from "axios";
 var DataTable = require('datatables.net');
 require('datatables.net-dt/css/jquery.dataTables.css');
 import { QueryData, setQueryParam } from './Action';
@@ -14,12 +15,17 @@ class App extends Component {
 	}
 	componentDidMount() {
 		let self = this;
-		$.get(self.props.config.backend, function (data) {
-			//console.log(data);
-			self.props.onQuery(data);
-			self.paintTable();
-
+		axios.get(self.props.config.backend)
+		.then(function (response) {
+			console.log("response");
+		  console.log(response);
+		  self.props.onQuery(response.data);
+		  self.paintTable();
+		})
+		.catch(function (error) {
+		  console.log(error);
 		});
+	  
 		self.handlePromise();
 
 	}

@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "autoprefixer": "^7.1.1",
+    "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.24.1",
     "body-parser": "~1.13.2",
     "bootstrap-sass": "^3.3.7",
@@ -77,6 +78,8 @@
       "stage-1",
       "react"
     ],
-    "plugins": ["transform-decorators-legacy"]
+    "plugins": [
+      "transform-decorators-legacy"
+    ]
   }
 }

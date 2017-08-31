@@ -81,6 +81,55 @@ class Counter extends Component{
 		console.log(a);
 		console.log(c.join(''));
 		self.bjtest();
+		self.handleAjax();
+	}
+	handleAjax(){
+		var self = this;
+		console.log("handle Ajax");
+		var xhr = new XMLHttpRequest();
+		
+		xhr.onreadystatechange = () =>{
+			
+			if(xhr.readyState ==  4){
+				try{
+					if(xhr.status >=200 && xhr.status<300 ||xhr.status ==304){
+						console.log(xhr);
+						console.log(xhr.responseText);
+						var allhearder = xhr.getAllResponseHeaders();
+						console.log(allhearder);
+					}else{
+						alert("request was unsuccessful"+xhr.status);
+					}
+					
+				}catch(e){
+					console.log(e);
+						
+				}
+				
+			}
+		}
+		xhr.open("get","http://localhost:8416/coresData",true);
+		//xhr.setRequestHeader("Access-Control-Request-Method","GET");
+		//xhr.setRequestHeader("Access-Control-Request-Headers","Content-Type");
+
+		xhr.timeout = 1000;
+		xhr.ontimeout = () =>{
+			alert("Time out");
+		}
+		xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+		//xhr.overrideMimeType("application/json");
+		var param ='a="first"&b="second"';
+
+		var formData = new FormData();
+		formData.append("a","first");
+		formData.append("b","second");
+		xhr.send(param);
+		// if(xhr.status >=200 && xhr.status <300 || xhr.status == 304){
+		// 	alert(xhr.responseText);
+		// }else{
+		// 	alert("request was unsuccessful"+xhr.status);
+		// }
+
 	}
 	incrementIfOdd(){
 		let self = this;
@@ -145,6 +194,13 @@ class Counter extends Component{
 		objectEventTest.on("show1","showC",["show C!!"]);
 		objectEventTest.fire("show");
 		
+	}
+	json_parse(){
+		let self = this;
+		var json_parse = function(){
+			
+		}
+
 	}
 	// componentDidMount(){
 	// 	let self = this;
