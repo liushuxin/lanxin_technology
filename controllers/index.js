@@ -1,9 +1,22 @@
 var express = require('express');
 var mysql = require('mysql');
+var axios =require('axios');
 module.exports = function (router) {
   /** home page is city_dashboard **/
   router.get('/', function (req, resp) {
-    resp.render('index', { title: '主页-兰新科技',msg:"" });
+    axios.get('http://www.weather.com.cn/data/cityinfo/101010100.html')
+    .then(function(response){
+      //console.log(response);
+      return response.data;
+    })
+    .then(function(data){
+      resp.render('index', { title: '主页-兰新科技',msg:data });
+
+    })
+    .catch(function(err){
+      console.log(err);
+    });
+    
   });
   router.get('/insertUser', function (req, resp) {
     var connection = mysql.createConnection({

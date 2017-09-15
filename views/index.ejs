@@ -9,7 +9,10 @@
     <p>Welcome to Component</p>
     <div id="app"></div>
        <a href="/components">组件中心</a> 
-       <%= msg %>
+       <%
+       var msgObj = JSON.stringify(msg,null,"     ");
+       %>
+       <%= msgObj %>
   </body>
   <script src="/javascripts/bundle.js"></script>
 </html>

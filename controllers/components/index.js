@@ -36,26 +36,41 @@ module.exports = function (router) {
       if(key){
         query = {name:key};
       }
-    collection.find(query).toArray(function(err, docs) {
-    assert.equal(err, null);
-    console.log("Found the following records");
-    console.dir(docs);
-    callback(docs);
+      collection.find(query).toArray(function(err, docs) {
+      assert.equal(err, null);
+      console.log("Found the following records");
+      console.dir(docs);
+      callback(docs);
   });
  
 
-	}
-  	// Use connect method to connect to the server
-	MongoClient.connect(url, function(err, db) {
-	  assert.equal(null, err);
-	  console.log("Connected successfully to server");
-	  insertDocuments(db, key,function(result) {
-	  	console.log(result);
-	    db.close();
-	    resp.send(result);
-	  });
-	  
-		});
+  }
+  try{
+    	// Use connect method to connect to the server
+    MongoClient.connect(url, function(err, db) {
+      if(err){
+        resp.setHeader("Set-Cookie", ['a=000', 't=1111', 'w=2222']);
+        resp.send(err);
+        return;
+      }
+      assert.equal(null, err);
+      console.log("Connected successfully to server");
+      insertDocuments(db, key,function(result) {
+        console.log(result);
+        db.close();
+        resp.send(result);
+      });
+      
+    });
+
+  }catch(e){
+    console.log(e);
+    resp.send({
+      code:-1,
+      msg:e
+    })
+  }
+  
   });
 ///更新
 router.get('/updateData',function(req,resp){

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 //import $ from 'jquery';
 import HighCharts from 'component/HighCharts';
+import GriddleTable from 'component/GriddleTable';
 class App extends Component{
 	constructor(props){
 		super(props);
@@ -70,6 +71,7 @@ class App extends Component{
 		return (
 			<div ref="hc">
 				<HighCharts />
+				<GriddleTable/>
 			</div>
 			);
 	}

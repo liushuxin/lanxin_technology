@@ -3,11 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack --watch --color --config webpack.config.js"
+    "start": "webpack --profile --json > stats.json",
+    "dev": "webpack --config webpack.dev.config.js --profile --json > stats.json"
   },
   "dependencies": {
+    "antd": "^2.13.0",
     "autoprefixer": "^7.1.1",
     "axios": "^0.16.2",
+    "babel-plugin-import": "^1.4.0",
     "babel-preset-stage-1": "^6.24.1",
     "body-parser": "~1.13.2",
     "bootstrap-sass": "^3.3.7",
@@ -20,7 +23,7 @@
     "express": "~4.13.1",
     "express-enrouten": "^1.3.0",
     "express-session": "^1.14.2",
-    "griddle-react": "^1.3.1",
+    "griddle-react": "^1.0.0",
     "highcharts": "^5.0.9",
     "jquery": "^3.1.1",
     "jsx-loader": "^0.13.2",
@@ -40,15 +43,19 @@
     "redux-form": "^6.8.0",
     "redux-undo": "^0.6.1",
     "serve-favicon": "~2.3.0",
+    "transform-runtime": "0.0.0",
     "x-root-path": "0.0.2"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-loader": "^6.2.5",
+    "babel-plugin-import": "^1.4.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
     "bootstrap-loader": "^2.1.0",
     "css-loader": "^0.25.0",
@@ -76,10 +83,19 @@
     "presets": [
       "es2015",
       "stage-1",
+      "stage-0",
       "react"
     ],
     "plugins": [
-      "transform-decorators-legacy"
+      "transform-decorators-legacy",
+      "transform-runtime",
+      [
+        "import",
+        {
+          "libraryName": "antd",
+          "style": "css"
+        }
+      ]
     ]
   }
 }
