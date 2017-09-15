@@ -1,12 +1,11 @@
 var path = require('path');
-let basePath = 'dist/js';
 var webpack = require('webpack');
+var mkdirp = require('mkdirp');
 let buildPath = path.resolve(__dirname, 'public/javascripts');
 let publicPath = path.resolve(__dirname, '/javascripts');
+
 var config = {
-    entry:{
-        bundle:path.resolve(__dirname,'dist/js/face_help/index')
-    },
+    entry:path.resolve(__dirname,'dist/js/index'),
     resolve: {//如何解析模块
         alias: {//路径别名，使其import时更加直观
             component: path.resolve(__dirname, 'dist/components'),
@@ -26,7 +25,9 @@ var config = {
             //使用babel-loader解析js或者jsx模块 
             {
                 test: /\.js|jsx$/,
-                use: ['babel-loader']
+                use: ['babel-loader'],
+                exclude: /node_modules/
+     
             }, {// 使用css-loader解析css模块 
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
@@ -48,13 +49,9 @@ var config = {
     output:{
         path: buildPath,
         publicPath: publicPath,
-        filename: '[name].js'
+        filename: 'bundle.js'
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery"
-        })
     ]
 }
 module.exports = config;
