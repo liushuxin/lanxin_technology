@@ -3,11 +3,10 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var config = require('./webpack.dev.config.js');
 var compiler = webpack(config);
-console.log(mkdirp);
-mkdirp('/tmp/foo/bar/baz', function (err) {
-    if (err) console.error(err)
-    else console.log('pow!')
-});
+// mkdirp('./tmp/foo/bar/baz.js', function (err) {
+//     if (err) console.error(err)
+//     else console.log('pow!')
+// });
 console.log("======================================================");
 console.log("webpack 开始编译");
 var dateStart = new Date();
@@ -19,6 +18,10 @@ compiler.run(function(err,stats){
         var errObj = err|| stats;
         throw err;
     } 
+    console.log(stats.toString({
+        chunks: true,  // Makes the build much quieter
+        colors: true    // Shows colors in the console
+    }));
     fs.writeFile(
         './stats.json',
         JSON.stringify(stats.toJson({all:true})),

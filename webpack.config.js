@@ -36,7 +36,8 @@ let webpackConfig = {
             //使用babel-loader解析js或者jsx模块 
             {
                 test: /\.js|jsx$/,
-                use: ['babel-loader']
+                use: ['babel-loader'],
+                exclude: /node_modules/
             }, {// 使用css-loader解析css模块 
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]

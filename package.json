@@ -3,14 +3,15 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack --profile --json > stats.json",
-    "dev": "webpack --config webpack.dev.config.js --profile --json > stats.json"
+    "start": "webpack --config webpack.config.js --watch --color",
+    "dev": "webpack --config webpack.dev.config.js --watch"
   },
   "dependencies": {
     "antd": "^2.13.0",
     "autoprefixer": "^7.1.1",
     "axios": "^0.16.2",
     "babel-plugin-import": "^1.4.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-stage-1": "^6.24.1",
     "body-parser": "~1.13.2",
     "bootstrap-sass": "^3.3.7",
@@ -88,7 +89,6 @@
     ],
     "plugins": [
       "transform-decorators-legacy",
-      "transform-runtime",
       [
         "import",
         {

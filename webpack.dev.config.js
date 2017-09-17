@@ -1,11 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
-var mkdirp = require('mkdirp');
 let buildPath = path.resolve(__dirname, 'public/javascripts');
 let publicPath = path.resolve(__dirname, '/javascripts');
 
 var config = {
-    entry:path.resolve(__dirname,'dist/js/index'),
+    entry:[path.resolve(__dirname,'dist/src/index')],
     resolve: {//如何解析模块
         alias: {//路径别名，使其import时更加直观
             component: path.resolve(__dirname, 'dist/components'),
