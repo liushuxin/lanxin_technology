@@ -89,6 +89,7 @@ function onListening() {
   debug('Server is alive ');
   debug('Server Listening on ' + bind);
   debug('Visit URL:localhost:' +addr.port);
+  console.log("NODE_ENV="+process.env.NODE_ENV);
   console.log('Server Listening on ' + bind);
   console.log('Visit_URL: http://localhost:'+addr.port);
 }
