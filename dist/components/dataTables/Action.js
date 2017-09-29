@@ -26,3 +26,6 @@ export function setQueryParam(queryText) {
 export function QueryData(data) {
   return { type: QUERY_TODO, data:data}
 }
+export function AjaxGetData(){
+  
+}
