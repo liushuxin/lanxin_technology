@@ -1,7 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
-let buildPath = path.resolve(__dirname, 'public/javascripts');
-let publicPath = path.resolve(__dirname, '/javascripts');
+var buildPath = path.resolve(__dirname, 'public/javascripts');
+var publicPath = path.resolve(__dirname, '/javascripts');
 
 var config = {
     entry:[path.resolve(__dirname,'dist/src/index')],
@@ -43,7 +43,6 @@ var config = {
     output:{
         path: buildPath,
         publicPath: publicPath,
-        filename: 'bundle.js'
     },
     plugins: [
     ]
