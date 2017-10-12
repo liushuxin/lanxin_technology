@@ -52,6 +52,9 @@
     "x-root-path": "0.0.2"
   },
   "devDependencies": {
+    "@types/react": "^16.0.10",
+    "@types/react-dom": "^16.0.1",
+    "awesome-typescript-loader": "^3.2.3",
     "babel-core": "^6.17.0",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^6.2.5",
@@ -79,7 +82,9 @@
     "redux-thunk": "^2.2.0",
     "resolve-url-loader": "^2.1.0",
     "sass-loader": "^6.0.6",
+    "source-map-loader": "^0.2.2",
     "style-loader": "^0.13.1",
+    "typescript": "^2.5.3",
     "url-loader": "^0.5.7",
     "webpack": "^3.6.0",
     "webpack-dev-middleware": "^1.10.2",

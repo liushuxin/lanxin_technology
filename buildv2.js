@@ -16,7 +16,7 @@ console.log("======================================================");
 compiler.run(function(err,stats){
     if(err|| stats.hasErrors()){
         var errObj = err|| stats;
-        throw err;
+        console.log(errObj);
     } 
     console.log(stats.toString({
         chunks: true,  // Makes the build much quieter

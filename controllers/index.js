@@ -4,18 +4,19 @@ var axios =require('axios');
 module.exports = function (router) {
   /** home page is city_dashboard **/
   router.get('/', function (req, resp) {
-    axios.get('http://www.weather.com.cn/data/cityinfo/101010100.html')
-    .then(function(response){
-      //console.log(response);
-      return response.data;
-    })
-    .then(function(data){
-      resp.render('index', { title: '主页-兰新科技',msg:data });
+    // axios.get('http://www.weather.com.cn/data/cityinfo/101010100.html')
+    // .then(function(response){
+    //   //console.log(response);
+    //   return response.data;
+    // })
+    // .then(function(data){
+    //   resp.render('index', { title: '主页-兰新科技',msg:data });
 
-    })
-    .catch(function(err){
-      console.log(err);
-    });
+    // })
+    // .catch(function(err){
+    //   console.log(err);
+    // });
+    resp.render('index', { title: '主页-兰新科技' });
     
   });
   router.get('/insertUser', function (req, resp) {
