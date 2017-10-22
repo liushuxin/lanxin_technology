@@ -1,8 +1,8 @@
 var path = require('path');
 var webpack = require('webpack');
 var buildPath = path.resolve(__dirname, 'public/javascripts');
-var publicPath = path.resolve(__dirname, '/javascripts');
-
+var publicPath = 'javascripts/';
+var ManifestPlugin = require('webpack-manifest-plugin');
 var config = {
     entry:{
         bundle:path.resolve(__dirname,'dist/src/index')
@@ -29,8 +29,13 @@ var config = {
                 use: ['babel-loader'] ,
                 exclude: /node_modules/
             },
-            { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
-            { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
+            // { 
+            //     test: /\.js$/, 
+            //     use: ['react-hot-loader'] ,
+            //     exclude: /node_modules/
+            // },
+            // { test: /\.tsx?$/, loader: "awesome-typescript-loader" },
+            // { enforce: "pre", test: /\.js$/, loader: "source-map-loader" },
             {// 使用css-loader解析css模块 
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"]
@@ -55,10 +60,15 @@ var config = {
     output:{
         path: buildPath,
         publicPath: publicPath,
-        filename:'[name].js'
+        filename:'[name].js',
+        chunkFilename:'static/js/[name].chunk.js'
     },
     devtool: "source-map",
     plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new ManifestPlugin({
+            fileName:'asset-manifest.json'
+        })
     ]
 }
 module.exports = config;

@@ -1,0 +1,19 @@
+{
+    "_docs": "http://pm2.keymetrics.io/docs/usage/application-declaration/",
+    "apps": [
+      {
+        "script": "index.js",
+  
+        "_docs": "https://github.com/Unitech/PM2/issues/811",
+        "instances": 2,
+        "exec_mode": "cluster",
+  
+        "error_file": "/opt/meituan/dolphin_web_log/app1-err.log",
+        "out_file": "/opt/meituan/dolphin_web_log/app1-out.log",
+        "env": {
+          "NODE_ENV": "staging"
+        }
+      }
+    ]
+  }
+  

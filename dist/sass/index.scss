@@ -28,3 +28,41 @@
   column-count: 3;
   column-gap: 1em;
 }
+#example {
+  float: right;
+}
+
+#example p {
+  margin: 0 0.25em;
+  padding: 0.25em 0;
+}
+#div-before,
+#div-after {
+  background-color: #88d;
+  color: #000;
+}
+
+#div-1 {
+  width: 400px;
+  background-color: #000;
+  color: #fff;
+}
+
+#div-1-padding {
+  padding: 10px;
+}
+
+#div-1a {
+  background-color: #d33;
+  color: #fff;
+}
+
+#div-1b {
+  background-color: #3d3;
+  color: #fff;
+}
+
+#div-1c {
+  background-color: #33d;
+  color: #fff;
+}

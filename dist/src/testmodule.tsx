@@ -13,6 +13,3 @@ interface HelloProps { compiler: string; framework: string; }
     }
 
 }
-ReactDOM.render(
-<Hello compiler="1" framework="2"/> ,
-document.querySelectorAll('#app')[0]);
