@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "81d3730dfb9ee8e88fc0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2ef860968aa0c9013b73"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3150,6 +3150,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 __webpack_require__.e/* require.ensure */(0).then((function (require) {
     var asd = __webpack_require__(40);
 }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+Notification.requestPermission().then(function (permission) {
+    if (permission = 'granted') {
+        console.log("用户允许通知");
+    } else if (permission = 'denied') {
+        console.log("用户拒绝通知");
+    }
+    var n = new Notification('状态更新提醒', { body: '你的朋友圈有3条新状态，快去查看吧', tag: 'linxin', icon: 'http://blog.gdfengshuo.com/images/avatar.jpg', requireInteraction: false });
+});
 // getComponent().then(component => {
 //       console.log(component);
 // })

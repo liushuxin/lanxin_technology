@@ -26,7 +26,18 @@ app.use(session({
     saveUninitialized: false,
     cookie: { maxAge: 60000 }
 }));
-app.use(express.static(path.join(__dirname, "public")));
+var options = {
+    dotfiles: 'ignore',
+    etag: false,
+    extensions: ['htm', 'html','js'],
+    index: false,
+    maxAge: '49000',
+    redirect: false,
+    setHeaders: function (res, path, stat) {
+      res.set('x-timestamp', Date.now());
+    }
+  }
+app.use(express.static(path.join(__dirname, "public"),options));
 
 
 // catch 404 and forward to error handler
