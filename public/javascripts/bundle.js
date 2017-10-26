@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2ef860968aa0c9013b73"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "eb35720aedda3aef7552"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3148,7 +3148,7 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 __webpack_require__.e/* require.ensure */(0).then((function (require) {
-    var asd = __webpack_require__(40);
+    var Hello = __webpack_require__(40);
 }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
 Notification.requestPermission().then(function (permission) {
     if (permission = 'granted') {

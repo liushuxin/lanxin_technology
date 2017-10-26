@@ -13,7 +13,7 @@ var dateStart = new Date();
 console.log(dateStart.toLocaleTimeString());
 console.log("======================================================");
 //开始编译
-compiler.run(function(err,stats){
+compiler.watch({},function(err,stats){
     if(err|| stats.hasErrors()){
         var errObj = err|| stats;
         console.log(errObj);

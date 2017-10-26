@@ -1,9 +1,9 @@
 
 import React from 'react';
-require.ensure([],function(require){
-    let asd = require('./testmodule');
-    
-},"testmodule")
+
+        require.ensure([],function(require){
+            let Hello = require('./testmodule.js');
+        },"testmodule")
 Notification.requestPermission().then((permission) => {
     if(permission = 'granted'){
         console.log("用户允许通知");
@@ -25,3 +25,4 @@ Notification.requestPermission().then((permission) => {
 
 //     }).catch(error => 'An error occurred while loading the component');
 //     }
+
