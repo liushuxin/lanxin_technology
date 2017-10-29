@@ -84,7 +84,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "eb35720aedda3aef7552"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7ca5043045aa3595ea4d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -3150,6 +3150,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 __webpack_require__.e/* require.ensure */(0).then((function (require) {
     var Hello = __webpack_require__(40);
 }).bind(null, __webpack_require__)).catch(__webpack_require__.oe);
+if (true) {
+    console.log("启用HMR");
+}
 Notification.requestPermission().then(function (permission) {
     if (permission = 'granted') {
         console.log("用户允许通知");

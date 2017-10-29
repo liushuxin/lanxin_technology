@@ -4,6 +4,9 @@ import React from 'react';
         require.ensure([],function(require){
             let Hello = require('./testmodule.js');
         },"testmodule")
+        if (module.hot) {
+            console.log("启用HMR");
+          }
 Notification.requestPermission().then((permission) => {
     if(permission = 'granted'){
         console.log("用户允许通知");

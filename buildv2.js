@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+let webpack = require('webpack');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 var config = require('./webpack.dev.config.js');
