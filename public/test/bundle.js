@@ -69,12 +69,22 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bar__ = __webpack_require__(1);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bar__ = __webpack_require__(1);
 
 Object(__WEBPACK_IMPORTED_MODULE_0__bar__["a" /* default */])();
-console.log(module);
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)(module)))
+let allCookie = document.cookie.split(";");
+console.log(allCookie);
+window.callback_func = function(data){
+    console.log("服务器获得的数据为：");
+    console.log(data);
+
+}
+var scriptTag = document.createElement('script');
+scriptTag.type = "text/javascript";
+console.log("handle jsonp");
+scriptTag.src= "http://localhost:3000/jsonpdata?callback=callback_func";
+console.log("append jsonp");
+document.body.appendChild(scriptTag);
 
 /***/ }),
 /* 1 */
