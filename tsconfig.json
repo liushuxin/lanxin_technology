@@ -6,9 +6,10 @@
         "module": "commonjs",
         "target": "es5",
         "jsx": "react",
-        "lib":["es2015"]
+        "experimentalDecorators": true,
+        "lib": ["es2015"]
     },
-    "inputs":"",
+    "inputs": "",
     "include": [
         "./src/**/*"
     ]

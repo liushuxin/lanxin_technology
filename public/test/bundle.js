@@ -65,48 +65,81 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__bar__ = __webpack_require__(1);
 
-Object(__WEBPACK_IMPORTED_MODULE_0__bar__["a" /* default */])();
-let allCookie = document.cookie.split(";");
+
+var _bar = __webpack_require__(1);
+
+var _bar2 = _interopRequireDefault(_bar);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var barInst = new _bar2.default();
+console.log(barInst.getName());
+var allCookie = document.cookie.split(";");
 console.log(allCookie);
-window.callback_func = function(data){
+window.callback_func = function (data) {
     console.log("服务器获得的数据为：");
     console.log(data);
-
-}
-var scriptTag = document.createElement('script');
-scriptTag.type = "text/javascript";
-console.log("handle jsonp");
-scriptTag.src= "http://localhost:3000/jsonpdata?callback=callback_func";
-console.log("append jsonp");
-document.body.appendChild(scriptTag);
+};
+// var scriptTag = document.createElement('script');
+// scriptTag.type = "text/javascript";
+// console.log("handle jsonp");
+// scriptTag.src= "http://localhost:3000/jsonpdata?callback=callback_func";
+// console.log("append jsonp");
+// document.body.appendChild(scriptTag);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(module) {/* harmony export (immutable) */ __webpack_exports__["a"] = bar;
-function bar() {
-    //
-    console.log("Hello World!");
-    console.log(module);
-    
-  }
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(2)(module)))
+/* WEBPACK VAR INJECTION */(function(module) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _class;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Conthis = function Conthis(target) {
+  var addObject = {
+    name: 12,
+    getName: function getName() {
+      return this.name;
+    }
+  };
+  Object.assign(target.prototype, addObject);
+};
+
+var Bar = Conthis(_class =
+//
+function Bar() {
+  _classCallCheck(this, Bar);
+
+  console.log("Hello World!");
+  console.log(module);
+  var s = new Set();
+  s.set(1);
+  s.set("liushuxin");
+  console.log(s);
+}) || _class;
+
+exports.default = Bar;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)(module)))
 
 /***/ }),
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports = function(originalModule) {
-	if(!originalModule.webpackPolyfill) {
-		var module = Object.create(originalModule);
+module.exports = function(module) {
+	if(!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
 		// module.parent = undefined by default
 		if(!module.children) module.children = [];
 		Object.defineProperty(module, "loaded", {
@@ -120,9 +153,6 @@ module.exports = function(originalModule) {
 			get: function() {
 				return module.i;
 			}
-		});
-		Object.defineProperty(module, "exports", {
-			enumerable: true,
 		});
 		module.webpackPolyfill = 1;
 	}

@@ -1,9 +1,15 @@
 var express = require('express');
+var debug = require('debug')("lanxin:login");
 
 /* GET users listing. */
 module.exports = function(router){
+    router.use(function timeLog(req, res, next) {
+        console.log('Time: ', Date.now());
+        next();
+    });
     router.get('/', function(req, res, next) {
         console.log(req.session);
+        debug(req.session);
 
         res.render('login/index', { title: '登录-兰新科技' });
     });
