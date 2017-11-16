@@ -9087,10 +9087,74 @@ var Bar = Conthis(_class = function () {
     s.add(1);
     s.add("liushuxin");
     console.log(s);
+
     this.handleAsynFun();
+    var num1 = "233322121213546456456456545646546465464";
+    var num2 = "65654654323423432423424324243242342432432";
+    console.log(this.bigDataAdd(num1, num2));
+    console.log(this.bigDataAddExtra(num1, num2));
   }
+  /**
+   * 大数相加
+   * @param {*} a 
+   * @param {*} b 
+   */
+
 
   _createClass(Bar, [{
+    key: "bigDataAdd",
+    value: function bigDataAdd(a, b) {
+      var arrA = a.split('').reverse();
+      var arrB = b.split('').reverse();
+      var sum = 0,
+          left = 0,
+          offset = 0,
+          overFlow = 0,
+          arrSum = [],
+          maxLen = Math.max(arrA.length, arrB.length);
+      for (var i = 0; i < maxLen; i++) {
+        sum = overFlow;
+        if (i < arrA.length) {
+          sum = sum + Number(arrA[i]);
+        }
+        if (i < arrB.length) {
+          sum = sum + Number(arrB[i]);
+        }
+        left = sum % 10;
+        arrSum[i] = left;
+        overFlow = Math.floor(sum / 10);
+      }
+      if (offset !== 0) {
+        arrSum[i + 1] = overFlow;
+      }
+      return arrSum.reverse().join('');
+    }
+  }, {
+    key: "bigDataAddExtra",
+    value: function bigDataAddExtra(a, b) {
+      var first = a.split('').reverse();
+      var second = b.split('').reverse();
+      var len = Math.max(first.length, second.length);
+      var sumArr = [];
+      var offSet = 0;
+      for (var i = 0; i < len; i++) {
+        var sum = offSet;
+        if (first[i]) {
+          sum += parseInt(first[i]);
+        }
+        if (second[i]) {
+          sum += parseInt(second[i]);
+        }
+        offSet = Math.floor(sum / 10);
+        sum = sum % 10;
+        sumArr.push(sum);
+      }
+      if (offSet === 1) {
+        sumArr.push(1);
+      }
+      return sumArr.reverse().join("");
+    }
+  }, {
     key: "handleAsynFun",
     value: function handleAsynFun() {
       var asyncReadFile = function () {

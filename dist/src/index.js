@@ -1,5 +1,6 @@
 
 import React from 'react';
+import getData from './get_data';
 
         require.ensure([],function(require){
             let Hello = require('./testmodule.js');
@@ -7,6 +8,7 @@ import React from 'react';
         if (module.hot) {
             console.log("启用HMR");
           }
+        getData([1,2,3,4]);
 Notification.requestPermission().then((permission) => {
     if(permission = 'granted'){
         console.log("用户允许通知");
