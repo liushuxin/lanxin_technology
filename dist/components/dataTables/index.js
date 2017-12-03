@@ -2,6 +2,7 @@ import React, { Component, propTypes } from 'react';
 import { connect } from 'react-redux';
 var $ = require('jquery');
 import axios from "axios";
+import { DragSource } from 'react-dnd';
 var DataTable = require('datatables.net');
 require('datatables.net-dt/css/jquery.dataTables.css');
 import { QueryData, setQueryParam } from './Action';

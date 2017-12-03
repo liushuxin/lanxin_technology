@@ -65,25 +65,25 @@ app.get('/ab/:cd/:ef',function(req,res,next){
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(function (req, res, next) {
-    let ignorePath = [
-        "/login",
-        "/login/validateUser"
-    ]
-    if (ignorePath.indexOf(req.path) == -1) {
-        console.log(req.session.username);
-        if (req.session.username) {
-            next();
-        } else {
-            res.redirect('/login');
-        }
+// app.use(function (req, res, next) {
+//     let ignorePath = [
+//         "/login",
+//         "/login/validateUser"
+//     ]
+//     if (ignorePath.indexOf(req.path) == -1) {
+//         console.log(req.session.username);
+//         if (req.session.username) {
+//             next();
+//         } else {
+//             res.redirect('/login');
+//         }
 
-    } else {
-        next();
+//     } else {
+//         next();
 
-    }
+//     }
 
-});
+// });
 /// dynamically include controllers
 app.use(enrouten({
     directory: "controllers"

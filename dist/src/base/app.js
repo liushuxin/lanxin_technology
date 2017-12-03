@@ -1,4 +1,8 @@
 import Bar from './bar';
+import * as d3 from "d3";
+d3.selectAll("p")
+    .data([4, 8, 15, 16, 23, 42])
+    .style("font-size", function (d) { return d + "px"; });
 var barInst = new Bar();
 console.log(barInst.getName());
 let allCookie = document.cookie.split(";");

@@ -65,7 +65,6 @@ var config = {
     },
     devtool: "source-map",
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new ManifestPlugin({
             fileName:'asset-manifest.json'
         })
