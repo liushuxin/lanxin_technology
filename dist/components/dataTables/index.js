@@ -2,10 +2,79 @@ import React, { Component, propTypes } from 'react';
 import { connect } from 'react-redux';
 var $ = require('jquery');
 import axios from "axios";
-import { DragSource } from 'react-dnd';
+import { DragSource, DropTarget, DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 var DataTable = require('datatables.net');
 require('datatables.net-dt/css/jquery.dataTables.css');
 import { QueryData, setQueryParam } from './Action';
+
+const type = 'Knight'
+const spec = {
+	beginDrag(props) {
+		return {
+			id: props.id,
+			content: props.content
+		}
+	}
+};
+const spec1 = {
+	drop(props, monitor, component) {
+		// 获取正在拖放的数据
+		const item = monitor.getItem();
+		// 更新组件状态
+		component.setState({
+			item
+		})
+
+	}
+}
+function collect(connect, monitor) {
+	return {
+		connectDragSource: connect.dragSource(),
+		isDragging: monitor.isDragging()
+	}
+}
+function collect1(connect, monitor) {
+	return {
+		connectDropTarget: connect.dropTarget(),
+		isOver: monitor.isOver(),
+		canDrop: monitor.canDrop()
+	};
+}
+
+@DragSource(type, spec, collect)
+class DivC extends Component {
+	constructor(props) {
+		super(props);
+
+	}
+	render() {
+		let self = this;
+		const { connectDragSource, isDragging } = this.props;
+		
+		return connectDragSource(<div className={`child`}>{this.props.id}</div>);
+	}
+}
+@DropTarget(type, spec1, collect1)
+class DivT extends Component {
+	constructor(props) {
+		super(props);
+		this.state= {
+			item:{}
+		}
+	}
+	render() {
+		let self = this;
+		console.log(self.state.item);
+		const { connectDropTarget, isOver, canDrop, connectDragSource} = this.props;
+		//console.log(connectDropTarget);
+		console.log(connectDropTarget);
+		console.log(canDrop);
+		return connectDropTarget(<div className="wrap"  style={{ height: "400px", border: "1px solid black"}}>{self.props.children}</div>);
+	}
+}
+
+@DragDropContext(HTML5Backend)
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -164,20 +233,30 @@ class App extends Component {
 				h
 			<button onClick={self.updateUser.bind(this)}>更新</button>
 				<button onClick={self.addUser.bind(this)}>新增</button>
+				
+					
 					<div className="wrap">
-					<div className="child">1</div>
-					<div className="child">1</div>
-				</div>
-					<div className="wrap">
-					<div className="child flex1">2</div>
-					<div className="child w200">1</div>
-					<div className="child flex2">3</div>
-				</div>
+						<DivT>
+						<DivC classN="flex1" id="1"/>
+						<DivC classN="w200" id="2"/>
+						<DivC classN="flex2" id="3"/>
+						<DivC classN="w200" id="4"/>
+						<DivC classN="flex2" id="5"/>
+						</DivT >
+					</div>
+					<div>
+						<DivT />
+
+					</div>
+
+					
+
 			</div>
 			
 		)
 	}
 }
+
 // 哪些 Redux 全局的 state 是我们组件想要通过 props 获取的？
 // function mapStateToProps(state) {
 //   return {
