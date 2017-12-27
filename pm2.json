@@ -11,7 +11,7 @@
         "error_file": "/opt/meituan/dolphin_web_log/app1-err.log",
         "out_file": "/opt/meituan/dolphin_web_log/app1-out.log",
         "env": {
-          "NODE_ENV": "staging"
+          "NODE_ENV": "development"
         }
       }
     ]
