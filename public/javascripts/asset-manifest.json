@@ -1,6 +1,0 @@
-{
-  "bundle.js": "bundle.js",
-  "bundle.js.map": "bundle.js.map",
-  "testmodule.js": "static/js/testmodule.chunk.js",
-  "testmodule.js.map": "static/js/testmodule.chunk.js.map"
-}

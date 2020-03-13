@@ -1,9 +1,0 @@
-{
-    "typeAcquisition":{
-        "include":[
-            "lodash",
-            "react"
-        ]
-    }
-} 
- 
